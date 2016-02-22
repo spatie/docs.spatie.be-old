@@ -8,7 +8,7 @@
         <title>@yield('pageTitle') | Docs</title>
     </head>
     <body>
-        @include('v3._partials.menu')
+        @include(request()->segment(1) . '.v3._partials.menu')
 
         @yield('content')
     </body>
