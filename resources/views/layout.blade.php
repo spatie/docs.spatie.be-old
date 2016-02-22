@@ -8,7 +8,7 @@
         <title>@yield('pageTitle') | Docs</title>
     </head>
     <body>
-        @include('laravel-backup._partials.menu')
+        @include('v3._partials.menu')
 
         @yield('content')
     </body>

@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('pageTitle', 'Abous us')
+@section('pageTitle', 'About us')
 
 @section('content')
 [Spatie](https://spatie.be) is a webdesign agency based in Antwerp, Belgium.
