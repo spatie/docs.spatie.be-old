@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('{slug}', function () {
+    $viewName = str_replace('/', '.', request()->getRequestUri());
+    return view($viewName);
+})->where('slug', '(.*)');
 
 /*
 |--------------------------------------------------------------------------
