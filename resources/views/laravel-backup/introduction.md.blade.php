@@ -1,9 +1,8 @@
 @extends('layout')
 
-@section('pageTitle', 'Hello')
+@section('pageTitle', 'Introduction')
 
 @section('content')
-
 <section class="badges">
     <a href="https://github.com/spatie/laravel-backup/releases"><img src="https://img.shields.io/github/release/spatie/laravel-backup.svg?style=flat-square" alt="Latest Version"></a>
     <a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></a>
