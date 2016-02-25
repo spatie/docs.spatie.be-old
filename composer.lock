@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9faff350e73c2c2562de5d9dd93aefb9",
-    "content-hash": "971706528990c9e1b0b9c6e83c64439f",
+    "hash": "557c1f12f6ccb3729fe3fb5d23938d52",
+    "content-hash": "ddda0413fe8dfe94c85e0a58e78c8f4d",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -964,21 +964,21 @@
         },
         {
             "name": "spatie/laravel-menu",
-            "version": "dev-master",
+            "version": "0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-menu.git",
-                "reference": "6dbc3306c773634e4ce7ee8f81af90ce065074d7"
+                "reference": "1a4614e64f397da7c83673c26f6c559a234c8a28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-menu/zipball/6dbc3306c773634e4ce7ee8f81af90ce065074d7",
-                "reference": "6dbc3306c773634e4ce7ee8f81af90ce065074d7",
+                "url": "https://api.github.com/repos/spatie/laravel-menu/zipball/1a4614e64f397da7c83673c26f6c559a234c8a28",
+                "reference": "1a4614e64f397da7c83673c26f6c559a234c8a28",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0",
-                "spatie/menu": "dev-master"
+                "spatie/menu": "^0.1"
             },
             "require-dev": {
                 "phpunit/phpunit": "5.*"
@@ -1007,20 +1007,20 @@
                 "laravel-menu",
                 "spatie"
             ],
-            "time": "2016-02-25 10:18:24"
+            "time": "2016-02-25 13:40:43"
         },
         {
             "name": "spatie/menu",
-            "version": "dev-master",
+            "version": "0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/menu.git",
-                "reference": "6c7c6b4ec96552e3ffdbb949b079a24b66d27dbf"
+                "reference": "7e3776c089820c89f009edbf055d802fa8ffdaa3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/menu/zipball/6c7c6b4ec96552e3ffdbb949b079a24b66d27dbf",
-                "reference": "6c7c6b4ec96552e3ffdbb949b079a24b66d27dbf",
+                "url": "https://api.github.com/repos/spatie/menu/zipball/7e3776c089820c89f009edbf055d802fa8ffdaa3",
+                "reference": "7e3776c089820c89f009edbf055d802fa8ffdaa3",
                 "shasum": ""
             },
             "require": {
@@ -1055,7 +1055,7 @@
                 "navigation",
                 "spatie"
             ],
-            "time": "2016-02-25 10:16:08"
+            "time": "2016-02-25 10:52:24"
         },
         {
             "name": "spatie/yaml-front-matter",
@@ -3217,10 +3217,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "spatie/laravel-menu": 20,
-        "spatie/menu": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

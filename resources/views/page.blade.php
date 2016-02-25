@@ -1,4 +1,8 @@
 @extends("_layouts.{$layout}")
 
 @section('title', $title)
-@section('content', $content)
+
+@section('content')
+    <h1>{{ $title }}</h1>
+    {!! $content !!}
+@endsection

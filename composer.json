@@ -7,8 +7,7 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
-        "spatie/laravel-menu": "dev-master",
-        "spatie/menu": "dev-master",
+        "spatie/laravel-menu": "^0.1",
         "spatie/yaml-front-matter": "^1.0",
         "league/commonmark": "^0.13.0"
     },

@@ -8,47 +8,101 @@ class Navigation
 {
     public function backup() : string
     {
-        return Menu::create()
-            ->addMenu($this->backupSubMenu()
-                ->addLink('introduction', 'Introduction')
-                ->addLink('overview', 'Overview')
-            )
-            ->addMenu($this->backupSubMenu('taking-backups', 'Taking Backups')
-                ->addLink('overview', 'Overview')
-                ->addLink('events', 'Events')
-            )
-            ->addMenu($this->backupSubMenu('cleaning-old-backups', 'Cleaning Old Backups')
-                ->addLink('overview', 'Overview')
-                ->addLink('events', 'Events')
-            )
-            ->setActiveFromRequest()
-            ->render();
+        return $this->generateMenu('laravel-backup/v3', [
+            '_' => [
+                'Introduction',
+                'Requirements',
+                'High level overview',
+                'Installation and setup',
+                'Questions and issues',
+                'Changelog',
+                'About us',
+            ],
+            'Taking backups' => [
+                'Overview',
+                'Events',
+            ],
+            'Cleaning up old backups' => [
+                'Overview',
+                'Events',
+            ],
+            'Monitoring the health of all backups' => [
+                'Overview',
+                'Events',
+            ],
+            'Sending notifications' => [
+                'Overview',
+                'Creating a custom sender',
+            ],
+            'Advanced usage' => [
+                'Adding extra files to the zip',
+            ],
+        ])->render();
     }
 
-    protected function backupSubMenu(string $prefix = '', string $title = '') : Menu
+    public function medialibrary() : string
     {
-        return $this->subMenu("laravel-backup/v3/{$prefix}", $title);
+        return $this->generateMenu('laravel-medialibrary/v3', [
+            '_' => [
+                'Introduction',
+                'Requirements',
+                'Installation & setup',
+                'Questions & issues',
+                'Changelog',
+            ],
+            'Basic usage' => [
+                'Preparing your model',
+                'Associating files',
+                'Retrieving media',
+                'Working with collections',
+            ],
+            'Converting images' => [
+                'Defining conversions',
+                'Retrieving converted images',
+                'Regenerating images',
+            ],
+            'Advanced usage' => [
+                'Working with multiple filesystems',
+                'Adding custom properties',
+                'Generating custom URLs',
+                'Storing media specific manipulations',
+                'Using your own model',
+                'Using a custom directory structure',
+                'Consuming events',
+            ],
+            'API' => [
+                'Adding files',
+                'Defining conversions',
+            ],
+        ])->render();
     }
 
-    public function medialibrary()
+    protected function generateMenu(string $prefix, array $items) : Menu
     {
-        return Menu::create()
-            ->addMenu(function (Menu $menu) {
-                $menu
-                    ->setLinkPrefix(url('/laravel-medialibrary/v3'))
-                    ->addLink('introduction', 'Introduction')
-                    ->addLink('overview', 'Overview');
-            })
-            ->render();
-    }
+        $menu = Menu::create();
 
-    protected function subMenu(string $prefix = '', string $title = '') : Menu
-    {
-        $menu = Menu::create()->setLinkPrefix(url($prefix));
+        collect($items)
+            ->each(function (array $items, string $title) use ($prefix, $menu) {
+                $subMenu = Menu::create()->setLinkPrefix("/{$prefix}");
 
-        if (! empty($title)) {
-            $menu->before("<h2>{$title}</h2>");
-        }
+                if ($title !== '_') {
+                    $subMenu->before("<h2>{$title}</h2>");
+                }
+
+                collect($items)->each(function (string $item) use ($title, $subMenu) {
+                    $url = str_slug($item);
+
+                    if ($title !== '_') {
+                        $url = str_slug($title) . '/' . $url;
+                    }
+
+                    $subMenu->addLink($url, $item);
+                });
+
+                $menu->addMenu($subMenu);
+            });
+
+        $menu->setActiveFromRequest();
 
         return $menu;
     }
