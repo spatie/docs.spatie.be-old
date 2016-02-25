@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Using your own model
+---
 
-@section('pageTitle', 'Using your own model')
-
-@section('content')
 A custom model can be used in version 3.4.0 and higher.
 This allows you do add your own fields, add relationships and so on.
 
@@ -26,4 +25,3 @@ In the config file of the package you must specify the name of your custom class
    'media_model' => YourApp\Models\Media::class
 ...
 ```
-@endsection

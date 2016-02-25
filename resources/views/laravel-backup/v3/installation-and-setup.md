@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Installation & setup
+---
 
-@section('pageTitle', 'Installation & setup')
-
-@section('content')
 ## Basic installation
 
 You can install this package via composer using:
@@ -222,4 +221,3 @@ To notify you of such events the package contains monitoring functionality. It w
 inform you when then youngest backup becomes too old or when to backups use too much storage.
 
 [Learn how to set up monitoring](link naar monitoring docs).
-@endsection

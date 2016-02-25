@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Generating custom urls
+---
 
-@section('pageTitle', 'Generating custom urls')
-
-@section('content')
 When `getUrl` is called the task of generating that URL is passed to an implementation of `Spatie\MediaLibraryUrlGenerator`.
 
 The package contains a `LocalUrlGenerator` that can generate URLs for a media library that is stored inside the public path. An `S3UrlGenerator` is also included for when you're using S3 to store your files. 
@@ -31,4 +30,3 @@ The code of the included `S3UrlGenerator` should help make things more clear:
      }
  }
 ```
-@endsection

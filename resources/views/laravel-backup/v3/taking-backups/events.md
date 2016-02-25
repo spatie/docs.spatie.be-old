@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Events
+---
 
-@section('pageTitle', 'Events')
-
-@section('content')
 These events will be fired during the backup process.
 
 ## BackupWasSuccessful
@@ -28,4 +27,3 @@ will return more information on what went wrong
 - `$backupDestination`: if this is `null` then probably something went wrong zipping the files to be backed up.
 If it is an instance of `\Spatie\Backup\BackupDestination\BackupDestination` something went wrong copying the 
 zip over to that destination.
-@endsection

@@ -100,4 +100,3 @@ If you are planning on working with image manipulations it's recommended to conf
 queue on your service and specify it in the config file.
 
 Want to use S3? Then follow [Laravel's instructions on how to add the S3 Flysystem driver](http://laravel.com/docs/5.1/filesystem#configuration).
-@endsection

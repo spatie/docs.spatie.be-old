@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Requirements
+---
 
-@section('pageTitle', 'Requirements')
-
-@section('content')
 The Medialibrary package requires **PHP 5.5.0+** and **Laravel 5.1.0+**. To create derived images **[GD](http://php.net/manual/en/book.image.php)** needs to be installed on your server. If you want to create PDF thumbnails **[Imagick](http://php.net/manual/en/imagick.setresolution.php)** is also required.
 
 GD and Imagick can be installed using `apt-get` on Ubuntu and Debian:
@@ -18,4 +17,3 @@ $ yum install php55-gd ImageMagick ImageMagick-devel
 ```
 
 Note: Root access to your server is probably required.
-@endsection

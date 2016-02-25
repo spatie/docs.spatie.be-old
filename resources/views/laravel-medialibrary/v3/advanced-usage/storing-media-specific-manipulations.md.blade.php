@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Storing media specific manipulations
+---
 
-@section('pageTitle', 'Storing media specific manipulations')
-
-@section('content')
 A media object has a property `manipulations`, which can be set to an array of manipulation values, with their conversion name as key.
 
 When saving the media object, the package will regenerate all files and use the saved manipulation as the first manipulation when creating a derived image.
@@ -17,4 +16,3 @@ $mediaItems[0]->save();
 ```
 
 Calling `save` in this example will regenerate the thumb-image. The output will be a greyscale image with a width and height of 500 pixels.
-@endsection

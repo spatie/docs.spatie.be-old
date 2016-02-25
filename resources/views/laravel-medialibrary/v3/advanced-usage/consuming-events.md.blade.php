@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Consuming events
+---
 
-@section('pageTitle', 'Consuming events')
-
-@section('content')
 <span class="version">v3.10.1+</span>
 
 The medialibrary will fire the following events that your handlers can listen for:
@@ -64,4 +63,3 @@ protected $listen = [
     ],
 ];
 ```
-@endsection

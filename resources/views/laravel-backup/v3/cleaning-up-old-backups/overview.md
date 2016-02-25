@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Overview
+---
 
-@section('pageTitle', 'Overview')
-
-@section('content')
 ## Overview
 
 Over time the amount of backups and the storage needed to keep them will grow. At some point you are going
@@ -106,4 +105,3 @@ Do not forget to specify the full classname of your custom strategy in the `clea
 ## Getting notified when a cleanup goes wrong
 
 You can receive a notification when a cleanup goes wrong. Read [the section on notifications](url naar notification page) to know more.
-@endsection

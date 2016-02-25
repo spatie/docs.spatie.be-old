@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Retrieving converted images
+---
 
-@section('pageTitle', 'Retrieving converted images')
-
-@section('content')
 You can retrieve the URL or path to a converted image by specifiying the conversion name in the `getUrl` and `getPath` functions:
 
 ```php
@@ -17,4 +16,3 @@ Because retrieving an URL for the first media item in a collection is such a com
 $urlToFirstListImage = $newsItem->getFirstMediaUrl('images', 'thumb');
 $fullPathToFirstListImage = $newsItem->getFirstMediaPath('images', 'thumb');
 ```
-@endsection

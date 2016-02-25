@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Retrieving media
+---
 
-@section('pageTitle', 'Retrieving media')
-
-@section('content')
 To retrieve files you can use the `getMedia`-method:
 
 ```php
@@ -72,4 +71,3 @@ If you want to remove all associated media in a specific collection you can use 
 ```php
 $newsItem->clearMediaCollection(); // All media will be deleted
 ```
-@endsection

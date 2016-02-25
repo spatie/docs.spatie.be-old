@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Defining collections
+---
 
-@section('pageTitle', 'Defining collections')
-
-@section('content')
 A media conversion can be added to your model in the `registerModelConversions`-function.
 It should start with a call to `addMediaConversion`. From there on you can use any of
 the methods available in the API. They are all chainable.
@@ -157,4 +156,3 @@ public function setWidth($width)
  */
 public function setRectangle($width, $height, $x, $y)
 ```
-@endsection

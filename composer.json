@@ -7,7 +7,10 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
-        "graham-campbell/markdown": "^6.0"
+        "spatie/laravel-menu": "dev-master",
+        "spatie/menu": "dev-master",
+        "spatie/yaml-front-matter": "^1.0",
+        "league/commonmark": "^0.13.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -22,7 +25,10 @@
         ],
         "psr-4": {
             "App\\": "app/"
-        }
+        },
+        "files": [
+            "app/helpers.php"
+        ]
     },
     "autoload-dev": {
         "classmap": [

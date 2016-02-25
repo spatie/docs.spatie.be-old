@@ -1,8 +1,8 @@
-@extends('layout')
 
-@section('pageTitle', 'Introduction')
+---
+title: Introduction
+---
 
-@section('content')
 <section class="badges">
     <a href="https://github.com/spatie/laravel-backup/releases"><img src="https://img.shields.io/github/release/spatie/laravel-backup.svg?style=flat-square" alt="Latest Version"></a>
     <a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></a>
@@ -26,4 +26,3 @@ php artisan backup:run
 
 In addition to taking the backup the package can also clean up old backups, monitor the health of the backups
 and show an overview of all backups.
-@endsection

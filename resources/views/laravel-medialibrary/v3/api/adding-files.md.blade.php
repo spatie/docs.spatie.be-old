@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Adding files
+---
 
-@section('pageTitle', 'Adding files')
-
-@section('content')
 Adding a file to the medialibrary is easy. Just pick one of the starting methods, optionally add some of the middle methods
 and finish with a finishing method. All start and middle methods are chainable.
 
@@ -154,4 +153,3 @@ This is an alias for `toMediaLibrary`
 ### toCollectionOnDisk
 
 This is an alias for `toMediaLibrary`
-@endsection

@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Adding custom properties
+---
 
-@section('pageTitle', 'Adding custom properties')
-
-@section('content')
 When adding a file to the medialibrary you can pass an array with custom properties:
 
 ```php
@@ -27,4 +26,3 @@ $mediaItem->getCustomProperty('does not exists'); // returns null
 ```php
 $mediaItem->getCustomProperty('isPublic', false);
 ```
-@endsection

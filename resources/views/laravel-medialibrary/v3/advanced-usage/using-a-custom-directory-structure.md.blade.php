@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Using a custom directory structure
+---
 
-@section('pageTitle', 'Using a custom directory structure')
-
-@section('content')
 <span class="version">v3.9+</span>
 
 By default files will be stored inside a directory that uses
@@ -64,4 +63,3 @@ the md5 value of media-id to name directories. The directories were conversions 
 
 There aren't any restrictions on how the directories can be named. When a `Media`-object get deleted the package will delete its entire associated directory.
 So take care that every media gets it's own unique directory.
-@endsection

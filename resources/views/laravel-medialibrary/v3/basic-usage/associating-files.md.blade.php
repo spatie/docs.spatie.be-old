@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Associating files
+---
 
-@section('pageTitle', 'Associating files')
-
-@section('content')
 You can add associate a file with a model like this:
 
 ```php
@@ -28,4 +27,3 @@ $url = 'http://medialibrary.spatie.be/assets/images/mountain.jpg';
 $newsItem->addMediaFromUrl($url)
          ->toMediaLibrary();
 ```
-@endsection

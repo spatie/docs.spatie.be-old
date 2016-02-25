@@ -54,6 +54,11 @@ return [
             'visibility' => 'public',
         ],
 
+        'content' => [
+            'driver' => 'local',
+            'root' => resource_path('views'),
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => 'your-key',

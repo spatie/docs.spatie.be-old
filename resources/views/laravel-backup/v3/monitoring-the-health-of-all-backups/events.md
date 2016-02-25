@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Events
+---
 
-@section('pageTitle', 'Events')
-
-@section('content')
 These events will be fired by the monitor.
 
 ## HealthyBackupWasFound
@@ -23,4 +22,3 @@ also be fired when the monitor cannot read from a destination filesystem.
 
 It has one public property `$backupDestinationStatus` that contains an instance 
 of `\Spatie\Backup\BackupDestination\BackupDestinationsStatus`.
-@endsection

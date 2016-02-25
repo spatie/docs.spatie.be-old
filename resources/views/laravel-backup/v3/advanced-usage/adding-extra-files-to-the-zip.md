@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Adding Extra Files to the Zip
+---
 
-@section('pageTitle', 'Adding extra files to the zip')
-
-@section('content')
 When performing a backup the package will create a zip file containing all files that need to be
 backed up together with the dumped databases.
 
@@ -31,4 +30,3 @@ You can use that event to add extra files to the zip.
 ```php
 $zip->add($file, $nameOfTheFileInsideTheZip);
 ```
-@endsection

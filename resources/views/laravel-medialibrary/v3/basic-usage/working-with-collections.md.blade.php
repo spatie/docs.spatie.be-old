@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Working with collections
+---
 
-@section('pageTitle', 'Working with collections')
-
-@section('content')
 If you have different types of files that you want to associate,
 you can put them in their own collection.
 
@@ -31,4 +30,3 @@ You can clear out a specific collection by passing the name to `clearMediaCollec
 ```php
 $newsItem->clearMediaCollection('images');
 ```
-@endsection

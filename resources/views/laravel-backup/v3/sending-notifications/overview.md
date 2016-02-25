@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Overview
+---
 
-@section('pageTitle', 'Overview')
-
-@section('content')
 ## Overview
 
 The package can let you know that your backups are (not) ok. It can send notify you via one ore more channels
@@ -54,4 +53,3 @@ Most options should be self-explanatory.
         ],
     ]
 ```
-@endsection

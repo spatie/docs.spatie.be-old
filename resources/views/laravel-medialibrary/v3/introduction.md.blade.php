@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Introduction
+---
 
-@section('pageTitle', 'Introduction')
-
-@section('content')
 <section class="badges">
     <a href="https://github.com/spatie/laravel-medialibrary/releases"><img src="https://img.shields.io/github/release/spatie/laravel-medialibrary.svg?style=flat-square" alt="Latest Version"></a>
     <a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></a>
@@ -39,4 +38,3 @@ The package can also generate derived images such as thumbnails for images and p
 ```php
 $newsItem->getMedia('images')->first()->getUrl('thumb');
 ```
-@endsection

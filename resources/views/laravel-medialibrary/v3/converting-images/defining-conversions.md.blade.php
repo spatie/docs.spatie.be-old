@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Defining converions
+---
 
-@section('pageTitle', 'Defining converions')
-
-@section('content')
 Imagine making a site with a list of all news items. Wouldn't it be nice to show the user a thumbnail of the image associated with the news item? When adding an image to a media collection, these derived images can be created automatically.
 
 If you want to use this functionality your models should implement the `HasMediaConversions` interface instead of `HasMedia`. This interface expects an implementation of the `registerMediaConversions` method:
@@ -77,4 +76,3 @@ $this->addMediaConversion('thumb')
 ```
 
 For a list of all the convenience methods, visit the [Defining Conversions page in the API docs](/v3/api/defining-conversions/).
-@endsection

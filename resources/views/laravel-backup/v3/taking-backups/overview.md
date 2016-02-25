@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Overview
+---
 
-@section('pageTitle', 'Overview')
-
-@section('content')
 ## Overview
 
 You can backup your app by running:
@@ -104,4 +103,3 @@ configured filesystems.
 ## Getting notified when a backup goes wrong
 
 You can receive a notification when a backup goes wrong. Read [the section on notifications](url naar notification page) to know more.
-@endsection

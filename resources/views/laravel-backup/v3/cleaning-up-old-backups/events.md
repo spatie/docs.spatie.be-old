@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Events
+---
 
-@section('pageTitle', 'Events')
-
-@section('content')
 These events will be fired during the cleanup process.
 
 ## CleanupWasSuccessful
@@ -27,4 +26,3 @@ will return more information on what went wrong
 - `$backupDestination`: if this is `null` then probably something went before even connecting to one of the backup
 destinations. If it is an instance of `\Spatie\Backup\BackupDestination\BackupDestination` something went connecting or
 writing to that destination.
-@endsection

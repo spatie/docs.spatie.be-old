@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Changelog
+---
 
-@section('pageTitle', 'Changelog')
-
-@section('content')
 All Notable changes to `laravel-backup` will be documented in this here.
 
 ## NEXT - YYYY-MM-DD
@@ -21,4 +20,3 @@ All Notable changes to `laravel-backup` will be documented in this here.
 
 ### Security
 - Nothing
-@endsection

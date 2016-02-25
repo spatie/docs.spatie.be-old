@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: High level overview
+---
 
-@section('pageTitle', 'High level overview')
-
-@section('content')
 ## Taking backups
 
 The backup is a zipfile that contains all files in the directories you specify along with a dump of your database. 
@@ -20,4 +19,3 @@ for storage). To prevent this from happening the package can delete old backups.
 Optionally the package can check the health of the backups of your applications. A backup is considered unhealty if
 the date of the last backup is too far in the past of if the backup becomes too large. In addition to 
 monitoring the health of the application's own backups, backups of other applications can be monitored as well.
-@endsection

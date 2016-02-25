@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Preparing your model
+---
 
-@section('pageTitle', 'Preparing your model')
-
-@section('content')
 To associate media with a model, the model must implement the following interface and trait:
 
 ```php
@@ -17,4 +16,3 @@ class News extends Model implements HasMedia
    ...
 }
 ```
-@endsection

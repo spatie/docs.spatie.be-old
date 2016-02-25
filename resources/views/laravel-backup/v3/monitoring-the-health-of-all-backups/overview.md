@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Overview
+---
 
-@section('pageTitle', 'Overview')
-
-@section('content')
 ## Overview
 
 The package can check the health of every application it is installed into. A backup is considered unhealty if
@@ -76,4 +75,3 @@ You can perform this command to see the status of all monitored destination file
 ```bash
 php artisan backup:list
 ```
-@endsection

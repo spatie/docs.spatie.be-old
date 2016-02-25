@@ -1,8 +1,7 @@
-@extends('layout')
+---
+title: Creating a custom sender
+---
 
-@section('pageTitle', 'Creating a custom sender')
-
-@section('content')
 By default the backup package can notify you by writing something in the log, by sending a mail, or,
 (when the `maknz/slack`) is installed, posting a message on Slack.
 
@@ -39,4 +38,3 @@ config file.
 
 When you've created a sender that could be beneficial, consider [contributing](link naar contribution guidelines)
 the code to this package.
-@endsection
