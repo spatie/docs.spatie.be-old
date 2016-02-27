@@ -36,5 +36,5 @@ config file.
 ...
 ```
 
-When you've created a sender that could be beneficial, consider [contributing](link naar contribution guidelines)
+When you've created a sender that could be beneficial, consider [contributing](https://github.com/spatie/laravel-backup/blob/master/CONTRIBUTING.md)
 the code to this package.

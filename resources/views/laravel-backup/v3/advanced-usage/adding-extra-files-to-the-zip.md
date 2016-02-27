@@ -1,5 +1,5 @@
 ---
-title: Adding Extra Files to the Zip
+title: Adding Extra Files to the zip
 ---
 
 When performing a backup the package will create a zip file containing all files that need to be

@@ -102,4 +102,5 @@ configured filesystems.
 
 ## Getting notified when a backup goes wrong
 
-You can receive a notification when a backup goes wrong. Read [the section on notifications](url naar notification page) to know more.
+You can receive a notification when a backup goes wrong. Read
+[the section on notifications]('/laravel-backup/v3/sending-notifications/overview) to know more.
