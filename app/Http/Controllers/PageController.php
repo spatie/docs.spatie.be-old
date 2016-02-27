@@ -25,7 +25,7 @@ class PageController extends Controller
         $document = (new Parser())->parse($content);
 
         $pageProperties = $document->matter();
-        $pageProperties['content'] = $document->body();
+        $pageProperties['content'] = markdown($document->body());
         $pageProperties['layout'] = $pageProperties['layout'] ?? request()->segment(1);
 
         return $pageProperties;
