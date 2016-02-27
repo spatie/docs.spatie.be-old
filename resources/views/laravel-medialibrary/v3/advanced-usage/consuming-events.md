@@ -20,7 +20,7 @@ The event has two public properties:
 - `media`: the `\Spatie\MediaLibrary\Media`-object of which a conversion has been completed
 - `conversion`: the conversion (an instance of `\Spatie\MediaLibrary\Conversion\Conversion`) that has just been completed
 
-###CollectionHasBeenCleared
+### CollectionHasBeenCleared
 This event will be fired after a collection has been cleared.
 
 The event has two public properties:
