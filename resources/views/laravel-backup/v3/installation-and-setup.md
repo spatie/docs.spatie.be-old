@@ -1,5 +1,5 @@
 ---
-title: Installation & setup
+title: Installation and setup
 ---
 
 ## Basic installation
@@ -10,7 +10,7 @@ You can install this package via composer using:
 composer require spatie/laravel-backup
 ```
 
-You must install this service provider.
+You'll need to register the serviceprovider:
 
 ```php
 // config/app.php
@@ -28,7 +28,7 @@ To publish the config file to `app/config/laravel-backup.php` run:
 php artisan vendor:publish --provider="Spatie\Backup\BackupServiceProvider"
 ```
 
-This is the default contents of the configuration.
+These is the default contents of the configuration:
 
 ```php
 return [
@@ -191,16 +191,15 @@ return [
     ]
 ];
 ```
+
 ## Scheduling
 
-After you have performed the basic installation you can using the `backup:run`, `backup:clean`,
-`backup:overview` and `backup:monitor`-commands. In most cases you want to schedule these commands
-so you don't have to run `backup:run` everytime you need a new backup.
+After you have performed the basic installation you can start using the `backup:run`, `backup:clean`, `backup:overview` and `backup:monitor`-commands. In most cases you'll want to schedule these commands so you don't have to manually run `backup:run` everytime you need a new backup.
 
 The commands can, like an other command, be scheduled in Laravel's console kernel.
 
 ```php
-//app/Console/Kernel.php
+// app/Console/Kernel.php
 
 protected function schedule(Schedule $schedule)
 {
@@ -213,11 +212,9 @@ Of course, the hours used in the code above are just examples. Adjust them to yo
 
 ## Monitoring
 
-When your application is broken the scheduled jobs will obviously not run anymore. You can also simply forget
-to simply add a cron job needed to trigger Laravel's scheduling. You think you're taking backup when in fact
+When your application is broken the scheduled jobs will obviously not run anymore. You could also simply forget to simply add a cron job needed to trigger Laravel's scheduling. You think you're taking backup when in fact
 nothing gets backed up.
 
-To notify you of such events the package contains monitoring functionality. It will
-inform you when then youngest backup becomes too old or when to backups use too much storage.
+To notify you of such events the package contains monitoring functionality. It will inform you when then youngest backup becomes too old or when to backups use too much storage.
 
 [Learn how to set up monitoring](/laravel-backup/v3/monitoring-the-health-of-all-backups/overview).
