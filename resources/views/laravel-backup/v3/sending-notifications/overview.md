@@ -40,7 +40,7 @@ Most options should be self-explanatory.
          */
         'mail' => [
             'from' => 'your@email.com',
-            'to' => 'your@email.com',
+            'to'   => 'your@email.com',
         ],
 
         /*

@@ -2,24 +2,35 @@
 title: Creating a custom sender
 ---
 
-By default the backup package can notify you by writing something in the log, by sending a mail, or,
-(when the `maknz/slack`) is installed, posting a message on Slack.
+By default the backup package can notify you by writing something in the log, by sending a mail, or if `maknz/slack` is installed, posting a message on Slack.
 
-If you want to be notified via another channel you can create your own sender. A valid sender is any
-object that implements to the `Spatie\Backup\Notifications\SendsNotifications`-interface.
-
-This is what that interface looks like:
+If you want to be notified via another channel you can create your own sender. A valid sender is any object that implements the `Spatie\Backup\Notifications\SendsNotifications`-interface.
 
 ```php
 namespace Spatie\Backup\Notifications;
 
 interface SendsNotifications
 {
-    public function setType(string $type) : SendsNotifications;
+    /**
+     * @param string $type
+     *
+     * @return \Spatie\Backup\Notifications\SendsNotifications
+     */
+    public function setType($type);
 
-    public function setSubject(string $subject) : SendsNotifications;
+    /**
+     * @param string $subject
+     *
+     * @return \Spatie\Backup\Notifications\SendsNotifications
+     */
+    public function setSubject($subject);
 
-    public function setMessage(string $message) : SendsNotifications;
+    /**
+     * @param string $message
+     *
+     * @return \Spatie\Backup\Notifications\SendsNotifications
+     */
+    public function setMessage($message);
 
     public function send();
 }
@@ -27,14 +38,12 @@ interface SendsNotifications
 
 If you choose to extend `Spatie\Backup\Notifications\BaseSender` you'll only need to implement the `send`-function.
 
-Your custom sender can be used by specifying it's full class name in one the `monitor.events`-keys in the laravel-backup
-config file.
+Your custom sender can be used by specifying it's full class name in one the `monitor.events`-keys in the laravel-backup config file.
 
 ```php
-...
-'whenBackupHasFailed' => ['log', 'mail', App\BlaBla\MyCustomSender::class],
-...
+// ...
+'whenBackupHasFailed' => ['log', 'mail', App\Backup\MyCustomSender::class],
+// ...
 ```
 
-When you've created a sender that could be beneficial, consider [contributing](https://github.com/spatie/laravel-backup/blob/master/CONTRIBUTING.md)
-the code to this package.
+When you've created a sender that could be beneficial, consider [contributing](https://github.com/spatie/laravel-backup/blob/master/CONTRIBUTING.md) the code to this package.
