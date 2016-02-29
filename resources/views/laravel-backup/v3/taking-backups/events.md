@@ -19,7 +19,7 @@ of `Spatie\Backup\BackupDestination\BackupDestination`.
 
 This event will be fired when something goes wrong while backing up. 
 
-It has one two public properties:
+It has two public properties:
 
 - `$exception`: an object that extends PHP's `Exception`-class. It is highly likely that `$exception->getMessage()` will return more information on what went wrong.
 
