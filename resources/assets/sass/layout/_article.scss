@@ -1,0 +1,42 @@
+.article {
+
+    h1 {
+        color: color($blue, darkest);
+
+        + h2 {
+            margin-top: 0;
+        }
+    }
+
+    h2 {
+        margin-top: 2em;
+
+        + h3 {
+            margin-top: 0;
+        }
+    }
+
+    h3 {
+        margin-top: 2em;
+        color: color($gold, dark);
+    }
+
+    a {
+        color: color($blue, dark);
+        @include underline(color($blue), color($blue, default, .25));
+    }
+
+    p {
+        margin-bottom: 1em;
+    }
+}
+
+
+.article_badges {
+
+    margin: 1em 0;
+
+    a {
+        border: 0;
+    }
+}

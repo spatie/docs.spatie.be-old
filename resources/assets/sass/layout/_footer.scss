@@ -1,0 +1,26 @@
+@include footer-is-fixed;
+
+.footer {
+  background-color: color($blue, darkest);
+  color: color($blue, dark);
+  padding: gutter-v(m) 0;
+  text-align: center;
+
+  @include mq(s) {
+    padding-bottom: 80px; //for ios toolbar
+  }
+
+  a {
+    color: inherit;
+    @include underline(color($blue, dark), color($blue, default, .25));
+  }
+}
+
+
+.footer_background {
+  @include cover();
+  background: url("/images/header.jpg") no-repeat;
+  background-size: cover;
+  opacity: 0.25;
+  mix-blend-mode: multiply;
+}

@@ -1,0 +1,29 @@
+// Font-families
+$font-families: (
+  sans: '"Gotham Narrow SSm A", "Gotham Narrow SSm B", -apple-system, "Segoe UI", sans-serif',
+  fixed: 'Menlo, "courier new", courier, monospace'
+);
+
+
+// Font-weights
+$font-weights: (
+  normal: 300,
+  bold: 600,
+  extrabold: 900,
+);
+
+
+// Font-sizes
+$font-sizes: (
+    xxs: .65em,
+    xs: .75em,
+    s: .85em,
+    default: 1em,
+    m: 1.1em,
+    l: 1.75em,
+    xl: 2.1em,
+    xxl: 2.8em,
+);
+
+// Line-height
+$line-height: 1.5;

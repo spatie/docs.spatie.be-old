@@ -1,0 +1,50 @@
+.header {
+  background: color($blue);
+  padding: gutter-v(s) 0 gutter-v(l);
+}
+
+.header_title {
+  color: $white;
+
+  @include mq(s){
+    text-align: center;
+  }
+}
+
+.header_title_version {
+  font-size: font-size(s);
+  font-weight: font-weight(normal);
+  color: color($orange);
+}
+
+.header_logos {
+  line-height: font-size(xxl) * $line-height;
+  text-align: right;
+
+  a {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  @include mq(s){
+    text-align: center;
+  }
+}
+
+.header_logo {
+  height: 2em;
+  margin-left: 1em;
+  display: block;
+
+  &:hover {
+    opacity: .8;
+  }
+}
+
+.header_background {
+  @include cover();
+  background: url("/images/header.jpg") no-repeat;
+  background-size: cover;
+  opacity: 0.25;
+  mix-blend-mode: multiply;
+}

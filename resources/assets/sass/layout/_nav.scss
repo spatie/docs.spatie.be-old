@@ -1,0 +1,43 @@
+.nav {
+
+  text-align: left;
+  padding-right: gutter(l);
+
+  ul {
+    @include ul-clean;
+
+    ul{
+      padding-left: 1em;
+      border-left: solid 3px color($gold, lighter);
+    }
+  }
+
+  li {
+    padding: .1em 0;
+  }
+
+  h2 {
+    margin: 2em 0 .5em;
+    padding-top: .2em;
+    color: color($gold, dark);
+    line-height: 1.2;
+    font-size: font-size(m);
+  }
+
+  a {
+    @include tag(color($orange), $white);
+
+    &:hover {
+      background-color: color($orange, lightest);
+    }
+  }
+
+
+
+  .active{
+    & > a {
+      @include tag($white, color($orange));
+    }
+  }
+
+}

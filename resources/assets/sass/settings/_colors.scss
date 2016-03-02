@@ -1,0 +1,103 @@
+// Black
+$black: #000;
+
+// White
+$white: #fff;
+
+// Red colors
+$red: (
+    lightest: #fcebec,
+    lighter: #e69a9c,
+    light: #f76b6e,
+    default: #e83134,
+    dark: #a32324,
+    darker: #63010e,
+    darkest: #3d0109,
+);
+
+// Orange colors
+$orange: (
+    lightest: #ffe5ca,
+    lighter: #f5b180,
+    light: #e77636,
+    default: #e14a0c,
+    dark: #711f03,
+    darker: #581902,
+    darkest: #391102,
+);
+
+// Yellow colors
+$yellow: (
+    lightest: #f7e8d4,
+    lighter: #f7d1a1,
+    light: #f6d169,
+    default: #fbbd1a,
+    dark: #b06f1c,
+    darker: #734d00,
+    darkest: #422c00,
+);
+
+// Gold colors
+$gold: (
+    lightest: #f8f0df,
+    lighter: #e6decd,
+    light: #d4cab4,
+    default: #BAAB8C,
+    dark: #8d7e5f,
+    darker: #5d4e36,
+    darkest: #372c1c,
+);
+
+
+// Blue colors
+$blue: (
+    lightest: #ceebf2,
+    lighter: #a7dceb,
+    light: #73c7de,
+    default: #22a4c9,
+    dark: #007698,
+    darker: #004966,
+    darkest: #172a3d,
+);
+
+// Green colors
+$green: (
+    lightest: #e5e4d1,
+    lighter: #d6d69d,
+    light: #c8c969,
+    default: #aaad00,
+    dark: #82870e,
+    darker: #40470d,
+    darkest: #323520,
+);
+
+// Gray colors
+$gray: (
+    lightest: #ededf5,
+    lighter: #cdcdda,
+    light: #adadbb,
+    default: #ababbb,
+    dark: #4d535e,
+    darker: #333b46,
+    darkest: #1a1e25,
+);
+
+// Text color
+$text-color: #1a1e25;
+
+// link color
+$link: (
+    default: #13869e,
+    hover: #13869e,
+    active: #13869e,
+    visited: #13869e
+);
+
+// Social colors
+$social-color: (
+    twitter: #55acee,
+    facebook: #3b5999,
+    youtube: #cd201f,
+    pinterest: #c92228,
+    flickr: #ff0084
+);
