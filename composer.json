@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "spatie/laravel-menu": "^0.1",
         "spatie/yaml-front-matter": "^1.0",
-        "league/commonmark": "^0.13.0"
+        "league/commonmark": "^0.13.0",
+        "spatie/laravel-responsecache": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
