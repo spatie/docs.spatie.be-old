@@ -428,13 +428,14 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     margin-top: 0; }
 
 .article h2 {
-  margin-top: 2em; }
+  margin-top: 2em;
+  color: #1b3747; }
   .article h2 + h3 {
     margin-top: 0; }
 
 .article h3 {
   margin-top: 2em;
-  color: #8d7e5f; }
+  color: #004966; }
 
 .article a {
   color: #007698;
@@ -445,6 +446,28 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .article p {
   margin-bottom: 1em; }
+
+.article ul {
+  list-style: none;
+  padding-left: 0; }
+  .article ul li {
+    padding-left: 1.25em; }
+    .article ul li:before {
+      border-radius: 100%;
+      display: inline-block;
+      height: 0.5em;
+      line-height: 0.5em;
+      overflow: hidden;
+      text-align: center;
+      width: 0.5em;
+      background: #d4cab4;
+      content: ' ';
+      left: 0;
+      overflow: hidden;
+      position: absolute;
+      top: .5em; }
+    .article ul li li:before {
+      background: #e6decd; }
 
 .article_badges {
   opacity: .95;
@@ -614,14 +637,12 @@ h1 {
 h2 {
   font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", -apple-system, "Segoe UI", sans-serif;
   font-weight: 600;
-  font-size: 1.75em;
-  color: #333b46; }
+  font-size: 1.75em; }
 
 h3 {
   font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", -apple-system, "Segoe UI", sans-serif;
-  font-weight: 300;
-  margin-bottom: .5rem;
-  text-transform: uppercase; }
+  font-weight: 600;
+  margin-bottom: .5rem; }
   h3 + p {
     margin-top: 0; }
 
@@ -716,7 +737,7 @@ var {
   border-radius: 3px;
   display: inline-block;
   vertical-align: middle;
-  padding: .05em .25em;
+  padding: .05em .5em;
   margin: -.05em 0;
   background: #f8f8f8; }
 
@@ -903,13 +924,20 @@ sup {
     float: right;
     margin-right: 0; }
 
+.\$introduction .header {
+  height: 100vh; }
+
+.\$introduction .header_content {
+  bottom: 6em; }
+
+.\$introduction .header_overlay {
+  background: rgba(27, 55, 71, 0.35); }
+
 .header {
   min-height: 8em;
-  height: 100vh;
+  height: 30vh;
   background: #1b3747;
   transition: height .5s ease-out; }
-  .\$viewport-started.\$viewport-large .header {
-    height: 30vh; }
   @media (max-width: 900px) {
     .header {
       height: auto;
@@ -930,21 +958,16 @@ sup {
   width: 100%;
   top: 0;
   left: 0;
-  background: rgba(27, 55, 71, 0.25);
-  z-index: 2; }
-  .\$viewport-started .header_overlay,
-  .\$viewport-small .header_overlay {
-    background: rgba(27, 55, 71, 0.9);
-    transition: background-color .4s ease-out; }
+  background: rgba(27, 55, 71, 0.9);
+  z-index: 2;
+  transition: background-color .4s ease-out; }
 
 .header_content {
   position: absolute;
-  bottom: 6em;
+  bottom: 3em;
   width: 100%;
-  z-index: 3; }
-  .\$viewport-started.\$viewport-large .header_content {
-    bottom: 3em;
-    transition: bottom .3s ease-out; }
+  z-index: 3;
+  transition: bottom .3s ease-out; }
   @media (max-width: 900px) {
     .header_content {
       text-align: center;
@@ -997,7 +1020,7 @@ sup {
     opacity: .8; }
 
 .main {
-  padding: 4em 0; }
+  padding: 10vh 0; }
 
 .nav {
   text-align: left;

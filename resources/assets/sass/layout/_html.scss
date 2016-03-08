@@ -34,13 +34,11 @@ h1 {
 h2 {
   @include font(sans, bold);
   @include font-size(l);
-  color: color($gray, darker);
 }
 
 h3 {
-  @include font(sans, normal);
+  @include font(sans, bold);
   margin-bottom: .5rem;
-  text-transform: uppercase;
 
   & + p {
     margin-top: 0;
@@ -151,7 +149,7 @@ var {
   border-radius: border-radius(s);
   display: inline-block;
   vertical-align: middle;
-  padding: .05em .25em;
+  padding: .05em .5em;
   margin: -.05em 0;
   background: $hljs-back;
 }

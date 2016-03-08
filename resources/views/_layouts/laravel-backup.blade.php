@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-viewport class="$viewport-loading">
+<html data-viewport class="$viewport-loading $introduction">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

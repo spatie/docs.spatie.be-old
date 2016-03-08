@@ -63,11 +63,18 @@
 
 	    viewport.init({
 	        config: {
-	            start: 10,
+	            start: 100,
 	            end: 200,
 	            small: 900
 	        }
 	    });
+
+	    $(window).on('scroll.introduction', function(){
+	        if(viewport.state.started){
+	            $('html').removeClass('$introduction');
+	            $(window).off('scroll.introduction');
+	        }
+	    })
 
 	    $('[data-header-video]').vide({
 	        mp4: '/video/header.mp4',
@@ -10005,8 +10012,6 @@
 	            this.start = $(window).scrollTop();
 	            this.end = this.start + this.height;
 	            this.state.started = this.start > this.config.start;
-
-	            console.log($(document).height());
 
 	            clearTimeout(this.directionTimeOut);
 	            this.directionTimeOut = setTimeout(function () {

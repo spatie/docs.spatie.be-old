@@ -1,12 +1,24 @@
+.\$introduction {
+
+  .header {
+    height: 100vh;
+  }
+
+  .header_content {
+    bottom: 6em;
+  }
+
+  .header_overlay {
+    background: color($blue, darkest, 0.35);
+  }
+}
+
+
 .header {
   min-height: 8em;
-  height: 100vh;
+  height: 30vh;
   background: color($blue, darkest);
   transition: height .5s ease-out;
-
-  .\$viewport-started.\$viewport-large & {
-    height: 30vh;
-  }
 
   @include mq(s){
     height: auto;
@@ -25,26 +37,18 @@
 
 .header_overlay {
   @include cover();
-  background: color($blue, darkest, 0.25);
+  background: color($blue, darkest, 0.9);
   z-index: 2;
+  transition: background-color .4s ease-out;
 
-  .\$viewport-started &,
-  .\$viewport-small &{
-    background: color($blue, darkest, 0.9);
-    transition: background-color .4s ease-out;
-  }
 }
 
 .header_content {
   position: absolute;
-  bottom: 6em;
+  bottom: 3em;
   width: 100%;
   z-index: 3;
-
-  .\$viewport-started.\$viewport-large & {
-    bottom: 3em;
-    transition: bottom .3s ease-out;
-  }
+  transition: bottom .3s ease-out;
 
   @include mq(s){
     text-align: center;

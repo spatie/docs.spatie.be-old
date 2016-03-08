@@ -11,6 +11,7 @@
 
     h2 {
         margin-top: 2em;
+        color: color($blue, darkest);
 
         + h3 {
             margin-top: 0;
@@ -19,7 +20,7 @@
 
     h3 {
         margin-top: 2em;
-        color: color($gold, dark);
+        color: color($blue, darker);
     }
 
     a {
@@ -29,6 +30,33 @@
 
     p {
         margin-bottom: 1em;
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+
+        li {
+
+            padding-left: 1.25em;
+
+            &:before {
+                @include circle(.5em);
+
+                background: color($gold, light);
+                content: ' ';
+                left: 0;
+                overflow: hidden;
+                position: absolute;
+                top: .5em;
+            }
+
+            li {
+                &:before {
+                    background: color($gold, lighter);
+                }
+            }
+        }
     }
 }
 
