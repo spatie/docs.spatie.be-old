@@ -2,21 +2,4 @@
 title: Changelog
 ---
 
-All Notable changes to `laravel-backup` will be documented in this here.
-
-## NEXT - YYYY-MM-DD
-
-### Added
-- Nothing
-
-### Deprecated
-- Nothing
-
-### Fixed
-- Nothing
-
-### Removed
-- Nothing
-
-### Security
-- Nothing
+All notable changes to `laravel-backup` are documented in [the changelog on GitHub](https://github.com/spatie/laravel-backup/blob/master/CHANGELOG.md).
