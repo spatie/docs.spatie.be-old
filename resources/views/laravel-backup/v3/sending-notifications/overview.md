@@ -1,8 +1,6 @@
 ---
-title: Overview
+title: Sending notifications
 ---
-
-## Overview
 
 The package can let you know that your backups are (not) ok. It can send notify you via one ore more channels
 when a certain event takes place.

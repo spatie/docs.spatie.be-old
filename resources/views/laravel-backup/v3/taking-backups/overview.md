@@ -1,8 +1,6 @@
 ---
-title: Overview
+title: Taking backups
 ---
-
-## Overview
 
 You can backup your app by running:
 

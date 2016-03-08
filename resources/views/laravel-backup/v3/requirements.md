@@ -2,7 +2,7 @@
 title: Requirements
 ---
 
-The backup package requires **PHP 5.4.0+** and **Laravel 5.0.0+**.
+The backup package requires **PHP 5.5.0 or higher** and **Laravel 5.1 or higher**.
 
 To create dumps of MySQL-databases this package uses the `mysqldump`-binary.
 Make sure it is installed on your system.

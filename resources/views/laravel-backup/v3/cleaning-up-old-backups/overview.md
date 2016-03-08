@@ -1,8 +1,6 @@
 ---
-title: Overview
+title: Cleaning up old backups
 ---
-
-## Overview
 
 Over time the amount of backups and the storage needed to keep them will grow. At some point you are going to want to clean up old backups.
 
