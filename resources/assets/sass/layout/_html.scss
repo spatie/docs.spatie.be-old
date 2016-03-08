@@ -151,8 +151,9 @@ var {
   border-radius: border-radius(s);
   display: inline-block;
   vertical-align: middle;
-  padding: .05em .75em;
+  padding: .05em .25em;
   margin: -.05em 0;
+  background: $hljs-back;
 }
 
 code {

@@ -716,8 +716,9 @@ var {
   border-radius: 3px;
   display: inline-block;
   vertical-align: middle;
-  padding: .05em .75em;
-  margin: -.05em 0; }
+  padding: .05em .25em;
+  margin: -.05em 0;
+  background: #f8f8f8; }
 
 code {
   white-space: pre; }
