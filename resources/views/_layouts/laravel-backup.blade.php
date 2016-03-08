@@ -12,6 +12,9 @@
     <script src="/build/app.js" defer></script>
 </head>
 <body>
+
+<h1>pagePath {{ $pagePath  }}</h1>
+<h1>introPage {{ ends_with($pagePath, 'introduction') ? 'yup' : 'no no no' }}</h1>
     <header class="header">
         <div class="header_background" data-header-video></div>
         <div class="header_overlay"></div>
