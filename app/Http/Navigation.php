@@ -108,6 +108,10 @@ class Navigation
                 collect($items)->each(function (string $item) use ($title, $subMenu) {
                     $url = str_slug($item);
 
+                    if (ends_with($url, 'introduction')) {
+                        $url .= '#main';
+                    }
+
                     if ($title !==  static::NO_TITLE) {
                         $url = str_slug($title) . '/' . $url;
                     }
