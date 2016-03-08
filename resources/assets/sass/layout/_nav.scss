@@ -3,7 +3,7 @@
     @include mq(s) {
         position: fixed;
         top: 0;
-        left: 0;
+        left: 100%;
         width: 100%;
         height: 100%;
         padding: 2em;
@@ -11,10 +11,10 @@
         overflow-y: auto;
         z-index: z-index(toolbar);
         transition: transform .5s ease-in-out;
-        transform: translateX(100%);
+        transform: translateX(0);
 
         .\$nav-mobile & {
-            transform: translateX(0);
+            transform: translateX(-100%);
             box-shadow: 5px 0 rgba($black, .1);
         }
     }

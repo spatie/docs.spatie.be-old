@@ -29,6 +29,8 @@ const vide = require('vide');
         }
     });
 
+
+
     $('.\\$introduction [data-header-video]').vide({
         mp4: '/video/header.mp4',
         webm: '/video/header.webm'
@@ -46,7 +48,7 @@ const vide = require('vide');
 
     $('[data-nav-switch]').on('click', function () {
         $('html').toggleClass('$nav-mobile');
-        $
     });
+
 
 })();

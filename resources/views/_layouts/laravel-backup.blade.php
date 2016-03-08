@@ -17,7 +17,7 @@
         <div class="header_overlay"></div>
         <div class="header_content">
             <div class="grid">
-                <a href="/laravel-backup/v3">
+                <a href="/laravel-backup/v3#main">
                     <h1 class="header_title">Laravel Backup <span class="header_title_version">v.3</span></h1>
                     <div>
                         <p class="header_slogan">One day you'll thank us for this</p>
@@ -30,7 +30,7 @@
             </div>
         </div>
     </header>
-    <main class="main">
+    <main class="main" id="main">
         <div class="grid">
             <div class="grid_col -width-1/3">
                 <div class="nav">
