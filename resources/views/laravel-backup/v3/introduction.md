@@ -20,7 +20,7 @@ In addition to making the backup the package can also clean up old backups, moni
     <a href="https://github.com/spatie/laravel-backup/releases"><img src="https://img.shields.io/github/release/spatie/laravel-backup.svg?style=flat-square" alt="Latest Version"></a>
     <a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></a>
     <a href="https://travis-ci.org/spatie/laravel-backup"><img src="https://img.shields.io/travis/spatie/laravel-backup/master.svg?style=flat-square" alt="Build Status"></a>
-    <a href="https://insight.sensiolabs.com/projects/xxxx"><img src="https://img.shields.io/sensiolabs/i/xxxx.svg?style=flat-square" alt="SensioLabsInsight"></a>
+    <a href="https://insight.sensiolabs.com/projects/3f243a38-a1c7-42f5-96c8-37526e807029"><img src="https://img.shields.io/sensiolabs/i/3f243a38-a1c7-42f5-96c8-37526e807029.svg?style=flat-square" alt="SensioLabsInsight"></a>
     <a href="https://scrutinizer-ci.com/g/spatie/laravel-backup"><img src="https://img.shields.io/scrutinizer/g/spatie/laravel-backup.svg?style=flat-square" alt="Quality Score"></a>
     <a href="https://packagist.org/packages/spatie/laravel-backup"><img src="https://img.shields.io/packagist/dt/spatie/laravel-backup.svg?style=flat-square" alt="Total Downloads"></a>
 </section>
