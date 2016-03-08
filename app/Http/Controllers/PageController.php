@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Spatie\YamlFrontMatter\Parser;
 use Storage;
 
