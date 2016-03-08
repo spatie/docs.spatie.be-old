@@ -1,10 +1,21 @@
 {
   "private": true,
   "devDependencies": {
-    "gulp": "^3.8.8",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-sass": "^2.2.0",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
+    "highlight.js": "^9.1.0",
+    "jquery": "^2.2.1",
+    "node-sass": "^3.4.2",
     "normalize-css": "^2.3.1",
-    "susy": "^2.2.12"
+    "postcss": "^5.0.19",
+    "postcss-loader": "^0.8.0",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.0",
+    "susy": "^2.2.12",
+    "url-loader": "^0.5.7",
+    "vide": "^0.5.0",
+    "viewport-utility": "^1.1.1",
+    "webpack": "^1.12.12"
   }
 }

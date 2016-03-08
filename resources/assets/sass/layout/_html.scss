@@ -147,13 +147,16 @@ kbd,
 samp,
 var {
   @include font(fixed, normal);
-  background: color($gray, lightest) !important;
+  font-size: font-size(xs);
   border-radius: border-radius(s);
-  color: color($gray, dark) !important;
   display: inline-block;
   vertical-align: middle;
   padding: .05em .75em;
   margin: -.05em 0;
+}
+
+code {
+  white-space: pre ;
 }
 
 del {
@@ -185,6 +188,7 @@ mark {
 
 pre {
   padding: 0;
+  margin: 1.5em 0;
 }
 
 sub,

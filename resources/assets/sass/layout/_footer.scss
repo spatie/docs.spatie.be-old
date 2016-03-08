@@ -19,7 +19,6 @@
 
 .footer_background {
   @include cover();
-  background: url("/images/header.jpg") no-repeat;
   background-size: cover;
   opacity: 0.25;
   mix-blend-mode: multiply;

@@ -1,18 +1,16 @@
-// NPM components
 @import 'susy/sass/susy';
 @import 'normalize-css/normalize';
+@import 'highlight.js/styles/github';
 
-// Utilities
 @import 'utility/functions';
 @import 'utility/mixins';
 
-// Settings
 @import 'settings/colors';
 @import 'settings/settings';
 @import 'settings/typography';
 
-// Layout
 @import 'layout/article';
+@import 'layout/algolia';
 @import 'layout/html';
 @import 'layout/grid';
 @import 'layout/header';
@@ -20,7 +18,6 @@
 @import 'layout/nav';
 @import 'layout/footer';
 
-// Helpers
 @import 'helpers/align';
 @import 'helpers/filters';
 @import 'helpers/float';
@@ -29,9 +26,3 @@
 @import 'helpers/padding';
 @import 'helpers/responsive';
 @import 'helpers/text';
-
-
-
-// Vendor custom
-
-// Animations

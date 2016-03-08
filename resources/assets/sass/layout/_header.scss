@@ -1,14 +1,68 @@
 .header {
-  background: color($blue);
-  padding: gutter-v(s) 0 gutter-v(l);
+  min-height: 8em;
+  height: 100vh;
+  background: color($blue, darkest);
+  transition: height .5s ease-out;
+
+  .\$viewport-started.\$viewport-large & {
+    height: 30vh;
+  }
+
+  @include mq(s){
+    height: auto;
+    padding: 2em 0;
+  }
+}
+
+.header_background {
+  position: absolute;
+  top: 5%;
+  height: 95%;
+  left: 2%;
+  width: 96%;
+  z-index: 1;
+}
+
+.header_overlay {
+  @include cover();
+  background: color($blue, darkest, 0.25);
+  z-index: 2;
+
+  .\$viewport-started &,
+  .\$viewport-small &{
+    background: color($blue, darkest, 0.9);
+    transition: background-color .4s ease-out;
+  }
+}
+
+.header_content {
+  position: absolute;
+  bottom: 6em;
+  width: 100%;
+  z-index: 3;
+
+  .\$viewport-started.\$viewport-large & {
+    bottom: 3em;
+    transition: bottom .3s ease-out;
+  }
+
+  @include mq(s){
+    text-align: center;
+    position: relative;
+    bottom: 0;
+  }
 }
 
 .header_title {
   color: $white;
+  margin: 0 -10px;
+  padding: 0 10px;
+  display: inline-block;
+  background: rgba($black, .1);
+  border-top-left-radius: border-radius(s);
+  border-top-right-radius: border-radius(s);
+  border-bottom-right-radius: border-radius(s);
 
-  @include mq(s){
-    text-align: center;
-  }
 }
 
 .header_title_version {
@@ -17,8 +71,21 @@
   color: color($orange);
 }
 
+.header_slogan {
+  margin: 0 -10px;
+  padding: .5em 10px;
+  color: $white;
+  display: inline-block;
+  background: rgba($black, .1);
+  border-bottom-left-radius: border-radius(s);
+  border-bottom-right-radius: border-radius(s);
+
+}
+
 .header_logos {
-  line-height: font-size(xxl) * $line-height;
+  position: absolute;
+  bottom: 0;
+  right: 2em;
   text-align: right;
 
   a {
@@ -28,6 +95,8 @@
 
   @include mq(s){
     text-align: center;
+    position: relative;
+    margin-top: 1em;
   }
 }
 
@@ -39,12 +108,4 @@
   &:hover {
     opacity: .8;
   }
-}
-
-.header_background {
-  @include cover();
-  background: url("/images/header.jpg") no-repeat;
-  background-size: cover;
-  opacity: 0.25;
-  mix-blend-mode: multiply;
 }
