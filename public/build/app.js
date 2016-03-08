@@ -54,7 +54,6 @@
 
 	    hljs.registerLanguage('bash', __webpack_require__(22));
 	    hljs.registerLanguage('php', __webpack_require__(23));
-
 	    hljs.initHighlighting();
 
 	})();
@@ -63,20 +62,20 @@
 
 	    viewport.init({
 	        config: {
-	            start: 100,
+	            start: 50,
 	            end: 200,
 	            small: 900
 	        }
 	    });
 
-	    $(window).on('scroll.introduction', function(){
-	        if(viewport.state.started){
+	    $(window).on('scroll.introduction', function () {
+	        if (viewport.state.started) {
 	            $('html').removeClass('$introduction');
 	            $(window).off('scroll.introduction');
 	        }
-	    })
+	    });
 
-	    $('[data-header-video]').vide({
+	    $('.\\$introduction [data-header-video]').vide({
 	        mp4: '/video/header.mp4',
 	        webm: '/video/header.webm'
 	    }, {
@@ -88,8 +87,13 @@
 	        position: '0% 0%',
 	        posterType: 'none',
 	        resizing: true,
-	        bgColor: 'transparent',
-	    })
+	        bgColor: 'transparent'
+	    });
+
+	    $('[data-nav-switch]').on('click', function () {
+	        $('html').toggleClass('$nav-mobile');
+	        $
+	    });
 
 	})();
 
@@ -9964,8 +9968,8 @@
 	        small: false,
 	        large: false,
 	        scrolling: false,
-	        started: false,
-	        ended: false,
+	        start: false,
+	        end: false,
 	        loaded: false
 	    },
 	    orientation: {
@@ -10012,6 +10016,7 @@
 	            this.start = $(window).scrollTop();
 	            this.end = this.start + this.height;
 	            this.state.started = this.start > this.config.start;
+	            this.state.ended = this.end > $(document).height() - this.config.end;
 
 	            clearTimeout(this.directionTimeOut);
 	            this.directionTimeOut = setTimeout(function () {
@@ -10135,7 +10140,6 @@
 	        return this;
 	    }
 	};
-
 
 /***/ },
 /* 3 */

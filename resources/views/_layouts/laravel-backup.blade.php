@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-viewport class="$viewport-loading $introduction">
+<html data-viewport class="$viewport-loading {{ ends_with($pagePath, 'introduction') ? '$introduction' : '' }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,9 +12,6 @@
     <script src="/build/app.js" defer></script>
 </head>
 <body>
-
-<h1>pagePath {{ $pagePath  }}</h1>
-<h1>introPage {{ ends_with($pagePath, 'introduction') ? 'yup' : 'no no no' }}</h1>
     <header class="header">
         <div class="header_background" data-header-video></div>
         <div class="header_overlay"></div>
@@ -23,12 +20,12 @@
                 <a href="/laravel-backup/v3">
                     <h1 class="header_title">Laravel Backup <span class="header_title_version">v.3</span></h1>
                     <div>
-                        <p class="header_slogan">Someday you'll thank us for this</p>
+                        <p class="header_slogan">One day you'll thank us for this</p>
                     </div>
                 </a>
                 <div class="header_logos">
-                    <a href="https://spatie.be" target="_external"><img class=header_logo src="/images/spatie.svg" alt="spatie"></a>
                     <a href="https://github.com/spatie/laravel-backup" target="_external"><img class=header_logo src="/images/github.svg" alt="Github"></a>
+                    <a href="https://spatie.be" target="_external"><img class=header_logo src="/images/spatie.svg" alt="spatie"></a>
                 </div>
             </div>
         </div>
@@ -36,12 +33,14 @@
     <main class="main">
         <div class="grid">
             <div class="grid_col -width-1/3">
-
-                <input id="algolia-search" placeholder="Search docs" class="algolia_search">
-
-                <nav class="nav">
-                {!! navigation()->backup() !!}
-                </nav>
+                <div class="nav">
+                    <input id="algolia-search" placeholder="Search docs" class="nav_search">
+                    <nav class="nav_menu">
+                    {!! navigation()->backup() !!}
+                    </nav>
+                </div>
+                <div class="nav_switch" data-nav-switch>
+                </div>
             </div>
             <div class="grid_col -width-2/3">
                 <article class="article">
@@ -51,14 +50,14 @@
         </div>
     </main>
     <footer class="footer">
-        <div class="footer_background">
-        </div>
         <div class="grid">
-            © {{ Date('Y') }} • <a href="about-us/">About us</a>
-            • <a href="https://github.com/spatie/laravel-backup">Github</a>
+            <div class="footer_content">
+                © {{ Date('Y') }} • <a href="about-us/">About us</a>
+                • <a href="https://github.com/spatie/laravel-backup">Github</a>
+            </div>
         </div>
-        <div class="visual"></div>
-    </footer>
+        <a href="#" data-viewport-scroll class="footer_top-link">up</a>
+    </a>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
     <script type="text/javascript"> docsearch({

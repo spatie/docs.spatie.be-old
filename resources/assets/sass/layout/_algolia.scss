@@ -3,38 +3,22 @@ $breakpoint-large: 768px;
 $dropdown-min-width-medium: 400px;
 $dropdown-min-width-large: 600px;
 
-
-.algolia_search {
-    margin-bottom: 2em;
-    border-radius: border-radius(s);
-    border: solid 2px color($gold, lighter);
-    padding: .5em;
-    transition: border-color 0.3s ease-out;
-
-    &:focus {
-        outline: 0;
-        border-color: color($orange);
-    }
-}
-
-@include prefixed-placeholder{
-    color: color($gold, light, 1);
-    transition: color 0.3s ease-out;
-}
-
-@include prefixed-placeholder(":focus"){
-    color: color($gold, light, 0);
+.algolia-autocomplete {
+    width: 75%;
 }
 
 // Main autocomplete wrapper
 .aa-dropdown-menu {
-    background-color: $white;
+    background-color: rgba($white, 0.95);
     border-radius: 4px;
     font-size: 16px;
-    margin: 0;
+    margin: .5em 0 0 0;
     text-align: left;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2), 0 1px 3px rgba(0,0,0,0.2);
+    border: solid 2px color($gold, lightest);
+    box-shadow: 10px 10px 0 rgba($black, .1);
     overflow: hidden;
+    -webkit-backdrop-filter: blur(5px);
+
 }
 
 // Each suggestion
@@ -62,6 +46,7 @@ $dropdown-min-width-large: 600px;
 .aa-cursor .algolia-docsearch-suggestion--content {
     color: $text-color;
 }
+
 .aa-cursor .algolia-docsearch-suggestion {
     background: color($orange, lightest);
 }
@@ -70,6 +55,7 @@ $dropdown-min-width-large: 600px;
 .algolia-docsearch-suggestion--subcategory-column {
     display: none;
 }
+
 // The text snippet is hidden on small screens
 .algolia-docsearch-suggestion--text {
     display: none;
@@ -86,6 +72,7 @@ $dropdown-min-width-large: 600px;
         content: " › ";
     }
 }
+
 .algolia-docsearch-suggestion--title {
     display: inline;
 }
@@ -97,7 +84,7 @@ $dropdown-min-width-large: 600px;
     font-size: 12px;
     padding: 10px;
     color: color($blue, light);
-    background: $white;
+    background-color: rgba($white, 0.95);
 
     .algolia-docsearch-footer--logo {
         display: inline-block !important;

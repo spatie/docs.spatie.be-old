@@ -102,4 +102,4 @@ If something goes wrong copying the zip file to a specific filesystem, we will s
 ## Getting notified when a backup goes wrong
 
 You can receive a notification when a backup goes wrong. Read
-[the section on notifications]('/laravel-backup/v3/sending-notifications/overview) to find out more.
+the section on [notifications]('/laravel-backup/v3/sending-notifications/overview) to find out more.

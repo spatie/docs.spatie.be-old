@@ -1,115 +1,131 @@
 .\$introduction {
 
-  .header {
-    height: 100vh;
-  }
+    .header {
+        height: 90vh;
+    }
 
-  .header_content {
-    bottom: 6em;
-  }
+    .header_content {
+        bottom: 6em;
+    }
 
-  .header_overlay {
-    background: color($blue, darkest, 0.35);
-  }
+    .header_overlay {
+        background: color($blue, darkest, 0.65);
+    }
+
+    .header_logos {
+        opacity: 0;
+    }
 }
 
-
 .header {
-  min-height: 8em;
-  height: 30vh;
-  background: color($blue, darkest);
-  transition: height .5s ease-out;
+    min-height: 8em;
+    height: 30vh;
+    background-color: color($blue, darkest);
+    //background-image: url('/video/header.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    transition: height .5s ease-out;
 
-  @include mq(s){
-    height: auto;
-    padding: 2em 0;
-  }
+    @include mq(s) {
+        height: auto !important;
+        padding: 2em 0;
+    }
 }
 
 .header_background {
-  position: absolute;
-  top: 5%;
-  height: 95%;
-  left: 2%;
-  width: 96%;
-  z-index: 1;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+
+    @include mq(s) {
+        video {
+            display: none;
+        }
+    }
 }
 
 .header_overlay {
-  @include cover();
-  background: color($blue, darkest, 0.9);
-  z-index: 2;
-  transition: background-color .4s ease-out;
+    @include cover();
+    background: color($blue, darkest, 0.9);
+    z-index: 2;
+    transition: background-color .4s ease-out;
 
 }
 
 .header_content {
-  position: absolute;
-  bottom: 3em;
-  width: 100%;
-  z-index: 3;
-  transition: bottom .3s ease-out;
+    position: absolute;
+    bottom: 3em;
+    width: 100%;
+    z-index: 3;
+    transition: bottom .3s ease-out;
 
-  @include mq(s){
-    text-align: center;
-    position: relative;
-    bottom: 0;
-  }
+    @include mq(s) {
+        text-align: center;
+        position: relative;
+        bottom: 0 !important;
+    }
 }
 
 .header_title {
-  color: $white;
-  margin: 0 -10px;
-  padding: 0 10px;
-  display: inline-block;
-  background: rgba($black, .1);
-  border-top-left-radius: border-radius(s);
-  border-top-right-radius: border-radius(s);
-  border-bottom-right-radius: border-radius(s);
+    color: $white;
+    margin: 0 -10px;
+    padding: 0 10px;
+    display: inline-block;
+    background: rgba($black, .1);
+    border-top-left-radius: border-radius(s);
+    border-top-right-radius: border-radius(s);
+    border-bottom-right-radius: border-radius(s);
 
 }
 
 .header_title_version {
-  font-size: font-size(s);
-  font-weight: font-weight(normal);
-  color: color($orange);
+    font-size: font-size(s);
+    font-weight: font-weight(normal);
+    color: color($orange);
 }
 
 .header_slogan {
-  margin: 0 -10px;
-  padding: .5em 10px;
-  color: $white;
-  display: inline-block;
-  background: rgba($black, .1);
-  border-bottom-left-radius: border-radius(s);
-  border-bottom-right-radius: border-radius(s);
+    margin: 0 -10px;
+    padding: .5em 10px;
+    color: $white;
+    display: inline-block;
+    background: rgba($black, .1);
+    border-bottom-left-radius: border-radius(s);
+    border-bottom-right-radius: border-radius(s);
 
 }
 
 .header_logos {
-  position: absolute;
-  bottom: 0;
-  right: 2em;
-  text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 2em;
+    text-align: right;
+    opacity: 1;
+    transition: opacity .1s .3s ease-out;
 
-  a {
-    display: inline-block;
-    vertical-align: middle;
-  }
+    a {
+        display: inline-block;
+        vertical-align: middle;
+    }
 
-  @include mq(s){
-    text-align: center;
-    position: relative;
-    margin-top: 1em;
-  }
+    @include mq(s) {
+        text-align: center;
+        position: relative;
+        margin-top: 1em;
+        opacity: 1 !important;
+    }
 }
 
 .header_logo {
-  height: 2em;
-  margin-left: 1em;
-  display: block;
+    height: 2em;
+    margin-left: 1em;
+    display: block;
 
-  &:hover {
-    opacity: .8;
-  }
+    &:hover {
+        opacity: .8;
+    }
 }

@@ -217,4 +217,4 @@ nothing gets backed up.
 
 To notify you of such events the package contains monitoring functionality. It will inform you when then youngest backup becomes too old or when to backups use too much storage.
 
-[Learn how to set up monitoring](/laravel-backup/v3/monitoring-the-health-of-all-backups/overview).
+Learn how to [set up monitoring](/laravel-backup/v3/monitoring-the-health-of-all-backups/overview).

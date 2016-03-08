@@ -8,7 +8,6 @@ const vide = require('vide');
 
     hljs.registerLanguage('bash', require('highlight.js/lib/languages/bash'));
     hljs.registerLanguage('php', require('highlight.js/lib/languages/php'));
-
     hljs.initHighlighting();
 
 })();
@@ -17,20 +16,20 @@ const vide = require('vide');
 
     viewport.init({
         config: {
-            start: 100,
+            start: 50,
             end: 200,
             small: 900
         }
     });
 
-    $(window).on('scroll.introduction', function(){
-        if(viewport.state.started){
+    $(window).on('scroll.introduction', function () {
+        if (viewport.state.started) {
             $('html').removeClass('$introduction');
             $(window).off('scroll.introduction');
         }
-    })
+    });
 
-    $('[data-header-video]').vide({
+    $('.\\$introduction [data-header-video]').vide({
         mp4: '/video/header.mp4',
         webm: '/video/header.webm'
     }, {
@@ -42,7 +41,12 @@ const vide = require('vide');
         position: '0% 0%',
         posterType: 'none',
         resizing: true,
-        bgColor: 'transparent',
-    })
+        bgColor: 'transparent'
+    });
+
+    $('[data-nav-switch]').on('click', function () {
+        $('html').toggleClass('$nav-mobile');
+        $
+    });
 
 })();
