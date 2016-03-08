@@ -14,6 +14,24 @@ const vide = require('vide');
 
 (function interfaceGoodies() {
 
+
+    if(window.location.hash == '#clean'){
+        $('html').removeClass('$introduction').addClass('$header-clear-animation');
+    }
+
+    $('[data-home-link]').on('click', function (e) {
+
+        e.preventDefault();
+
+        if($('html').hasClass('$introduction')){
+            $('html').removeClass('$introduction');
+            return;
+        }
+
+        window.location = $(this).attr('href');
+    });
+
+
     viewport.init({
         config: {
             start: 50,
@@ -28,8 +46,6 @@ const vide = require('vide');
             $(window).off('scroll.introduction');
         }
     });
-
-
 
     $('.\\$introduction [data-header-video]').vide({
         mp4: '/video/header.mp4',
@@ -49,6 +65,8 @@ const vide = require('vide');
     $('[data-nav-switch]').on('click', function () {
         $('html').toggleClass('$nav-mobile');
     });
+
+
 
 
 })();

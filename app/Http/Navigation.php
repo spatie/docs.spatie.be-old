@@ -109,7 +109,7 @@ class Navigation
                     $url = str_slug($item);
 
                     if (ends_with($url, 'introduction')) {
-                        $url .= '#main';
+                        $url .= '#clean';
                     }
 
                     if ($title !==  static::NO_TITLE) {
