@@ -16,6 +16,7 @@ If you discover any security related issues, please email freek@spatie.be instea
 
 ## Credits
 
+- [Willem Van Bockstal](https://github.com/willemvb)
 - [Sebastian De Deyne](https://github.com/sebastiandedeyne)
 - [Freek Van der Herten](https://github.com/freekmurze)
 - [All Contributors](../../contributors)
