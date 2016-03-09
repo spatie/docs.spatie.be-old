@@ -19,8 +19,7 @@ class PageController extends Controller
     {
         $slug = substr(request()->path(), 0, -5);
         
-        return redirect()
-            ->away("https://github.com/spatie/docs.spatie.be/edit/master/resources/views/{$slug}.md");
+        return redirect("https://github.com/spatie/docs.spatie.be/edit/master/resources/views/{$slug}.md");
     }
 
     public function getPageProperties() : array
