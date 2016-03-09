@@ -19,7 +19,7 @@
 .header {
   @include mq(s) {
     height: auto !important;
-    padding: 2em 0;
+    padding: 2.25em 0;
   }
 
   background-color: color($blue, darkest);
@@ -106,6 +106,10 @@
   color: color($orange);
   font-size: font-size(s);
   font-weight: font-weight(normal);
+
+  @include mq(s) {
+    font-size: font-size(xs);
+  }
 }
 
 .header_slogan {
@@ -116,6 +120,10 @@
   display: inline-block;
   margin: 0 -10px;
   padding: .5em 10px;
+
+  @include mq(s) {
+    font-size: font-size(s);
+  }
 }
 
 .header_logos {

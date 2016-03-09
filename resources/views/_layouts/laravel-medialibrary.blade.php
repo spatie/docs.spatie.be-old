@@ -8,6 +8,7 @@
     <title>@yield('title') | Docs</title>
 </head>
 <body>
+@include('_partials.analytics')
 {!! navigation()->medialibrary() !!}
 @yield('content')
 </body>

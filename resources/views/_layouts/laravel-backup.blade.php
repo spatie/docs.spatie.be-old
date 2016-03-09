@@ -12,6 +12,7 @@
     <script src="/build/app.js" defer></script>
 </head>
 <body>
+@include('_partials.analytics')
 <header class="header">
     <div class="header_background" data-backup-video></div>
     <a href="#main" class="header_arrow" data-home-link></a>
@@ -42,7 +43,7 @@
                     {!! navigation()->backup() !!}
                 </nav>
             </div>
-            <div class="nav_circle -menu" data-nav-switch>
+            <div class="nav_button -menu" data-nav-switch>
             </div>
         </div>
         <div class="grid_col -width-2/3">
@@ -59,7 +60,7 @@
             • <a href="https://github.com/spatie/laravel-backup">Github</a>
         </div>
     </div>
-    <a href="#" data-viewport-scroll class="nav_circle -bottom">up</a>
+    <a href="#" data-viewport-scroll class="nav_button -bottom">up</a>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
 <script type="text/javascript"> docsearch({

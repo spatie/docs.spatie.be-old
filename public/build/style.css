@@ -791,7 +791,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   @media (max-width: 900px) {
     .header {
       height: auto !important;
-      padding: 2em 0; } }
+      padding: 2.25em 0; } }
   .\$header-clear-animation .header {
     transition: none !important; }
 
@@ -861,6 +861,9 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   color: #e14a0c;
   font-size: 0.85em;
   font-weight: 300; }
+  @media (max-width: 900px) {
+    .header_title_version {
+      font-size: 0.75em; } }
 
 .header_slogan {
   background: rgba(0, 0, 0, 0.1);
@@ -870,6 +873,9 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   display: inline-block;
   margin: 0 -10px;
   padding: .5em 10px; }
+  @media (max-width: 900px) {
+    .header_slogan {
+      font-size: 0.85em; } }
 
 .header_logos {
   bottom: 0;
@@ -1187,7 +1193,7 @@ sup {
   color: rgba(212, 202, 180, 0);
   transform: translateX(50%); }
 
-.nav_circle {
+.nav_button {
   font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", -apple-system, "Segoe UI", sans-serif;
   font-weight: 600;
   box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
@@ -1202,32 +1208,32 @@ sup {
   transition: border-radius .3s linear, transform .3s linear;
   width: 44px;
   z-index: 5000; }
-  .nav_circle.-menu {
+  .nav_button.-menu {
     background: #e14a0c;
     border-radius: 100% 0 0 100%;
     color: #ffe5ca;
     display: none;
     right: 0;
-    top: 2.75em; }
+    top: 3.5em; }
     @media (max-width: 900px) {
-      .nav_circle.-menu {
+      .nav_button.-menu {
         display: block; } }
-    .nav_circle.-menu:after {
+    .nav_button.-menu:after {
       content: 'menu'; }
-    .\$nav-small .nav_circle.-menu {
+    .\$nav-small .nav_button.-menu {
       border-radius: 100%;
       transform: translateX(-10px); }
-      .\$nav-small .nav_circle.-menu:after {
+      .\$nav-small .nav_button.-menu:after {
         content: '\D7';
         font-size: 2em; }
-  .nav_circle.-bottom {
+  .nav_button.-bottom {
     background: #22a4c9;
     border-radius: 100% 100% 0 0;
     bottom: 0;
     color: #ceebf2;
     left: 50%;
     transform: translateX(-50%) translateY(100%); }
-    .\$viewport-ended .nav_circle.-bottom {
+    .\$viewport-ended .nav_button.-bottom {
       transform: translateX(-50%) translateY(10%); }
 
 .\:align-left {

@@ -85,7 +85,7 @@
   transform: translateX(50%);
 }
 
-.nav_circle {
+.nav_button {
   @include font(sans, bold);
 
   box-shadow: 5px 5px 0 rgba($black, .1);
@@ -111,7 +111,7 @@
     color: color($orange, lightest);
     display: none;
     right: 0;
-    top: 2.75em;
+    top: 3.5em;
 
     &:after {
       content: 'menu';
