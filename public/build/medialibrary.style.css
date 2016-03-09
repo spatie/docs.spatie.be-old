@@ -559,7 +559,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 */
 .hljs {
   background: #f2f2fa;
-  color: #4d535e;
+  color: #333b46;
   display: block;
   overflow-x: auto;
   padding: .5em; }
@@ -572,7 +572,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-subst {
-  color: #4d535e;
+  color: #333b46;
   font-weight: bold; }
 
 .hljs-number,
@@ -584,12 +584,12 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-string,
 .hljs-doctag {
-  color: #e14a0c; }
+  color: #e77636; }
 
 .hljs-title,
 .hljs-section,
 .hljs-selector-id {
-  color: #711f03;
+  color: #e14a0c;
   font-weight: bold; }
 
 .hljs-subst {
@@ -597,7 +597,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-type,
 .hljs-class .hljs-title {
-  color: #458;
+  color: #007698;
   font-weight: bold; }
 
 .hljs-tag,
@@ -774,17 +774,10 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .\$introduction .header {
   height: 90vh; }
 
-.\$introduction .header_background:after {
-  background: rgba(27, 55, 71, 0.65); }
-
-.\$introduction .header_arrow {
-  transform: translateX(-50%) translateY(20%) rotate(-45deg); }
-
 .\$introduction .header_logos {
   opacity: 0; }
 
 .header {
-  background-color: #1b3747;
   height: 30vh;
   min-height: 8em;
   transition: height .5s ease-out; }
@@ -812,26 +805,17 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     width: 100%;
     top: 0;
     left: 0;
-    background: rgba(27, 55, 71, 0.9);
     content: ' ';
-    transition: background-color .4s ease-out;
+    transition: opacity 3s ease-out;
     z-index: 2; }
 
 .header_arrow {
-  background: #1b3747;
-  border-radius: 5px;
-  bottom: 0;
-  content: ' ';
-  display: block;
-  height: 44px;
-  left: 50%;
-  position: absolute;
-  transform: translateX(-50%) translateY(20%) rotate(-45deg) scale(0);
-  width: 44px;
-  z-index: 1; }
+  transition: all .3s linear; }
   @media (max-width: 900px) {
     .header_arrow {
       display: none; } }
+  .\$header-clear-animation .header_arrow {
+    transition: none !important; }
 
 .header_content {
   bottom: 3em;
@@ -846,7 +830,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       text-align: center; } }
 
 .header_title {
-  background: rgba(0, 0, 0, 0.1);
   border-bottom-right-radius: 3px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
@@ -867,7 +850,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       font-size: 0.75em; } }
 
 .header_slogan {
-  background: rgba(0, 0, 0, 0.1);
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   color: #fff;
@@ -897,8 +879,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   .header_logos svg {
     display: block;
     height: 2em;
-    width: auto;
-    margin-left: 1em; }
+    margin-left: 1em;
+    width: auto; }
   .header_logos .spatie:hover,
   .header_logos .github:hover {
     opacity: .7; }
@@ -1035,9 +1017,9 @@ var {
   font-family: Menlo, "courier new", courier, monospace;
   font-weight: 300;
   background: #f2f2fa;
-  color: #4d535e;
   border-radius: 3px;
   box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.05);
+  color: #333b46;
   font-size: 0.75em; }
   p code, p
   kbd, p
@@ -1045,15 +1027,15 @@ var {
   var {
     display: inline-block;
     padding: .05em .5em;
-    vertical-align: middle;
-    top: -.05em; }
+    top: -.05em;
+    vertical-align: middle; }
   pre code, pre
   kbd, pre
   samp, pre
   var {
+    display: block;
     padding: 1em .5em !important;
-    white-space: pre;
-    display: block; }
+    white-space: pre; }
 
 del {
   text-decoration: line-through; }
@@ -1130,8 +1112,8 @@ sup {
       border-left: solid 3px rgba(212, 202, 180, 0.5);
       padding-left: 1em; }
   .nav_menu li {
-    padding: .2em 0;
-    line-height: 1.35; }
+    line-height: 1.35;
+    padding: .2em 0; }
   .nav_menu h2 {
     color: #8d7e5f;
     font-size: 1.1em;
@@ -1244,12 +1226,12 @@ sup {
       transform: translateX(-50%) translateY(10%); }
 
 .toolbar {
+  font-size: 0.75em;
   position: absolute;
-  top: 1.5em;
   right: 0;
-  width: auto;
   text-align: right;
-  font-size: 0.75em; }
+  top: 1.5em;
+  width: auto; }
 
 .toolbar_item {
   background-color: rgba(230, 222, 205, 0.2);
@@ -1261,10 +1243,10 @@ sup {
   padding: 0 .35em;
   line-height: 2; }
   .toolbar_item .github {
-    margin-left: .25em;
     height: 1.35em;
-    width: auto;
-    vertical-align: middle; }
+    margin-left: .25em;
+    vertical-align: middle;
+    width: auto; }
   .toolbar_item .github_back {
     fill: #d4cab4; }
   .toolbar_item:hover {
@@ -1297,6 +1279,10 @@ sup {
 .\:float-right {
   float: right;
   z-index: 10; }
+
+@keyframes kenburns {
+  100% {
+    transform: scale(1.2, 1.2); } }
 
 .\:is-clickable {
   cursor: pointer; }
@@ -1503,3 +1489,52 @@ sup {
   border: 0;
   text-decoration: none;
   text-transform: none; }
+
+.header {
+  overflow: hidden; }
+
+.header_background {
+  background-color: #a7dceb;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-animation: kenburns 30s infinite;
+  animation: kenburns 30s infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-transform-origin: 40% 30%;
+  transform-origin: 40% 30%; }
+  .header_background:after {
+    background-color: #a7dceb;
+    opacity: 1; }
+    .\$introduction .header_background:after {
+      opacity: .6; }
+
+.header_title,
+.header_slogan {
+  background: rgba(0, 73, 102, 0.2); }
+
+.header_arrow {
+  position: absolute;
+  border-radius: 100%;
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  overflow: hidden;
+  text-align: center;
+  width: 50px;
+  background-color: #e14a0c;
+  -webkit-transform: translateX(-50%) scale(0);
+  transform: translateX(-50%) scale(0);
+  bottom: 1em;
+  left: 50%;
+  z-index: 4;
+  font-size: 30px; }
+  .header_arrow:after {
+    content: '\21A7';
+    color: #fff; }
+  .\$introduction .header_arrow {
+    -webkit-transform: translateX(-50%) scale(1);
+    transform: translateX(-50%) scale(1); }

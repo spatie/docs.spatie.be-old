@@ -1,0 +1,56 @@
+@import '../_base/base';
+
+.header {
+    overflow: hidden;
+}
+
+.header_background {
+
+    background-color: color($blue, lighter);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &:after {
+        background-color: color($blue, lighter);
+        opacity: 1;
+
+        .\$introduction & {
+            opacity: .6;
+        }
+    }
+
+    animation: kenburns 30s infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    transform-origin: 40% 30%;
+
+}
+
+.header_title,
+.header_slogan {
+    background: color($blue, darker, .2);
+}
+
+
+.header_arrow {
+    position: absolute;
+    @include circle(50px);
+    background-color: color($orange);
+    transform: translateX(-50%) scale(0);
+    bottom: 1em;
+    left: 50%;
+    z-index: 4;
+    font-size: 30px;
+
+    &:after {
+        content: '↧';
+        color: $white;
+    }
+
+    .\$introduction & {
+        transform: translateX(-50%) scale(1);
+    }
+
+
+}

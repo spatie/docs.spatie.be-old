@@ -50,7 +50,7 @@ Note: you should pass an array with Glide parameters to `$manipulations`.
  * @return $this
  */
 public function setManipulations($manipulations)
-``
+```
 
 ### queued
 

@@ -1,0 +1,33 @@
+.toolbar {
+  font-size: font-size(xs);
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 1.5em;
+  width: auto;
+}
+
+.toolbar_item {
+  @include tag(color($gold), color($gold, lighter, .2));
+
+  line-height: 2;
+
+  .github {
+    height: 1.35em;
+    margin-left: .25em;
+    vertical-align: middle;
+    width: auto;
+  }
+
+  .github_back {
+    fill: color($gold, light);
+  }
+
+  &:hover {
+    @include tag(color($gold, dark), color($gold, lighter, .5));
+
+    & .github_back {
+      fill: color($gold, dark, .8);
+    }
+  }
+}

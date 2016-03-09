@@ -1,10 +1,13 @@
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
     entry: {
-        'backup-css': './resources/assets/sass/backup.scss',
+        'backup.style': './resources/assets/sass/backup/backup.scss',
         'backup': './resources/assets/js/backup.js',
+        'medialibrary': './resources/assets/js/medialibrary.js',
+        'medialibrary.style': './resources/assets/sass/medialibrary/medialibrary.scss',
     },
     output: {
         path: 'public/build',
@@ -26,7 +29,11 @@ module.exports = {
         extensions: ['', '.js', '.css', '.scss'],
     },
     plugins: [
-        new ExtractTextPlugin('backup.css'),
+        new ExtractTextPlugin('[name].css'),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+        })
     ],
     sassLoader: {
         includePaths: ['node_modules'],

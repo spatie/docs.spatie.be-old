@@ -93,7 +93,7 @@ class Navigation
         ])->render();
     }
 
-    protected function generateMenu(string $prefix, array $items) : Menu
+    private function generateMenu(string $prefix, array $items) : Menu
     {
         $menu = Menu::create();
 

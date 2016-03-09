@@ -3,14 +3,6 @@
     height: 90vh;
   }
 
-  .header_background:after {
-    background: color($blue, darkest, .65);
-  }
-
-  .header_arrow {
-    transform: translateX(-50%) translateY(20%) rotate(-45deg);
-  }
-
   .header_logos {
     opacity: 0;
   }
@@ -22,7 +14,6 @@
     padding: 2.25em 0;
   }
 
-  background-color: color($blue, darkest);
   height: 30vh;
   min-height: 8em;
   transition: height .5s ease-out;
@@ -49,9 +40,8 @@
   &:after {
     @include cover();
 
-    background: color($blue, darkest, .9);
     content: ' ';
-    transition: background-color .4s ease-out;
+    transition: opacity 3s ease-out;
     z-index: 2;
   }
 }
@@ -60,18 +50,11 @@
   @include mq(s) {
     display: none;
   }
+  transition: all .3s linear;
 
-  background: color($blue, darkest);
-  border-radius: 5px;
-  bottom: 0;
-  content: ' ';
-  display: block;
-  height: 44px;
-  left: 50%;
-  position: absolute;
-  transform: translateX(-50%) translateY(20%) rotate(-45deg) scale(0) ;
-  width: 44px;
-  z-index: 1;
+  .\$header-clear-animation & {
+    transition: none !important;
+  }
 }
 
 .header_content {
@@ -93,7 +76,6 @@
     font-size: 1.75em;
   }
 
-  background: rgba($black, .1);
   border-bottom-right-radius: border-radius(s);
   border-top-left-radius: border-radius(s);
   border-top-right-radius: border-radius(s);
@@ -104,27 +86,26 @@
 }
 
 .header_title_version {
-  color: color($orange);
-  font-size: font-size(s);
-  font-weight: font-weight(normal);
-
   @include mq(s) {
     font-size: font-size(xs);
   }
+
+  color: color($orange);
+  font-size: font-size(s);
+  font-weight: font-weight(normal);
 }
 
 .header_slogan {
-  background: rgba($black, .1);
+  @include mq(s) {
+    font-size: font-size(s);
+  }
+
   border-bottom-left-radius: border-radius(s);
   border-bottom-right-radius: border-radius(s);
   color: $white;
   display: inline-block;
   margin: 0 -10px;
   padding: .5em 10px;
-
-  @include mq(s) {
-    font-size: font-size(s);
-  }
 }
 
 .header_logos {
@@ -150,8 +131,8 @@
   svg {
     display: block;
     height: 2em;
-    width: auto;
     margin-left: 1em;
+    width: auto;
   }
 
   .spatie,
@@ -168,6 +149,4 @@
   .github_back {
     fill: $white;
   }
-
 }
-

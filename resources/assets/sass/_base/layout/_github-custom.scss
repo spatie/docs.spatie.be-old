@@ -51,7 +51,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-type,
 .hljs-class .hljs-title {
-  color: #458;
+  color: color($hl, type);
   font-weight: bold;
 }
 

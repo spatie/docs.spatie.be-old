@@ -150,22 +150,22 @@ var {
   @include font(fixed, normal);
 
   background: color($hl, back);
-  color:color($hl, text);
   border-radius: border-radius(s);
   box-shadow: inset 1px 1px 0 rgba($black, .05);
+  color: color($hl, text);
   font-size: font-size(xs);
 
   p & {
     display: inline-block;
     padding: .05em .5em;
-    vertical-align: middle;
     top: -.05em; //optical correction
+    vertical-align: middle;
   }
 
   pre & {
+    display: block;
     padding: 1em .5em !important;
     white-space: pre;
-    display: block;
   }
 }
 
