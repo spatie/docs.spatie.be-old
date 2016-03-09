@@ -28,7 +28,7 @@ To publish the config file to `app/config/laravel-backup.php` run:
 php artisan vendor:publish --provider="Spatie\Backup\BackupServiceProvider"
 ```
 
-This is the default contents of the configuration:
+This is the default content of the configuration:
 
 ```php
 return [
