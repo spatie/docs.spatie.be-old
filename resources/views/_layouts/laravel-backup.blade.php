@@ -12,6 +12,7 @@
     <script src="/build/app.js" defer></script>
 </head>
 <body>
+    @include('_partials.analytics')
     <header class="header">
         <div class="header_background" data-header-video></div>
         <div class="header_overlay"></div>
