@@ -25,10 +25,10 @@
             </a>
             <div class="header_logos">
                 <a href="https://github.com/spatie/laravel-backup" target="_external">
-                    <img class=header_logo src="/images/github.svg" alt="Github">
+                    @include('_partials.svg.github')
                 </a>
                 <a href="https://spatie.be" target="_external">
-                    <img class=header_logo src="/images/spatie.svg" alt="spatie.be">
+                    @include('_partials.svg.spatie')
                 </a>
             </div>
         </div>
@@ -50,6 +50,8 @@
             <article class="article">
                 @yield('content')
             </article>
+
+            @include('_partials.toolbar')
         </div>
     </div>
 </main>

@@ -50,6 +50,7 @@
     @include cover();
 
     background: color($blue, darkest, .9);
+    content: ' ';
     transition: background-color .4s ease-out;
     z-index: 2;
   }
@@ -145,14 +146,28 @@
     display: inline-block;
     vertical-align: middle;
   }
-}
 
-.header_logo {
-  display: block;
-  height: 2em;
-  margin-left: 1em;
-
-  &:hover {
-    opacity: .8;
+  svg {
+    display: block;
+    height: 2em;
+    width: auto;
+    margin-left: 1em;
   }
+
+  .spatie,
+  .github {
+    &:hover {
+      opacity: .7;
+    }
+  }
+
+  .spatie_back {
+    fill: color($blue, dark);
+  }
+
+  .github_back {
+    fill: $white;
+  }
+
 }
+

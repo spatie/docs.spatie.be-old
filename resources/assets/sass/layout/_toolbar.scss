@@ -1,0 +1,37 @@
+.toolbar {
+    margin: 15vh 0 2em;
+    border-top: solid 3px color($gold, light, .5);
+    text-align: center;
+    font-size: font-size(s);
+
+    a {
+        color: color($gold);
+
+        &:hover {
+            color: color($blue, dark);
+
+            & .github_back {
+                fill: color($blue, dark, .8);
+            }
+        }
+    }
+
+    .github {
+        margin-left: .25em;
+        height: 1.35em;
+        width: auto;
+        vertical-align: middle;
+    }
+
+    .github_back {
+        fill: color($gold, light);
+    }
+}
+
+.toolbar_item {
+    margin: -1px 1em 0;
+    background: $white;
+    padding: 0 1em;
+    line-height: 2em;
+    top: -1em;
+}
