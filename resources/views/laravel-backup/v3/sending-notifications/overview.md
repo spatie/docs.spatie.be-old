@@ -2,12 +2,12 @@
 title: Sending notifications
 ---
 
-The package can let you know that your backups are (not) ok. It can send notify you via one ore more channels
+The package can let you know that your backups are (not) ok. It can notify you via one or more channels
 when a certain event takes place.
 
 ## Configuration
 
-This is the portion of the configuration that will determine when and how notification will be sent.
+This is the portion of the configuration that will determine when and how notifications will be sent.
 Most options should be self-explanatory.
 
 ```php
@@ -34,7 +34,7 @@ Most options should be self-explanatory.
         ],
 
         /*
-         * Here you can specify how mails should be sent.
+         * Here you can specify how emails should be sent.
          */
         'mail' => [
             'from' => 'your@email.com',
@@ -42,7 +42,7 @@ Most options should be self-explanatory.
         ],
 
         /*
-         * Here you can how messages should be sent to Slack.
+         * Here you can specify how messages should be sent to Slack.
          */
         'slack' => [
             'channel'  => '#backups',
