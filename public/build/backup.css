@@ -486,7 +486,6 @@ table {
       background: #e6decd; }
 
 .article_badges {
-  filter: grayscale(100%);
   margin: 1em 0;
   opacity: .95;
   transition: all .1s; }
@@ -802,7 +801,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   position: absolute;
   top: 0;
   width: 100%;
-  z-index: 1; }
+  z-index: 2; }
   @media (max-width: 900px) {
     .header_background video {
       display: none; } }
@@ -829,7 +828,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   position: absolute;
   transform: translateX(-50%) translateY(20%) rotate(-45deg) scale(0);
   width: 44px;
-  z-index: 10; }
+  z-index: 1; }
   @media (max-width: 900px) {
     .header_arrow {
       display: none; } }

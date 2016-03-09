@@ -14,8 +14,8 @@
 <body>
 @include('_partials.analytics')
 <header class="header">
-    <div class="header_background" data-backup-video></div>
     <a href="#main" class="header_arrow" data-home-link></a>
+    <div class="header_background" data-backup-video></div>
     <div class="header_content">
         <div class="grid">
             <a href="/laravel-backup/v3" data-home-link>

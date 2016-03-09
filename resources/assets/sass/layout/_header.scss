@@ -44,7 +44,7 @@
   position: absolute;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
 
   &:after {
     @include cover();
@@ -71,7 +71,7 @@
   position: absolute;
   transform: translateX(-50%) translateY(20%) rotate(-45deg) scale(0) ;
   width: 44px;
-  z-index: z-index(above);
+  z-index: 1;
 }
 
 .header_content {
