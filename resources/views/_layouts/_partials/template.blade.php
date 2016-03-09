@@ -70,7 +70,7 @@
         inputSelector: '#algolia-search',
         algoliaOptions: {
             'hitsPerPage': 5,
-            'facetFilters': ['{!!   trim($facetFilters) !!}']
+            'facetFilters': ['{{ $facetFilters }}']
         }
     });
 </script>
