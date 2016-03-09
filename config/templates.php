@@ -15,8 +15,8 @@ return [
     'medialibrary' => [
         'assetName' => 'medialibrary',
         'baseUrl' => '/laravel-medialibrary/v3',
-        'facetFilters'=>'project:laravel-medialibrary',
-        'gitHubUrl'=>'https://github.com/spatie/laravel-medialibrary',
+        'facetFilters' => 'project:laravel-medialibrary',
+        'gitHubUrl' => 'https://github.com/spatie/laravel-medialibrary',
         'menu' => navigation()->medialibrary(),
         'siteSlogan' => 'Associate files with Eloquent models',
         'siteTitle' => 'Laravel Medialibrary',
