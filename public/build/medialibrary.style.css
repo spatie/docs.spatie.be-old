@@ -813,7 +813,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   transition: all .3s linear; }
   @media (max-width: 900px) {
     .header_arrow {
-      display: none; } }
+      display: none !important; } }
   .\$header-clear-animation .header_arrow {
     transition: none !important; }
 
@@ -839,7 +839,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   padding: 0 10px; }
   @media (max-width: 900px) {
     .header_title {
-      font-size: 1.75em; } }
+      font-size: 1.65em; } }
 
 .header_title_version {
   color: #e14a0c;
