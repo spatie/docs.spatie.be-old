@@ -14,4 +14,4 @@ If you keep on performing backups eventually you'll run out of disk space (or yo
 
 ## Monitoring the health of all backups
 
-Optionally the package can check the health of your application's backups. A backup is considered unhealty if the date of the last backup is too far in the past of if the backup becomes too large. In addition to  monitoring the health of the application's own backups, backups of other applications can be monitored as well.
+Optionally, the package can check the health of your application's backups. A backup is considered unhealthy if the date of the last backup is too far in the past or if the backup becomes too large. In addition to  monitoring the health of the application's own backups, backups of other applications can be monitored as well.
