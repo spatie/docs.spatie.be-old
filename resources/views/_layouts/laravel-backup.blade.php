@@ -16,13 +16,13 @@
     <header class="header">
         <div class="header_background" data-header-video></div>
         <div class="header_overlay"></div>
+        <a href="#main" class="header_arrow" data-home-link></a>
         <div class="header_content">
             <div class="grid">
-                <a href="/laravel-backup/v3#main">
+                <a href="/laravel-backup/v3" data-home-link>
                     <h1 class="header_title">Laravel Backup <span class="header_title_version">v.3</span></h1>
-                    <div>
-                        <p class="header_slogan">One day you'll thank us for this</p>
-                    </div>
+                    <br>
+                    <p class="header_slogan">One day you'll thank us for this</p>
                 </a>
                 <div class="header_logos">
                     <a href="https://github.com/spatie/laravel-backup" target="_external"><img class=header_logo src="/images/github.svg" alt="Github"></a>

@@ -4,12 +4,12 @@
         height: 90vh;
     }
 
-    .header_content {
-        bottom: 6em;
-    }
-
     .header_overlay {
         background: color($blue, darkest, 0.65);
+    }
+
+    .header_arrow {
+        transform: translateX(-50%) translateY(20%) rotate(-45deg);
     }
 
     .header_logos {
@@ -21,11 +21,11 @@
     min-height: 8em;
     height: 30vh;
     background-color: color($blue, darkest);
-    //background-image: url('/video/header.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 0 0;
     transition: height .5s ease-out;
+
+    .\$header-clear-animation & {
+        transition: none;
+    }
 
     @include mq(s) {
         height: auto !important;
@@ -53,7 +53,24 @@
     background: color($blue, darkest, 0.9);
     z-index: 2;
     transition: background-color .4s ease-out;
+}
 
+.header_arrow{
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    content: ' ';
+    width: 44px;
+    height: 44px;
+    background: color($blue, darkest);
+    z-index: z-index(above);
+    transform: translateX(-50%) translateY(20%) rotate(-45deg) scale(0) ;
+    border-radius: 5px;
+    display: block;
+
+    @include mq(s) {
+        display: none;
+    }
 }
 
 .header_content {
