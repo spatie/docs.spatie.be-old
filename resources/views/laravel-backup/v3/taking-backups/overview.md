@@ -82,8 +82,8 @@ The backup can be copied to one or more filesystems. This is the part of the con
     'destination' => [
 
         /*
-         + The filesystems you on which the backups will be stored. Choose one or more
-         + of the filesystems you configured in app/config/filesystems.php
+         * The filesystems you on which the backups will be stored. Choose one or more
+         * of the filesystems you configured in app/config/filesystems.php
          */
         'filesystems' => [
             'local'
