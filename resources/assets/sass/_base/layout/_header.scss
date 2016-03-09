@@ -48,7 +48,7 @@
 
 .header_arrow {
   @include mq(s) {
-    display: none;
+    display: none !important;
   }
   transition: all .3s linear;
 
