@@ -1,148 +1,150 @@
 .\$introduction {
+  .header {
+    height: 90vh;
+  }
 
-    .header {
-        height: 90vh;
-    }
+  .header_background:after {
+    background: color($blue, darkest, .65);
+  }
 
-    .header_overlay {
-        background: color($blue, darkest, 0.65);
-    }
+  .header_arrow {
+    transform: translateX(-50%) translateY(20%) rotate(-45deg);
+  }
 
-    .header_arrow {
-        transform: translateX(-50%) translateY(20%) rotate(-45deg);
-    }
-
-    .header_logos {
-        opacity: 0;
-    }
+  .header_logos {
+    opacity: 0;
+  }
 }
 
 .header {
-    min-height: 8em;
-    height: 30vh;
-    background-color: color($blue, darkest);
-    transition: height .5s ease-out;
+  @include mq(s) {
+    height: auto !important;
+    padding: 2em 0;
+  }
 
-    .\$header-clear-animation & {
-        transition: none;
-    }
+  background-color: color($blue, darkest);
+  height: 30vh;
+  min-height: 8em;
+  transition: height .5s ease-out;
 
-    @include mq(s) {
-        height: auto !important;
-        padding: 2em 0;
-    }
+  .\$header-clear-animation & {
+    transition: none !important;
+  }
 }
 
 .header_background {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    left: 0;
-    width: 100%;
-    z-index: 1;
-
-    @include mq(s) {
-        video {
-            display: none;
-        }
+  @include mq(s) {
+    video {
+      display: none;
     }
-}
+  }
 
-.header_overlay {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+
+  &:after {
     @include cover();
-    background: color($blue, darkest, 0.9);
-    z-index: 2;
+
+    background: color($blue, darkest, .9);
     transition: background-color .4s ease-out;
+    z-index: 2;
+  }
 }
 
-.header_arrow{
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    content: ' ';
-    width: 44px;
-    height: 44px;
-    background: color($blue, darkest);
-    z-index: z-index(above);
-    transform: translateX(-50%) translateY(20%) rotate(-45deg) scale(0) ;
-    border-radius: 5px;
-    display: block;
+.header_arrow {
+  @include mq(s) {
+    display: none;
+  }
 
-    @include mq(s) {
-        display: none;
-    }
+  background: color($blue, darkest);
+  border-radius: 5px;
+  bottom: 0;
+  content: ' ';
+  display: block;
+  height: 44px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%) translateY(20%) rotate(-45deg) scale(0) ;
+  width: 44px;
+  z-index: z-index(above);
 }
 
 .header_content {
-    position: absolute;
-    bottom: 3em;
-    width: 100%;
-    z-index: 3;
-    transition: bottom .3s ease-out;
+  @include mq(s) {
+    bottom: 0 !important;
+    position: relative;
+    text-align: center;
+  }
 
-    @include mq(s) {
-        text-align: center;
-        position: relative;
-        bottom: 0 !important;
-    }
+  bottom: 3em;
+  position: absolute;
+  transition: bottom .3s ease-out;
+  width: 100%;
+  z-index: 3;
 }
 
 .header_title {
-    color: $white;
-    margin: 0 -10px;
-    padding: 0 10px;
-    display: inline-block;
-    background: rgba($black, .1);
-    border-top-left-radius: border-radius(s);
-    border-top-right-radius: border-radius(s);
-    border-bottom-right-radius: border-radius(s);
+  @include mq(s) {
+    font-size: 1.75em;
+  }
 
+  background: rgba($black, .1);
+  border-bottom-right-radius: border-radius(s);
+  border-top-left-radius: border-radius(s);
+  border-top-right-radius: border-radius(s);
+  color: $white;
+  display: inline-block;
+  margin: 0 -10px;
+  padding: 0 10px;
 }
 
 .header_title_version {
-    font-size: font-size(s);
-    font-weight: font-weight(normal);
-    color: color($orange);
+  color: color($orange);
+  font-size: font-size(s);
+  font-weight: font-weight(normal);
 }
 
 .header_slogan {
-    margin: 0 -10px;
-    padding: .5em 10px;
-    color: $white;
-    display: inline-block;
-    background: rgba($black, .1);
-    border-bottom-left-radius: border-radius(s);
-    border-bottom-right-radius: border-radius(s);
-
+  background: rgba($black, .1);
+  border-bottom-left-radius: border-radius(s);
+  border-bottom-right-radius: border-radius(s);
+  color: $white;
+  display: inline-block;
+  margin: 0 -10px;
+  padding: .5em 10px;
 }
 
 .header_logos {
-    position: absolute;
-    bottom: 0;
-    right: 2em;
-    text-align: right;
-    opacity: 1;
-    transition: opacity .1s .3s ease-out;
+  @include mq(s) {
+    margin-top: 1em;
+    opacity: 1 !important;
+    position: relative;
+    text-align: center;
+  }
 
-    a {
-        display: inline-block;
-        vertical-align: middle;
-    }
+  bottom: 0;
+  opacity: 1;
+  position: absolute;
+  right: 2em;
+  text-align: right;
+  transition: opacity .1s .3s ease-out;
 
-    @include mq(s) {
-        text-align: center;
-        position: relative;
-        margin-top: 1em;
-        opacity: 1 !important;
-    }
+  a {
+    display: inline-block;
+    vertical-align: middle;
+  }
 }
 
 .header_logo {
-    height: 2em;
-    margin-left: 1em;
-    display: block;
+  display: block;
+  height: 2em;
+  margin-left: 1em;
 
-    &:hover {
-        opacity: .8;
-    }
+  &:hover {
+    opacity: .8;
+  }
 }

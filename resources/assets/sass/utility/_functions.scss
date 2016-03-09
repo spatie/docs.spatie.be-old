@@ -1,5 +1,5 @@
 // Utility functions
-// Check if key exists in map, and returns the value. Otherwise give the key back.
+// Check if key exists in map, and returns the value. Otherwise return the key.
 @function mapping($map, $key, $parse: false) {
     @if not map-has-key($map, $key) {
         @return $key;

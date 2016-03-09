@@ -49,6 +49,13 @@
 	const hljs = __webpack_require__(20);
 	const vide = __webpack_require__(21);
 
+	viewport.init({
+	    config: {
+	        start: 50,
+	        end: 200,
+	        small: 900,
+	    },
+	});
 
 	(function syntaxHighlighting() {
 
@@ -58,44 +65,42 @@
 
 	})();
 
-	(function interfaceGoodies() {
+	(function introductionScroll() {
 
-
-	    if(window.location.hash == '#clean'){
-	        $('html').removeClass('$introduction').addClass('$header-clear-animation');
+	    if (window.location.hash == '#clean') {
+	        makeHeaderSmall().addClass('$header-clear-animation');
 	    }
+
+	    $(window).on('scroll.introduction', function () {
+	        if (viewport.state.started) {
+	            makeHeaderSmall();
+	            $(window).off('scroll.introduction');
+	        }
+	    });
 
 	    $('[data-home-link]').on('click', function (e) {
 
 	        e.preventDefault();
 
-	        if($('html').hasClass('$introduction')){
-	            $('html').removeClass('$introduction');
+	        if ($('html').hasClass('$introduction')) {
+	            makeHeaderSmall();
 	            return;
 	        }
 
 	        window.location = $(this).attr('href');
 	    });
 
+	    function makeHeaderSmall() {
+	        return $('html').removeClass('$introduction');
+	    }
 
-	    viewport.init({
-	        config: {
-	            start: 50,
-	            end: 200,
-	            small: 900
-	        }
-	    });
+	})();
 
-	    $(window).on('scroll.introduction', function () {
-	        if (viewport.state.started) {
-	            $('html').removeClass('$introduction');
-	            $(window).off('scroll.introduction');
-	        }
-	    });
+	(function backupVideo() {
 
-	    $('.\\$introduction [data-header-video]').vide({
+	    $('.\\$introduction [data-backup-video]').vide({
 	        mp4: '/video/header.mp4',
-	        webm: '/video/header.webm'
+	        webm: '/video/header.webm',
 	    }, {
 	        volume: 0,
 	        playbackRate: 1,
@@ -105,15 +110,16 @@
 	        position: '0% 0%',
 	        posterType: 'none',
 	        resizing: true,
-	        bgColor: 'transparent'
+	        bgColor: 'transparent',
 	    });
+
+	})();
+
+	(function smallNav() {
 
 	    $('[data-nav-switch]').on('click', function () {
-	        $('html').toggleClass('$nav-mobile');
+	        $('html').toggleClass('$nav-small');
 	    });
-
-
-
 
 	})();
 

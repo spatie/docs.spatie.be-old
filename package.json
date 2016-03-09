@@ -17,5 +17,10 @@
     "vide": "^0.5.0",
     "viewport-utility": "^1.1.1",
     "webpack": "^1.12.12"
+  },
+  "scripts": {
+    "cs" : "npm run cs:sass;npm run cs:js",
+    "cs:sass": "csscomb resources/assets/sass/",
+    "cs:js": "jscs resources/assets/js/** --fix"
   }
 }

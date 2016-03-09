@@ -1,72 +1,71 @@
 .article {
+  h1 {
+    color: color($blue, darkest);
+    margin-top: 0;
 
-    h1 {
-        margin-top: 0;
-        color: color($blue, darkest);
+    + h2 {
+      margin-top: 0;
+    }
+  }
 
-        + h2 {
-            margin-top: 0;
+  h2 {
+    color: color($blue, darkest);
+    margin-top: 2em;
+
+    + h3 {
+      margin-top: 0;
+    }
+  }
+
+  h3 {
+    color: color($blue, darker);
+    margin-top: 2em;
+  }
+
+  a {
+    @include underline(color($blue), color($blue, default, .25));
+
+    color: color($blue, dark);
+  }
+
+  p {
+    margin-bottom: 1em;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      padding-left: 1.25em;
+
+      &:before {
+        @include circle(.5em);
+
+        background: color($gold, light);
+        content: ' ';
+        left: 0;
+        overflow: hidden;
+        position: absolute;
+        top: .5em;
+      }
+
+      li {
+        &:before {
+          background: color($gold, lighter);
         }
+      }
     }
-
-    h2 {
-        margin-top: 2em;
-        color: color($blue, darkest);
-
-        + h3 {
-            margin-top: 0;
-        }
-    }
-
-    h3 {
-        margin-top: 2em;
-        color: color($blue, darker);
-    }
-
-    a {
-        color: color($blue, dark);
-        @include underline(color($blue), color($blue, default, .25));
-    }
-
-    p {
-        margin-bottom: 1em;
-    }
-
-    ul {
-        list-style: none;
-        padding-left: 0;
-
-        li {
-
-            padding-left: 1.25em;
-
-            &:before {
-                @include circle(.5em);
-
-                background: color($gold, light);
-                content: ' ';
-                left: 0;
-                overflow: hidden;
-                position: absolute;
-                top: .5em;
-            }
-
-            li {
-                &:before {
-                    background: color($gold, lighter);
-                }
-            }
-        }
-    }
+  }
 }
 
 .article_badges {
-    opacity: .95;
-    filter: grayscale(100%);
-    margin: 1em 0;
-    transition: all .1s;
+  filter: grayscale(100%);
+  margin: 1em 0;
+  opacity: .95;
+  transition: all .1s;
 
-    a {
-        border: 0;
-    }
+  a {
+    border: 0;
+  }
 }

@@ -1,57 +1,31 @@
 @include footer-is-fixed;
 
 .footer {
-    background-color: color($blue, lightest);
-    padding: 6em 0;
-    text-align: center;
-
+  background-color: color($blue, lightest);
+  padding: 6em 0;
+  text-align: center;
 }
 
 .footer_content {
-    display: inline-block;
-    color: color($blue, dark);
-    padding: .5em 10px;
-    background: color($blue, light, .2);
-    border-radius: border-radius(s);
+  background: color($blue, light, .2);
+  border-radius: border-radius(s);
+  color: color($blue, dark);
+  display: inline-block;
+  padding: .5em 10px;
 
-    a {
-        color: inherit;
-        @include underline(color($blue, dark), color($blue, default, .25));
-    }
+  a {
+    @include underline(color($blue, dark), color($blue, default, .25));
+
+    color: inherit;
+  }
 }
 
 .footer_background {
-    @include cover();
-    background-size: cover;
-    background-position: 0 100%;
-    background-repeat: no-repeat;
-    opacity: 0.15;
-    mix-blend-mode: multiply;
+  @include cover();
 
-}
-
-.footer_top-link {
-    left: 50%;
-    position: fixed;
-    transform: translateX(-50%) translateY(100%);
-    bottom: 0;
-    z-index: z-index(modal);
-    border-radius: 100% 100% 0 0;
-    height: 44px;
-    line-height: 44px;
-    overflow: hidden;
-    text-align: center;
-    width: 44px;
-    background: color($blue);
-    box-shadow: 5px 5px 0 rgba($black, .1);
-    color: color($orange, lightest);
-    font-size: .65em;
-    text-transform: uppercase;
-    cursor: pointer;
-    @include font(sans, bold);
-    transition: transform .1s linear;
-
-    .\$viewport-ended & {
-        transform: translateX(-50%) translateY(10%);
-    }
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  mix-blend-mode: multiply;
+  opacity: .15;
 }

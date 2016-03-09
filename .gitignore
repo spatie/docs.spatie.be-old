@@ -1,5 +1,6 @@
 /vendor
 /node_modules
+/npm-debug.log
 /public/storage
 Homestead.yaml
 Homestead.json

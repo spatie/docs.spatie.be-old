@@ -4,7 +4,7 @@ title: High level overview
 
 ## Taking backups
 
-The backup is a zip file containing all files in the directories you specify, along with a dump of your database. The zip can automatically be copied over to [any of the filesystems you have configured in Laravel 5](http://laravel.com/docs/5.0/filesystem).
+The backup is a zip file containing all files in the directories you specify, along with a dump of your database. The zip can automatically be copied over to [any of the filesystems](http://laravel.com/docs/5.0/filesystem) you have configured in Laravel 5.
 
 To make a backup you can run `php artisan backup:run`. In most cases you'll want to schedule this command.
 

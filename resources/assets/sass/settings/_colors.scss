@@ -42,7 +42,7 @@ $gold: (
     lightest: #f8f0df,
     lighter: #e6decd,
     light: #d4cab4,
-    default: #BAAB8C,
+    default: #baab8c,
     dark: #8d7e5f,
     darker: #5d4e36,
     darkest: #372c1c,
@@ -56,7 +56,7 @@ $blue: (
     default: #22a4c9,
     dark: #007698,
     darker: #004966,
-    darkest: #1B3747,
+    darkest: #1b3747,
 );
 
 // Green colors
@@ -75,7 +75,7 @@ $gray: (
     lightest: #ededf5,
     lighter: #cdcdda,
     light: #adadbb,
-    default: #ababbb,
+    default: #9797a7,
     dark: #4d535e,
     darker: #333b46,
     darkest: #1a1e25,
@@ -100,5 +100,17 @@ $social-color: (
     pinterest: #c92228,
     flickr: #ff0084
 );
-
-$hljs-back: #f8f8f8;
+$hl: (
+    text: #4d535e,
+    back: #f8f8f8,
+    number: #007698,
+    string: #e14a0c,
+    title: #711f03,
+    tag: #22a4c9,
+    link: #aaad00,
+    symbol: #e83134,
+    builtin: #22a4c9,
+    deletion: #fcebec,
+    addition: #e5e4d1,
+    comment: #9797a7
+);
