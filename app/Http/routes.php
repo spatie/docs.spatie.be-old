@@ -27,4 +27,5 @@ Route::group(['prefix' => 'laravel-medialibrary'], function () {
     });
 });
 
+Route::get('{slug}/edit', 'PageController@edit')->where('slug', '(.*)');
 Route::get('{slug}', 'PageController@page')->where('slug', '(.*)');

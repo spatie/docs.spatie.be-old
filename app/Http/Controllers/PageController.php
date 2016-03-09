@@ -15,6 +15,14 @@ class PageController extends Controller
         return view('page')->with($pageProperties);
     }
 
+    public function edit()
+    {
+        $slug = substr(request()->path(), 0, -5);
+        
+        return redirect()
+            ->away("https://github.com/spatie/docs.spatie.be/edit/master/resources/views/{$slug}.md");
+    }
+
     public function getPageProperties() : array
     {
         try {
