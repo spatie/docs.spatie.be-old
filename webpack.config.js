@@ -3,8 +3,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
-        'style': './resources/assets/sass/app.scss',
-        'app': './resources/assets/js/app.js',
+        'backup-css': './resources/assets/sass/backup.scss',
+        'backup': './resources/assets/js/backup.js',
     },
     output: {
         path: 'public/build',
@@ -26,7 +26,7 @@ module.exports = {
         extensions: ['', '.js', '.css', '.scss'],
     },
     plugins: [
-        new ExtractTextPlugin('style.css'),
+        new ExtractTextPlugin('backup.css'),
     ],
     sassLoader: {
         includePaths: ['node_modules'],

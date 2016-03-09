@@ -8,8 +8,8 @@
     <title>@yield('title') | Docs</title>
     <link rel="stylesheet" href="https://cloud.typography.com/6194432/608542/css/fonts.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css">
-    <link rel="stylesheet" href="/build/style.css">
-    <script src="/build/app.js" defer></script>
+    <link rel="stylesheet" href="/build/backup.css">
+    <script src="/build/backup.js" defer></script>
 </head>
 <body>
 @include('_partials.analytics')

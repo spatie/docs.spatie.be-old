@@ -438,7 +438,8 @@ table {
 
 .article h1 {
   color: #1b3747;
-  margin-top: 0; }
+  margin-top: 0;
+  padding-right: 1.8em; }
   .article h1 + h2 {
     margin-top: 0; }
 
@@ -558,7 +559,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 */
 .hljs {
-  background: #efeff7;
+  background: #f2f2fa;
   color: #4d535e;
   display: block;
   overflow-x: auto;
@@ -1034,7 +1035,7 @@ samp,
 var {
   font-family: Menlo, "courier new", courier, monospace;
   font-weight: 300;
-  background: #efeff7;
+  background: #f2f2fa;
   color: #4d535e;
   border-radius: 3px;
   box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.05);
@@ -1052,7 +1053,8 @@ var {
   samp, pre
   var {
     padding: 1em .5em !important;
-    white-space: pre; }
+    white-space: pre;
+    display: block; }
 
 del {
   text-decoration: line-through; }
@@ -1077,9 +1079,9 @@ mark {
   border-radius: 3px;
   color: #422c00;
   display: inline-block;
-  margin-left: -.25em;
-  margin-right: -.25em;
-  padding: 0 .25em;
+  margin-left: -.35em;
+  margin-right: -.35em;
+  padding: 0 .35em;
   text-decoration: none; }
 
 pre {
@@ -1142,9 +1144,9 @@ sup {
     border-radius: 3px;
     color: #e14a0c;
     display: inline-block;
-    margin-left: -.25em;
-    margin-right: -.25em;
-    padding: 0 .25em; }
+    margin-left: -.35em;
+    margin-right: -.35em;
+    padding: 0 .35em; }
     .nav_menu a:hover {
       background-color: #ffe5ca; }
   .nav_menu .active > a {
@@ -1152,9 +1154,9 @@ sup {
     border-radius: 3px;
     color: #fff;
     display: inline-block;
-    margin-left: -.25em;
-    margin-right: -.25em;
-    padding: 0 .25em; }
+    margin-left: -.35em;
+    margin-right: -.35em;
+    padding: 0 .35em; }
 
 .nav_search {
   border: solid 3px rgba(212, 202, 180, 0.5);
@@ -1243,30 +1245,39 @@ sup {
       transform: translateX(-50%) translateY(10%); }
 
 .toolbar {
-  margin: 15vh 0 2em;
-  border-top: solid 3px rgba(212, 202, 180, 0.5);
-  text-align: center;
-  font-size: 0.85em; }
-  .toolbar a {
-    color: #baab8c; }
-    .toolbar a:hover {
-      color: #007698; }
-      .toolbar a:hover .github_back {
-        fill: rgba(0, 118, 152, 0.8); }
-  .toolbar .github {
+  position: absolute;
+  top: 1.5em;
+  right: 0;
+  width: auto;
+  text-align: right;
+  font-size: 0.75em; }
+
+.toolbar_item {
+  background-color: rgba(230, 222, 205, 0.2);
+  border-radius: 3px;
+  color: #baab8c;
+  display: inline-block;
+  margin-left: -.35em;
+  margin-right: -.35em;
+  padding: 0 .35em;
+  line-height: 2; }
+  .toolbar_item .github {
     margin-left: .25em;
     height: 1.35em;
     width: auto;
     vertical-align: middle; }
-  .toolbar .github_back {
+  .toolbar_item .github_back {
     fill: #d4cab4; }
-
-.toolbar_item {
-  margin: -1px 1em 0;
-  background: #fff;
-  padding: 0 1em;
-  line-height: 2em;
-  top: -1em; }
+  .toolbar_item:hover {
+    background-color: rgba(230, 222, 205, 0.5);
+    border-radius: 3px;
+    color: #8d7e5f;
+    display: inline-block;
+    margin-left: -.35em;
+    margin-right: -.35em;
+    padding: 0 .35em; }
+    .toolbar_item:hover .github_back {
+      fill: rgba(141, 126, 95, 0.8); }
 
 .\:align-left {
   text-align: left; }
