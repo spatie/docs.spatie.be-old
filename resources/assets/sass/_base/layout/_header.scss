@@ -50,6 +50,7 @@
   @include mq(s) {
     display: none !important;
   }
+
   transition: all .3s linear;
 
   .\$header-clear-animation & {

@@ -438,6 +438,7 @@ table {
 
 .article h1 {
   color: #1b3747;
+  line-height: 1.2;
   margin-top: 0;
   padding-right: 1.8em; }
   .article h1 + h2 {
@@ -914,8 +915,7 @@ h3 {
 h1 {
   font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", -apple-system, "Segoe UI", sans-serif;
   font-weight: 600;
-  font-size: 2.8em;
-  line-height: 1.2; }
+  font-size: 2.8em; }
 
 h2 {
   font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", -apple-system, "Segoe UI", sans-serif;
@@ -1232,6 +1232,9 @@ sup {
   text-align: right;
   top: 1.5em;
   width: auto; }
+  @media (max-width: 900px) {
+    .toolbar {
+      display: none; } }
 
 .toolbar_item {
   background-color: rgba(230, 222, 205, 0.2);

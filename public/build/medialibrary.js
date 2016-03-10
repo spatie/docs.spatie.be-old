@@ -48,7 +48,8 @@
 
 	(function headerVideo() {
 
-	    $('.\\$introduction [data-header-background]').attr('style','background-image: url("/images/medialibrary/header.jpg")');
+	    $('.\\$introduction [data-header-background]')
+	        .attr('style', 'background-image: url("/images/medialibrary/header.jpg")');
 
 	})();
 

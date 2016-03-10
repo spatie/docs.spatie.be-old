@@ -1,56 +1,57 @@
 @import '../_base/base';
 
 .header {
-    overflow: hidden;
+  background-color: color($blue, lighter);
+  overflow: hidden;
 }
 
 .header_background {
+  @include mq(s) {
+    display: none;
+  }
 
+  animation: kenburns 30s infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  background-color: color($blue, lighter);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform-origin: 40% 30%;
+
+  &:after {
     background-color: color($blue, lighter);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    opacity: 1;
 
-    &:after {
-        background-color: color($blue, lighter);
-        opacity: 1;
-
-        .\$introduction & {
-            opacity: .6;
-        }
+    .\$introduction & {
+      opacity: .6;
     }
-
-    animation: kenburns 30s infinite;
-    animation-direction: alternate;
-    animation-timing-function: ease-in-out;
-    transform-origin: 40% 30%;
-
+  }
 }
 
 .header_title,
 .header_slogan {
-    background: color($blue, darker, .2);
+  background: color($blue, darker, .2);
 }
 
 
 .header_arrow {
-    position: absolute;
-    @include circle(50px);
-    background-color: color($orange);
-    transform: translateX(-50%) scale(0);
-    bottom: 1em;
-    left: 50%;
-    z-index: 4;
-    font-size: 30px;
+  @include circle(50px);
 
-    &:after {
-        content: '↧';
-        color: $white;
-    }
+  background-color: color($orange);
+  bottom: 1em;
+  font-size: 30px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%) scale(0);
+  z-index: 4;
 
-    .\$introduction & {
-        transform: translateX(-50%) scale(1);
-    }
+  &:after {
+    color: $white;
+    content: '↧';
+  }
 
-
+  .\$introduction & {
+    transform: translateX(-50%) scale(1);
+  }
 }

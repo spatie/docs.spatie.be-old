@@ -1,4 +1,8 @@
 .toolbar {
+  @include mq(s) {
+    display: none;
+  }
+
   font-size: font-size(xs);
   position: absolute;
   right: 0;

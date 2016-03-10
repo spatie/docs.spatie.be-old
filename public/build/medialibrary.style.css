@@ -438,6 +438,7 @@ table {
 
 .article h1 {
   color: #1b3747;
+  line-height: 1.2;
   margin-top: 0;
   padding-right: 1.8em; }
   .article h1 + h2 {
@@ -914,8 +915,7 @@ h3 {
 h1 {
   font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", -apple-system, "Segoe UI", sans-serif;
   font-weight: 600;
-  font-size: 2.8em;
-  line-height: 1.2; }
+  font-size: 2.8em; }
 
 h2 {
   font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", -apple-system, "Segoe UI", sans-serif;
@@ -1232,6 +1232,9 @@ sup {
   text-align: right;
   top: 1.5em;
   width: auto; }
+  @media (max-width: 900px) {
+    .toolbar {
+      display: none; } }
 
 .toolbar_item {
   background-color: rgba(230, 222, 205, 0.2);
@@ -1491,21 +1494,25 @@ sup {
   text-transform: none; }
 
 .header {
+  background-color: #a7dceb;
   overflow: hidden; }
 
 .header_background {
-  background-color: #a7dceb;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
   -webkit-animation: kenburns 30s infinite;
   animation: kenburns 30s infinite;
   -webkit-animation-direction: alternate;
   animation-direction: alternate;
   -webkit-animation-timing-function: ease-in-out;
   animation-timing-function: ease-in-out;
+  background-color: #a7dceb;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
   -webkit-transform-origin: 40% 30%;
   transform-origin: 40% 30%; }
+  @media (max-width: 900px) {
+    .header_background {
+      display: none; } }
   .header_background:after {
     background-color: #a7dceb;
     opacity: 1; }
@@ -1517,7 +1524,6 @@ sup {
   background: rgba(0, 73, 102, 0.2); }
 
 .header_arrow {
-  position: absolute;
   border-radius: 100%;
   display: inline-block;
   height: 50px;
@@ -1526,15 +1532,16 @@ sup {
   text-align: center;
   width: 50px;
   background-color: #e14a0c;
+  bottom: 1em;
+  font-size: 30px;
+  left: 50%;
+  position: absolute;
   -webkit-transform: translateX(-50%) scale(0);
   transform: translateX(-50%) scale(0);
-  bottom: 1em;
-  left: 50%;
-  z-index: 4;
-  font-size: 30px; }
+  z-index: 4; }
   .header_arrow:after {
-    content: '\21A7';
-    color: #fff; }
+    color: #fff;
+    content: '\21A7'; }
   .\$introduction .header_arrow {
     -webkit-transform: translateX(-50%) scale(1);
     transform: translateX(-50%) scale(1); }

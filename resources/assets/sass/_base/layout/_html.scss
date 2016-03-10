@@ -29,8 +29,6 @@ h3 {
 h1 {
   @include font(sans, bold);
   @include font-size(xxl);
-
-  line-height: 1.2;
 }
 
 h2 {
