@@ -64,7 +64,7 @@ return [
             ],
 
             /*
-             * The names of the connections to the databases  that should be part of the backup.
+             * The names of the connections to the databases that should be part of the backup.
              * Currently only MySQL-databases are supported.
              */
             'databases' => [
@@ -119,8 +119,8 @@ return [
             'keepYearlyBackupsForYears' => 2,
 
             /*
-             * After clean up the backups remove the oldest backup until
-             * this amount of megabytes is reached.
+             * After cleaning up the backups remove the oldest backup until
+             * this amount of megabytes has been reached.
              */
             'deleteOldestBackupsWhenUsingMoreMegabytesThan' => 5000
         ]
@@ -161,7 +161,7 @@ return [
          * Here you can specify the ways you want to be notified when certain
          * events take place. Possible values are "log", "mail" and "slack".
          * 
-         * Slack requires the installation of the maknz/slack package
+         * Slack requires the installation of the maknz/slack package.
          */
         'events' => [
             'whenBackupWasSuccessful'     => ['log'],
@@ -181,7 +181,7 @@ return [
         ],
 
         /*
-         * Here you can how messages should be sent to Slack.
+         * Here you can specify how messages should be sent to Slack.
          */
         'slack' => [
             'channel'  => '#backups',
@@ -208,13 +208,13 @@ protected function schedule(Schedule $schedule)
 }
 ```
 
-Of course, the hours used in the code above are just examples. Adjust them to your own liking.
+Of course, the hours used in the code above are just examples. Adjust them to your own preferences.
 
 ## Monitoring
 
-When your application is broken the scheduled jobs will obviously not run anymore. You could also simply forget to simply add a cron job needed to trigger Laravel's scheduling. You think you're taking backup when in fact
+When your application is broken the scheduled jobs will obviously not run anymore. You could also simply forget to add a cron job needed to trigger Laravel's scheduling. You're thinking backups are being made but in fact
 nothing gets backed up.
 
-To notify you of such events the package contains monitoring functionality. It will inform you when then youngest backup becomes too old or when to backups use too much storage.
+To notify you of such events the package contains monitoring functionality. It will inform you when backups become too old or when they take up too much storage.
 
 Learn how to [set up monitoring](/laravel-backup/v3/monitoring-the-health-of-all-backups/overview).
