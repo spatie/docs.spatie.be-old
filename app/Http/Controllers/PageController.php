@@ -37,6 +37,9 @@ class PageController extends Controller
         $pageProperties['content'] = markdown($document->body());
         $pageProperties['layout'] = $pageProperties['layout'] ?? request()->segment(1);
 
+        $pageProperties['package'] = current_package();
+        $pageProperties['version'] = current_version();
+
         return $pageProperties;
     }
 }

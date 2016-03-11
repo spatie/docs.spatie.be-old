@@ -4,10 +4,10 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
-        'backup.style': './resources/assets/sass/backup/backup.scss',
-        'backup': './resources/assets/js/backup.js',
-        'medialibrary': './resources/assets/js/medialibrary.js',
-        'medialibrary.style': './resources/assets/sass/medialibrary/medialibrary.scss',
+        'laravel-backup.style': './resources/assets/sass/laravel-backup/laravel-backup.scss',
+        'laravel-backup': './resources/assets/js/laravel-backup.js',
+        'laravel-medialibrary': './resources/assets/js/laravel-medialibrary.js',
+        'laravel-medialibrary.style': './resources/assets/sass/laravel-medialibrary/laravel-medialibrary.scss',
     },
     output: {
         path: 'public/build',

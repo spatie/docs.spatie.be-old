@@ -7,8 +7,8 @@
     <meta name="description" content="@yield('pageDescription')">
     <title>@yield('title') | {{ $siteTitle }} Docs</title>
     <link rel="stylesheet" href="https://cloud.typography.com/6194432/608542/css/fonts.css"/>
-    <link rel="stylesheet" href="/build/{{ $assetName }}.style.css">
-    <script src="/build/{{ $assetName }}.js" defer></script>
+    <link rel="stylesheet" href="/build/{{ $package }}.style.css">
+    <script src="/build/{{ $package }}.js" defer></script>
 </head>
 <body>
 @include('_partials.analytics')
@@ -17,14 +17,14 @@
     <div class="header_background" data-header-background></div>
     <div class="header_content">
         <div class="grid">
-            <a href="{{ $baseUrl }}" data-home-link>
-                <h1 class="header_title">{{ $siteTitle }} <span class="header_title_version">v.{{ $version }}</span>
+            <a href="/{{ $package }}/{{ $version }}" data-home-link>
+                <h1 class="header_title">{{ $siteTitle }} <span class="header_title_version">v.{{ substr($version, 1) }}</span>
                 </h1>
                 <br>
                 <p class="header_slogan">{{ $siteSlogan }}</p>
             </a>
             <div class="header_logos">
-                <a href="{{ $gitHubUrl }}" target="_external">
+                <a href="{{ $githubUrl }}" target="_external">
                     @include('_partials.svg.github')
                 </a>
                 <a href="https://spatie.be" target="_external">
@@ -40,7 +40,7 @@
             <div class="nav">
                 <input id="algolia-search" placeholder="Search docs" class="nav_search">
                 <nav class="nav_menu">
-                    {!! menu($menu) !!}
+                    {!! menu() !!}
                 </nav>
             </div>
             <div class="nav_button -menu" data-nav-switch>
@@ -58,7 +58,7 @@
     <div class="grid">
         <div class="footer_content">
             © {{ Date('Y') }} • <a href="about-us/">About us</a>
-            • <a href="{{ $gitHubUrl }}">Github</a>
+            • <a href="{{ $githubUrl }}">Github</a>
         </div>
     </div>
     <a href="#" data-viewport-scroll class="nav_button -bottom">up</a>
@@ -70,7 +70,7 @@
         inputSelector: '#algolia-search',
         algoliaOptions: {
             'hitsPerPage': 5,
-            'facetFilters': ['{{ $facetFilters }}']
+            'facetFilters': ['project:{{ $package }}']
         }
     });
 </script>
