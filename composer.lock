@@ -965,16 +965,16 @@
         },
         {
             "name": "spatie/html-element",
-            "version": "0.5.0",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/html-element.git",
-                "reference": "560919bb98cad47c3958e8e2e8fcf2278f64d8c3"
+                "reference": "d7da01b4bd6ac122901bec6a1b042ecf240bb2c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/html-element/zipball/560919bb98cad47c3958e8e2e8fcf2278f64d8c3",
-                "reference": "560919bb98cad47c3958e8e2e8fcf2278f64d8c3",
+                "url": "https://api.github.com/repos/spatie/html-element/zipball/d7da01b4bd6ac122901bec6a1b042ecf240bb2c7",
+                "reference": "d7da01b4bd6ac122901bec6a1b042ecf240bb2c7",
                 "shasum": ""
             },
             "require": {
@@ -1007,7 +1007,7 @@
                 "html-element",
                 "spatie"
             ],
-            "time": "2016-03-09 11:19:35"
+            "time": "2016-03-11 13:14:56"
         },
         {
             "name": "spatie/laravel-menu",
@@ -1118,21 +1118,21 @@
         },
         {
             "name": "spatie/menu",
-            "version": "0.5.1",
+            "version": "0.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/menu.git",
-                "reference": "b461dc1240323ae0ef9509c235647cd6c2c461e9"
+                "reference": "1b1f3c3bb69c655f399d8e8a58db1748019342ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/menu/zipball/b461dc1240323ae0ef9509c235647cd6c2c461e9",
-                "reference": "b461dc1240323ae0ef9509c235647cd6c2c461e9",
+                "url": "https://api.github.com/repos/spatie/menu/zipball/1b1f3c3bb69c655f399d8e8a58db1748019342ec",
+                "reference": "1b1f3c3bb69c655f399d8e8a58db1748019342ec",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0",
-                "spatie/html-element": "^0.5.0"
+                "spatie/html-element": "^1.0.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^5.2.10"
@@ -1162,7 +1162,7 @@
                 "navigation",
                 "spatie"
             ],
-            "time": "2016-03-11 10:55:38"
+            "time": "2016-03-11 14:43:22"
         },
         {
             "name": "spatie/yaml-front-matter",
