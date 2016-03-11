@@ -45,7 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(2);
-	const vide = __webpack_require__(24);
+	const vide = __webpack_require__(25);
 
 	(function headerVideo() {
 
@@ -9924,6 +9924,7 @@
 
 	    hljs.registerLanguage('bash', __webpack_require__(22));
 	    hljs.registerLanguage('php', __webpack_require__(23));
+	    hljs.registerLanguage('html', __webpack_require__(24));
 	    hljs.initHighlighting();
 
 	})();
@@ -13211,6 +13212,112 @@
 
 /***/ },
 /* 24 */
+/***/ function(module, exports) {
+
+	module.exports = function(hljs) {
+	  var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
+	  var TAG_INTERNALS = {
+	    endsWithParent: true,
+	    illegal: /</,
+	    relevance: 0,
+	    contains: [
+	      {
+	        className: 'attr',
+	        begin: XML_IDENT_RE,
+	        relevance: 0
+	      },
+	      {
+	        begin: '=',
+	        relevance: 0,
+	        contains: [
+	          {
+	            className: 'string',
+	            variants: [
+	              {begin: /"/, end: /"/},
+	              {begin: /'/, end: /'/},
+	              {begin: /[^\s\/>]+/}
+	            ]
+	          }
+	        ]
+	      }
+	    ]
+	  };
+	  return {
+	    aliases: ['html', 'xhtml', 'rss', 'atom', 'xsl', 'plist'],
+	    case_insensitive: true,
+	    contains: [
+	      {
+	        className: 'meta',
+	        begin: '<!DOCTYPE', end: '>',
+	        relevance: 10,
+	        contains: [{begin: '\\[', end: '\\]'}]
+	      },
+	      hljs.COMMENT(
+	        '<!--',
+	        '-->',
+	        {
+	          relevance: 10
+	        }
+	      ),
+	      {
+	        begin: '<\\!\\[CDATA\\[', end: '\\]\\]>',
+	        relevance: 10
+	      },
+	      {
+	        begin: /<\?(php)?/, end: /\?>/,
+	        subLanguage: 'php',
+	        contains: [{begin: '/\\*', end: '\\*/', skip: true}]
+	      },
+	      {
+	        className: 'tag',
+	        /*
+	        The lookahead pattern (?=...) ensures that 'begin' only matches
+	        '<style' as a single word, followed by a whitespace or an
+	        ending braket. The '$' is needed for the lexeme to be recognized
+	        by hljs.subMode() that tests lexemes outside the stream.
+	        */
+	        begin: '<style(?=\\s|>|$)', end: '>',
+	        keywords: {name: 'style'},
+	        contains: [TAG_INTERNALS],
+	        starts: {
+	          end: '</style>', returnEnd: true,
+	          subLanguage: ['css', 'xml']
+	        }
+	      },
+	      {
+	        className: 'tag',
+	        // See the comment in the <style tag about the lookahead pattern
+	        begin: '<script(?=\\s|>|$)', end: '>',
+	        keywords: {name: 'script'},
+	        contains: [TAG_INTERNALS],
+	        starts: {
+	          end: '\<\/script\>', returnEnd: true,
+	          subLanguage: ['actionscript', 'javascript', 'handlebars', 'xml']
+	        }
+	      },
+	      {
+	        className: 'meta',
+	        variants: [
+	          {begin: /<\?xml/, end: /\?>/, relevance: 10},
+	          {begin: /<\?\w+/, end: /\?>/}
+	        ]
+	      },
+	      {
+	        className: 'tag',
+	        begin: '</?', end: '/?>',
+	        contains: [
+	          {
+	            className: 'name', begin: /[^\/><\s]+/, relevance: 0
+	          },
+	          TAG_INTERNALS
+	        ]
+	      }
+	    ]
+	  };
+	};
+
+/***/ },
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*

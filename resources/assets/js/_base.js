@@ -13,6 +13,7 @@ viewport.init({
 
     hljs.registerLanguage('bash', require('highlight.js/lib/languages/bash'));
     hljs.registerLanguage('php', require('highlight.js/lib/languages/php'));
+    hljs.registerLanguage('html', require('highlight.js/lib/languages/xml'));
     hljs.initHighlighting();
 
 })();
