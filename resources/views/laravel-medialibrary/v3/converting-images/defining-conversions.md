@@ -75,4 +75,4 @@ $this->addMediaConversion('thumb')
      ->setWidth(500);
 ```
 
-For a list of all the convenience methods, visit the [Defining Conversions page in the API docs](/v3/api/defining-conversions/).
+For a list of all the convenience methods, visit the [Defining Conversions page in the API docs](/laravel-medialibrary/v3/api/defining-conversions/).
