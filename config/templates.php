@@ -21,5 +21,16 @@ return [
         'siteSlogan' => 'Associate files with Eloquent models',
         'siteTitle' => 'Laravel Medialibrary',
         'version' => 3,
+    ],
+
+    'menu' => [
+        'assetName' => 'menu',
+        'baseUrl' => '/laravel-menu/v3',
+        'facetFilters' => 'project:laravel-menu',
+        'gitHubUrl' => 'https://github.com/spatie/menu',
+        'menu' => 'menu',
+        'siteSlogan' => 'Html menu generator',
+        'siteTitle' => 'Menu',
+        'version' => 1,
     ]
 ];

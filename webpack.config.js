@@ -8,6 +8,8 @@ module.exports = {
         'backup': './resources/assets/js/backup.js',
         'medialibrary': './resources/assets/js/medialibrary.js',
         'medialibrary.style': './resources/assets/sass/medialibrary/medialibrary.scss',
+        'menu': './resources/assets/js/menu.js',
+        'menu.style': './resources/assets/sass/menu/menu.scss',
     },
     output: {
         path: 'public/build',

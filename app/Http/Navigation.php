@@ -55,7 +55,7 @@ class Navigation
     {
         return $this->generateMenu('laravel-medialibrary/v3', [
 
-            static::NO_TITLE => [
+            [
                 'Introduction',
                 'Requirements',
                 'Installation & setup',
@@ -89,6 +89,23 @@ class Navigation
             'API' => [
                 'Adding files',
                 'Defining conversions',
+            ],
+
+        ]);
+    }
+
+    public function menu() : Menu
+    {
+        return $this->generateMenu('menu/v1', [
+
+            static::NO_TITLE => [
+                'Introduction',
+                'Requirements',
+                'High level overview',
+                'Installation and setup',
+                'Questions and issues',
+                'Changelog',
+                'About us',
             ],
 
         ]);
