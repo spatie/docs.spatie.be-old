@@ -16,9 +16,8 @@ You'll need to register the serviceprovider:
 // config/app.php
 
 'providers' => [
-    ...
-    'Spatie\Backup\BackupServiceProvider',
-    ...
+    // ...
+    Spatie\Backup\BackupServiceProvider::class,
 ];
 ```
 
