@@ -40,7 +40,7 @@
             <div class="nav">
                 <input id="algolia-search" placeholder="Search docs" class="nav_search">
                 <nav class="nav_menu">
-                    {!! $menu !!}
+                    {!! menu($menu) !!}
                 </nav>
             </div>
             <div class="nav_button -menu" data-nav-switch>

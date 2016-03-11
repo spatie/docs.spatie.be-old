@@ -2,13 +2,14 @@
 
 namespace App\Http;
 
+use Spatie\Menu\Laravel\Items\Link;
 use Spatie\Menu\Laravel\Menu;
 
 class Navigation
 {
     const NO_TITLE = 'noTitle';
 
-    public function backup() : string
+    public function backup() : Menu
     {
         return $this->generateMenu('laravel-backup/v3', [
 
@@ -47,10 +48,10 @@ class Navigation
                 'Backing up a non-Laravel application',
             ],
 
-        ])->render();
+        ]);
     }
 
-    public function medialibrary() : string
+    public function medialibrary() : Menu
     {
         return $this->generateMenu('laravel-medialibrary/v3', [
 
@@ -90,40 +91,34 @@ class Navigation
                 'Defining conversions',
             ],
 
-        ])->render();
+        ]);
     }
 
     private function generateMenu(string $prefix, array $items) : Menu
     {
-        $menu = Menu::create();
+        $contents = collect($items)->map(function (array $items, string $title) use ($prefix) : Menu {
 
-        collect($items)
-            ->each(function (array $items, string $title) use ($prefix, $menu) {
-                $subMenu = Menu::create()->setLinkPrefix("/{$prefix}");
+            $subMenuContents = collect($items)->map(function (string $item) use ($title) : Link {
 
-                if ($title !==  static::NO_TITLE) {
-                    $subMenu->before("<h2>{$title}</h2>");
+                $url = str_slug($item);
+
+                if (ends_with($url, 'introduction')) {
+                    $url .= '#clean';
                 }
 
-                collect($items)->each(function (string $item) use ($title, $subMenu) {
-                    $url = str_slug($item);
+                if ($title !==  static::NO_TITLE) {
+                    $url = str_slug($title) . '/' . $url;
+                }
 
-                    if (ends_with($url, 'introduction')) {
-                        $url .= '#clean';
-                    }
-
-                    if ($title !==  static::NO_TITLE) {
-                        $url = str_slug($title) . '/' . $url;
-                    }
-
-                    $subMenu->addLink($url, $item);
-                });
-
-                $menu->addMenu($subMenu);
+                return Link::to($url, $item);
             });
 
-        $menu->setActiveFromRequest();
+            return Menu::new($subMenuContents->toArray())
+                ->prefixLinks("/{$prefix}")
+                ->prependIf($title !== static::NO_TITLE, "<h2>{$title}</h2>");
 
-        return $menu;
+        });
+
+        return Menu::new($contents->toArray())->setActiveFromRequest();
     }
 }
