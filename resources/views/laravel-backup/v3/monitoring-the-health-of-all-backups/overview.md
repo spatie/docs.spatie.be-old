@@ -35,7 +35,7 @@ This is the part of the configuration where you can specify which applications s
     'monitorBackups' => [
         [
             'name' => env('APP_URL'),
-            'filesystems' => ['local'],
+            'disks' => ['local'],
             'newestBackupsShouldNotBeOlderThanDays' => 1,
             'storageUsedMayNotBeHigherThanMegabytes' => 5000,
         ],
@@ -43,7 +43,7 @@ This is the part of the configuration where you can specify which applications s
         /*
         [
             'name' => 'name of the second app',
-            'filesystems' => ['local', 's3'],
+            'disks' => ['local', 's3'],
             'newestBackupsShouldNotBeOlderThanDays' => 1,
             'storageUsedMayNotBeHigherThanMegabytes' => 5000,
         ],
