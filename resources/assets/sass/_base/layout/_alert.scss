@@ -1,0 +1,36 @@
+@mixin alert($color){
+    background: color($color, lightest);
+    color: color($color, dark);
+    border-color: color($color, light);
+}
+
+.alert {
+    padding: 1em;
+    margin: 1.5em 0;
+    border-left: 3px solid transparent;
+
+    a{
+        color: inherit;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    &.-info {
+        @include alert($blue);
+    }
+
+    &.-success {
+        @include alert($green);
+    }
+
+    &.-warning {
+        @include alert($orange);
+    }
+
+    &.-error {
+        @include alert($red);
+    }
+}
+
