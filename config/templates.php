@@ -17,7 +17,7 @@ return [
         'baseUrl' => '/laravel-medialibrary/v3',
         'facetFilters' => 'project:laravel-medialibrary',
         'gitHubUrl' => 'https://github.com/spatie/laravel-medialibrary',
-        'menu' => 'backup',
+        'menu' => 'medialibrary',
         'siteSlogan' => 'Associate files with Eloquent models',
         'siteTitle' => 'Laravel Medialibrary',
         'version' => 3,
