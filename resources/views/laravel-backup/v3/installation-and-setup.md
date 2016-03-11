@@ -73,11 +73,10 @@ return [
         
         'destination' => [
 
-            /*
-             * The filesystems you on which the backups will be stored. Choose one or more
-             * of the filesystems you configured in app/config/filesystems.php
-             */
-            'filesystems' => [
+           /*
+            * The disk names on which the backups will be stored. 
+            */
+            'disks' => [
                 'local'
             ],
         ],
@@ -134,7 +133,7 @@ return [
     'monitorBackups' => [
         [
             'name' => env('APP_URL'),
-            'filesystems' => ['local'],
+            'disks' => ['local'],
             'newestBackupsShouldNotBeOlderThanDays' => 1,
             'storageUsedMayNotBeHigherThanMegabytes' => 5000,
         ],
@@ -142,7 +141,7 @@ return [
         /*
         [
             'name' => 'name of the second app',
-            'filesystems' => ['local'],
+            'disks' => ['local'],
             'newestBackupsShouldNotBeOlderThanDays' => 1,
             'storageUsedMayNotBeHigherThanMegabytes' => 5000,
         ],

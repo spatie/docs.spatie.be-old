@@ -8,6 +8,12 @@ You can backup your app by running:
 php artisan backup:run
 ```
 
+If you want to backup to a specific disk instead of all disks, run:
+
+```bash
+php artisan backup:run --backup-only-to=name-of-your-disk
+```
+
 If you only need to backup the db run:
 
 ```bash
@@ -19,6 +25,12 @@ If you only need to backup the files, and skip dumping databases, run:
 ```bash
 php artisan backup:run --only-files
 ```
+
+<div class="alert -warning>
+Be very careful with `--only-db` and `--only-files`. When monitoring backups the package will not make
+a distinction between full backups and a backup with only files or databases.
+</div>
+
 
 ## Configuration
 
@@ -81,11 +93,10 @@ The backup can be copied to one or more filesystems. This is the part of the con
 ```php
     'destination' => [
 
-        /*
-         * The filesystems you on which the backups will be stored. Choose one or more
-         * of the filesystems you configured in app/config/filesystems.php
-         */
-        'filesystems' => [
+       /*
+        * The disk names on which the backups will be stored. 
+        */
+        'disks' => [
             'local'
         ],
     ],
