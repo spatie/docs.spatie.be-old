@@ -121,10 +121,13 @@ address {
 }
 
 blockquote {
-  border-left: 1px solid color($gray);
+  background: color($gold, lightest);
+  border-left: 3px solid color($gold, lighter);
+  color: color($gold, darker);
   display: block;
-  margin: 2rem 0 3rem;
-  padding: 0 1rem;
+  font-size: 1.2em;
+  margin: 2em 0;
+  padding: 1em;
 
   p {
     margin: 0;

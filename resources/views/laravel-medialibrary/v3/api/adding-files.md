@@ -31,7 +31,7 @@ $yourModel
 public function addMedia($file)
 ```
 
-### <span class="version">v3.8+</span> addMediaFromUrl
+### <span class="badge">v3.8+</span> addMediaFromUrl
 
 ```php
 /**

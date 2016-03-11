@@ -11,7 +11,7 @@ $mediaItem = $newsItem
     ->toMediaLibrary();
 ```
 
-<span class="version">v3.3+</span> There are some convenience methods to work with custom properties:
+<span class="badge">v3.3+</span> There are some convenience methods to work with custom properties:
 
 ```php
 $mediaItem->hasCustomProperty('mime-type'); // returns true
@@ -21,7 +21,7 @@ $mediaItem->hasCustomProperty('does not exists'); // returns false
 $mediaItem->getCustomProperty('does not exists'); // returns null
 ```
 
-<span class="version">v3.5+</span> You can also specify a default value when retrieving a custom property.
+<span class="badge">v3.5+</span> You can also specify a default value when retrieving a custom property.
 
 ```php
 $mediaItem->getCustomProperty('isPublic', false);

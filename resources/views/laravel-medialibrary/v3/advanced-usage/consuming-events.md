@@ -2,7 +2,7 @@
 title: Consuming events
 ---
 
-<span class="version">v3.10.1+</span>
+<span class="badge">v3.10.1+</span>
 
 The medialibrary will fire the following events that your handlers can listen for:
 

@@ -437,29 +437,36 @@ table {
     padding: 2px; } }
 
 .alert {
-  padding: 1em;
+  border-left: 3px solid transparent;
   margin: 1.5em 0;
-  border-left: 3px solid transparent; }
+  padding: 1em; }
   .alert a {
     color: inherit; }
   .alert p {
     margin: 0; }
   .alert.-info {
     background: #ceebf2;
-    color: #007698;
-    border-color: #73c7de; }
+    border-color: #73c7de;
+    color: #007698; }
   .alert.-success {
     background: #eaeddb;
-    color: #82870e;
-    border-color: #c8c969; }
+    border-color: #c8c969;
+    color: #82870e; }
   .alert.-warning {
     background: #fff2de;
-    color: #983606;
-    border-color: #e77636; }
+    border-color: #e77636;
+    color: #983606; }
   .alert.-error {
     background: #fcebec;
-    color: #a32324;
-    border-color: #f76b6e; }
+    border-color: #f76b6e;
+    color: #a32324; }
+
+.badge {
+  background-color: rgba(206, 235, 242, 0.75);
+  border-radius: 1em;
+  color: #e14a0c;
+  display: inline-block;
+  padding: 0 .35em; }
 
 .article h1 {
   color: #1b3747;
@@ -1020,10 +1027,13 @@ address {
   padding: 1em; }
 
 blockquote {
-  border-left: 1px solid #9797a7;
+  background: #f8f0df;
+  border-left: 3px solid #e6decd;
+  color: #5d4e36;
   display: block;
-  margin: 2rem 0 3rem;
-  padding: 0 1rem; }
+  font-size: 1.2em;
+  margin: 2em 0;
+  padding: 1em; }
   blockquote p {
     margin: 0; }
 
