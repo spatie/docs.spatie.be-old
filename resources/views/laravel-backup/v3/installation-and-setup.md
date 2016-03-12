@@ -193,7 +193,7 @@ return [
 
 ## Scheduling
 
-After you have performed the basic installation you can start using the `backup:run`, `backup:clean`, `backup:overview` and `backup:monitor`-commands. In most cases you'll want to schedule these commands so you don't have to manually run `backup:run` everytime you need a new backup.
+After you have performed the basic installation you can start using the `backup:run`, `backup:clean`, `backup:list` and `backup:monitor`-commands. In most cases you'll want to schedule these commands so you don't have to manually run `backup:run` everytime you need a new backup.
 
 The commands can, like an other command, be scheduled in Laravel's console kernel.
 
