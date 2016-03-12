@@ -11,7 +11,7 @@ php artisan backup:run
 If you want to backup to a specific disk instead of all disks, run:
 
 ```bash
-php artisan backup:run --backup-only-to=name-of-your-disk
+php artisan backup:run --only-to-disk=name-of-your-disk
 ```
 
 If you only need to backup the db run:
@@ -70,8 +70,8 @@ This is the portion of the configuration that will determine which files and dat
             ],
 
             /*
-             * The names of the connections to the databases  that should be part of the backup.
-             * Currently only MySQL-databases are supported.
+             * The names of the connections to the databases that should be part of the backup.
+             * Currently only MySQL-and PostgreSQL-databases are supported.
              */
             'databases' => [
                 'mysql'
