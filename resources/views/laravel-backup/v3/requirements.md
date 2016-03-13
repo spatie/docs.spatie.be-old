@@ -4,8 +4,9 @@ title: Requirements
 
 The backup package requires **PHP 5.5.9 or higher** and **Laravel 5.1.20 or higher**.
 
-To create dumps of MySQL-databases this package uses the `mysqldump`-binary.
-Make sure it is installed on your system.
+Make sure `mysqldump` is installed on your system if you want to backup MySQL-databases.
+
+Make sure `pg_dump` is installed on your system if you want to backup PostgreSQL-databases.
 
 To send notifications to Slack you'll need to install Maknz's Slack package:
 
