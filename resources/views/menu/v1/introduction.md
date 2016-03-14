@@ -2,7 +2,12 @@
 title: Introduction
 ---
 
+## Goals
 
+- A fluent interface over array configuration
+- Flexible html output
+- Composable
+- Extensible
 
 ## We have badges!
 

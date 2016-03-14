@@ -27,6 +27,9 @@ return [
         'Automagically Determining the Active Item',
         'Using Macros',
     ],
+    'Recipes' => [
+        'Multi Part Menu',
+    ],
     'API' => [
         'Menu',
         'Link',
