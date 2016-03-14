@@ -1145,7 +1145,7 @@ sup {
   margin-top: .5em;
   padding: .5em;
   transition: border-color .3s ease-out;
-  width: 100%; }
+  width: 75%; }
   .nav_search:focus {
     border-color: #e14a0c;
     outline: 0; }

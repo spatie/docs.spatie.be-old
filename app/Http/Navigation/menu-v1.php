@@ -11,15 +11,14 @@ return [
     ],
     'Basic Usage' => [
         'Your First Menu',
-        'Working With Items',
-        'Adding Sub Menus',
+        'Working With Links',
+        'Adding Submenus',
         'Determining the Active Items',
         'Dealing With Html Attributes',
         'Adding Raw Html',
     ],
     'Advanced Usage' => [
-        'Manipulating Items With Each',
-        'Manipulating Items With Filters',
+        'Manipulating Items',
         'Creating Your Own Item Implementations',
     ],
     'Laravel Menu' => [
