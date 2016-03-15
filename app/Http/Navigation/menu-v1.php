@@ -7,19 +7,16 @@ return [
         'Installation and Setup',
         'Questions and Issues',
         'Changelog',
-        'About Us',
     ],
-    'Basic Usage' => [
+    'Usage' => [
         'Your First Menu',
-        'Working With Links',
+        'Adding Links',
+        'Adding Raw Html',
         'Adding Submenus',
         'Determining the Active Items',
         'Dealing With Html Attributes',
-        'Adding Raw Html',
-    ],
-    'Advanced Usage' => [
         'Manipulating Items',
-        'Creating Your Own Item Implementations',
+        'Immutability',
     ],
     'Laravel Menu' => [
         'Creating Links for Your Application',

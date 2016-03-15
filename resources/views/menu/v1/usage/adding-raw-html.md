@@ -39,27 +39,24 @@ Menu::new()->add(
     <li class="active foo">
         <span>Hi!</span>
     </li>
+</ul>
 ```
 
 You can also append and prepend raw html outside of the `ul` tag. This is useful for submenu titles.
 
 ```php
-Menu::new()->add(
-    Menu::new()
-        ->prepend('<h2>Title</h2>')
-        ->add(Link::to('/title/subpage', 'Subpage'))
-);
+Menu::new()
+    ->prepend('<h2>Title</h2>')
+    ->add(Link::to('/title/subpage', 'Subpage'))
+    ->append('<hr>');
 ```
 
 ```html
+<h2>Title</h2>
 <ul>
     <li>
-        <h2>Title</h2>
-        <ul>
-            <li>
-                <a href="/title/subpage">Subpage</a>
-            </li>
-        </ul>
+        <a href="/title/subpage">Subpage</a>
     </li>
 </ul>
+<hr>
 ```

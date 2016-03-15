@@ -44,7 +44,7 @@ When we render this menu, we'd output our original html string:
 // Via the `render` method:
 echo $menu->render();
 
-// Or just:
+// Or just through `__toString`:
 echo $menu;
 ```
 
