@@ -26,7 +26,7 @@ If you only need to backup the files, and skip dumping databases, run:
 php artisan backup:run --only-files
 ```
 
-<div class="alert -warning>
+<div class="alert -warning">
 Be very careful with `--only-db` and `--only-files`. When monitoring backups the package will not make
 a distinction between full backups and a backup with only files or databases.
 </div>
