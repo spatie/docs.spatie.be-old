@@ -2,7 +2,7 @@
 title: Manipulating Items
 ---
 
-There are three methods to each items in a menu:
+There are three methods to manipulate items in a menu:
 
 - `each`: Goes over all existing items and applies a manipulation
 - `registerFilter`: Registers a manipulation that will be applied to all items added afterwards
