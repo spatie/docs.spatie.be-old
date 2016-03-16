@@ -228,7 +228,7 @@ Here's an example for MySQL:
 'connections' => [
 	'mysql' => [
 		'dump_command_path' => '/path/to/the/binary',
-		'dump_command_timeout' => 60 * 5,
+		'dump_command_timeout' => 60 * 5, //5 minute timeout
 		'driver'    => 'mysql',
 		...
 	],
