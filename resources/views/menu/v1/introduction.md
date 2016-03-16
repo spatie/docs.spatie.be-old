@@ -7,7 +7,6 @@ title: Introduction
 - A fluent interface over array configuration
 - Flexible html output
 - Composable
-- Immutable
 - Extensible
 
 ## We have badges!

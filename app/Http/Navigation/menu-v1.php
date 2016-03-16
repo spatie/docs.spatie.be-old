@@ -13,10 +13,10 @@ return [
         'Adding Links',
         'Adding Raw Html',
         'Adding Submenus',
+        'Generating a Menu From an Array',
         'Determining the Active Items',
         'Dealing With Html Attributes',
         'Manipulating Items',
-        'Immutability',
     ],
     'Laravel Menu' => [
         'Creating Links for Your Application',
