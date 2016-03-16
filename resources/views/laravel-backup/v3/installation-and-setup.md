@@ -224,8 +224,6 @@ Here's an example for MySQL:
 ```php
 //config/databases.php
 'connections' => [
-
-
 	'mysql' => [
 		'dump_command_path' => '/path/to/the/binary',
 		'driver'    => 'mysql',
