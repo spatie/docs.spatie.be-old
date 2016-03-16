@@ -216,3 +216,19 @@ nothing gets backed up.
 To notify you of such events the package contains monitoring functionality. It will inform you when backups become too old or when they take up too much storage.
 
 Learn how to [set up monitoring](/laravel-backup/v3/monitoring-the-health-of-all-backups/overview).
+
+## Dumping the database
+`mysqldump` and `pg_dump` are used to dump the database. If they are not installed in a default location, you can add a key named `dump_command_path` in Laravel's own `database.php` config file.
+
+Here's an example for MySQL:
+```php
+//config/databases.php
+'connections' => [
+
+
+	'mysql' => [
+		'dump_command_path' => '/path/to/the/binary',
+		'driver'    => 'mysql',
+		...
+	],
+```
