@@ -186,6 +186,14 @@ return [
             'username' => 'Backup bot',
             'icon'     => ':robot:',
         ],
+        
+        /*
+         * Here you can specify how messages should be sent to Pushover.
+         */
+        'pushover' => [
+            'token' => env('PUSHOVER_APP_TOKEN'),
+            'user'  => env('PUSHOVER_USER_KEY'),
+        ],
     ]
 ];
 ```
