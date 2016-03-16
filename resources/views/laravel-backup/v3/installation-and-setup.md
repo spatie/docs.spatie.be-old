@@ -220,12 +220,15 @@ Learn how to [set up monitoring](/laravel-backup/v3/monitoring-the-health-of-all
 ## Dumping the database
 `mysqldump` and `pg_dump` are used to dump the database. If they are not installed in a default location, you can add a key named `dump_command_path` in Laravel's own `database.php` config file.
 
+If your database dump takes a long time you might hit the default timeout of 60 seconds. You can set a higher (or lower) limit by providing a `dump_command_timeout` config key containing how long the command may run in seconds.
+
 Here's an example for MySQL:
 ```php
 //config/databases.php
 'connections' => [
 	'mysql' => [
 		'dump_command_path' => '/path/to/the/binary',
+		'dump_command_timeout' => 60 * 5,
 		'driver'    => 'mysql',
 		...
 	],
