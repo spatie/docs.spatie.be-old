@@ -10,12 +10,11 @@ return [
     ],
     'Usage' => [
         'Your First Menu',
-        'Adding Links',
-        'Adding Raw Html',
-        'Adding Submenus',
-        'Generating a Menu From an Array',
+        'Adding Items',
         'Determining the Active Items',
         'Dealing With Html Attributes',
+        'Adding Content Outside The Menu',
+        'Generating a Menu From an Array',
         'Manipulating Items',
     ],
     'Laravel Menu' => [

@@ -47,3 +47,21 @@ Menu::new()
 ```
 
 These attributes will only be rendered if the elements are rendered inside of a perent (e.g. a link or a sub menu).
+
+Since you have full control over the inner html of the item, you can't set attributes via the `HtmlAttributes` trait. You can however add parent attributes.
+
+```php
+Menu::new()->add(
+    Html::raw('<span>Hi!</span>')
+        ->setActive()
+        ->addParentClass('foo')
+);
+```
+
+```html
+<ul>
+    <li class="active foo">
+        <span>Hi!</span>
+    </li>
+</ul>
+```
