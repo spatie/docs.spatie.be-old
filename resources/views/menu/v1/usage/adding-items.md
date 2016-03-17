@@ -2,7 +2,25 @@
 title: Adding Items
 ---
 
-In [Your First Menu](/menu/v1/usage/your-first-menu) we already covered links. The menu package ships with two other `Item` implementations, one for raw html and one for submenus.
+## Links
+
+In [Your First Menu](/menu/v1/usage/your-first-menu) we made first contact with links. Links are created with the `to` factory method, which accepts a url and a string of text (or html) as parameters.
+
+```php
+Menu::new()->add(Link::to('/', 'Home'));
+```
+
+Since links are a menu's bread and butter, there's a `link` method on the `Menu` class for convenience.
+
+```php
+Menu::new()->link('/', 'Home');
+```
+
+```html
+<ul>
+    <li><a href="/">Home</a></li>
+</ul>
+```
 
 ## Raw Html
 
@@ -14,9 +32,7 @@ Menu::new()->add(Html::raw('<span>Hi!</span>'));
 
 ```html
 <ul>
-    <li>
-        <span>Hi!</span>
-    </li>
+    <li><span>Hi!</span></li>
 </ul>
 ```
 
