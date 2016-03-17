@@ -66,7 +66,7 @@ This package provides an opinionated method to determine which old backups shoul
 - Rule #2: it will keep all backups for the amount of days specified in `keepAllBackupsForDays`
 - Rule #3: it'll only keep daily backups for the amount of days specified in `keepDailyBackupsForDays` for all backups
 older than those that rule #2 takes care of
-- Rule #4: it'll only keep weekly backups for the amount of days specified in `keepMonthlyBackupsForMonths` for all backups older than those that rule #3 takes care of
+- Rule #4: it'll only keep weekly backups for the amount of months specified in `keepMonthlyBackupsForMonths` for all backups older than those that rule #3 takes care of
 - Rule #5: it'll only keep yearly backups for the amount of years specified in `keepYearlyBackupsForYears` for all backups older than those that rule #4 takes care of
 - Rule #6: it will delete backups will keep on deleting backups until the used storage is lower than the number specified in `deleteOldestBackupsWhenUsingMoreMegabytesThan`.
 
