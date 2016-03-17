@@ -10,7 +10,7 @@ You can clean up your backups by running:
 php artisan backup:clean
 ```
 
-We'll tell you right of the bat that the package by default will never delete the youngest backup regardless it's size or age.
+We'll tell you right off the bat that the package by default will never delete the youngest backup regardless it's size or age.
 
 ## Determining which backups should be deleted
 
