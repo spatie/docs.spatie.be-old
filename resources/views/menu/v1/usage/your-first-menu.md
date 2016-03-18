@@ -2,7 +2,7 @@
 title: Your First Menu
 ---
 
-Let's get things started by building a simple menu with two links:
+Let's get things started by building a simple menu with two links.
 
 ```html
 <ul>
@@ -38,7 +38,7 @@ $menu = Menu::new()
     ->add(Link::to('/about', 'About'));
 ```
 
-When we render this menu, we'd output our original html string:
+When we render or echo the menu, it will output our intended html string.
 
 ```php
 // Via the `render` method:

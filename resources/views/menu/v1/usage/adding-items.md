@@ -4,7 +4,7 @@ title: Adding Items
 
 ## Links
 
-In [Your First Menu](/menu/v1/usage/your-first-menu) we made first contact with links. Links are created with the `to` factory method, which accepts a url and a string of text (or html) as parameters.
+Links are created with the `to` factory method, which accepts a url and a string of text (or html) as parameters.
 
 ```php
 Menu::new()->add(Link::to('/', 'Home'));
@@ -36,18 +36,9 @@ Menu::new()->add(Html::raw('<span>Hi!</span>'));
 </ul>
 ```
 
-Html elements can be set active, but this will have to be done manually since they don't have a dedicated url property.
-
-```php
-Menu::new()
-    ->add(
-        Html::raw('<span>Hi!</span>')->setActive()
-    );
-```
-
 ## Submenus
 
-Since the `Menu` class itself implements the `Item` interface, menu's can be nested. All you need to do is pass a new `Menu` instance to the `add` function:
+Since the `Menu` class itself implements the `Item` interface, menus can be nested. All you need to do is pass a new `Menu` instance to the `add` function:
 
 ```php
 Menu::new()

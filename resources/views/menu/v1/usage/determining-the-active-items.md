@@ -4,9 +4,7 @@ title: Determining the Active Items
 
 ## Manually Activating Items
 
-Menu items are required to implement an `isActive` method. `setActive` and `setInactive` are optional, but available on all default item implementations via the `Activatable` trait.
-
-Items can be set active manually:
+All items have an `isActive`, `setActive` and `setInactive` method. The last two allow you to manually determine whether an item is active or not (by default all items are inactive).
 
 ```php
 Menu::new()->add(Link::to('#', 'Active')->setActive());
@@ -24,7 +22,8 @@ If a child item is active, the parent will be considered active too:
 
 ```php
 Menu::new()->add(
-    Menu::new()->add(Link::to('#', 'Active')->setActive())
+    Menu::new()
+        ->add(Html::raw('<a href="#"><img src="/avatar.jpg"></a>')->setActive())
 );
 ```
 
@@ -33,16 +32,24 @@ Menu::new()->add(
     <li class="active">
         <ul>
             <li class="active">
-                <a href="#">Active</a>
+                <a href="#"><img src="/avatar.jpg"></a>
             </li>
         </ul>
     </li>
 </ul>
 ```
 
-## Determining the Active Items in Bulk
+## Automatically Determining the Active Items
 
-The `Menu` class also has a `setActive` method, but in this case it's meant to set it's children active based on a string or a callable.
+The `Menu` class also has a `setActive` method, but it behaves differently than the method on `Link` and `Html`. It accepts a url or a callable as it's parameter, and will use that to determine which underlying items are active.
+
+### Determining the Active Items With a Url
+
+
+
+> Html elements will never be set active this way since they don't have a dedicated url property
+
+### Determining the Active Items With a Callable
 
 ```php
 $menu = Menu::new()
@@ -66,4 +73,3 @@ $menu->setActive(function (Link $link) {
     <li><a href="/contact">Contact</a></li>
 </ul>
 ```
-
