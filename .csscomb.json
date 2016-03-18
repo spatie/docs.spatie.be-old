@@ -1,8 +1,7 @@
 {
   "exclude": [
     "node_modules/**",
-    "resources/assets/sass/front/utility/*",
-    "resources/assets/sass/back/utility/*"
+    "resources/assets/sass/_base/utility/*"
   ],
   "always-semicolon": true,
   "block-indent": "  ",
