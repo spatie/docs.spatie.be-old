@@ -45,6 +45,33 @@ The `Menu` class also has a `setActive` method, but it behaves differently than 
 
 ### Determining the Active Items With a Url
 
+By providing a url you can set all links that contain or are equal to the url as active. Mixing absolute and relative url's isn't an issue either.
+
+```php
+Menu::new()
+    ->add(Link::to('/', 'Home'))
+    ->add(Link::to('/about', 'About'))
+    ->add(Link::to('/contact', 'Contact'))
+    ->setActive('https://example.com/about');
+```
+
+```html
+<ul>
+    <li><a href="/">Home</a></li>
+    <li class="active"><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+</ul>
+```
+
+If your base url isn't `/`, you should provide a request root to improve the active url matching.
+
+```php
+Menu::new()
+    ->add(Link::to('/nl/', 'Home'))
+    ->add(Link::to('/nl/about', 'About'))
+    ->add(Link::to('/nl/contact', 'Contact'))
+    ->setActive('https://example.com/nl/about', '/nl');
+```
 
 <div class="alert -info">
 Html elements will never be set active this way since they don't have a dedicated url property
@@ -52,16 +79,14 @@ Html elements will never be set active this way since they don't have a dedicate
 
 ### Determining the Active Items With a Callable
 
+If you prefer more control over which items you want to set active, you can use a callable that returns a boolean.
+
 ```php
 $menu = Menu::new()
     ->add(Link::to('/', 'Home'))
     ->add(Link::to('/about', 'About'))
     ->add(Link::to('/contact', 'Contact'));
 
-// With a pattern:
-$menu->setActive('^/about');
-
-// With a callable:
 $menu->setActive(function (Link $link) {
     return $link->segment(1) === 'about';
 });
@@ -74,3 +99,8 @@ $menu->setActive(function (Link $link) {
     <li><a href="/contact">Contact</a></li>
 </ul>
 ```
+
+<div class="alert -info">
+If you only want to iterate over a specific type of item, you can typehint it in the callable, and it will ignore other instances.
+</div>
+</div>
