@@ -46,8 +46,9 @@ The `Menu` class also has a `setActive` method, but it behaves differently than 
 ### Determining the Active Items With a Url
 
 
-
-> Html elements will never be set active this way since they don't have a dedicated url property
+<div class="alert -info">
+Html elements will never be set active this way since they don't have a dedicated url property
+</div>
 
 ### Determining the Active Items With a Callable
 
