@@ -20,3 +20,15 @@ Menu::new()
 </ul>
 <hr>
 ```
+
+If you only want to add html in certain conditions, you can use `appendIf` and `prependIf`.
+
+```php
+$displayTitles = false;
+$displayRulers = true;
+
+Menu::new()
+    ->prependIf($displayTitles, '<h2>Title</h2>')
+    ->add(Link::to('/title/subpage', 'Subpage'))
+    ->appendIf($displayRulers, '<hr>');
+```

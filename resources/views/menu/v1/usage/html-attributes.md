@@ -51,3 +51,21 @@ Menu::new()
 ```
 
 These attributes will only be rendered if the elements are rendered inside of a parent (e.g. a link or a sub menu).
+
+## Active Items Class
+
+By default, the parent element of active items will receive an `active` class. If you'd like to override the class name, you can do so with `setActiveClass`.
+
+```php
+Menu::new()
+    ->setActiveClass('-is-active')
+    ->add(Link::to('/', 'Home')->setActive());
+```
+
+```html
+<ul>
+    <li class="is-active">
+        <a href="/">Home</a>
+    </li>
+</ul>
+```
