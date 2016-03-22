@@ -37,7 +37,11 @@ echo Html::avatar(User::findOrFail(1));
 ```
 
 ```html
-<img src="" alt="Sebastian De Deyne" class="avatar">
+<img 
+    src="https://www.gravatar.com/avatar/27e1bbf570a99f9a73dd0f34af844db1?d=mm&s=256"
+    alt="Sebastian De Deyne"
+    class="avatar"
+>
 ```
 
 ## Example: Registering Menu's for Quick Access
