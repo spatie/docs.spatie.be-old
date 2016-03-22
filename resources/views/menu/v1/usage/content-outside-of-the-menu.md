@@ -1,8 +1,8 @@
 ---
-title: Adding Content Outside the Menu
+title: Content Outside of the Menu
 ---
 
-You can append and prepend raw html outside of the `ul` tag with similarly named functions. This is useful for submenu titles or separators.
+You can append and prepend html outside of the `ul` tag with similarly named functions. This is useful for submenu titles or separators.
 
 ```php
 Menu::new()

@@ -11,17 +11,14 @@ return [
     'Usage' => [
         'Your First Menu',
         'Adding Items',
-        'Determining the Active Items',
-        'Dealing With Html Attributes',
-        'Adding Content Outside The Menu',
+        'Active Items',
+        'Html Attributes',
+        'Content Outside of the Menu',
         'Manipulating Items',
     ],
     'Laravel Menu' => [
         'Convenience Methods',
         'Using Macros',
-    ],
-    'Recipes' => [
-        'Multi Part Menu',
     ],
     'API' => [
         'Menu',

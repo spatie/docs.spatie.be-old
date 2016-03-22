@@ -1,6 +1,8 @@
 ---
-title: Dealing With Html Attributes
+title: Html Attributes
 ---
+
+## Item Attributes
 
 The `Menu` and `Link` classes use the `HtmlAttributes` trait, which enables you to add attributes to their main elements. These are respectively the `ul` and `a` tags.
 
@@ -16,7 +18,7 @@ Menu::new()
 <ul role="navigation" class="nav"></ul>
 ```
 
-The `setAttribute` and `addClass` methods are smart enough to merge class names on render. The latter can also accept an array instead of a string.
+The `setAttribute` and `addClass` methods are smart enough to merge class names on render. The latter can also accepts both arrays and strings.
 
 ```php
 Link::to('#', 'Back to top')
@@ -28,7 +30,9 @@ Link::to('#', 'Back to top')
 <a href="#" class="link button top">Back to top</a>
 ```
 
-The `Menu` and `Link`, and `Html` classes also use the `ParentAttributes` trait, which enables you to add attributes to their parent elements.
+## Parent Attributes
+
+The `Menu` and `Link`, and `Html` classes also use the `ParentAttributes` trait, which allows you to add attributes to their parent elements (which are generally a `ul` or `li` tags) via `setParentAttribute` and `addParentClass`.
 
 ```php
 Menu::new()
@@ -46,22 +50,4 @@ Menu::new()
 </ul>
 ```
 
-These attributes will only be rendered if the elements are rendered inside of a perent (e.g. a link or a sub menu).
-
-Since you have full control over the inner html of the item, you can't set attributes via the `HtmlAttributes` trait. You can however add parent attributes.
-
-```php
-Menu::new()->add(
-    Html::raw('<span>Hi!</span>')
-        ->setActive()
-        ->addParentClass('foo')
-);
-```
-
-```html
-<ul>
-    <li class="active foo">
-        <span>Hi!</span>
-    </li>
-</ul>
-```
+These attributes will only be rendered if the elements are rendered inside of a parent (e.g. a link or a sub menu).

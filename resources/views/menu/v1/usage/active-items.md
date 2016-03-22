@@ -1,5 +1,5 @@
 ---
-title: Determining the Active Items
+title: Active Items
 ---
 
 ## Manually Activating Items
@@ -49,9 +49,9 @@ By providing a url you can set all links that contain or are equal to the url as
 
 ```php
 Menu::new()
-    ->add(Link::to('/', 'Home'))
-    ->add(Link::to('/about', 'About'))
-    ->add(Link::to('/contact', 'Contact'))
+    ->link('/', 'Home')
+    ->link('/about', 'About')
+    ->link('/contact', 'Contact')
     ->setActive('https://example.com/about');
 ```
 
@@ -67,29 +67,30 @@ If your base url isn't `/`, you should provide a request root to improve the act
 
 ```php
 Menu::new()
-    ->add(Link::to('/nl/', 'Home'))
-    ->add(Link::to('/nl/about', 'About'))
-    ->add(Link::to('/nl/contact', 'Contact'))
+    ->link('/nl/', 'Home')
+    ->link('/nl/about', 'About')
+    ->link('/nl/contact', 'Contact')
     ->setActive('https://example.com/nl/about', '/nl');
 ```
 
 <div class="alert -info">
-Html elements will never be set active this way since they don't have a dedicated url property
+Html elements won't ever be set active automatically since they don't have a dedicated url property.
 </div>
+
+Calling `setActive` with a url will recursively traverse through submenus.
 
 ### Determining the Active Items With a Callable
 
-If you prefer more control over which items you want to set active, you can use a callable that returns a boolean.
+If you want more control over which items you want to set active, you can use a callable that returns a boolean.
 
 ```php
 $menu = Menu::new()
-    ->add(Link::to('/', 'Home'))
-    ->add(Link::to('/about', 'About'))
-    ->add(Link::to('/contact', 'Contact'));
-
-$menu->setActive(function (Link $link) {
-    return $link->segment(1) === 'about';
-});
+    ->link('/', 'Home')
+    ->link('/about', 'About')
+    ->link('/contact', 'Contact')
+    ->setActive(function (Link $link) {
+        return $link->segment(1) === 'about';
+    });
 ```
 
 ```html
@@ -101,6 +102,7 @@ $menu->setActive(function (Link $link) {
 ```
 
 <div class="alert -info">
-If you only want to iterate over a specific type of item, you can typehint it in the callable, and it will ignore other instances.
+If you only want to iterate over a specific type of item, you can typehint it in the callable, and it will ignore other instances. See <a href="/menu/v1/usage/manipulating-items">Manipulating Items</a> for some examples.
 </div>
-</div>
+
+The callable will not traverse through submenus. If you want to traverse deeper, you'll have to manually add a `setActive` call with a callable that typehints `Menu`.

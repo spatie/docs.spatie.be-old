@@ -8,6 +8,8 @@ There are three methods to manipulate items in a menu:
 - `registerFilter`: Registers a manipulation that will be applied to all items added afterwards
 - `applyToAll`: Applies a manipulation to all existing and all future items
 
+## Typehinting Callables
+
 All methods require a `callable` as their first and only parameter. The callable will receive the item as it's parameter. If this parameter is typehinted, the manipulation will only be applied to items of that type.
 
 ```php
@@ -24,9 +26,9 @@ Menu::new()
 
 In the above example, all links will recieve a `link` class, and all html chunks will receive an `html` class.
 
-## `each(callable $callable)`
+## each
 
-Iterates over all existing items, and applies a manipulation. If the result of the callable is `false` (strict), the item will be removed from the menu.
+Iterates over all existing items, and applies a manipulation.
 
 ```php
 Menu::new()
@@ -34,9 +36,9 @@ Menu::new()
     ->add(Link::to('/bar-before', 'Bar before'))
     ->each(function (Link $link) {
 
-        // Return false if string doesn't contain 'Foo'
+        // Return if string doesn't contain 'Foo'
         if (strpos($link->getText(), 'Foo') === false) {
-            return false;
+            return;
         }
 
         $link->addClass('-has-foo');
@@ -48,14 +50,15 @@ Menu::new()
 ```html
 <ul>
     <li><a href="/foo-before" class="-has-foo">Foo before</a></li>
+    <li><a href="/bar-before">Bar before</a></li>
     <li><a href="/foo-after">Foo after</a></li>
     <li><a href="/bar-after">Bar after</a></li>
 </ul>
 ```
 
-## `registerFilter(callable $callable)`
+## registerFilter
 
-Registers a manipulation that will be applied on every new item. If the result of the callable is `false` (strict), the item won't be added to the menu.
+Registers a manipulation that will be applied on every new item.
 
 ```php
 Menu::new()
@@ -63,9 +66,9 @@ Menu::new()
     ->add(Link::to('/bar-before', 'Bar before'))
     ->registerFilter(function (Link $link) {
 
-        // Return false if string doesn't contain 'Foo'
+        // Return if string doesn't contain 'Foo'
         if (strpos($link->getText(), 'Foo') === false) {
-            return false;
+            return;
         }
 
         $link->addClass('-has-foo');
@@ -79,12 +82,13 @@ Menu::new()
     <li><a href="/foo-before">Foo before</a></li>
     <li><a href="/bar-before">Bar before</a></li>
     <li><a href="/foo-after" class="-has-foo">Foo after</a></li>
+    <li><a href="/bar-after">Bar after</a></li>
 </ul>
 ```
 
-## `applyToAll(callable $callable)`
+## applyToAll
 
-Applies a manipulation to all existing and future items (does a call to both `each` and `registerFilter` under the hood).
+Applies a manipulation to all existing and future items no matter where it's called.
 
 ```php
 Menu::new()
@@ -92,9 +96,9 @@ Menu::new()
     ->add(Link::to('/bar-before', 'Bar before'))
     ->applyToAll(function (Link $link) {
 
-        // Return false if string doesn't contain 'Foo'
+        // Return if string doesn't contain 'Foo'
         if (strpos($link->getText(), 'Foo') === false) {
-            return false;
+            return;
         }
 
         $link->addClass('-has-foo');
@@ -106,6 +110,8 @@ Menu::new()
 ```html
 <ul>
     <li><a href="/foo-before" class="-has-foo">Foo before</a></li>
+    <li><a href="/bar-before">Bar before</a></li>
     <li><a href="/foo-after" class="-has-foo">Foo after</a></li>
+    <li><a href="/bar-after">Bar after</a></li>
 </ul>
 ```

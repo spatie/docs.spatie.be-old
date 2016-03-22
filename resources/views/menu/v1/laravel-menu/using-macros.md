@@ -6,9 +6,9 @@ All classes in the laravel-menu package use the `Macroable` trait for quick & ea
 
 ## Example: Convenience Methods for Links
 
-```php
-use Spatie\Menu\Laravel\Link;
+`Spatie\Menu\Laravel\Link`
 
+```php
 Link::macro('product', function (Product $product) {
     return Link::action('ProductController@show', $product->name, [$product->id]);
 });
@@ -22,9 +22,9 @@ echo Link::product(Product::findOrFail(1));
 
 ## Example: Html Macros
 
-```php
-use Spatie\Menu\Laravel\Html;
+`Spatie\Menu\Laravel\Html`
 
+```php
 Html::macro('avatar', function (User $user) {
     return Html::raw(sprintf(
         '<img src="%s" alt="%s" class="avatar">',
@@ -42,9 +42,9 @@ echo Html::avatar(User::findOrFail(1));
 
 ## Example: Registering Menu's for Quick Access
 
-```php
-use Spatie\Menu\Laravel\Menu;
+`Spatie\Menu\Laravel\Menu`
 
+```php
 Menu::macro('main', function() {
     return Menu::new()
         ->route('home', 'Home')

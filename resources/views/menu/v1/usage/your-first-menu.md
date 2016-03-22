@@ -2,7 +2,7 @@
 title: Your First Menu
 ---
 
-Let's get things started by building a simple menu with two links.
+Let's get things started by building a simple menu with two links. All of the following examples are using classes from the `Spatie\Menu` namespace.
 
 ```html
 <ul>
