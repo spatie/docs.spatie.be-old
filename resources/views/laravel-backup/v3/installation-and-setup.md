@@ -64,7 +64,7 @@ return [
 
             /*
              * The names of the connections to the databases that should be part of the backup.
-             * Currently only MySQL-databases are supported.
+             * Currently only MySQL-and PostgreSQL-databases are supported.
              */
             'databases' => [
                 'mysql'
@@ -73,11 +73,10 @@ return [
         
         'destination' => [
 
-            /*
-             * The filesystems you on which the backups will be stored. Choose one or more
-             * of the filesystems you configured in app/config/filesystems.php
-             */
-            'filesystems' => [
+           /*
+            * The disk names on which the backups will be stored. 
+            */
+            'disks' => [
                 'local'
             ],
         ],
@@ -134,7 +133,7 @@ return [
     'monitorBackups' => [
         [
             'name' => env('APP_URL'),
-            'filesystems' => ['local'],
+            'disks' => ['local'],
             'newestBackupsShouldNotBeOlderThanDays' => 1,
             'storageUsedMayNotBeHigherThanMegabytes' => 5000,
         ],
@@ -142,7 +141,7 @@ return [
         /*
         [
             'name' => 'name of the second app',
-            'filesystems' => ['local'],
+            'disks' => ['local'],
             'newestBackupsShouldNotBeOlderThanDays' => 1,
             'storageUsedMayNotBeHigherThanMegabytes' => 5000,
         ],
@@ -158,7 +157,7 @@ return [
 
         /*
          * Here you can specify the ways you want to be notified when certain
-         * events take place. Possible values are "log", "mail" and "slack".
+         * events take place. Possible values are "log", "mail", "slack" and "pushover".
          * 
          * Slack requires the installation of the maknz/slack package.
          */
@@ -168,7 +167,7 @@ return [
             'whenHealthyBackupWasFound'   => ['log'],
             'whenBackupHasFailed'         => ['log', 'mail'],
             'whenCleanupHasFailed'        => ['log', 'mail'],
-            'whenUnHealthyBackupWasFound' => ['log', 'mail']
+            'whenUnhealthyBackupWasFound' => ['log', 'mail']
         ],
 
         /*
@@ -187,13 +186,21 @@ return [
             'username' => 'Backup bot',
             'icon'     => ':robot:',
         ],
+        
+        /*
+         * Here you can specify how messages should be sent to Pushover.
+         */
+        'pushover' => [
+            'token' => env('PUSHOVER_APP_TOKEN'),
+            'user'  => env('PUSHOVER_USER_KEY'),
+        ],
     ]
 ];
 ```
 
 ## Scheduling
 
-After you have performed the basic installation you can start using the `backup:run`, `backup:clean`, `backup:overview` and `backup:monitor`-commands. In most cases you'll want to schedule these commands so you don't have to manually run `backup:run` everytime you need a new backup.
+After you have performed the basic installation you can start using the `backup:run`, `backup:clean`, `backup:list` and `backup:monitor`-commands. In most cases you'll want to schedule these commands so you don't have to manually run `backup:run` everytime you need a new backup.
 
 The commands can, like an other command, be scheduled in Laravel's console kernel.
 
@@ -217,3 +224,20 @@ nothing gets backed up.
 To notify you of such events the package contains monitoring functionality. It will inform you when backups become too old or when they take up too much storage.
 
 Learn how to [set up monitoring](/laravel-backup/v3/monitoring-the-health-of-all-backups/overview).
+
+## Dumping the database
+`mysqldump` and `pg_dump` are used to dump the database. If they are not installed in a default location, you can add a key named `dump_command_path` in Laravel's own `database.php` config file. Be sure to only filled in the path to the binary without the name of the binary itself.
+
+If your database dump takes a long time you might hit the default timeout of 60 seconds. You can set a higher (or lower) limit by providing a `dump_command_timeout` config key containing how long the command may run in seconds.
+
+Here's an example for MySQL:
+```php
+//config/databases.php
+'connections' => [
+	'mysql' => [
+		'dump_command_path' => '/path/to/the/binary', // only the path, so without 'mysqldump' or 'pg_dump'
+		'dump_command_timeout' => 60 * 5, //5 minute timeout
+		'driver'    => 'mysql',
+		...
+	],
+```

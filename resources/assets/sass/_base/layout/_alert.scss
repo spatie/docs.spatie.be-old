@@ -1,36 +1,35 @@
-@mixin alert($color){
-    background: color($color, lightest);
-    color: color($color, dark);
-    border-color: color($color, light);
+@mixin alert($color) {
+  background: color($color, lightest);
+  border-color: color($color, light);
+  color: color($color, dark);
 }
 
 .alert {
-    padding: 1em;
-    margin: 1.5em 0;
-    border-left: 3px solid transparent;
+  border-left: 3px solid transparent;
+  margin: 1.5em 0;
+  padding: 1em;
 
-    a{
-        color: inherit;
-    }
+  a {
+    color: inherit;
+  }
 
-    p {
-        margin: 0;
-    }
+  p {
+    margin: 0;
+  }
 
-    &.-info {
-        @include alert($blue);
-    }
+  &.-info {
+    @include alert($blue);
+  }
 
-    &.-success {
-        @include alert($green);
-    }
+  &.-success {
+    @include alert($green);
+  }
 
-    &.-warning {
-        @include alert($orange);
-    }
+  &.-warning {
+    @include alert($orange);
+  }
 
-    &.-error {
-        @include alert($red);
-    }
+  &.-error {
+    @include alert($red);
+  }
 }
-

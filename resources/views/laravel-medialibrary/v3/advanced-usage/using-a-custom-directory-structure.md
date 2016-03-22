@@ -2,7 +2,7 @@
 title: Using a custom directory structure
 ---
 
-<span class="version">v3.9+</span>
+<span class="badge">v3.9+</span>
 
 By default files will be stored inside a directory that uses
 the `id` of it's `Media`-object as a name. Converted images will be stored inside a directory

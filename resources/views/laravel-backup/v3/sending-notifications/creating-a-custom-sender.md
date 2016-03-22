@@ -2,7 +2,10 @@
 title: Creating a custom sender
 ---
 
-By default the backup package can notify you by writing something in the log, by sending a mail, or if `maknz/slack` is installed, posting a message on Slack.
+By default the backup package can notify you by:
+- writing something in the log
+- by sending a mail
+- if `maknz/slack` is installed, posting a message on [Slack](https://slack.com)
 
 If you want to be notified via another channel you can create your own sender. A valid sender is any object that implements the `Spatie\Backup\Notifications\SendsNotifications`-interface.
 

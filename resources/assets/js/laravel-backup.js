@@ -1,8 +1,6 @@
 require('./_base');
-const vide = require('vide');
-
+require('vide');
 (function headerVideo() {
-
     $('.\\$introduction [data-header-background]').vide({
         mp4: '/video/backup/header.mp4',
         webm: '/video/backup/header.webm',
@@ -17,5 +15,4 @@ const vide = require('vide');
         resizing: true,
         bgColor: 'transparent',
     });
-
 })();
