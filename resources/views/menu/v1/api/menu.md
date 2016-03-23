@@ -2,6 +2,10 @@
 title: Menu
 ---
 
+## `Spatie\Menu\Menu`
+
+- Implements `Spatie\Menu\Item`, `Countable`
+
 ### new
 
 ```php
@@ -262,4 +266,131 @@ public function render() : string
  * @return int
  */
 public function count() : int
+```
+
+### setAttribute
+
+```php
+/**
+ * @param string $attribute
+ * @param string $value
+ *
+ * @return $this
+ */
+public function setAttribute(string $attribute, string $value = '')
+```
+
+### addClass
+
+```php
+/**
+ * @param string $class
+ *
+ * @return $this
+ */
+public function addClass(string $class)
+```
+
+### getParentAttributes
+
+```php
+/**
+ * Return an array of attributes to apply on the parent. This generally means 
+ * the attributes that should be applied on the <li> tag.
+ *
+ * @return array
+ */
+public function getParentAttributes() : array
+```
+
+### setParentAttribute
+
+```php
+/**
+ * @param string $attribute
+ * @param string $value
+ *
+ * @return $this
+ */
+public function setParentAttribute(string $attribute, string $value = '')
+```
+
+### addParentClass
+
+```php
+/**
+ * @param string $class
+ *
+ * @return $this
+ */
+public function addParentClass(string $class)
+```
+
+## `Spatie\Menu\Laravel\Menu`
+
+- Extends `Spatie\Menu\Laravel\Menu`
+- Uses `Illuminate\Support\Traits\Macroable`
+
+### setActiveFromRequest
+
+```php
+/**
+ * Set all relevant children active based on the current request's URL.
+ *
+ * /, /about, /contact => request to /about will set the about link active.
+ *
+ * /en, /en/about, /en/contact => request to /en won't set /en active if the
+ *                                request root is set to /en.
+ *
+ * @param string $requestRoot If the link's URL is an exact match with the
+ *                            request root, the link won't be set active.
+ *                            This behavior is to avoid having home links
+ *                            active on every request.
+ *
+ * @return $this
+ */
+public function setActiveFromRequest(string $requestRoot = '')
+```
+
+### url
+
+```php
+/**
+ * @param string $path
+ * @param string $text
+ * @param array $parameters
+ * @param bool|null $secure
+ *
+ * @return $this
+ */
+public function url(string $path, string $text, array $parameters = [], $secure = null)
+```
+
+### action
+
+```php
+/**
+ * @param string $action
+ * @param string $text
+ * @param array $parameters
+ * @param bool $absolute
+ *
+ * @return $this
+ */
+public function action(string $action, string $text, array $parameters = [], bool $absolute = true)
+```
+
+### route
+
+```php
+/**
+ * @param string $name
+ * @param string $text
+ * @param array $parameters
+ * @param bool $absolute
+ * @param \Illuminate\Routing\Route|null $route
+ *
+ * @return $this
+ */
+public function route(string $name, string $text, array $parameters = [], bool $absolute = true, $route = null)
 ```

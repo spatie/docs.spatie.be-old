@@ -25,7 +25,7 @@ return [
         'Convenience Methods',
         'Using Macros',
     ],
-    'API' => [
+    'Api' => [
         'Menu',
         'Link',
         'Html',
