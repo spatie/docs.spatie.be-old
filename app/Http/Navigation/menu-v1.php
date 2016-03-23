@@ -8,20 +8,20 @@ return [
         'Questions and Issues',
         'Changelog',
     ],
-    'Basics' => [
+    'Basic Usage' => [
         'Your First Menu',
         'Adding Items',
     ],
-    'Items' => [
+    'Items in Depth' => [
         'Active Items',
         'Manipulating Items',
     ],
-    'Html' => [
+    'Controlling the Html Output' => [
         'Item Attributes',
         'Parent Attributes',
         'Appending and Prepending Html',
     ],
-    'Laravel Menu' => [
+    'Menus in Your Laravel App' => [
         'Convenience Methods',
         'Using Macros',
     ],
