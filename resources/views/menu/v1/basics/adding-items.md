@@ -6,7 +6,7 @@ title: Adding Items
 
 `Spatie\Menu\Link`
 
-Links are created with the `to` factory method, which accepts a url and a string of text (or html) as parameters. There's also a convenience method on the `Menu` class.
+Links are created with the `to` factory method, which requires a url and a string of text (or html) as parameters. There's also a convenience method on the `Menu` class.
 
 ```php
 Menu::new()->add(Link::to('/', 'Home'));
@@ -107,7 +107,7 @@ Menu::new()
 </ul>
 ```
 
-You can also exclusively use submenus to divide your menu in sections.
+You can also use submenus to divide your menu in sections.
 
 ```php
 Menu::new()

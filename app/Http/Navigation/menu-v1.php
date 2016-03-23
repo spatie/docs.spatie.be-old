@@ -8,13 +8,18 @@ return [
         'Questions and Issues',
         'Changelog',
     ],
-    'Usage' => [
+    'Basics' => [
         'Your First Menu',
         'Adding Items',
+    ],
+    'Items' => [
         'Active Items',
-        'Html Attributes',
-        'Content Outside of the Menu',
         'Manipulating Items',
+    ],
+    'Html' => [
+        'Item Attributes',
+        'Parent Attributes',
+        'Appending and Prepending Html',
     ],
     'Laravel Menu' => [
         'Convenience Methods',

@@ -17,7 +17,7 @@ Menu's are created via the `new` factory method.
 $menu = Menu::new();
 ```
 
-Links are created with the `to` factory method, which accepts a url and a string of text (or html) as parameters.
+Links are created with the `to` factory method, which requires a url and a string of text (or html) as parameters.
 
 ```php
 $link = Link::to('/', 'Home');

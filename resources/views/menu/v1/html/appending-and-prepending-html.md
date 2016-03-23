@@ -1,5 +1,5 @@
 ---
-title: Content Outside of the Menu
+title: Appending and Prepending Html
 ---
 
 You can append and prepend html outside of the `ul` tag with similarly named functions. This is useful for submenu titles or separators.

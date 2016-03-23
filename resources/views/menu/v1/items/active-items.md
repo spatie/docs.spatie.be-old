@@ -106,3 +106,21 @@ If you only want to iterate over a specific type of item, you can typehint it in
 </div>
 
 The callable will not traverse through submenus. If you want to traverse deeper, you'll have to manually add a `setActive` call with a callable that typehints `Menu`.
+
+## Active Items Class
+
+By default, the parent element of active items will receive an `active` class. If you'd like to override the class name, you can do so with `setActiveClass`.
+
+```php
+Menu::new()
+    ->setActiveClass('-is-active')
+    ->add(Link::to('/', 'Home')->setActive());
+```
+
+```html
+<ul>
+    <li class="is-active">
+        <a href="/">Home</a>
+    </li>
+</ul>
+```
