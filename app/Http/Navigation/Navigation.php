@@ -28,10 +28,6 @@ class Navigation
 
                 $url = str_slug($item);
 
-                if (ends_with($url, 'introduction')) {
-                    $url .= '#clean';
-                }
-
                 if (!is_null($title)) {
                     $url = str_slug($title) . '/' . $url;
                 }
