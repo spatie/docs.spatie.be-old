@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-viewport class="$viewport-loading {{ ends_with($pagePath, 'introduction') ? '$introduction' : '' }}">
+<html data-viewport class="$viewport-loading">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

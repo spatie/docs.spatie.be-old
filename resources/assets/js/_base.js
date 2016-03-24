@@ -18,37 +18,6 @@ viewport.init({
 
 })();
 
-(function introductionScroll() {
-
-    if (window.location.hash == '#clean') {
-        makeHeaderSmall().addClass('$header-clear-animation');
-    }
-
-    $(window).on('scroll.introduction', function () {
-        if (viewport.state.started) {
-            makeHeaderSmall();
-            $(window).off('scroll.introduction');
-        }
-    });
-
-    $('[data-home-link]').on('click', function (e) {
-
-        e.preventDefault();
-
-        if ($('html').hasClass('$introduction')) {
-            makeHeaderSmall();
-            return;
-        }
-
-        window.location = $(this).attr('href');
-    });
-
-    function makeHeaderSmall() {
-        return $('html').removeClass('$introduction');
-    }
-
-})();
-
 (function smallNav() {
 
     $('[data-nav-switch]').on('click', function () {

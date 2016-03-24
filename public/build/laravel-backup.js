@@ -45,10 +45,8 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(2);
-	const vide = __webpack_require__(25);
-
+	__webpack_require__(25);
 	(function headerVideo() {
-
 	    $('.\\$introduction [data-header-background]').vide({
 	        mp4: '/video/backup/header.mp4',
 	        webm: '/video/backup/header.webm',
@@ -63,7 +61,6 @@
 	        resizing: true,
 	        bgColor: 'transparent',
 	    });
-
 	})();
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
@@ -9926,37 +9923,6 @@
 	    hljs.registerLanguage('php', __webpack_require__(23));
 	    hljs.registerLanguage('html', __webpack_require__(24));
 	    hljs.initHighlighting();
-
-	})();
-
-	(function introductionScroll() {
-
-	    if (window.location.hash == '#clean') {
-	        makeHeaderSmall().addClass('$header-clear-animation');
-	    }
-
-	    $(window).on('scroll.introduction', function () {
-	        if (viewport.state.started) {
-	            makeHeaderSmall();
-	            $(window).off('scroll.introduction');
-	        }
-	    });
-
-	    $('[data-home-link]').on('click', function (e) {
-
-	        e.preventDefault();
-
-	        if ($('html').hasClass('$introduction')) {
-	            makeHeaderSmall();
-	            return;
-	        }
-
-	        window.location = $(this).attr('href');
-	    });
-
-	    function makeHeaderSmall() {
-	        return $('html').removeClass('$introduction');
-	    }
 
 	})();
 

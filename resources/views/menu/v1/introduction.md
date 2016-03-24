@@ -100,7 +100,7 @@ Menu::macro('main', function () {
 
 <section class="article_badges">
     <a href="https://packagist.org/packages/spatie/menu"><img src="https://img.shields.io/badge/packagist-spatie/menu-orange.svg?style=flat-square" alt="spatie/menu"></a>
-    <a href="https://github.com/spatie/menu/releases"><img src="https://img.shields.io/github/release/spatie/menu.svg?style=flat-square" alt="Latest Version"></a>
+    <a href="https://packagist.org/packages/spatie/menu"><img src="https://img.shields.io/packagist/v/spatie/menu.svg?style=flat-square" alt="Latest Version on Packagist"></a>
     <a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></a>
     <a href="https://travis-ci.org/spatie/menu"><img src="https://img.shields.io/travis/spatie/menu/master.svg?style=flat-square" alt="Build Status"></a>
     <a href="https://insight.sensiolabs.com/projects/3f243a38-a1c7-42f5-96c8-37526e807029"><img src="https://img.shields.io/sensiolabs/i/3f243a38-a1c7-42f5-96c8-37526e807029.svg?style=flat-square" alt="SensioLabsInsight"></a>
@@ -110,7 +110,7 @@ Menu::macro('main', function () {
 
 <section class="article_badges">
     <a href="https://packagist.org/packages/spatie/laravel-menu"><img src="https://img.shields.io/badge/packagist-spatie/laravel--menu-orange.svg?style=flat-square" alt="spatie/laravel-menu"></a>
-    <a href="https://github.com/spatie/laravel-menu/releases"><img src="https://img.shields.io/github/release/spatie/laravel-menu.svg?style=flat-square" alt="Latest Version"></a>
+    <a href="https://packagist.org/packages/spatie/laravel-menu"><img src="https://img.shields.io/packagist/v/spatie/laravel-menu.svg?style=flat-square" alt="Latest Version on Packagist"></a>
     <a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></a>
     <a href="https://travis-ci.org/spatie/laravel-menu"><img src="https://img.shields.io/travis/spatie/laravel-menu/master.svg?style=flat-square" alt="Build Status"></a>
     <a href="https://insight.sensiolabs.com/projects/3f243a38-a1c7-42f5-96c8-37526e807029"><img src="https://img.shields.io/sensiolabs/i/3f243a38-a1c7-42f5-96c8-37526e807029.svg?style=flat-square" alt="SensioLabsInsight"></a>
