@@ -2,7 +2,7 @@
 title: Associating files
 ---
 
-You can add associate a file with a model like this:
+You can associate a file with a model like this:
 
 ```php
 $newsItem = News::find(1);
@@ -10,7 +10,7 @@ $newsItem->addMedia($pathToFile)
          ->toMediaLibrary();
 ```
 
-The file will now be associated with the news item. Adding a file will move your file to your configured disk.
+The file will now be associated with the newsitem and will be moved to the disk you've configured.
 
 If you want to preserve the original file, you can call `preservingOriginal`:
 
