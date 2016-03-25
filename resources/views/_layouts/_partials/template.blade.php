@@ -50,14 +50,11 @@
             <article class="article">
                 @yield('content')
 
-                @if(!empty($previousUrl))
+                @if($previousUrl)
                     <a href="{{ url($previousUrl) }}"> previous </a>
                 @endif
 
-                @if(!empty($nextUrl))
-                    @if(!empty($previousUrl))
-                    -
-                    @endif
+                @if($nextUrl)
                      <a href="{{ url($nextUrl) }}"> next </a>
                 @endif
             </article>

@@ -43,16 +43,10 @@ class PageController extends Controller
         $pageProperties['package'] = current_package();
         $pageProperties['version'] = current_version();
 
-        $basePath = "{$pageProperties['package']}/{$pageProperties['version']}";
-
-        $nextPage = app(Navigation::class)->getNextPage();
-
-        $previousPage = app(Navigation::class)->getPreviousPage();
-
-        $pageProperties['previousUrl'] = !empty($previousPage) ? "{$basePath}/{$previousPage}" : "";
+        $pageProperties['previousUrl'] = app(Navigation::class)->getPreviousPage();
 //        dd($pageProperties['previousUrl']);
 
-        $pageProperties['nextUrl'] = !empty($nextPage) ? "{$basePath}/{$nextPage}" : "";
+        $pageProperties['nextUrl'] = app(Navigation::class)->getNextPage();
 //        dd($pageProperties['nextUrl']);
 
         return $pageProperties;

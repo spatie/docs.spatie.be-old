@@ -46,30 +46,29 @@ class Navigation
             });
     }
 
-    public function getNextPage()
+    public function getNextPage() : string
     {
         return $this->getPreviousOrNextPage(1);
     }
 
-    public function getPreviousPage()
+    public function getPreviousPage() : string
     {
         return $this->getPreviousOrNextPage(-1);
     }
 
-    /**
-     * @param int $addition
-     *
-     * @return string
-     */
     protected function getPreviousOrNextPage(int $addition) : string
     {
+        $basePath = "{$this->package}/{$this->version}";
+
         $flattenedNavigation = $this->getFlattenedNavigation();
 
         $slug = collect(request()->segments())->except(0, 1)->implode('/');
 
         $currentIndex = $flattenedNavigation->search($slug);
 
-        return $flattenedNavigation->get($currentIndex+$addition, '');
+        $page = $flattenedNavigation->get($currentIndex+$addition, '');
+
+        return !empty($page) ? "{$basePath}/{$page}" : '';
     }
 
     private function generateMenu(string $prefix, array $items) : Menu
