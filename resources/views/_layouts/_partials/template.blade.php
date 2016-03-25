@@ -49,6 +49,17 @@
         <div class="grid_col -width-2/3">
             <article class="article">
                 @yield('content')
+
+                @if(!empty($previousUrl))
+                    <a href="{{ url($previousUrl) }}"> previous </a>
+                @endif
+
+                @if(!empty($nextUrl))
+                    @if(!empty($previousUrl))
+                    -
+                    @endif
+                     <a href="{{ url($nextUrl) }}"> next </a>
+                @endif
             </article>
             @include('_partials.toolbar')
         </div>
