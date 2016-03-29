@@ -54,6 +54,7 @@
                     <a href="{{ url($previousUrl) }}"> previous </a>
                 @endif
 
+
                 @if($nextUrl)
                      <a href="{{ url($nextUrl) }}"> next </a>
                 @endif
