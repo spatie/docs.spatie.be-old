@@ -1226,18 +1226,17 @@ sup {
   text-align: center; }
   .pagination:after {
     width: 100%;
-    top: 50%;
+    top: .7em;
     left: 0;
     position: absolute;
     content: ' ';
     height: 0;
-    transform: translateY(-1px);
     border-top: solid 3px #f5f2ea; }
 
 .pagination_buttons {
   background: #fff;
-  display: inline-block;
-  z-index: 10; }
+  z-index: 10;
+  display: inline-block; }
 
 .pagination_button {
   line-height: 2;

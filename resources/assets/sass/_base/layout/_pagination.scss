@@ -4,20 +4,19 @@
 
     &:after {
         width: 100%;
-        top: 50%;
+        top: .7em;
         left: 0;
         position: absolute;
         content: ' ';
         height: 0;
-        transform: translateY(-1px);
         border-top: solid 3px color($gold, lightest);
     }
 }
 
 .pagination_buttons {
     background: $white;
-    display: inline-block;
     z-index: z-index(above);
+    display: inline-block;
 }
 
 .pagination_button {
