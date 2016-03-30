@@ -13,7 +13,6 @@
 <body>
 @include('_partials.analytics')
 <header class="header">
-    <a href="#main" class="header_arrow" data-home-link></a>
     <div class="header_background" data-header-background></div>
     <div class="header_content">
         <div class="grid">
