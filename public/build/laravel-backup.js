@@ -79,6 +79,11 @@
 
 	})();
 
+	(function focusSearch() {
+	    $('#algolia-search').focus();
+	})();
+
+
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },

@@ -25,3 +25,8 @@ viewport.init({
     });
 
 })();
+
+(function focusSearch() {
+    $('#algolia-search').focus();
+})();
+

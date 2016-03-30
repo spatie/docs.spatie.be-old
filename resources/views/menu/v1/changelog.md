@@ -2,4 +2,7 @@
 title: Changelog
 ---
 
-All notable changes to `menu` and `laravel-menu` are documented in [their](https://github.com/spatie/menu/blob/master/CHANGELOG.md) [changelogs](https://github.com/spatie/laravel-menu/blob/master/CHANGELOG.md) the changelog on GitHub.
+All notable changes to `menu` and `laravel-menu` are documented in their changelogs on GitHub:
+
+- [menu changelog](https://github.com/spatie/menu/blob/master/CHANGELOG.md) 
+- [laravel-menu changelog](https://github.com/spatie/laravel-menu/blob/master/CHANGELOG.md) 

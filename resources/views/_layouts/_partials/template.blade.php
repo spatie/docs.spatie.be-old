@@ -49,14 +49,8 @@
             <article class="article">
                 @yield('content')
 
-                @if($previousUrl)
-                    <a href="{{ url($previousUrl) }}"> previous </a>
-                @endif
+                @include('_partials.pagination')
 
-
-                @if($nextUrl)
-                     <a href="{{ url($nextUrl) }}"> next </a>
-                @endif
             </article>
             @include('_partials.toolbar')
         </div>
@@ -71,16 +65,8 @@
     </div>
     <a href="#" data-viewport-scroll class="nav_button -bottom">up</a>
 </footer>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
-<script type="text/javascript"> docsearch({
-        apiKey: '7a1f56fb06bd42e657e82bdafe86cef3',
-        indexName: 'spatie_be',
-        inputSelector: '#algolia-search',
-        algoliaOptions: {
-            'hitsPerPage': 5,
-            'facetFilters': ['project:{{ $package }}']
-        }
-    });
-</script>
+
+@include('_partials.algolia')
+
 </body>
 </html>

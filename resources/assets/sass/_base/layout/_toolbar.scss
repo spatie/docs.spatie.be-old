@@ -12,7 +12,7 @@
 }
 
 .toolbar_item {
-  @include tag(color($gold), color($gold, lighter, .2));
+  @include tag(color($gold), color($gold, lightest));
 
   line-height: 2;
 
@@ -28,7 +28,7 @@
   }
 
   &:hover {
-    @include tag(color($gold, dark), color($gold, lighter, .5));
+    @include tag(color($gold, dark), color($gold, lighter));
 
     & .github_back {
       fill: color($gold, dark, .8);
