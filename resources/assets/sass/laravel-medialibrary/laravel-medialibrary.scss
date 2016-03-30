@@ -1,57 +1,14 @@
 @import '../_base/base';
 
 .header {
-  background-color: color($blue, lighter);
   overflow: hidden;
 }
 
 .header_background {
-  @include mq(s) {
-    display: none;
-  }
-
-  animation: kenburns 30s infinite;
-  animation-direction: alternate;
-  animation-timing-function: ease-in-out;
   background-color: color($blue, lighter);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  transform-origin: 40% 30%;
-
-  &:after {
-    background-color: color($blue, lighter);
-    opacity: 1;
-
-    .\$introduction & {
-      opacity: .6;
-    }
-  }
 }
 
 .header_title,
 .header_slogan {
   background: color($blue, darker, .2);
-}
-
-
-.header_arrow {
-  @include circle(50px);
-
-  background-color: color($orange);
-  bottom: 1em;
-  font-size: 30px;
-  left: 50%;
-  position: absolute;
-  transform: translateX(-50%) scale(0);
-  z-index: 4;
-
-  &:after {
-    color: $white;
-    content: '↧';
-  }
-
-  .\$introduction & {
-    transform: translateX(-50%) scale(1);
-  }
 }

@@ -44,19 +44,45 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(2);
+	__webpack_require__(1);
 
-	(function headerVideo() {
-
-	    $('.\\$introduction [data-header-background]')
-	        .attr('style', 'background-image: url("/images/medialibrary/header.jpg")');
-
-	})();
-
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
 /* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {const viewport = __webpack_require__(3);
+	const hljs = __webpack_require__(21);
+
+	viewport.init({
+	    config: {
+	        start: 50,
+	        end: 200,
+	        small: 900,
+	    },
+	});
+
+	(function syntaxHighlighting() {
+
+	    hljs.registerLanguage('bash', __webpack_require__(22));
+	    hljs.registerLanguage('php', __webpack_require__(23));
+	    hljs.registerLanguage('html', __webpack_require__(24));
+	    hljs.initHighlighting();
+
+	})();
+
+	(function smallNav() {
+
+	    $('[data-nav-switch]').on('click', function () {
+	        $('html').toggleClass('$nav-small');
+	    });
+
+	})();
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -9893,46 +9919,12 @@
 
 
 /***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {const viewport = __webpack_require__(3);
-	const hljs = __webpack_require__(21);
-
-	viewport.init({
-	    config: {
-	        start: 50,
-	        end: 200,
-	        small: 900,
-	    },
-	});
-
-	(function syntaxHighlighting() {
-
-	    hljs.registerLanguage('bash', __webpack_require__(22));
-	    hljs.registerLanguage('php', __webpack_require__(23));
-	    hljs.registerLanguage('html', __webpack_require__(24));
-	    hljs.initHighlighting();
-
-	})();
-
-	(function smallNav() {
-
-	    $('[data-nav-switch]').on('click', function () {
-	        $('html').toggleClass('$nav-small');
-	    });
-
-	})();
-
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
-
-/***/ },
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var $ = __webpack_require__(1);
+	var $ = __webpack_require__(2);
 	var merge = __webpack_require__(4);
 
 	// the object

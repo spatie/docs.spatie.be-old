@@ -804,22 +804,13 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     float: right;
     margin-right: 0; }
 
-.\$introduction .header {
-  height: 90vh; }
-
-.\$introduction .header_logos {
-  opacity: 0; }
-
 .header {
   height: 30vh;
-  min-height: 8em;
-  transition: height .5s ease-out; }
+  min-height: 10em; }
   @media (max-width: 900px) {
     .header {
       height: auto !important;
       padding: 2.25em 0; } }
-  .\$header-clear-animation .header {
-    transition: none !important; }
 
 .header_background {
   height: 100%;
@@ -828,27 +819,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   top: 0;
   width: 100%;
   z-index: 2; }
-  @media (max-width: 900px) {
-    .header_background video {
-      display: none; } }
-  .header_background:after {
-    position: absolute;
-    display: block;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    content: ' ';
-    transition: opacity 3s ease-out;
-    z-index: 2; }
-
-.header_arrow {
-  transition: all .3s linear; }
-  @media (max-width: 900px) {
-    .header_arrow {
-      display: none !important; } }
-  .\$header-clear-animation .header_arrow {
-    transition: none !important; }
 
 .header_content {
   bottom: 3em;
@@ -1529,54 +1499,11 @@ sup {
   text-transform: none; }
 
 .header {
-  background-color: #d4cab4;
   overflow: hidden; }
 
 .header_background {
-  -webkit-animation: kenburns 30s infinite;
-  animation: kenburns 30s infinite;
-  -webkit-animation-direction: alternate;
-  animation-direction: alternate;
-  -webkit-animation-timing-function: ease-in-out;
-  animation-timing-function: ease-in-out;
-  background-color: #d4cab4;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  -webkit-transform-origin: 40% 30%;
-  transform-origin: 40% 30%; }
-  @media (max-width: 900px) {
-    .header_background {
-      display: none; } }
-  .header_background:after {
-    background-color: #d4cab4;
-    opacity: 1; }
-    .\$introduction .header_background:after {
-      opacity: .6; }
+  background-color: #d4cab4; }
 
 .header_title,
 .header_slogan {
   background: rgba(93, 78, 54, 0.2); }
-
-.header_arrow {
-  border-radius: 100%;
-  display: inline-block;
-  height: 50px;
-  line-height: 50px;
-  overflow: hidden;
-  text-align: center;
-  width: 50px;
-  background-color: #e14a0c;
-  bottom: 1em;
-  font-size: 30px;
-  left: 50%;
-  position: absolute;
-  -webkit-transform: translateX(-50%) scale(0);
-  transform: translateX(-50%) scale(0);
-  z-index: 4; }
-  .header_arrow:after {
-    color: #fff;
-    content: '\21A7'; }
-  .\$introduction .header_arrow {
-    -webkit-transform: translateX(-50%) scale(1);
-    transform: translateX(-50%) scale(1); }
