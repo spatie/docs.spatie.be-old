@@ -21,9 +21,12 @@ viewport.init({
 (function smallNav() {
 
     $('[data-nav-switch]').on('click', function () {
-        $('html').toggleClass('$nav-small');
+        viewport.root.toggleClass('$nav-small');
     });
 
+    $(window).on('resize scroll', function() {
+        viewport.root.removeClass('$nav-small');
+    });
 })();
 
 (function focusSearch() {
