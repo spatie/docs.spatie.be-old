@@ -345,7 +345,7 @@ table {
 .aa-dropdown-menu {
   -webkit-backdrop-filter: blur(5px);
   background-color: rgba(255, 255, 255, 0.95);
-  border: solid 2px #f8f0df;
+  border: solid 2px #f5f2ea;
   border-radius: 4px;
   box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
   font-size: 16px;
@@ -354,7 +354,7 @@ table {
   text-align: left; }
 
 .algolia-docsearch-suggestion {
-  border-bottom: solid 2px #f8f0df;
+  border-bottom: solid 2px #f5f2ea;
   color: #1a1e25;
   cursor: pointer;
   overflow: hidden; }
@@ -896,7 +896,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   box-sizing: border-box;
   position: relative; }
   *:after, *:before {
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    position: relative; }
 
 html {
   height: 100%; }
@@ -997,7 +998,7 @@ address {
   padding: 1em; }
 
 blockquote {
-  background: #f8f0df;
+  background: #f5f2ea;
   border-left: 3px solid #e6decd;
   color: #5d4e36;
   display: block;
@@ -1065,8 +1066,6 @@ mark {
   border-radius: 3px;
   color: #422c00;
   display: inline-block;
-  margin-left: -.35em;
-  margin-right: -.35em;
   padding: 0 .35em;
   text-decoration: none; }
 
@@ -1090,7 +1089,7 @@ sup {
 
 @media (max-width: 900px) {
   .nav {
-    background: #f8f0df;
+    background: #f5f2ea;
     height: 100%;
     left: 100%;
     overflow-y: auto;
@@ -1114,7 +1113,7 @@ sup {
     margin: 0;
     padding-left: 0; }
     .nav_menu ul ul {
-      border-left: solid 3px rgba(212, 202, 180, 0.5);
+      border-left: solid 3px #f5f2ea;
       padding-left: 1em; }
   .nav_menu li {
     line-height: 1.35;
@@ -1130,8 +1129,6 @@ sup {
     border-radius: 3px;
     color: #e14a0c;
     display: inline-block;
-    margin-left: -.35em;
-    margin-right: -.35em;
     padding: 0 .35em; }
     .nav_menu a:hover {
       background-color: #fff2de; }
@@ -1140,12 +1137,10 @@ sup {
     border-radius: 3px;
     color: #fff;
     display: inline-block;
-    margin-left: -.35em;
-    margin-right: -.35em;
     padding: 0 .35em; }
 
 .nav_search {
-  border: solid 3px rgba(212, 202, 180, 0.5);
+  border: solid 3px #f5f2ea;
   border-radius: 3px;
   margin-top: .5em;
   padding: .5em;
@@ -1157,35 +1152,31 @@ sup {
 
 ::-webkit-input-placeholder {
   color: #d4cab4;
-  transition: color .3s ease-out, transform .3s ease-out; }
+  transition: opacity .3s ease-out; }
 
 :-moz-placeholder {
   color: #d4cab4;
-  transition: color .3s ease-out, transform .3s ease-out; }
+  transition: opacity .3s ease-out; }
 
 ::-moz-placeholder {
   color: #d4cab4;
-  transition: color .3s ease-out, transform .3s ease-out; }
+  transition: opacity .3s ease-out; }
 
 :-ms-input-placeholder {
   color: #d4cab4;
-  transition: color .3s ease-out, transform .3s ease-out; }
+  transition: opacity .3s ease-out; }
 
 :focus::-webkit-input-placeholder {
-  color: rgba(212, 202, 180, 0);
-  transform: translateX(50%); }
+  color: #f5f2ea; }
 
 :focus:-moz-placeholder {
-  color: rgba(212, 202, 180, 0);
-  transform: translateX(50%); }
+  color: #f5f2ea; }
 
 :focus::-moz-placeholder {
-  color: rgba(212, 202, 180, 0);
-  transform: translateX(50%); }
+  color: #f5f2ea; }
 
 :focus:-ms-input-placeholder {
-  color: rgba(212, 202, 180, 0);
-  transform: translateX(50%); }
+  color: #f5f2ea; }
 
 .nav_button {
   font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", -apple-system, "Segoe UI", sans-serif;
@@ -1230,6 +1221,74 @@ sup {
     .\$viewport-ended .nav_button.-bottom {
       transform: translateX(-50%) translateY(10%); }
 
+.\$nav-small body {
+  overflow: hidden; }
+
+.pagination {
+  margin: 10vh 0 4vh;
+  text-align: center; }
+  .pagination:after {
+    width: 100%;
+    top: .7em;
+    left: 0;
+    position: absolute;
+    content: ' ';
+    height: 0;
+    border-top: solid 3px #f5f2ea; }
+
+.pagination_buttons {
+  background: #fff;
+  z-index: 10;
+  display: inline-block; }
+
+.pagination_button {
+  line-height: 2;
+  border: 0 !important;
+  overflow: hidden;
+  display: inline-block;
+  font-size: 0.75em;
+  margin: 0 .25em; }
+  .pagination_button:after {
+    background-color: #f5f2ea;
+    border-radius: 3px;
+    color: #baab8c;
+    display: inline-block;
+    padding: 0 .35em;
+    z-index: 10;
+    display: inline-block;
+    min-width: 8em; }
+  .pagination_button:before {
+    position: absolute;
+    height: 2em;
+    width: 2em;
+    top: 0;
+    background-color: #f5f2ea;
+    content: ' ';
+    transform: rotate(45deg);
+    border-radius: 3px; }
+  .pagination_button:hover:after {
+    background-color: #e6decd;
+    border-radius: 3px;
+    color: #8d7e5f;
+    display: inline-block;
+    padding: 0 .35em; }
+  .pagination_button:hover:before {
+    background-color: #e6decd; }
+  .pagination_button.-previous {
+    padding-left: 2em; }
+    .pagination_button.-previous:before {
+      left: 1.3em; }
+    .pagination_button.-previous:after {
+      padding-right: 1em;
+      content: 'previous topic'; }
+  .pagination_button.-next {
+    padding-right: 2em; }
+    .pagination_button.-next:before {
+      right: 1.3em; }
+    .pagination_button.-next:after {
+      padding-left: 1em;
+      content: 'next topic'; }
+
 .toolbar {
   font-size: 0.75em;
   position: absolute;
@@ -1242,12 +1301,10 @@ sup {
       display: none; } }
 
 .toolbar_item {
-  background-color: rgba(230, 222, 205, 0.2);
+  background-color: #f5f2ea;
   border-radius: 3px;
   color: #baab8c;
   display: inline-block;
-  margin-left: -.35em;
-  margin-right: -.35em;
   padding: 0 .35em;
   line-height: 2; }
   .toolbar_item .github {
@@ -1258,12 +1315,10 @@ sup {
   .toolbar_item .github_back {
     fill: #d4cab4; }
   .toolbar_item:hover {
-    background-color: rgba(230, 222, 205, 0.5);
+    background-color: #e6decd;
     border-radius: 3px;
     color: #8d7e5f;
     display: inline-block;
-    margin-left: -.35em;
-    margin-right: -.35em;
     padding: 0 .35em; }
     .toolbar_item:hover .github_back {
       fill: rgba(141, 126, 95, 0.8); }

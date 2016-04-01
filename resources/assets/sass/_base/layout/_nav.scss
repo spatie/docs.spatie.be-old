@@ -28,7 +28,7 @@
     @include ul-clean;
 
     ul {
-      border-left: solid 3px color($gold, light, .5);
+      border-left: solid 3px color($gold, lightest);
       padding-left: 1em;
     }
   }
@@ -62,7 +62,7 @@
 }
 
 .nav_search {
-  border: solid 3px color($gold, light, .5);
+  border: solid 3px color($gold, lightest);
   border-radius: border-radius(s);
   margin-top: .5em;
   padding: .5em;
@@ -77,12 +77,11 @@
 
 @include prefixed-placeholder {
   color: color($gold, light, 1);
-  transition: color .3s ease-out, transform .3s ease-out;
+  transition: opacity .3s ease-out;
 }
 
 @include prefixed-placeholder(':focus') {
-  color: color($gold, light, 0);
-  transform: translateX(50%);
+  color: color($gold, lightest);
 }
 
 .nav_button {
@@ -140,4 +139,8 @@
       transform: translateX(-50%) translateY(10%);
     }
   }
+}
+
+.\$nav-small body{
+  overflow: hidden;
 }
