@@ -245,3 +245,5 @@ Here's an example for MySQL:
 		...
 	],
 ```
+
+For PostgreSQL db's you can also set a config key named `dump_use_inserts` to use `inserts` instead of `copy` in the database dump file.
