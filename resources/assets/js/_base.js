@@ -25,7 +25,9 @@ viewport.init({
     });
 
     $(window).on('resize scroll', function() {
-        viewport.root.removeClass('$nav-small');
+        if(viewport.state.large){
+          viewport.root.removeClass('$nav-small');
+        }
     });
 })();
 
