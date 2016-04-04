@@ -15,6 +15,7 @@ return [
     'Items in Depth' => [
         'Active Items',
         'Manipulating Items',
+        'Conditionally Adding Items',
     ],
     'Controlling the Html Output' => [
         'Item Attributes',
@@ -23,6 +24,7 @@ return [
     ],
     'Menus in Your Laravel App' => [
         'Convenience Methods',
+        'Conditional Items Based on Permissions',
         'Using Macros',
     ],
     'Api' => [

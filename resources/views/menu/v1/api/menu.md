@@ -33,6 +33,20 @@ public static function new(array $items = [])
 public function add(Item $item)
 ```
 
+### addIf
+
+```php
+/**
+ * Add an item to the menu if a (non-strict) condition is met.
+ *
+ * @param bool $condition
+ * @param \Spatie\Menu\Item $item
+ *
+ * @return $this
+ */
+public function addIf($condition, Item $item)
+```
+
 ### link
 
 ```php
@@ -47,6 +61,21 @@ public function add(Item $item)
 public function link(string $url, string $text)
 ```
 
+### linkIf
+
+```php
+/**
+ * Add a link to the menu if a (non-strict) condition is met.
+ *
+ * @param bool $condition
+ * @param string $url
+ * @param string $text
+ *
+ * @return $this
+ */
+public function linkIf($condition, string $url, string $text)
+```
+
 ### html
 
 ```php
@@ -58,6 +87,20 @@ public function link(string $url, string $text)
  * @return $this
  */
 public function html(string $html)
+```
+
+### htmlIf
+
+```php
+/**
+ * Add a chunk of html if a (non-strict) condition is met.
+ *
+ * @param bool $condition
+ * @param string $html
+ *
+ * @return $this
+ */
+public function htmlIf($condition, string $html)
 ```
 
 ### each
@@ -352,6 +395,43 @@ public function addParentClass(string $class)
 public function setActiveFromRequest(string $requestRoot = '')
 ```
 
+### addIfCan
+
+```php
+/**
+ * @param string|array $authorization
+ * @param \Spatie\Menu\Item $item
+ *
+ * @return $this
+ */
+public function addIfCan($authorization, Item $item)
+```
+
+### linkIfCan
+
+```php
+/**
+ * @param string|array $authorization
+ * @param string $url
+ * @param string $text
+ *
+ * @return $this
+ */
+public function linkIfCan($authorization, string $url, string $text)
+```
+
+### htmlIfCan
+
+```php
+/**
+ * @param string|array $authorization
+ * @param string $html
+ *
+ * @return \Spatie\Menu\Laravel\Menu
+ */
+public function htmlIfCan($authorization, string $html)
+```
+
 ### url
 
 ```php
@@ -364,6 +444,42 @@ public function setActiveFromRequest(string $requestRoot = '')
  * @return $this
  */
 public function url(string $path, string $text, array $parameters = [], $secure = null)
+```
+
+### urlIf
+
+```php
+/**
+ * @param bool $condition
+ * @param string $path
+ * @param string $text
+ * @param array $parameters
+ * @param bool|null $secure
+ *
+ * @return $this
+ */
+public function urlIf($condition, string $path, string $text, array $parameters = [], $secure = null)
+```
+
+### urlIfCan
+
+```php
+/**
+ * @param string|array $authorization
+ * @param string $path
+ * @param string $text
+ * @param array $parameters
+ * @param bool|null $secure
+ *
+ * @return $this
+ */
+public function urlIfCan(
+    $authorization,
+    string $path,
+    string $text,
+    array $parameters = [],
+    $secure = null
+)
 ```
 
 ### action
@@ -380,6 +496,42 @@ public function url(string $path, string $text, array $parameters = [], $secure 
 public function action(string $action, string $text, array $parameters = [], bool $absolute = true)
 ```
 
+### actionIf
+
+```php
+/**
+ * @param bool $condition
+ * @param string $action
+ * @param string $text
+ * @param array $parameters
+ * @param bool $absolute
+ *
+ * @return $this
+ */
+public function actionIf($condition, string $action, string $text, array $parameters = [], bool $absolute = true)
+```
+
+### actionIfCan
+
+```php
+/**
+ * @param string|array $authorization
+ * @param string $action
+ * @param string $text
+ * @param array $parameters
+ * @param bool $absolute
+ *
+ * @return $this
+ */
+public function actionIfCan(
+    $authorization,
+    string $action,
+    string $text,
+    array $parameters = [],
+    bool $absolute = true
+)
+```
+
 ### route
 
 ```php
@@ -393,4 +545,43 @@ public function action(string $action, string $text, array $parameters = [], boo
  * @return $this
  */
 public function route(string $name, string $text, array $parameters = [], bool $absolute = true, $route = null)
+```
+
+### routeIf
+
+```php
+/**
+ * @param bool $condition
+ * @param string $name
+ * @param string $text
+ * @param array $parameters
+ * @param bool $absolute
+ * @param \Illuminate\Routing\Route|null $route
+ *
+ * @return $this
+ */
+public function routeIf($condition, string $name, string $text, array $parameters = [], bool $absolute = true, $route = null)
+```
+
+### routeIfCan
+
+```php
+/**
+ * @param string|array $authorization
+ * @param string $name
+ * @param string $text
+ * @param array $parameters
+ * @param bool $absolute
+ * @param \Illuminate\Routing\Route|null $route
+ *
+ * @return $this
+ */
+public function routeIfCan(
+    $authorization,
+    string $name,
+    string $text,
+    array $parameters = [],
+    bool $absolute = true,
+    $route = null
+)
 ```

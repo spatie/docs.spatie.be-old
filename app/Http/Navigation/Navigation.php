@@ -2,7 +2,7 @@
 
 namespace App\Http\Navigation;
 
-use Spatie\Menu\Laravel\Items\Link;
+use Spatie\Menu\Laravel\Link;
 use Spatie\Menu\Laravel\Menu;
 use Illuminate\Support\Collection;
 
