@@ -1,5 +1,5 @@
 ---
-title: Defining converions
+title: Defining conversions
 ---
 
 Imagine making a site with a list of all news items. Wouldn't it be nice to show the user a thumbnail of the image associated with the news item? When adding an image to a media collection, these derived images can be created automatically.
