@@ -59,7 +59,7 @@
 <footer class="footer">
     <div class="grid">
         <div class="footer_content">
-            © {{ Date('Y') }} • <a href="about-us/">About us</a>
+            © {{ Date('Y') }} • <a href="https://spatie.be/">Spatie</a>
             • <a href="{{ $githubUrl }}">Github</a>
         </div>
     </div>
