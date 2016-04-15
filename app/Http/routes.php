@@ -19,11 +19,15 @@ Route::group(['prefix' => 'laravel-backup'], function () {
 Route::group(['prefix' => 'laravel-medialibrary'], function () {
 
     Route::get('/', function () {
-        return redirect('laravel-medialibrary/v3/introduction');
+        return redirect('laravel-medialibrary/v4/introduction');
     });
 
     Route::get('v3', function () {
         return redirect('laravel-medialibrary/v3/introduction');
+    });
+
+    Route::get('v4', function () {
+        return redirect('laravel-medialibrary/v4/introduction');
     });
 });
 
