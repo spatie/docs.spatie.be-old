@@ -16,12 +16,28 @@
     <div class="header_background" data-header-background></div>
     <div class="header_content">
         <div class="grid">
-            <a href="/{{ $package }}/{{ $version }}" data-home-link>
-                <h1 class="header_title">{{ $siteTitle }} <span class="header_title_version">v.{{ substr($version, 1) }}</span>
+            <div class="header_caption">
+                {{--
+                <h1 class="header_caption_title">
+                    <a href="/{{ $package }}/{{ $version }}" >{{ $siteTitle }}</a>
+                    <span class="header_caption_version">v.{{ substr($version, 1) }}</span>
                 </h1>
+                --}}
+                <h1 class="header_caption_title">
+                    <a href="/{{ $package }}/{{ $version }}" >{{ $siteTitle }}</a>
+                    <a href="#" data-version class="header_version -selectable">
+                        v.{{ substr($version, 1) }}
+                        <span class="header_version_caret"></span>
+                    </a>
+                </h1>
+                <ul data-versions class="header_version_dropdown" style="display:none" >
+                    <li class="-current"><a href="/{{ $package }}/{{ $version }}" >v.3</a></li>
+                    <li><a href="/{{ $package }}/v4" >v.4</a></li>
+                </ul>
+
                 <br>
-                <p class="header_slogan">{{ $siteSlogan }}</p>
-            </a>
+                <p class="header_caption_slogan">{{ $siteSlogan }}</p>
+            </div>
             <div class="header_logos">
                 <a href="{{ $githubUrl }}" target="_external">
                     @include('_partials.svg.github')

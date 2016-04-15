@@ -57,10 +57,10 @@
 
     &.-previous {
 
-        padding-left: 2em;
+        padding-left: 1em;
 
         &:before {
-            left: 1.3em;
+            left: .5em;
         }
 
         &:after {
@@ -71,10 +71,10 @@
 
     &.-next {
 
-        padding-right: 2em;
+        padding-right: 1em;
 
         &:before {
-            right: 1.3em;
+            right: .5em;
         }
 
         &:after {

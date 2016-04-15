@@ -806,7 +806,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .header {
   height: 30vh;
-  min-height: 10em; }
+  min-height: 10em;
+  position: relative; }
   @media (max-width: 900px) {
     .header {
       height: auto !important;
@@ -832,7 +833,10 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       position: relative;
       text-align: center; } }
 
-.header_title {
+.header_caption {
+  display: inline-block; }
+
+.header_caption_title {
   border-bottom-right-radius: 3px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
@@ -841,18 +845,61 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   margin: 0 -10px;
   padding: 0 10px; }
   @media (max-width: 900px) {
-    .header_title {
+    .header_caption_title {
       font-size: 1.65em; } }
+  .header_caption_title a {
+    color: inherit; }
 
-.header_title_version {
+.header_version {
   color: #e14a0c;
   font-size: 0.85em;
-  font-weight: 300; }
+  font-weight: 600;
+  margin: .2em 0;
+  display: inline-block; }
   @media (max-width: 900px) {
-    .header_title_version {
+    .header_version {
       font-size: 0.75em; } }
+  .header_version.-selectable {
+    color: #e14a0c;
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 0 .45em 0 .25em; }
 
-.header_slogan {
+.header_version_caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-top: 0.2em solid #f5b180;
+  border-right: .15em solid transparent;
+  border-left: .15em solid transparent; }
+
+.header_version_dropdown {
+  position: absolute;
+  z-index: 10;
+  top: .2em;
+  right: .1em;
+  list-style: none;
+  padding-left: 0;
+  background: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+  font-size: 2.38em;
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1); }
+  .header_version_dropdown li {
+    padding: 0 1em 0 .25em;
+    text-align: center; }
+    .header_version_dropdown li.-current {
+      font-weight: 600; }
+    .header_version_dropdown li:hover {
+      background: #fff2de; }
+  .header_version_dropdown a {
+    color: #e14a0c; }
+  @media (max-width: 900px) {
+    .header_version_dropdown {
+      font-size: 1.40em; } }
+
+.header_caption_slogan {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   color: #fff;
@@ -860,7 +907,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   margin: 0 -10px;
   padding: .5em 10px; }
   @media (max-width: 900px) {
-    .header_slogan {
+    .header_caption_slogan {
       font-size: 0.85em; } }
 
 .header_logos {
@@ -1275,16 +1322,16 @@ sup {
   .pagination_button:hover:before {
     background-color: #e6decd; }
   .pagination_button.-previous {
-    padding-left: 2em; }
+    padding-left: 1em; }
     .pagination_button.-previous:before {
-      left: 1.3em; }
+      left: .5em; }
     .pagination_button.-previous:after {
       padding-right: 1em;
       content: 'previous topic'; }
   .pagination_button.-next {
-    padding-right: 2em; }
+    padding-right: 1em; }
     .pagination_button.-next:before {
-      right: 1.3em; }
+      right: .5em; }
     .pagination_button.-next:after {
       padding-left: 1em;
       content: 'next topic'; }
@@ -1556,6 +1603,6 @@ sup {
 .header_background {
   background: #1b3747; }
 
-.header_title,
-.header_slogan {
+.header_caption_title,
+.header_caption_slogan {
   background: rgba(0, 0, 0, 0.1); }
