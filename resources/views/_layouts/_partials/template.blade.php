@@ -34,7 +34,6 @@
                     <li class="-current"><a href="/{{ $package }}/{{ $version }}" >v.3</a></li>
                     <li><a href="/{{ $package }}/v4" >v.4</a></li>
                 </ul>
-
                 <br>
                 <p class="header_caption_slogan">{{ $siteSlogan }}</p>
             </div>
