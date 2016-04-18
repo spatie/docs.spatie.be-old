@@ -17,12 +17,17 @@
     <div class="header_content">
         <div class="grid">
             <div class="header_caption">
+
+                {{-- Without dropdown --}}
                 {{--
                 <h1 class="header_caption_title">
                     <a href="/{{ $package }}/{{ $version }}" >{{ $siteTitle }}</a>
                     <span class="header_caption_version">v.{{ substr($version, 1) }}</span>
                 </h1>
                 --}}
+                {{-- End without dropdown --}}
+
+                {{-- With dropdown --}}
                 <h1 class="header_caption_title">
                     <a href="/{{ $package }}/{{ $version }}" >{{ $siteTitle }}</a>
                     <a href="#" data-version class="header_version -selectable">
@@ -31,9 +36,10 @@
                     </a>
                 </h1>
                 <ul data-versions class="header_version_dropdown" style="display:none" >
-                    <li class="-current"><a href="/{{ $package }}/{{ $version }}" >v.3</a></li>
+                    <li class="-current"><a href="/{{ $package }}/v3" >v.3</a></li>
                     <li><a href="/{{ $package }}/v4" >v.4</a></li>
                 </ul>
+                {{-- End with dropdown --}}
                 <br>
                 <p class="header_caption_slogan">{{ $siteSlogan }}</p>
             </div>
