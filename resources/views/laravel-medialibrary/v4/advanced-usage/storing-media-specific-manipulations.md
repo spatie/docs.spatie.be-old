@@ -15,4 +15,4 @@ $mediaItems[0]->manipulations = ['thumb' => ['mode' => 'filt' => 'greyscale']]
 $mediaItems[0]->save();
 ```
 
-Calling `save` in this example will regenerate the thumb-image. The output will be a greyscale image with a width and height of 500 pixels.
+Calling `save` in this example will regenerate the thumb-image. The output will be a greyscale image.
