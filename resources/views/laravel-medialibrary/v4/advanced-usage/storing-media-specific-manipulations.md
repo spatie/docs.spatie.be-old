@@ -9,7 +9,7 @@ When saving the media object, the package will regenerate all files and use the 
 ```php
 // Add a greyscale filter to the 'thumb' manipulations
 $mediaItems = $newsItem->getMedia('images');
-$mediaItems[0]->manipulations = ['thumb' => ['mode' => 'filt' => 'greyscale']]
+$mediaItems[0]->manipulations = ['thumb' => [ 'filt' => 'greyscale']];
 
 // This will cause the thumb conversion to be regenerated
 $mediaItems[0]->save();
