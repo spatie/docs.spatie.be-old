@@ -6,7 +6,7 @@ The package can check the health of every application it is installed into. A ba
 
 ## Installation
 
-We recommend setting up a separate Laravel installation preferably on a separate server. Doing it this way will ensure you will still get notified of unhealty backups even if one of the applications you are monitoring is broken.
+We recommend setting up a separate Laravel installation preferably on a separate server. Doing it this way will ensure you will still get notified of unhealthy backups even if one of the applications you are monitoring is broken.
 
 To install the monitor follow the regular [installation instructions](/laravel-backup/v3/installation-and-setup).
 Instead of scheduling the `backup:run` and `backup:clean` commands, you should schedule the monitor command.
