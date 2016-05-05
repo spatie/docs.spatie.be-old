@@ -6,6 +6,7 @@
 
   height: 30vh;
   min-height: 10em;
+  position: relative;
 
 }
 
@@ -32,7 +33,12 @@
   z-index: 3;
 }
 
-.header_title {
+
+.header_caption {
+  display: inline-block;
+}
+
+.header_caption_title {
   @include mq(s) {
     font-size: 1.65em;
   }
@@ -44,19 +50,80 @@
   display: inline-block;
   margin: 0 -10px;
   padding: 0 10px;
+
+  a {
+    color: inherit;
+  }
 }
 
-.header_title_version {
+.header_version {
   @include mq(s) {
     font-size: font-size(xs);
   }
 
   color: color($orange);
   font-size: font-size(s);
-  font-weight: font-weight(normal);
+  font-weight: font-weight(bold);
+  margin: .2em 0;
+  display: inline-block;
+
+  &.-selectable {
+    color: color($orange);
+    background-color: $white;
+    border-radius: border-radius(s);
+    padding: 0 .45em 0 .25em;
+  }
+
 }
 
-.header_slogan {
+.header_version_caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-top: .2em solid color($orange, lighter);
+  border-right: .15em solid transparent;
+  border-left: .15em solid transparent;
+}
+
+.header_version_dropdown {
+  position: absolute;
+  z-index: z-index(above);
+  top: .2em;
+  right: .1em;
+  list-style: none;
+  padding-left: 0;
+  background: $white;
+  border-radius: border-radius(s);
+  overflow: hidden;
+  font-size: 2.38em;
+  box-shadow: 5px 5px 0 rgba($black, .1);
+
+  li {
+    padding: 0 1em 0 .25em;
+    text-align: center;
+
+    &.-current {
+      font-weight: font-weight(bold);
+    }
+
+    &:hover {
+      background: color($orange, lightest);
+    }
+  }
+
+  a {
+    color: color($orange);
+
+  }
+
+  @include mq(s) {
+    font-size: 1.40em;
+  }
+}
+
+
+.header_caption_slogan {
   @include mq(s) {
     font-size: font-size(s);
   }

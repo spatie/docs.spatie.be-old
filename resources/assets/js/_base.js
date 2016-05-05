@@ -35,3 +35,17 @@ viewport.init({
     $('#algolia-search').focus();
 })();
 
+
+(function versionSelection() {
+
+    $('[data-version]').on('click', function(e){
+
+        e.stopPropagation();
+        $('[data-versions]').show();
+    });
+
+    $('body').on('click', function(){
+        $('[data-versions]').hide();
+    });
+})();
+
