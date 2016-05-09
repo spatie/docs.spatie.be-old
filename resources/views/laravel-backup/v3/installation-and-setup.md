@@ -184,7 +184,7 @@ return [
         'slack' => [
             'channel'  => '#backups',
             'username' => 'Backup bot',
-            'icon'     => ':robot:',
+            'icon'     => 'robot',
         ],
         
         /*
