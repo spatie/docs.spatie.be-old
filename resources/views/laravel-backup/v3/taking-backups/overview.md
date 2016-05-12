@@ -67,6 +67,11 @@ This is the portion of the configuration that will determine which files and dat
                     base_path('vendor'),
                     storage_path(),
                 ],
+                
+                /*
+                 * Determines if symlinks should be followed.
+                 */
+                'followLinks' => false,
             ],
 
             /*
