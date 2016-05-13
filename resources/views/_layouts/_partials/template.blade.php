@@ -30,10 +30,13 @@
                 {{-- With dropdown --}}
                 <h1 class="header_caption_title">
                     <a href="/{{ $package }}/{{ $version }}" >{{ $siteTitle }}</a>
-                    <a href="#" data-version class="header_version -selectable">
-                        v.{{ substr($version, 1) }}
-                        <span class="header_version_caret"></span>
-                    </a>
+                    
+                    @if ($package ===  'laravel-medialibrary')
+                        <a href="#" data-version class="header_version -selectable">
+                            v.{{ substr($version, 1) }}
+                            <span class="header_version_caret"></span>
+                        </a>
+                    @endif
                 </h1>
                 <ul data-versions class="header_version_dropdown" style="display:none" >
                     <li class="-current"><a href="/{{ $package }}/v3" >v.3</a></li>
