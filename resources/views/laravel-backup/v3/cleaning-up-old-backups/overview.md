@@ -74,7 +74,7 @@ Of course the numbers used in the default configuration can be adjusted to your 
 
 ## Creating your own strategy
 
-If you are not happy with the `DefaultStrategy`, you can create your own custom strategy. You can do so by extending the abstract class `Spatie\Backup\Tasks\CleanupCleanup\Strategy`. You only need to implement this method:
+If you are not happy with the `DefaultStrategy`, you can create your own custom strategy. You can do so by extending the abstract class `Spatie\Backup\Tasks\Cleanup\CleanupStrategy`. You only need to implement this method:
 
 ```php
 use Spatie\Backup\BackupDestination\BackupCollection;
