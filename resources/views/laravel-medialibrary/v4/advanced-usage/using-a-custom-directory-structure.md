@@ -43,7 +43,7 @@ interface PathGenerator
      *
      * @return string
      */
-    public function getPath(Media $media);
+    public function getPath(Media $media) : string;
 
     /**
      * Get the path for conversions of the given media, relative to the root storage path.
@@ -52,7 +52,7 @@ interface PathGenerator
      *
      * @return string
      */
-    public function getPathForConversions(Media $media);
+    public function getPathForConversions(Media $media) : string;
 }
 ```
 
