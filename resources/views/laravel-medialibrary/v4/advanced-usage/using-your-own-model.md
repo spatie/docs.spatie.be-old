@@ -3,9 +3,9 @@ title: Using your own model
 ---
 
 A custom model can be used in version 3.4.0 and higher.
-This allows you do add your own fields, add relationships and so on.
+This allows you to add your own fields, add relationships and so on.
 
-The easiest way to use your own custom model woul be to extend the 
+The easiest way to use your own custom model would be to extend the 
 default `Spatie\MediaLibrary\Media`-class. Here's an example:
 
 ```php

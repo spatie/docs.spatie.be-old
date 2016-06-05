@@ -25,7 +25,7 @@ This event will be fired after a collection has been cleared.
 
 The event has two public properties:
 
-- `model`:  the object that conforms `\Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia` of which a collection has just been cleared.
+- `model`:  the object that conforms to `\Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia` of which a collection has just been cleared.
 - `collectionName`: the name of the collection that has just been cleared
 
 ## Sample usage

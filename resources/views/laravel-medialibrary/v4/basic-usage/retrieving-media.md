@@ -8,9 +8,9 @@ To retrieve files you can use the `getMedia`-method:
 $mediaItems = $newsItem->getMedia();
 ```
 
-The method returns a collection with `Media`-objects.
+The method returns a collection of `Media`-objects.
 
-You can retrieve the URL and path to the file associated with `Media`-object with `getUrl` and `getPath`:
+You can retrieve the URL and path to the file associated with the `Media`-object with `getUrl` and `getPath`:
 
 ```php
 $publicUrl = $mediaItems[0]->getUrl();
