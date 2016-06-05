@@ -49,7 +49,7 @@ return [
     'max_file_size' => 1024 * 1024 * 10,
 
     /*
-     * This queue will used to generate derived images.
+     * This queue will be used to generate derived images.
      * Leave empty to use the default queue.
      */
     'queue_name' => '',
@@ -60,7 +60,7 @@ return [
     'media_model' => Spatie\MediaLibrary\Media::class,
 
     /*
-     * When urls to files get generated this class will be called. Leave empty
+     * When urls to files are generated this class will be called. Leave empty
      * if your files are stored locally above the site root or on s3.
      */
     'custom_url_generator_class' => null,
@@ -79,7 +79,7 @@ return [
 ];
 ```
 
-Finally you should add a disk to `app/config/filesystems.php`. All files added the media library will be stored on that disk, this would be a typical configuration:
+Finally you should add a disk to `app/config/filesystems.php`. All files added to the media library will be stored on that disk, this would be a typical configuration:
 
 ```php
 return [

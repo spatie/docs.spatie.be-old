@@ -3,8 +3,8 @@ title: Using a custom directory structure
 ---
 
 By default files will be stored inside a directory that uses
-the `id` of it's `Media`-object as a name. Converted images will be stored inside a directory
-names conversions.
+the `id` of its `Media`-object as a name. Converted images will be stored inside a directory
+named conversions.
 
 ```php
 media
@@ -57,7 +57,7 @@ interface PathGenerator
 ```
 
 [This example from the tests](https://github.com/spatie/laravel-medialibrary/blob/3.9.0/tests/PathGenerator/CustomPathGenerator.php) uses
-the md5 value of media-id to name directories. The directories were conversions are stored will be named `c` instead of the default `conversions`.
+the md5 value of media-id to name directories. The directories where conversions are stored will be named `c` instead of the default `conversions`.
 
-There aren't any restrictions on how the directories can be named. When a `Media`-object get deleted the package will delete its entire associated directory.
-So take care that every media gets it's own unique directory.
+There aren't any restrictions on how the directories can be named. When a `Media`-object gets deleted the package will delete its entire associated directory.
+So make sure that every media gets its own unique directory.

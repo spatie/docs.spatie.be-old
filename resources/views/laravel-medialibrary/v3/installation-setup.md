@@ -79,7 +79,7 @@ return [
 ];
 ```
 
-Finally you should add a disk to `app/config/filesystems.php`. All files added the media library will be stored on that disk, this would be a typical configuration:
+Finally you should add a disk to `app/config/filesystems.php`. All files added to the media library will be stored on that disk, this would be a typical configuration:
 
 ```php
 return [
