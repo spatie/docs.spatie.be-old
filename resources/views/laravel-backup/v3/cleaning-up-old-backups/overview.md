@@ -17,6 +17,8 @@ We'll tell you right off the bat that the package by default will never delete t
 This is the portion of the configuration that will determine which backups should be deleted.
 
 ```php
+//config/laravel-backup.php
+
     'cleanup' => [
         /*
          * The strategy that will be used to cleanup old backups.
