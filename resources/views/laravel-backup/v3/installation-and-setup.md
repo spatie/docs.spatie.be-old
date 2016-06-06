@@ -30,6 +30,8 @@ php artisan vendor:publish --provider="Spatie\Backup\BackupServiceProvider"
 This is the default contents of the configuration:
 
 ```php
+//config/laravel-backup.php
+
 return [
 
     'backup' => [
