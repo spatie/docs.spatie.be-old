@@ -21,7 +21,7 @@ You'll need to register the serviceprovider:
 ];
 ```
 
-To publish the config file to `app/config/laravel-backup.php` run:
+To publish the config file to `config/laravel-backup.php` run:
 
 ``` bash
 php artisan vendor:publish --provider="Spatie\Backup\BackupServiceProvider"
