@@ -39,6 +39,8 @@ a distinction between full backups and a backup with only files or databases.
 This is the portion of the configuration that will determine which files and databases will be backed up. Most options should be self explanatory.
 
 ```php
+//config/laravel-backup.php
+
     'backup' => [
 
         /*
