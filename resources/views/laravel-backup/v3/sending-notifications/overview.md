@@ -11,6 +11,8 @@ This is the portion of the configuration that will determine when and how notifi
 Most options should be self-explanatory.
 
 ```php
+//config/laravel-backup.php
+
     'notifications' => [
 
         /*
