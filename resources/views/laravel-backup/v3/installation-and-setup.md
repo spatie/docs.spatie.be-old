@@ -66,7 +66,7 @@ return [
 
             /*
              * The names of the connections to the databases that should be part of the backup.
-             * Currently only MySQL-and PostgreSQL-databases are supported.
+             * Currently only MySQL- and PostgreSQL-databases are supported.
              */
             'databases' => [
                 'mysql'
@@ -86,8 +86,8 @@ return [
 
     'cleanup' => [
         /*
-         * The strategy that will be used to cleanup old backups.
-         * The youngest backup wil never be deleted.
+         * The strategy that will be used to clean up old backups.
+         * The youngest backup will never be deleted.
          */
         'strategy' => \Spatie\Backup\Tasks\Cleanup\Strategies\DefaultStrategy::class,
 
@@ -224,7 +224,7 @@ Of course, the hours used in the code above are just examples. Adjust them to yo
 
 ## Monitoring
 
-When your application is broken the scheduled jobs will obviously not run anymore. You could also simply forget to add a cron job needed to trigger Laravel's scheduling. You're thinking backups are being made but in fact
+When your application is broken the scheduled jobs will obviously not run anymore. You could also simply forget to add a cron job needed to trigger Laravel's scheduling. You think backups are being made but in fact
 nothing gets backed up.
 
 To notify you of such events the package contains monitoring functionality. It will inform you when backups become too old or when they take up too much storage.
@@ -232,9 +232,9 @@ To notify you of such events the package contains monitoring functionality. It w
 Learn how to [set up monitoring](/laravel-backup/v3/monitoring-the-health-of-all-backups/overview).
 
 ## Dumping the database
-`mysqldump` and `pg_dump` are used to dump the database. If they are not installed in a default location, you can add a key named `dump_command_path` in Laravel's own `database.php` config file. Be sure to only filled in the path to the binary without the name of the binary itself.
+`mysqldump` and `pg_dump` are used to dump the database. If they are not installed in a default location, you can add a key named `dump_command_path` in Laravel's own `database.php` config file. Be sure to only fill in the path to the binary without the name of the binary itself.
 
-If your database dump takes a long time you might hit the default timeout of 60 seconds. You can set a higher (or lower) limit by providing a `dump_command_timeout` config key containing how long the command may run in seconds.
+If your database dump takes a long time you might hit the default timeout of 60 seconds. You can set a higher (or lower) limit by providing a `dump_command_timeout` config key which sets how long the command may run in seconds.
 
 Here's an example for MySQL:
 ```php

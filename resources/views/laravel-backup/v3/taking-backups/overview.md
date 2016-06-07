@@ -20,7 +20,7 @@ If you only need to backup the db run:
 php artisan backup:run --only-db
 ```
 
-If you only need to backup the files, and skip dumping databases, run:
+If you only need to backup the files, and want to skip dumping databases, run:
 
 ```bash
 php artisan backup:run --only-files
@@ -89,9 +89,9 @@ This is the portion of the configuration that will determine which files and dat
     ];
 ```
 
-The specified databases will be dumped and, together with the other selected files be zipped. The zipfile will have be named `<specified name in configuration>-<YY-MM-DD:His>.zip`.
+The specified databases will be dumped and, together with the selected files, be zipped. The zipfile will have be named `<specified name in configuration>-<YY-MM-DD:His>.zip`.
  
-The more files you need to backup, the bigger the zip will become. Make sure there's enough free room on your disk to create the zip. After the zip is copied to all destinations it will be deleted.
+The more files you need to backup, the bigger the zip will become. Make sure there's enough free space on your disk to create the zip. After the zip has beens copied to all destinations it will be deleted.
  
 ### Determining the destination of the backup
 

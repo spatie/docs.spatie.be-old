@@ -8,4 +8,4 @@ To do so install Laravel on the same server where your non-Laravel applications 
 
 Do not forget to configure the database as well. In `app/config/databases.php` put the credentials of the database used by the non-Laravel application. 
 
-When running `php artisan backup:run` on the command line the application will be backed up.
+When running `php artisan backup:run` on the command line, the application will be backed up.
