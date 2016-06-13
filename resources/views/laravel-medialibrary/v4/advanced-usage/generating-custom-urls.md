@@ -11,22 +11,18 @@ If you are storing your media files in a private directory or are using a differ
 The code of the included `S3UrlGenerator` should help make things more clear:
 
 ```php
- namespace Spatie\MediaLibrary\UrlGenerator;
+namespace Spatie\MediaLibrary\UrlGenerator;
 
- use Spatie\MediaLibrary\Exceptions\UrlCouldNotBeDeterminedException;
-
- class S3UrlGenerator extends BaseUrlGenerator implements UrlGenerator
- {
-     /**
-      * Get the URL for the profile of a media item.
-      *
-      * @return string
-      *
-      * @throws UrlCouldNotBeDeterminedException
-      */
-     public function getUrl() : string;
-     {
-         return config('laravel-medialibrary.s3.domain').'/'.$this->getPathRelativeToRoot();
-     }
- }
+class S3UrlGenerator extends BaseUrlGenerator
+{
+    /**
+     * Get the url for the profile of a media item.
+     *
+     * @return string
+     */
+    public function getUrl() : string
+    {
+        return config('laravel-medialibrary.s3.domain').'/'.$this->getPathRelativeToRoot();
+    }
+}
 ```
