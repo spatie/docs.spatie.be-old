@@ -4,7 +4,8 @@ return [
     [
         'Introduction',
         'Requirements',
-        'Installation & setup',
+        'Installation & setup in Laravel',
+        'Installation & setup in Lumen',
         'Questions & issues',
         'Changelog',
     ],
