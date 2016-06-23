@@ -4,9 +4,9 @@ title: Html
 
 ## `Spatie\Menu\Html`
 
-- Implements `Spatie\Menu\Item`, `Spatie\Menu\Activatable`
+- Implements `Spatie\Menu\Activatable`, `Spatie\Menu\HasParentAttributes`, `Spatie\Menu\Item`
 
-### raw
+### `raw`
 
 ```php
 /**
@@ -19,7 +19,7 @@ title: Html
 public static function raw(string $html)
 ```
 
-### getHtml
+### `getHtml`
 
 ```php
 /**
@@ -28,7 +28,7 @@ public static function raw(string $html)
 public function getHtml() : string
 ```
 
-### render
+### `render`
 
 ```php
 /**
@@ -37,7 +37,7 @@ public function getHtml() : string
 public function render() : string
 ```
 
-### isActive
+### `isActive`
 
 ```php
 /**
@@ -46,7 +46,7 @@ public function render() : string
 public function isActive() : bool
 ```
 
-### setActive
+### `setActive`
 
 ```php
 /**
@@ -55,7 +55,7 @@ public function isActive() : bool
 public function setActive()
 ```
 
-### setInactive
+### `setInactive`
 
 ```php
 /**
@@ -64,11 +64,11 @@ public function setActive()
 public function setInactive()
 ```
 
-### getParentAttributes
+### `getParentAttributes`
 
 ```php
 /**
- * Return an array of attributes to apply on the parent. This generally means 
+ * Return an array of attributes to apply on the parent. This generally means
  * the attributes that should be applied on the <li> tag.
  *
  * @return array
@@ -76,7 +76,7 @@ public function setInactive()
 public function getParentAttributes() : array
 ```
 
-### setParentAttribute
+### `setParentAttribute`
 
 ```php
 /**
@@ -88,7 +88,7 @@ public function getParentAttributes() : array
 public function setParentAttribute(string $attribute, string $value = '')
 ```
 
-### addParentClass
+### `addParentClass`
 
 ```php
 /**

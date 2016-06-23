@@ -27,3 +27,5 @@ Link::to('#', 'Back to top')
 ```html
 <a href="#" class="link button top">Back to top</a>
 ```
+
+If you want to add classes or set attributes to all items in a menu, the `Menu` class provides some convenience methods: `addItemClass`, `setItemAttribute`.

@@ -21,3 +21,5 @@ Menu::new()
 ```
 
 These attributes will only be rendered if the elements are rendered inside of a parent (e.g. a link or a sub menu).
+
+If you want to add classes or set attributes to all items' parents in a menu, the `Menu` class provides some convenience methods: `addItemParentClass`, `setItemParentAttribute`.

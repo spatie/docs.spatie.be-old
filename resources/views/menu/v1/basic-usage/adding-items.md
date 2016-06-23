@@ -107,22 +107,24 @@ Menu::new()
 </ul>
 ```
 
-You can also use submenus to divide your menu in sections.
+You can also use submenus to divide your menu in sections. A header is optional, and can be a plain string or an instance of `item`. The menu parameter can be an instance of `Menu` or a callable which will pass through a new `Menu` as it's first parameter.
 
 ```php
 Menu::new()
-    ->add(Menu::new()
+    // No header, `Menu` instance
+    ->submenu(Menu::new()
         ->link('/introduction', 'Introduction')
         ->link('/requirements', 'Requirements')
         ->link('/installation-setup', 'Installation and Setup')
-    )
-    ->add(Menu::new()
-        ->prepend('<h2>Basic Usage</h2>')
-        ->prefixLinks('/basic-usage')
-        ->link('/your-first-menu', 'Your First Menu')
-        ->link('/working-with-items', 'Working With Items')
-        ->link('/adding-sub-menus', 'Adding Sub Menus')
-    );
+    })
+    // String header, `callable`
+    ->submenu('<h2>Basic Usage</h2>', function (Menu $menu) {
+        $menu
+            ->prefixLinks('/basic-usage')
+            ->link('/your-first-menu', 'Your First Menu')
+            ->link('/working-with-items', 'Working With Items')
+            ->link('/adding-sub-menus', 'Adding Sub Menus');
+    });
 ```
 
 ```html
@@ -140,6 +142,28 @@ Menu::new()
             <li><a href="/basic-usage/your-first-menu">Your First Menu</a></li>
             <li><a href="/basic-usage/working-with-items">Working With Items</a></li>
             <li><a href="/basic-usage/adding-sub-menus">Adding Sub Menus</a></li>
+        </ul>
+    </li>
+</ul>
+```
+
+If you're using a callable, the new instance will be a blueprint—an empty copy—of the current menu. This means that filters applied to your main menu will also be applied to your submenu. This is useful for cascading `prefixLinks`.
+
+```php
+Menu::new()
+    ->prefixLinks('/foo')
+    ->submenu(function (Menu $menu) {
+        $menu
+            ->prefixLinks('/bar')
+            ->add('/baz', 'Baz');
+    });
+```
+
+```html
+<ul>
+    <li>
+        <ul>
+            <li><a href="/foo/bar/baz">Baz</a></li>
         </ul>
     </li>
 </ul>

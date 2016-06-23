@@ -4,7 +4,7 @@ title: Menu
 
 ## `Spatie\Menu\Menu`
 
-- Implements `Spatie\Menu\Item`, `Countable`
+- Implements `Countable`, `Spatie\Menu\HasHtmlAttributes`, `Spatie\Menu\HasParentAttributes`, `Spatie\Menu\Item`
 
 ### new
 
@@ -19,7 +19,7 @@ title: Menu
 public static function new(array $items = [])
 ```
 
-### add
+### `add`
 
 ```php
 /**
@@ -33,7 +33,7 @@ public static function new(array $items = [])
 public function add(Item $item)
 ```
 
-### addIf
+### `addIf`
 
 ```php
 /**
@@ -47,7 +47,7 @@ public function add(Item $item)
 public function addIf($condition, Item $item)
 ```
 
-### link
+### `link`
 
 ```php
 /**
@@ -61,7 +61,7 @@ public function addIf($condition, Item $item)
 public function link(string $url, string $text)
 ```
 
-### linkIf
+### `linkIf`
 
 ```php
 /**
@@ -76,7 +76,7 @@ public function link(string $url, string $text)
 public function linkIf($condition, string $url, string $text)
 ```
 
-### html
+### `html`
 
 ```php
 /**
@@ -89,7 +89,7 @@ public function linkIf($condition, string $url, string $text)
 public function html(string $html)
 ```
 
-### htmlIf
+### `htmlIf`
 
 ```php
 /**
@@ -103,12 +103,12 @@ public function html(string $html)
 public function htmlIf($condition, string $html)
 ```
 
-### each
+### `each`
 
 ```php
 /**
  * Iterate over all the items and apply a callback. If you typehint the
- * item parameter in the callable, it wil only be applied to items of that 
+ * item parameter in the callable, it wil only be applied to items of that
  * type.
  *
  * @param callable $callable
@@ -118,7 +118,7 @@ public function htmlIf($condition, string $html)
 public function each(callable $callable)
 ```
 
-### registerFilter
+### `registerFilter`
 
 ```php
 /**
@@ -133,12 +133,12 @@ public function each(callable $callable)
 public function registerFilter(callable $callable)
 ```
 
-### applyToAll
+### `applyToAll`
 
 ```php
 /**
- * Apply a callable to all existing items, and register it as a filter so it 
- * will get applied to all new items too. If you typehint the item parameter 
+ * Apply a callable to all existing items, and register it as a filter so it
+ * will get applied to all new items too. If you typehint the item parameter
  * in the callable, it wil only be applied to items of that type.
  *
  * @param callable $callable
@@ -148,7 +148,7 @@ public function registerFilter(callable $callable)
 public function applyToAll(callable $callable)
 ```
 
-### prefixLinks
+### `prefixLinks`
 
 ```php
 /**
@@ -161,7 +161,7 @@ public function applyToAll(callable $callable)
 public function prefixLinks(string $prefix)
 ```
 
-### prepend
+### `prepend`
 
 ```php
 /**
@@ -174,11 +174,11 @@ public function prefixLinks(string $prefix)
 public function prepend(string $prepend)
 ```
 
-### prependIf
+### `prependIf`
 
 ```php
 /**
- * Prepend the menu with a string of html on render if a certain condition is 
+ * Prepend the menu with a string of html on render if a certain condition is
  * met.
  *
  * @param bool $condition
@@ -189,7 +189,7 @@ public function prepend(string $prepend)
 public function prependIf(bool $condition, string $prepend)
 ```
 
-### append
+### `append`
 
 ```php
 /**
@@ -202,11 +202,11 @@ public function prependIf(bool $condition, string $prepend)
 public function append(string $append)
 ```
 
-### appendIf
+### `appendIf`
 
 ```php
 /**
- * Append the menu with a string of html on render if a certain condition is 
+ * Append the menu with a string of html on render if a certain condition is
  * met.
  *
  * @param bool $condition
@@ -217,7 +217,7 @@ public function append(string $append)
 public function appendIf(bool $condition, string $append)
 ```
 
-### isActive
+### `isActive`
 
 ```php
 /**
@@ -228,12 +228,12 @@ public function appendIf(bool $condition, string $append)
 public function isActive() : bool
 ```
 
-### setActive
+### `setActive`
 
 ```php
 /**
- * Set multiple items in the menu as active based on a callable that filters 
- * through items. If you typehint the item parameter in the callable, it will 
+ * Set multiple items in the menu as active based on a callable that filters
+ * through items. If you typehint the item parameter in the callable, it will
  * only be applied to items of that type.
  *
  * @param callable|string $urlOrCallable
@@ -244,7 +244,7 @@ public function isActive() : bool
 public function setActive($urlOrCallable, string $root = '/')
 ```
 
-### setActiveFromUrl
+### `setActiveFromUrl`
 
 ```php
 /**
@@ -265,7 +265,7 @@ public function setActive($urlOrCallable, string $root = '/')
 public function setActiveFromUrl(string $url, string $root = '/')
 ```
 
-### setActiveFromCallable
+### `setActiveFromCallable`
 
 ```php
 /**
@@ -276,12 +276,12 @@ public function setActiveFromUrl(string $url, string $root = '/')
 public function setActiveFromCallable(callable $callable)
 ```
 
-### setActiveClass
+### `setActiveClass`
 
 ```php
 /**
  * Set the class name that will be used on active items for this menu.
- * 
+ *
  * @param string $class
  *
  * @return $this
@@ -289,29 +289,29 @@ public function setActiveFromCallable(callable $callable)
 public function setActiveClass(string $class)
 ```
 
-### render
+### `render`
 
 ```php
 /**
  * Render the menu.
- * 
+ *
  * @return string
  */
 public function render() : string
 ```
 
-### count
+### `count`
 
 ```php
 /**
  * The amount of items in the menu.
- * 
+ *
  * @return int
  */
 public function count() : int
 ```
 
-### setAttribute
+### `setAttribute`
 
 ```php
 /**
@@ -323,7 +323,7 @@ public function count() : int
 public function setAttribute(string $attribute, string $value = '')
 ```
 
-### addClass
+### `addClass`
 
 ```php
 /**
@@ -334,11 +334,11 @@ public function setAttribute(string $attribute, string $value = '')
 public function addClass(string $class)
 ```
 
-### getParentAttributes
+### `getParentAttributes`
 
 ```php
 /**
- * Return an array of attributes to apply on the parent. This generally means 
+ * Return an array of attributes to apply on the parent. This generally means
  * the attributes that should be applied on the <li> tag.
  *
  * @return array
@@ -346,7 +346,7 @@ public function addClass(string $class)
 public function getParentAttributes() : array
 ```
 
-### setParentAttribute
+### `setParentAttribute`
 
 ```php
 /**
@@ -358,7 +358,7 @@ public function getParentAttributes() : array
 public function setParentAttribute(string $attribute, string $value = '')
 ```
 
-### addParentClass
+### `addParentClass`
 
 ```php
 /**
@@ -369,12 +369,77 @@ public function setParentAttribute(string $attribute, string $value = '')
 public function addParentClass(string $class)
 ```
 
+### `addItemClass`
+
+```php
+/**
+ * Add a class to all items in the menu.
+ *
+ * @param string $class
+ *
+ * @return $this
+ */
+public function addItemClass(string $class)
+```
+
+### `setItemAttribute`
+
+```php
+/**
+ * Set an attribute on all items in the menu.
+ *
+ * @param string $attribute
+ * @param string $value
+ *
+ * @return $this
+ */
+public function setItemAttribute(string $attribute, string $value = '')
+```
+
+### `addItemParentClass`
+
+```php
+/**
+ * Add a parent class to all items in the menu.
+ *
+ * @param string $class
+ *
+ * @return $this
+ */
+public function addItemParentClass(string $class)
+```
+
+### `setItemParentAttribute`
+
+```php
+/**
+ * Add a parent attribute to all items in the menu.
+ *
+ * @param string $attribute
+ * @param string $value
+ *
+ * @return $this
+ */
+public function setItemParentAttribute(string $attribute, string $value = '')
+```
+
+### `blueprint`
+
+```php
+/**
+ * Create a empty blueprint of the menu (copies `filters` and `activeClass`).
+ *
+ * @return static
+ */
+public function blueprint()
+```
+
 ## `Spatie\Menu\Laravel\Menu`
 
 - Extends `Spatie\Menu\Laravel\Menu`
 - Uses `Illuminate\Support\Traits\Macroable`
 
-### setActiveFromRequest
+### `setActiveFromRequest`
 
 ```php
 /**
@@ -395,7 +460,7 @@ public function addParentClass(string $class)
 public function setActiveFromRequest(string $requestRoot = '')
 ```
 
-### addIfCan
+### `addIfCan`
 
 ```php
 /**
@@ -407,7 +472,7 @@ public function setActiveFromRequest(string $requestRoot = '')
 public function addIfCan($authorization, Item $item)
 ```
 
-### linkIfCan
+### `linkIfCan`
 
 ```php
 /**
@@ -420,7 +485,7 @@ public function addIfCan($authorization, Item $item)
 public function linkIfCan($authorization, string $url, string $text)
 ```
 
-### htmlIfCan
+### `htmlIfCan`
 
 ```php
 /**
@@ -432,7 +497,7 @@ public function linkIfCan($authorization, string $url, string $text)
 public function htmlIfCan($authorization, string $html)
 ```
 
-### url
+### `url`
 
 ```php
 /**
@@ -446,7 +511,7 @@ public function htmlIfCan($authorization, string $html)
 public function url(string $path, string $text, array $parameters = [], $secure = null)
 ```
 
-### urlIf
+### `urlIf`
 
 ```php
 /**
@@ -461,7 +526,7 @@ public function url(string $path, string $text, array $parameters = [], $secure 
 public function urlIf($condition, string $path, string $text, array $parameters = [], $secure = null)
 ```
 
-### urlIfCan
+### `urlIfCan`
 
 ```php
 /**
@@ -482,7 +547,7 @@ public function urlIfCan(
 )
 ```
 
-### action
+### `action`
 
 ```php
 /**
@@ -496,7 +561,7 @@ public function urlIfCan(
 public function action(string $action, string $text, array $parameters = [], bool $absolute = true)
 ```
 
-### actionIf
+### `actionIf`
 
 ```php
 /**
@@ -511,7 +576,7 @@ public function action(string $action, string $text, array $parameters = [], boo
 public function actionIf($condition, string $action, string $text, array $parameters = [], bool $absolute = true)
 ```
 
-### actionIfCan
+### `actionIfCan`
 
 ```php
 /**
@@ -532,7 +597,7 @@ public function actionIfCan(
 )
 ```
 
-### route
+### `route`
 
 ```php
 /**
@@ -547,7 +612,7 @@ public function actionIfCan(
 public function route(string $name, string $text, array $parameters = [], bool $absolute = true, $route = null)
 ```
 
-### routeIf
+### `routeIf`
 
 ```php
 /**
@@ -563,7 +628,7 @@ public function route(string $name, string $text, array $parameters = [], bool $
 public function routeIf($condition, string $name, string $text, array $parameters = [], bool $absolute = true, $route = null)
 ```
 
-### routeIfCan
+### `routeIfCan`
 
 ```php
 /**

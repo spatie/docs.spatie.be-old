@@ -4,10 +4,10 @@ title: Link
 
 ## `Spatie\Menu\Link`
 
-- Implements `Spatie\Menu\Item`, `Spatie\Menu\Activatable`, `Spatie\Menu\HasUrl`
+- Implements `Spatie\Menu\Activatable`, `Spatie\Menu\HasUrl`, `Spatie\Menu\HasHtmlAttributes`, `Spatie\Menu\HasParentAttributes`, `Spatie\Menu\Item`
 
 
-### to
+### `to`
 
 ```php
 /**
@@ -19,7 +19,7 @@ title: Link
 public static function to(string $url, string $text)
 ```
 
-### getText
+### `getText`
 
 ```php
 /**
@@ -28,7 +28,7 @@ public static function to(string $url, string $text)
 public function getText() : string
 ```
 
-### getUrl
+### `getUrl`
 
 ```php
 /**
@@ -37,15 +37,15 @@ public function getText() : string
 public function getUrl() : string
 ```
 
-### segment
+### `segment`
 
 ```php
 /**
- * Return a segment of the link's URL. This function works for both absolute 
- * and relative URL's. The index is a 1-index based number. Trailing and 
+ * Return a segment of the link's URL. This function works for both absolute
+ * and relative URL's. The index is a 1-index based number. Trailing and
  * double slashes are ignored.
  *
- * Example: (new Link('Open Source', 'https://spatie.be/opensource'))->segment(1) 
+ * Example: (new Link('Open Source', 'https://spatie.be/opensource'))->segment(1)
  *      => 'opensource'
  *
  * @param int $index
@@ -55,7 +55,7 @@ public function getUrl() : string
 public function segment(int $index)
 ```
 
-### prefix
+### `prefix`
 
 ```php
 /**
@@ -66,7 +66,7 @@ public function segment(int $index)
 public function prefix(string $prefix)
 ```
 
-### render
+### `render`
 
 ```php
 /**
@@ -75,7 +75,7 @@ public function prefix(string $prefix)
 public function render() : string
 ```
 
-### isActive
+### `isActive`
 
 ```php
 /**
@@ -84,7 +84,7 @@ public function render() : string
 public function isActive() : bool
 ```
 
-### setActive
+### `setActive`
 
 ```php
 /**
@@ -93,7 +93,7 @@ public function isActive() : bool
 public function setActive()
 ```
 
-### setInactive
+### `setInactive`
 
 ```php
 /**
@@ -102,7 +102,7 @@ public function setActive()
 public function setInactive()
 ```
 
-### setAttribute
+### `setAttribute`
 
 ```php
 /**
@@ -114,7 +114,7 @@ public function setInactive()
 public function setAttribute(string $attribute, string $value = '')
 ```
 
-### addClass
+### `addClass`
 
 ```php
 /**
@@ -125,11 +125,11 @@ public function setAttribute(string $attribute, string $value = '')
 public function addClass(string $class)
 ```
 
-### getParentAttributes
+### `getParentAttributes`
 
 ```php
 /**
- * Return an array of attributes to apply on the parent. This generally means 
+ * Return an array of attributes to apply on the parent. This generally means
  * the attributes that should be applied on the <li> tag.
  *
  * @return array
@@ -137,7 +137,7 @@ public function addClass(string $class)
 public function getParentAttributes() : array
 ```
 
-### setParentAttribute
+### `setParentAttribute`
 
 ```php
 /**
@@ -149,7 +149,7 @@ public function getParentAttributes() : array
 public function setParentAttribute(string $attribute, string $value = '')
 ```
 
-### addParentClass
+### `addParentClass`
 
 ```php
 /**
