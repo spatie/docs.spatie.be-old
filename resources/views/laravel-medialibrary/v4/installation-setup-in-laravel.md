@@ -2,8 +2,6 @@
 title: Installation & setup in Laravel
 ---
 
-## Lara
-
 Medialibrary can be installed via composer:
 
 ```bash

@@ -5,11 +5,13 @@ title: Installation & setup in Lumen
 Lumen configuration is slightly more involved but features and API are identical to Laravel.
 
 Install using this command:
+
 ```bash
 composer require spatie/laravel-medialibrary
 ```
 
 Uncomment the following lines in the bootstrap file:
+
 ```php
 // bootstrap/app.php:
 $app->withFacades();
@@ -24,6 +26,7 @@ $app->register(Spatie\MediaLibrary\MediaLibraryServiceProvider::class);
 ```
 
 Update the `AppServiceProvider` register method to bind the filesystem manager to the IOC container:
+
 ```php
 // app/Providers/AppServiceProvider.php
 public function register()
