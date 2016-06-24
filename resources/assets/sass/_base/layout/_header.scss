@@ -7,7 +7,6 @@
   height: 30vh;
   min-height: 10em;
   position: relative;
-
 }
 
 .header_background {
@@ -62,42 +61,45 @@
   }
 
   color: color($orange);
+  display: inline-block;
   font-size: font-size(s);
   font-weight: font-weight(bold);
   margin: .2em 0;
-  display: inline-block;
 
   &.-selectable {
-    color: color($orange);
     background-color: $white;
     border-radius: border-radius(s);
+    color: color($orange);
     padding: 0 .45em 0 .25em;
   }
-
 }
 
 .header_version_caret {
+  border-left: .15em solid transparent;
+  border-right: .15em solid transparent;
+  border-top: .2em solid color($orange, lighter);
   display: inline-block;
-  width: 0;
   height: 0;
   vertical-align: middle;
-  border-top: .2em solid color($orange, lighter);
-  border-right: .15em solid transparent;
-  border-left: .15em solid transparent;
+  width: 0;
 }
 
 .header_version_dropdown {
-  position: absolute;
-  z-index: z-index(above);
-  top: .2em;
-  right: .1em;
-  list-style: none;
-  padding-left: 0;
+  @include mq(s) {
+    font-size: 1.40em;
+  }
+
   background: $white;
   border-radius: border-radius(s);
-  overflow: hidden;
-  font-size: 2.38em;
   box-shadow: 5px 5px 0 rgba($black, .1);
+  font-size: 2.38em;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 0;
+  position: absolute;
+  right: .1em;
+  top: .2em;
+  z-index: z-index(above);
 
   li {
     padding: 0 1em 0 .25em;
@@ -114,11 +116,6 @@
 
   a {
     color: color($orange);
-
-  }
-
-  @include mq(s) {
-    font-size: 1.40em;
   }
 }
 
