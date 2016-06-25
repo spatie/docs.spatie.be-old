@@ -40,14 +40,17 @@ Menu::new()
     ->add(Link::to('/', 'Home')->addClass('home-link'))
     ->add(Link::to('/about', 'About'))
     ->add(Link::to('/contact', 'Contact')->addParentClass('float-right'))
+    ->wrap('div.wrapper')
 ```
 
 ```html
-<ul class="navigation">
-    <li><a href="/" class="home-link">Home</a></li>
-    <li><a href="/about">About</a></li>
-    <li class="float-right"><a href="/contact">Contact</a></li>
-</ul>
+<div class="wrapper">
+    <ul class="navigation">
+        <li><a href="/" class="home-link">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li class="float-right"><a href="/contact">Contact</a></li>
+    </ul>
+</div
 ```
 
 ## Not Afraid of Depths
@@ -57,10 +60,10 @@ The menu supports submenus, which in turn can be nested infinitely.
 ```php
 Menu::new()
     ->add(Link::to('/', 'Home'))
-    ->add(Menu::new()
+    ->submenu('More', Menu::new()
         ->addClass('submenu')
-        ->add(Link::to('/about', 'About'))
-        ->add(Link::to('/contact', 'Contact'))
+        ->link('/about', 'About'))
+        ->link('/contact', 'Contact'))
     );
 ```
 
@@ -68,6 +71,7 @@ Menu::new()
 <ul>
     <li><a href="/">Home</a></li>
     <li>
+        More
         <ul class="submenu">
             <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact</a></li>
