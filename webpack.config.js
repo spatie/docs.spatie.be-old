@@ -10,6 +10,8 @@ module.exports = {
         'laravel-medialibrary.style': './resources/assets/sass/laravel-medialibrary/laravel-medialibrary.scss',
         'menu': './resources/assets/js/menu.js',
         'menu.style': './resources/assets/sass/menu/menu.scss',
+        'laravel-activitylog': './resources/assets/js/laravel-activitylog.js',
+        'laravel-activitylog.style': './resources/assets/sass/laravel-activitylog/laravel-activitylog.scss',
     },
     output: {
         path: 'public/build',
