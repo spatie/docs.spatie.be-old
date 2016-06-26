@@ -32,3 +32,15 @@ Menu::new()
     ->add(Link::to('/title/subpage', 'Subpage'))
     ->appendIf($displayRulers, '<hr>');
 ```
+
+You can also wrap the menu in an element.
+
+```php
+Menu::new()->wrap('div', ['class' => 'nav']);
+```
+
+```html
+<div class="nav">
+  <ul></ul>
+</div>
+```

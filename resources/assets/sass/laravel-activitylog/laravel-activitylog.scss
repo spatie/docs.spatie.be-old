@@ -1,0 +1,14 @@
+@import '../_base/base';
+
+.header {
+  overflow: hidden;
+}
+
+.header_background {
+  background-color: color($gold, dark);
+}
+
+.header_caption_title,
+.header_caption_slogan {
+  background: color($gold, lighter, .25);
+}

@@ -852,40 +852,43 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .header_version {
   color: #e14a0c;
+  display: inline-block;
   font-size: 0.85em;
   font-weight: 600;
-  margin: .2em 0;
-  display: inline-block; }
+  margin: .2em 0; }
   @media (max-width: 900px) {
     .header_version {
       font-size: 0.75em; } }
   .header_version.-selectable {
-    color: #e14a0c;
     background-color: #fff;
     border-radius: 3px;
+    color: #e14a0c;
     padding: 0 .45em 0 .25em; }
 
 .header_version_caret {
+  border-left: .15em solid transparent;
+  border-right: .15em solid transparent;
+  border-top: 0.2em solid #f5b180;
   display: inline-block;
-  width: 0;
   height: 0;
   vertical-align: middle;
-  border-top: 0.2em solid #f5b180;
-  border-right: .15em solid transparent;
-  border-left: .15em solid transparent; }
+  width: 0; }
 
 .header_version_dropdown {
-  position: absolute;
-  z-index: 10;
-  top: .2em;
-  right: .1em;
-  list-style: none;
-  padding-left: 0;
   background: #fff;
   border-radius: 3px;
-  overflow: hidden;
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
   font-size: 2.38em;
-  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1); }
+  list-style: none;
+  overflow: hidden;
+  padding-left: 0;
+  position: absolute;
+  right: .1em;
+  top: .2em;
+  z-index: 10; }
+  @media (max-width: 900px) {
+    .header_version_dropdown {
+      font-size: 1.40em; } }
   .header_version_dropdown li {
     padding: 0 1em 0 .25em;
     text-align: center; }
@@ -895,9 +898,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       background: #fff2de; }
   .header_version_dropdown a {
     color: #e14a0c; }
-  @media (max-width: 900px) {
-    .header_version_dropdown {
-      font-size: 1.40em; } }
 
 .header_caption_slogan {
   border-bottom-left-radius: 3px;
@@ -1275,44 +1275,44 @@ sup {
   margin: 10vh 0 4vh;
   text-align: center; }
   .pagination:after {
-    width: 100%;
-    top: .7em;
-    left: 0;
-    position: absolute;
+    border-top: solid 3px #f5f2ea;
     content: ' ';
     height: 0;
-    border-top: solid 3px #f5f2ea; }
+    left: 0;
+    position: absolute;
+    top: .7em;
+    width: 100%; }
 
 .pagination_buttons {
   background: #fff;
-  z-index: 10;
-  display: inline-block; }
+  display: inline-block;
+  z-index: 10; }
 
 .pagination_button {
-  line-height: 2;
   border: 0 !important;
-  overflow: hidden;
   display: inline-block;
   font-size: 0.75em;
-  margin: 0 .25em; }
+  line-height: 2;
+  margin: 0 .25em;
+  overflow: hidden; }
   .pagination_button:after {
     background-color: #f5f2ea;
     border-radius: 3px;
     color: #baab8c;
     display: inline-block;
     padding: 0 .35em;
-    z-index: 10;
     display: inline-block;
-    min-width: 8em; }
+    min-width: 8em;
+    z-index: 10; }
   .pagination_button:before {
-    position: absolute;
-    height: 2em;
-    width: 2em;
-    top: 0;
     background-color: #f5f2ea;
+    border-radius: 3px;
     content: ' ';
+    height: 2em;
+    position: absolute;
+    top: 0;
     transform: rotate(45deg);
-    border-radius: 3px; }
+    width: 2em; }
   .pagination_button:hover:after {
     background-color: #e6decd;
     border-radius: 3px;
@@ -1326,15 +1326,15 @@ sup {
     .pagination_button.-previous:before {
       left: .5em; }
     .pagination_button.-previous:after {
-      padding-right: 1em;
-      content: 'previous topic'; }
+      content: 'previous topic';
+      padding-right: 1em; }
   .pagination_button.-next {
     padding-right: 1em; }
     .pagination_button.-next:before {
       right: .5em; }
     .pagination_button.-next:after {
-      padding-left: 1em;
-      content: 'next topic'; }
+      content: 'next topic';
+      padding-left: 1em; }
 
 .toolbar {
   font-size: 0.75em;
