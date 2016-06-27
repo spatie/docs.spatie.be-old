@@ -27,6 +27,9 @@ return [
         'Conditional Items Based on Permissions',
         'Using Macros',
     ],
+    'Examples' => [
+        'Bootstrap Menu',
+    ],
     'Api' => [
         'Menu',
         'Link',
