@@ -16,6 +16,24 @@ You can retrieve all activity using the `Spatie\Activitylog\Models\Activity` mod
 Activity::all(); // returns all activity
 ```
 
+Here's a more advanced example:
+```php
+activity()
+   ->performedOn($anEloquentModel)
+   ->causedBy($user)
+   ->withProperties(['customProperty' => 'customValue'])
+   ->log('Look mum, I logged something');
+   
+$lastLoggedActivity = Activity::all()->last();
+
+$lastLoggedActivity->subject //returns an instance of an eloquent model
+$lastLoggedActivity->causer //returns an instance of your user model
+$lastLoggedActivity->property('customProperty') //returns 'customValue'
+$lastLoggedActivity->description //returns 'Look mum, I logged something'
+```
+
+This package can also [log model events](/laravel-activitylog/v1/advanced-usage/logging-model-events), [clean up old records](/laravel-activitylog/v1/basic-usage/cleaning-up-the-log) from the log and much more...
+
 ## We have badges!
 
 <section class="article_badges">

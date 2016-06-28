@@ -11,11 +11,10 @@ return [
     'Basic usage' => [
         'Logging activity',
         'Cleaning up the log',
-        'Using placeholders',
     ],
     'Advanced usage' => [
         'Logging model events',
-        'Adding custom properties',
+        'Using placeholders',
         'Using multiple logs',
     ],
 ];
