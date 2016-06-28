@@ -13,3 +13,5 @@ $lastActivity->log_name // returns "default";
 ```
 
 You can specify the name of the default log in the `default_log_name` key of the config file.
+
+More docs coming soon...
