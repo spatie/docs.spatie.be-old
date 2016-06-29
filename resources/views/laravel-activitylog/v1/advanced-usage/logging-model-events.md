@@ -90,7 +90,7 @@ class NewsItem extends Model
     use CausesActivity;
 
     //only the `deleted` event will get logged automatically
-    static $recordEvents = ['deleted'];
+    protected static $recordEvents = ['deleted'];
 }
 ```
 
