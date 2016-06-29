@@ -130,7 +130,7 @@ $activity = Activity::all()->last();
 $activity->description; //returns 'This model has been created'
 ```
 
-## Customize which attribute changes should be logged.
+## Customize which attribute changes should be logged
 
 By default the package will log changes of all attributes on a model. If you only need to log specific attributes you can do so by setting the `$logAttributes` property.
 
