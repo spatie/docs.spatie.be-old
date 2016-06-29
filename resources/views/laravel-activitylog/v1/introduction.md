@@ -13,7 +13,7 @@ activity()->log('Look mum, I logged something');
 You can retrieve all activity using the `Spatie\Activitylog\Models\Activity` model.
 
 ```php
-Activity::all(); // returns all activity
+Activity::all(); //returns all activity
 ```
 
 Here's a more advanced example:
@@ -26,10 +26,10 @@ activity()
    
 $lastLoggedActivity = Activity::all()->last();
 
-$lastLoggedActivity->subject //returns an instance of an eloquent model
-$lastLoggedActivity->causer //returns an instance of your user model
-$lastLoggedActivity->property('customProperty') //returns 'customValue'
-$lastLoggedActivity->description //returns 'Look mum, I logged something'
+$lastLoggedActivity->subject; //returns an instance of an eloquent model
+$lastLoggedActivity->causer; //returns an instance of your user model
+$lastLoggedActivity->property('customProperty'); //returns 'customValue'
+$lastLoggedActivity->description; //returns 'Look mum, I logged something'
 ```
 
 

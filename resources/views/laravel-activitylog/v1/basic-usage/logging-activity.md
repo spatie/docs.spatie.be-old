@@ -13,9 +13,9 @@ activity()->log('Look mum, I logged something');
 You can retrieve the activity using the `Spatie\Activitylog\Models\Activity` model.
 
 ```php
-$lastActivity = Activity::all()->last(); // returns the last logged activity
+$lastActivity = Activity::all()->last(); //returns the last logged activity
 
-$lastActivity->description // returns 'Look mum, I logged something';
+$lastActivity->description; //returns 'Look mum, I logged something';
 ```
 
 ## Setting a subject
@@ -27,12 +27,12 @@ activity()
    ->performedOn($someContentModel)
    ->log('edited');
 
-$lastActivity = Activity::all()->last(); // returns the last logged activity
+$lastActivity = Activity::all()->last(); //returns the last logged activity
 
-$lastActivity->subject // returns the model that was passed to `performedOn`;
+$lastActivity->subject; //returns the model that was passed to `performedOn`;
 ```
 
-The `performedOn` has a shorter named alias: `on`
+The `performedOn`-function has a shorter alias name: `on`
 
 ## Setting a causer
 
@@ -44,12 +44,12 @@ activity()
    ->performedOn($someContentModel)
    ->log('edited');
    
-$lastActivity = Activity::all()->last(); // returns the last logged activity
+$lastActivity = Activity::all()->last(); //returns the last logged activity
 
-$lastActivity->causer // returns the model that was passed to `causedBy`;   
+$lastActivity->causer; //returns the model that was passed to `causedBy`;   
 ```
 
-The `causedBy` has a shorter named alias: `by`
+The `causedBy()`-function has a shorter alias named: `by`
 
 If you're not using `causedBy` the package will automatically use the logged in user.
 
@@ -64,7 +64,7 @@ activity()
    ->withProperties(['key' => 'value'])
    ->log('edited');
    
-$lastActivity = Activity::all()->last(); // returns the last logged activity
+$lastActivity = Activity::all()->last(); //returns the last logged activity
    
-$lastActivity->getExtraProperty('key') // returns 'value';  
+$lastActivity->getExtraProperty('key') //returns 'value';  
 ```
