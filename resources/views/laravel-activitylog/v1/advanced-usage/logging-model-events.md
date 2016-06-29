@@ -117,6 +117,7 @@ class NewsItem extends Model
 ```
 
 Let's see what happens now:
+
 ```php
 $newsItem = NewsItem::create([
    'name' => 'original name',
@@ -127,6 +128,7 @@ $newsItem = NewsItem::create([
 $activity = Activity::all()->last();
 
 $activity->description; //returns 'This model has been created'
+```
 
 ## Customize which attribute changes should be logged.
 
