@@ -23,25 +23,25 @@ You can specify the log on which an activity must be logged by passing the log n
 ```php
 activity('other-log')->log("hi");
 
-Activity::all()->latest()->log_name; //returns 'other-log';
+Activity::all()->last()->log_name; //returns 'other-log';
 ```
 
 ## Retrieving activity
 
-The `Activity` model is just a regular Eloquent Model that you know and love:
+The `Activity` model is just a regular Eloquent model that you know and love:
 
 ```php
 Activity::where('log_name' , 'other-log')->get(); //returns all activity from the 'other-log'
 ```
 
-There's also an `onLog` scope you can use:
+There's also an `inLog` scope you can use:
 
 ```php
-Activity::onLog('other-log')->get();
+Activity::inLog('other-log')->get();
 
 //you can pass multiple log names to the scope
-Activity::onLog('default', 'other-log')->get();
+Activity::inLog('default', 'other-log')->get();
 
 //passing an array is just as good
-Activity::onLog(['default', 'other-log'])->get();
+Activity::inLog(['default', 'other-log'])->get();
 ```
