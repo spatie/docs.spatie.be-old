@@ -7,6 +7,7 @@ return [
         'Installation and setup',
         'Questions and issues',
         'Changelog',
+        'About us',
     ],
     'Basic usage' => [
         'Logging activity',
