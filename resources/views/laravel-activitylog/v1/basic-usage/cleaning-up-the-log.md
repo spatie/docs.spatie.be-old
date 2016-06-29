@@ -8,7 +8,6 @@ Running this command will result in the deletion of all recorded activity that o
 
 You can leverage Laravel's scheduler to run the clean up command now and then.
 
-
 ```php
 //app/Console/Kernel.php
 

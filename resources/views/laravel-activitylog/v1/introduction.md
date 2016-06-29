@@ -2,7 +2,7 @@
 title: Introduction
 ---
 
-The `spatie/laravel-activity` package provides easy to use functions to log the activities of the users of your app. All activity will be stored in the `activity_log` table. 
+The `spatie/laravel-activity` package provides easy to use functions to log the activities of the users of your app. It can also automatically log model events. All activity will be stored in the `activity_log` table. 
 
 Here's a litte demo of how you can use it:
 
@@ -32,7 +32,34 @@ $lastLoggedActivity->property('customProperty') //returns 'customValue'
 $lastLoggedActivity->description //returns 'Look mum, I logged something'
 ```
 
-This package can also [log model events](/laravel-activitylog/v1/advanced-usage/logging-model-events), [clean up old records](/laravel-activitylog/v1/basic-usage/cleaning-up-the-log) from the log and much more...
+
+This package can also [log model events](/laravel-activitylog/v1/advanced-usage/logging-model-events)
+
+```php
+$newsItem->name = 'updated name'
+$newsItem->save();
+
+//updating the newsItem will cause an activity being logged
+$activity = Activity::all()->last();
+
+$activity->description; //returns 'updated'
+$activity->subject; //returns the instance of NewsItem that was created
+```
+
+Calling `$activity->changes` will return this array:
+
+```php
+[
+   'attributes' => [
+        'name' => 'original name',
+        'text' => 'Lorum',
+    ],
+    'old' => [
+        'name' => 'updated name',
+        'text' => 'Lorum',
+    ],
+];
+```
 
 ## We have badges!
 
