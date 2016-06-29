@@ -40,7 +40,7 @@ This is the contents of the published config file:
 return [
 
     /**
-     * When running the clean-command all recording activites older than
+     * When running the clean-command all recording activities older than
      * the number of days specified here will be deleted.
      */
     'delete_records_older_than_days' => 365,
