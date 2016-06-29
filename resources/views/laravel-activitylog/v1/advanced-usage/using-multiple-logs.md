@@ -22,9 +22,9 @@ You can specify the log on which an activity must be logged by passing the log n
 
 ```php
 activity('other-log')->log("hi");
-```
 
-$lastActivity->log_name; //returns 'other-log';
+Activity::all()->latest()->log_name; //returns 'other-log';
+```
 
 ## Retrieving activity
 
