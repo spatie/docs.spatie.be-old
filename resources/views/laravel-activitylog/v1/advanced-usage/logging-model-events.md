@@ -143,6 +143,6 @@ class NewsItem extends Model
     use CausesActivity;
 
     //for all events only changed on the `name` property will get logged
-    static $logAttributes = ['name'];
+    protected static $logAttributes = ['name'];
 }
 ```
