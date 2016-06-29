@@ -4,8 +4,8 @@ return [
     [
         'Introduction',
         'Requirements',
-        'Installation & setup',
-        'Questions & issues',
+        'Installation and setup',
+        'Questions and issues',
         'Changelog',
     ],
     'Basic usage' => [
