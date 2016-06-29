@@ -64,7 +64,7 @@ Calling `$activity->changes` will return this array:
 ## We have badges!
 
 <section class="article_badges">
-    <a href="https://packagist.org/packages/spatie/laravel-activitylog"><img src="https://img.shields.io/badge/packagist-spatie/laravel-activitylog-orange.svg?style=flat-square" alt="spatie/laravel-activitylog"></a>
+    <a href="https://packagist.org/packages/spatie/laravel-activitylog"><img src="https://img.shields.io/badge/packagist-spatie/laravel-activitylog.svg?style=flat-square" alt="spatie/laravel-activitylog"></a>
     <a href="https://packagist.org/packages/spatie/laravel-activitylog"><img src="https://img.shields.io/packagist/v/spatie/laravel-activitylog.svg?style=flat-square" alt="Latest Version on Packagist"></a>
     <a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></a>
     <a href="https://travis-ci.org/spatie/laravel-activitylog"><img src="https://img.shields.io/travis/spatie/laravel-activitylog/master.svg?style=flat-square" alt="Build Status"></a>
