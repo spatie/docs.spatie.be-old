@@ -36,7 +36,7 @@ $lastLoggedActivity->description; //returns 'Look mum, I logged something'
 Here's an example on [event logging](/laravel-activitylog/v1/advanced-usage/logging-model-events).
 
 ```php
-$newsItem->name = 'updated name'
+$newsItem->name = 'updated name';
 $newsItem->save();
 
 //updating the newsItem will cause an activity being logged
