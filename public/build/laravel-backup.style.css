@@ -461,12 +461,23 @@ table {
     border-color: #f76b6e;
     color: #a32324; }
 
-.badge {
-  background-color: rgba(206, 235, 242, 0.75);
-  border-radius: 1em;
-  color: #e14a0c;
-  display: inline-block;
-  padding: 0 .35em; }
+.anchor-link {
+  border: none !important;
+  color: #d4cab4 !important;
+  display: block;
+  font-size: .75em;
+  font-weight: normal;
+  height: 1em;
+  position: absolute;
+  right: 100%;
+  top: .3em;
+  width: 1em;
+  text-align: right;
+  padding-right: .5rem; }
+  .anchor-link:hover {
+    color: #8d7e5f !important; }
+  .anchor-link:before {
+    content: '#'; }
 
 .article h1 {
   color: #1b3747;
@@ -524,6 +535,13 @@ table {
   transition: all .1s; }
   .article_badges a {
     border: 0; }
+
+.badge {
+  background-color: rgba(206, 235, 242, 0.75);
+  border-radius: 1em;
+  color: #e14a0c;
+  display: inline-block;
+  padding: 0 .35em; }
 
 html {
   height: 100%; }
