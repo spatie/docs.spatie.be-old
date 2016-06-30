@@ -1,0 +1,22 @@
+.anchor-link {
+  border: none !important;
+  color: color($gold, lighter) !important;
+  display: block;
+  font-size: 1.25rem;
+  font-weight: normal;
+  height: 1rem;
+  line-height: 1;
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+
+  &:hover {
+    color: color($gold) !important;
+  }
+
+  &:before {
+    content: '#';
+  }
+}
