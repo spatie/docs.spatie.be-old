@@ -462,20 +462,20 @@ table {
     color: #a32324; }
 
 .anchor-link {
+  border: none !important;
+  color: #d4cab4 !important;
   display: block;
-  width: 1rem;
-  height: 1rem;
-  line-height: 1;
+  font-size: .75em;
+  font-weight: normal;
+  height: 1em;
   position: absolute;
   right: 100%;
-  color: #e6decd !important;
-  border: none !important;
-  font-size: 1.25rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-weight: normal; }
+  top: .3em;
+  width: 1em;
+  text-align: right;
+  padding-right: .5rem; }
   .anchor-link:hover {
-    color: #baab8c !important; }
+    color: #8d7e5f !important; }
   .anchor-link:before {
     content: '#'; }
 

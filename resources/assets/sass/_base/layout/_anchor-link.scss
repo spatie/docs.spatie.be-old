@@ -1,19 +1,19 @@
 .anchor-link {
   border: none !important;
-  color: color($gold, lighter) !important;
+  color: color($gold, light) !important;
   display: block;
-  font-size: 1.25rem;
+  font-size: .75em;
   font-weight: normal;
-  height: 1rem;
-  line-height: 1;
+  height: 1em;
   position: absolute;
   right: 100%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1rem;
+  top: .3em;
+  width: 1em;
+  text-align: right;
+  padding-right: .5rem;
 
   &:hover {
-    color: color($gold) !important;
+    color: color($gold, dark) !important;
   }
 
   &:before {
