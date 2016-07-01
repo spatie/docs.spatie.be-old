@@ -4,7 +4,7 @@ title: Logging model events
 
 A neat feature of this package is that it can automatically log events such as when a model is created, updated and deleted.  To make this work all you need to do is let your model use the `Spatie\Activitylog\Traits\LogsActivity`-trait.
 
-As a bonus the package will also log the changed attributes for all these events.
+As a bonus the package will also log the changed attributes for all these events when setting `$logAttributes` property on the model.
 
 Here's an example:
 
@@ -17,6 +17,8 @@ class NewsItem extends Model
     use LogsActivity;
 
     protected $fillable = ['name', 'text'];
+    
+    protected static $logAttributes = ['name', 'text'];
 }
 ```
 
@@ -128,21 +130,4 @@ $newsItem = NewsItem::create([
 $activity = Activity::all()->last();
 
 $activity->description; //returns 'This model has been created'
-```
-
-## Customize which attribute changes should be logged
-
-By default the package will log changes of all attributes on a model. If you only need to log specific attributes you can do so by setting the `$logAttributes` property.
-
-```php
-use Illuminate\Database\Eloquent\Model;
-use Spatie\Activitylog\Traits\CausesActivity;
-
-class NewsItem extends Model
-{
-    use CausesActivity;
-
-    //for all events only changed on the `name` property will get logged
-    protected static $logAttributes = ['name'];
-}
 ```
