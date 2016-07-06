@@ -37,16 +37,16 @@ of added media.
 namespace App\Listeners;
 
 use Log;
-use Spatie\MediaLibrary\Events\MediaAddedEvent;
+use Spatie\MediaLibrary\Events\MediaHasBeenAdded;
 
 class MediaLogger
 {
     /**
-     * @param \Spatie\MediaLibrary\Events\MediaAddedEvent $event
+     * @param \Spatie\MediaLibrary\Events\MediaHasBeenAdded $event
      */
-    public function handle(MediaAddedEvent $event)
+    public function handle(MediaHasBeenAdded $event)
     {
-        $media = $event->getMedia();
+        $media = $event->media;
         $path = $media->getPath();
         Log::info("file {$path} has been saved for media {$media->id}");
     }
@@ -58,7 +58,7 @@ be called when the event is fired:
 
 ```php
 protected $listen = [
-    'Spatie\MediaLibrary\Events\MediaAddedEvent' => [
+    'Spatie\MediaLibrary\Events\MediaHasBeenAdded' => [
         'App\Listeners\MediaLogger'
     ],
 ];
