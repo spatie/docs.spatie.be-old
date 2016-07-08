@@ -24,7 +24,7 @@ class NewsItem extends Model implements HasMediaConversions
 }
 ```
 
-When associating a jpg-, png-, or pdf-file, the package will—besides storing the original image—create a derived image for every media conversion that was added. By default, the output will be saved as a jpg-file.
+When associating a jpg-, png-, svg-, or pdf-file, the package will—besides storing the original image—create a derived image for every media conversion that was added. By default, the output will be saved as a jpg-file.
 
 Internally, [Glide](http://glide.thephpleague.com/) is used to manipulate the images. You can use any parameter from their image API. So if you want to output to another image format you 
 can specify png or gif using the `fm`-key in an image profile. If you specify `src` in the `fm`-key, the derived image will have the same format as the original image.
