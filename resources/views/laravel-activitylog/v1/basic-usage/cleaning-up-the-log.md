@@ -13,6 +13,6 @@ You can leverage Laravel's scheduler to run the clean up command now and then.
 
 protected function schedule(Schedule $schedule)
 {
-   $schedule->command('activity:clean')->daily();
+   $schedule->command('activitylog:clean')->daily();
 }
 ```
