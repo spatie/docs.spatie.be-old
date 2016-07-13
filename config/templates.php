@@ -21,4 +21,9 @@ return [
         'siteSlogan' => 'Log the activities of your users',
         'siteTitle' => 'Laravel Activitylog',
     ],
+    'laravel-slack-slash-command' => [
+        'githubUrl' => 'https://github.com/spatie/laravel-slack-slash-command',
+        'siteSlogan' => 'Make a Laravel app respond to a slash command from Slack',
+        'siteTitle' => 'Laravel Slack Slash Command',
+    ],
 ];
