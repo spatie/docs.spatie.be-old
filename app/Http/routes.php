@@ -53,5 +53,16 @@ Route::group(['prefix' => 'laravel-activitylog'], function () {
     });
 });
 
+Route::group(['prefix' => 'laravel-slack-slash-command'], function () {
+
+    Route::get('/', function () {
+        return redirect('laravel-slack-slash-command/v1/introduction');
+    });
+
+    Route::get('v1', function () {
+        return redirect('laravel-slack-slash-command/v1/introduction');
+    });
+});
+
 Route::get('{slug}/edit', 'PageController@edit')->where('slug', '(.*)');
 Route::get('{slug}', 'PageController@page')->where('slug', '(.*)');
