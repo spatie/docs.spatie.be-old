@@ -12,6 +12,8 @@ module.exports = {
         'menu.style': './resources/assets/sass/menu/menu.scss',
         'laravel-activitylog': './resources/assets/js/laravel-activitylog.js',
         'laravel-activitylog.style': './resources/assets/sass/laravel-activitylog/laravel-activitylog.scss',
+        'laravel-slack-slash-command': './resources/assets/js/laravel-slack-slash-command.js',
+        'laravel-slack-slash-command.style': './resources/assets/sass/laravel-slack-slash-command/laravel-slack-slash-command.scss',
     },
     output: {
         path: 'public/build',
