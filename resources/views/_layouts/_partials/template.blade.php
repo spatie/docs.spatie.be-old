@@ -44,7 +44,7 @@
                 </ul>
                 {{-- End with dropdown --}}
                 <br>
-                <p class="header_caption_slogan">{{ $siteSlogan }}</p>
+                <p class="header_caption_slogan">{!! $siteSlogan !!}</p>
             </div>
             <div class="header_logos">
                 <a href="{{ $githubUrl }}" target="_external">

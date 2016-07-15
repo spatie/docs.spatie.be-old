@@ -1622,8 +1622,10 @@ sup {
   overflow: hidden; }
 
 .header_background {
-  background-color: #a7dceb; }
+  background: #ceebf2 url("/images/slack/slack.svg") 70% center no-repeat;
+  background-size: auto 300%; }
 
 .header_caption_title,
 .header_caption_slogan {
-  background: rgba(0, 73, 102, 0.2); }
+  background: rgba(255, 255, 255, 0.85);
+  color: #1b3747; }

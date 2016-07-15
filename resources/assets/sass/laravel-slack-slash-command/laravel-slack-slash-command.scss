@@ -5,10 +5,12 @@
 }
 
 .header_background {
-  background-color: color($blue, lighter);
+  background: color($blue, lightest) url('/images/slack/slack.svg') 70% center no-repeat;
+  background-size: auto 300%;
 }
 
 .header_caption_title,
 .header_caption_slogan {
-  background: color($blue, darker, .2);
+  background: rgba($white, .85);
+  color: color($blue, darkest);
 }
