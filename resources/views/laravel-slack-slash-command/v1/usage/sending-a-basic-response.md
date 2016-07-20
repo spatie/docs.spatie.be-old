@@ -51,7 +51,7 @@ Do not forget to register your new command in the config file.
     'handlers' => [
         App\SlashCommandHandlers\Hodor::class,
         ...
-    },    
+    ], 
 ```
 
 Now whenever you type in your slash command, you'll see that it'll response with `Hodor, hodor...`.
@@ -89,7 +89,7 @@ Let's register this one as well.
         App\SlashCommandHandlers\Repeat::class,
         App\SlashCommandHandlers\Hodor::class,
         ...
-    },    
+    ],    
 ```
 
 If you type in `/your-command repeat Hi, everybody` in a slack channel now, you'll get a response `Hi, everybody` back. When you type in `/your-command this does not exists` you'll get a response `Hodor, hodor...` because the `Hodor` handler is the first one which `canHandle`-method returns `true`.
