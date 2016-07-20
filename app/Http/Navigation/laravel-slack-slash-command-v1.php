@@ -16,9 +16,4 @@ return [
         'Making your response look good',
         'Responding to multiple commands',
     ],
-    'Advanced usage' => [
-        'Logging model events',
-        'Using placeholders',
-        'Using multiple logs',
-    ],
 ];
