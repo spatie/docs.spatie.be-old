@@ -2,4 +2,10 @@
 title: General flow
 ---
 
-coming soon...
+Whenever you type in a slash command in Slack channel, a http request will be sent to your Laravel app. You have to respond to that command within 3 seconds. Failing to do some will result in an error being displayed in the channel. In this package the initial response will be sent by a `Handler`. Learn more on how to send the initial response on the [`Sending a basic response` page](https://docs.spatie.be/laravel-slack-slash-command/v1/usage/sending-a-basic-response).
+
+After that first response you're allowed to send multiple delayed responses. There are some limitation. You may respond up to 5 times within 30 minutes after the user typed in the slash command on the slack channel.
+These delayed responses will be sent by queued jobs that you can dispatch using the package. Learn more on how to send the delayed responses on the [`Sending delayed responses` page](https://docs.spatie.be/laravel-slack-slash-command/v1/usage/sending-a-delayed-response).
+
+This is just a quick summary of the general flow. Before using this package it's higly recommend to go over  this excellent article explaining how Slack commands [on Slack's API site](https://api.slack.com/slash-commands). 
+

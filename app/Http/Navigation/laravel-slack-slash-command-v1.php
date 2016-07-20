@@ -12,7 +12,7 @@ return [
     'Usage' => [
         'General flow',
         'Sending a basic response',
-        'Responding from a queued job',
+        'Sending a delayed response',
         'Making your response look good',
         'Responding to multiple commands',
     ],

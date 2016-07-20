@@ -11,7 +11,7 @@ You should now be on a screen that looks like this.
 
 <img src="/images/slack/slack-integration-settings.jpg">
 
-These are things you'll need to do at this screen:
+These are things you'll need to do:
 - In the `url` you should type the domain name of your Laravel app followed by one or more segments. In the screenshot we've added a `slack` segment. You can choose any segment you want. You'll also need to specify this later on in the config file of the package. 
 - Choose `POST` in the `method` field
 - Specify a token in the `token` field. You'll need to copy that value over to the config file of this package.
