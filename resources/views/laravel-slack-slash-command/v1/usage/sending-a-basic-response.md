@@ -94,4 +94,4 @@ Let's register this one as well.
     },    
 ```
 
-If you type in `/your-command repeat Hi, everybody` in a slack channel now, you'll get a response `Hi, everybody` back. When you type in `/your-command this does not exists` the package will output `Hodor` because the `Hodor` handler is the first one which `canHandle`-method returns `true`.
+If you type in `/your-command repeat Hi, everybody` in a slack channel now, you'll get a response `Hi, everybody` back. When you type in `/your-command this does not exists` you'll get a response `Hodor, hodor...` because the `Hodor` handler is the first one which `canHandle`-method returns `true`.
