@@ -13,6 +13,7 @@ namespace App\SlashCommandHandlers;
 
 use Spatie\SlashCommand\Request;
 use Spatie\SlashCommand\Response;
+use Spatie\SlashCommand\Handlers\BaseHandler;
 
 class Hodor extends BaseHandler
 {
@@ -63,6 +64,7 @@ namespace App\SlashCommandHandlers;
 
 use Spatie\SlashCommand\Request;
 use Spatie\SlashCommand\Response;
+use Spatie\SlashCommand\Handlers\BaseHandler;
 
 class Repeat extends BaseHandler
 {
