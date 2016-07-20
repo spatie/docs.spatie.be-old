@@ -2,7 +2,7 @@
 title: Sending a basic response
 ---
 
-Whenever a user types in a slash command Slack will send an http request to the Laravel app. Keep in mind that you have only 3 seconds to respond. If handling the request takes longer than that you should use [delayed responses](/laravel-slack-slash-command/v1/usage/sending-delayed-responses).
+Whenever a user types in a slash command Slack will send an http request to the Laravel app. Keep in mind that you have only 3 seconds to respond. If handling the request takes longer than that you should use [delayed responses](/laravel-slack-slash-command/v1/advanced-usage/sending-delayed-responses).
 
 Whenever a request from slack hits the Laravel app the package will go over all classes in the `handlers` key of the config file to see which one should send a response. Let's review how you can create your own handler.
 

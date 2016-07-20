@@ -12,8 +12,11 @@ return [
     'Usage' => [
         'General flow',
         'Sending a basic response',
-        'Sending delayed responses',
         'Making your response look good',
-        'Responding to multiple commands',
     ],
+    'Advanced usage' => [
+        'Sending delayed responses',
+        'Using signature handlers',
+        'Responding to multiple commands',
+    ]
 ];
