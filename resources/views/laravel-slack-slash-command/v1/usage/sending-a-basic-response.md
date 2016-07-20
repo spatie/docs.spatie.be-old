@@ -11,7 +11,6 @@ Here's a simple example:
 ```php
 namespace App\SlashCommandHandlers;
 
-use App\Jobs\TestJob;
 use Spatie\SlashCommand\Request;
 use Spatie\SlashCommand\Response;
 
@@ -62,7 +61,6 @@ Let's create a slightly more advanced command.
 ```php
 namespace App\SlashCommandHandlers;
 
-use App\Jobs\TestJob;
 use Spatie\SlashCommand\Request;
 use Spatie\SlashCommand\Response;
 
