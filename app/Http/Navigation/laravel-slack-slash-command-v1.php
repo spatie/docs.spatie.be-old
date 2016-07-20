@@ -12,7 +12,7 @@ return [
     'Usage' => [
         'General flow',
         'Sending a basic response',
-        'Sending a delayed response',
+        'Sending delayed responses',
         'Making your response look good',
         'Responding to multiple commands',
     ],
