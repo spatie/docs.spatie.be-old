@@ -4,7 +4,17 @@ title: Installation and Setup
 
 ## Setting up a Slash command at Slack.com
 
-coming soon
+In order to use this package you'll need to setup a Slash command. Head over to the [custom integrations page
+at slack.com](https://spatie.slack.com/apps/manage/custom-integrations) to get started. There click "Slash commands" and on the next page click "Add configuration". On that screen you can choose a name for your slack command. You can choose anything the slack allows. And finally you can setup your new command.
+
+You should now be on a screen that looks like this.
+
+<img src="/public/slack/slack-integration-settings.jpg">
+
+These are things you'll need to do at this screen:
+- In the `url` you should type the domain name of your Laravel app followed by one or more segments. In the screenshot we've added a `slack` segment. You can choose any segment you want. You'll also need to specify this later on in the config file of the package. 
+- Choose `POST` in the `method` field
+- Specify a token in the `token` field. You'll need to copy that value over to the config file of this package.
 
 ## Installing the package
 
