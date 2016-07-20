@@ -2,9 +2,9 @@
 title: Sending a basic response
 ---
 
-Whenever a user types in a slash command Slack will send an http request to the Laravel app. Keep in mind that you have only 3 seconds to respond. If handling the request takes longer that that you should use [delayed responses](/laravel-slack-slash-command/v1/usage/sending-delayed-responses).
+Whenever a user types in a slash command Slack will send an http request to the Laravel app. Keep in mind that you have only 3 seconds to respond. If handling the request takes longer than that you should use [delayed responses](/laravel-slack-slash-command/v1/usage/sending-delayed-responses).
 
-Whenever a request from slack hits the Laravel app the package will go over all classes that are present in the `handlers` key of the config file. Let's review how you can create your own handler.
+Whenever a request from slack hits the Laravel app the package will go over all classes in the `handlers` key of the config file to see which one should send a response. Let's review how you can create your own handler.
 
 Here's a simple example:
 
@@ -95,3 +95,16 @@ Let's register this one as well.
 ```
 
 If you type in `/your-command repeat Hi, everybody` in a slack channel now, you'll get a response `Hi, everybody` back. When you type in `/your-command this does not exists` you'll get a response `Hodor, hodor...` because the `Hodor` handler is the first one which `canHandle`-method returns `true`.
+
+By default the response will be sent to the user who typed in the original message. If you want the response to be visible to all users in the channel you can do this:
+
+```php
+    public function handle(Request $request): Response
+    {
+        return $this
+           ->respondToSlack("Hodor, hodor...")-
+           ->displayResponseToEveryoneOnChannel();
+    }
+```
+
+There are a lot of ways to format your message. Take a look at the docs on [formatting responses](https://docs.spatie.be/laravel-slack-slash-command/v1/usage/making-your-response-look-good) to learn more.
