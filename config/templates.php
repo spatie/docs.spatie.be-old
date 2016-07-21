@@ -23,7 +23,7 @@ return [
     ],
     'laravel-slack-slash-command' => [
         'githubUrl' => 'https://github.com/spatie/laravel-slack-slash-command',
-        'siteSlogan' => 'Respond to a Slack slash command in Laravel',
+        'siteSlogan' => 'Make a Laravel app respond to a slash command from Slack',
         'siteTitle' => 'Laravel Slack Slash Command',
     ],
 ];
