@@ -2,8 +2,6 @@
 title: Introduction
 ---
 
-**THIS PACKAGE HAS NOT BEEN RELEASED YET**
-
 This package makes it easy to make your Laravel app respond to [Slack's Slash commands](https://api.slack.com/slash-commands). 
 
 Once you've setup your Slash command over at Slack and installed this package into a Laravel app you can create handlers that can handle a slash command. Here's an example of such a handler that will send a response back to slack.
