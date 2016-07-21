@@ -45,9 +45,6 @@ class CatchAll extends BaseHandler
 }
 ```
 
-This is how it looks in action.
-
-@TODO: insert gif here
 
 The package also provides many options to format a response. It also can respond to a slack from within a queued job.
 
