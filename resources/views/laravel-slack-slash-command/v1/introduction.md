@@ -49,7 +49,6 @@ The package also provides many options to format a response. It also can respond
 ## We have badges!
 
 <section class="article_badges">
-    <a href="https://packagist.org/packages/spatie/laravel-slack-slash-command"><img src="https://img.shields.io/packagist/v/spatie/laravel-slack-slash-command.svg?style=flat-square" alt="spatie/laravel-slack-slash-command"></a>
     <a href="https://packagist.org/packages/spatie/laravel-slack-slash-command"><img src="https://img.shields.io/packagist/v/spatie/laravel-slack-slash-command.svg?style=flat-square" alt="Latest Version on Packagist"></a>
     <a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></a>
     <a href="https://travis-ci.org/spatie/laravel-slack-slash-command"><img src="https://img.shields.io/travis/spatie/laravel-slack-slash-command/master.svg?style=flat-square" alt="Build Status"></a>
