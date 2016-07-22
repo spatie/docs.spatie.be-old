@@ -2,7 +2,7 @@
 title: Using signature handlers
 ---
 
-In Laravel's console commands a `signature` can be defined to set expections on the input.
+In Laravel's console commands a `signature` can be defined to set expectations on the input.
 
 You can use a `$signature` on your handler if you let your handler extend `Spatie\SlashCommand\Handlers\SignatureHandler`. When doing that you can make use of the `getArgument` and `getOption` methods to get the values of arguments and options. 
 
