@@ -2,10 +2,10 @@
 title: Installation and Setup
 ---
 
-## Setting up a Slash command at slack.com
+## Setting up a slash command at Slack.com
 
-In order to use this package you'll need to setup a Slash command. Head over to the [custom integrations page
-at slack.com](https://spatie.slack.com/apps/manage/custom-integrations) to get started. There click "Slash commands" and on the next page click "Add configuration". On that screen you can choose a name for your Slack command. You can choose anything that Slack allows. And finally you can setup your new command.
+In order to use this package you'll need to setup a slash command. Head over to the [custom integrations page
+at slack.com](https://spatie.slack.com/apps/manage/custom-integrations) to get started. There click "slash commands" and on the next page click "Add configuration". On that screen you can choose a name for your Slack command. You can choose anything that Slack allows. And finally you can setup your new command.
 
 You should now be on a screen that looks like this.
 
