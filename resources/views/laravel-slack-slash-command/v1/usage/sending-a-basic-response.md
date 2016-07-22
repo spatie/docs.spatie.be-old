@@ -102,7 +102,7 @@ By default the response will be sent to the user who typed in the original messa
     public function handle(Request $request): Response
     {
         return $this
-           ->respondToSlack("Hodor, hodor...")-
+           ->respondToSlack("Hodor, hodor...")
            ->displayResponseToEveryoneOnChannel();
     }
 ```
