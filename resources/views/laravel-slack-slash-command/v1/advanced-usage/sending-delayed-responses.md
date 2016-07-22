@@ -45,7 +45,7 @@ class SlowApi extends BaseHandler
 }
 ```
 
-Noticed that we're dispatching a job right before sending a response. Behind the scenes Laravel will queue that job (make sure you've set up a queue driver other than `sync`).
+Notice that we're dispatching a job right before sending a response. Behind the scenes Laravel will queue that job (make sure you've set up a queue driver other than `sync`).
 
 This is how that `SlowApiJob` would look like.
 
