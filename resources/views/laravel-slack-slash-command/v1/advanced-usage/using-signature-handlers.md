@@ -32,4 +32,4 @@ class SendEmail extends SignatureHandler
 }
 ```
 
-Noticed that there is no `canHandle` method present. The package will automatically determine that a command `/your-command email:send test@email.com hello` can be handled by this class.
+Notice that there is no `canHandle` method present. The package will automatically determine that a command `/your-command email:send test@email.com hello` can be handled by this class.
