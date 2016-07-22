@@ -45,7 +45,7 @@ class Hodor extends BaseHandler
 }
 ```
 
-Do not forget to register your new command in the config file.
+That handler must be registered in the config file.
 
 ```php
 // app/config/laravel-slack-slash-command
