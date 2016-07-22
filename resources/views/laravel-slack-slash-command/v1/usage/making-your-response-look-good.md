@@ -4,7 +4,7 @@ title: Making your response look good
 
 In various examples giving in these you'll see that `respondToSlack()` is used to send some text back as a response. But you can also add some attachments.
 
-Take a look at this response on slack:
+Take a look at this response on Slack:
 
 <img src="/images/slack/attachments.png">
 
