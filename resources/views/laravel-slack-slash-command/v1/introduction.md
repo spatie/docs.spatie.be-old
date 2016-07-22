@@ -4,7 +4,7 @@ title: Introduction
 
 This package makes it easy to make your Laravel app respond to [Slack's Slash commands](https://api.slack.com/slash-commands). 
 
-Once you've setup your Slash command over at Slack and installed this package into a Laravel app you can create handlers that can handle a slash command. Here's an example of such a handler that will send a response back to slack.
+Once you've setup your Slash command over at Slack and installed this package into a Laravel app you can create handlers that can handle a slash command. Here's an example of such a handler that will send a response back to Slack.
 
 ```php
 namespace App\SlashCommandHandlers;
@@ -44,7 +44,7 @@ class CatchAll extends BaseHandler
 ```
 
 
-The package also provides many options to format a response. It also can respond to a slack from within a queued job.
+The package also provides many options to format a response. It also can respond to Slack from within a queued job.
 
 ## We have badges!
 
