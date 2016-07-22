@@ -82,7 +82,7 @@ class Repeat extends BaseHandler
 }
 ```
 
-Let's register this one as well.
+Let's register this hanlder as well.
 
 ```php
 // app/config/laravel-slack-slash-command
