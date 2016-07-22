@@ -2,7 +2,7 @@
 title: Responding to multiple commands
 ---
 
-You may choose to set up multiple slack commands. On the integrations settings on Slack.com you should let them all point to the `url` you configured in `app/config/laravel-slack-slash-command`.
+You may choose to set up multiple slack commands. On the integrations settings on slack.com you should let them all point to the `url` you configured in `app/config/laravel-slack-slash-command`.
 
 Image you've created two slack commands `/jaime` and `/johnsnow`
 
