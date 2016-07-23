@@ -96,6 +96,19 @@ Let's register this hanlder as well.
 
 If you type in `/your-command repeat Hi, everybody` in a slack channel now, you'll get a response `Hi, everybody` back. When you type in `/your-command this does not exists` you'll get a response `Hodor, hodor...` because the `Hodor` handler is the first one which `canHandle`-method returns `true`.
 
+## The request object
+
+Notice that `Spatie\SlashCommand\Request` being past in `canHandle` and `handle` in the handler of the previous example? It contains all data that's being passed by Slack to our Laravel app. These are it's most important properties:
+
+- `command`: the command name without the `/` that the user typed in. In our previous example this would be `paolo`.
+- `text`: all text text after the command. In our the example above this would be `repeat Hi, everybody`.
+- `userName`: the Slack username of the person that typed in the command
+- `userId`: the Slack user id of the person that typed in the command
+- `channelName`: the name of the channel where the user typed in the command
+- `teamDomain`: the name of the Slack subdomain. So if your team is on `example.slack.com` this would be `example`.
+
+## Visibility of the response
+
 By default the response will be sent to the user who typed in the original message. If you want the response to be visible to all users in the channel you can do this:
 
 ```php
