@@ -100,7 +100,7 @@ If you type in `/your-command repeat Hi, everybody` in a slack channel now, you'
 
 Notice that `Spatie\SlashCommand\Request` being past in `canHandle` and `handle` in the handler of the previous example? It contains all data that's being passed by Slack to our Laravel app. These are it's most important properties:
 
-- `command`: the command name without the `/` that the user typed in. In our previous example this would be `paolo`.
+- `command`: the command name without the `/` that the user typed in. In our previous example this would be `your-command`.
 - `text`: all text text after the command. In our the example above this would be `repeat Hi, everybody`.
 - `userName`: the Slack username of the person that typed in the command
 - `userId`: the Slack user id of the person that typed in the command
