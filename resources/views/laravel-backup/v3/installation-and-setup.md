@@ -162,6 +162,7 @@ return [
          * events take place. Possible values are "log", "mail", "slack", "pushover" and "telegram".
          * 
          * Slack requires the installation of the maknz/slack package.
+         * Telegram requires the installation of the irazasyed/telegram-bot-sdk package.
          */
         'events' => [
             'whenBackupWasSuccessful'     => ['log'],
@@ -199,6 +200,16 @@ return [
                 'success' => env('PUSHOVER_SOUND_SUCCESS','pushover'),
                 'error'   => env('PUSHOVER_SOUND_ERROR','siren'),
             ],
+        ],
+        
+        /*
+         * Here you can specify how messages should be sent to Telegram Bot API.
+         */
+        'telegram' => [
+            'bot_token' => env('TELEGRAM_BOT_TOKEN'),
+            'chat_id'   => env('TELEGRAM_CHAT_ID'),
+            'async_requests' => env('TELEGRAM_ASYNC_REQUESTS', false),
+            'disable_web_page_preview' => env('TELEGRAM_DISABLE_WEB_PAGE_PREVIEW', true),
         ],
     ]
 ];
