@@ -26,6 +26,7 @@ return [
         'Adding custom properties',
         'Generating custom URLs',
         'Storing media specific manipulations',
+        'Creating video thumbnails',
         'Using your own model',
         'Using a custom directory structure',
         'Consuming events',
