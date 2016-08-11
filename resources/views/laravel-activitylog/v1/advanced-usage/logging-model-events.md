@@ -131,3 +131,25 @@ $activity = Activity::all()->last();
 
 $activity->description; //returns 'This model has been created'
 ```
+
+## Ignoring changes to certain attributes
+
+If your model contains attributes whose change don't need to trigger an activity being logged you can use `$ignoreChangedAttributes`
+
+```php
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
+
+class NewsItem extends Model
+{
+    use LogsActivity;
+    
+    protected static $ignoreChangedAttributes = ['text'];
+
+    protected $fillable = ['name', 'text'];
+    
+    protected static $logAttributes = ['name', 'text'];
+}
+```
+
+Changing `text` will not trigger an activity being logged.
