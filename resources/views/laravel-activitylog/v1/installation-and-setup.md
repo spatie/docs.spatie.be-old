@@ -39,6 +39,11 @@ This is the contents of the published config file:
 ```php
 return [
 
+    /*
+     * When set to false, no activities will be saved to database.
+     */
+    'enabled' => env('ACTIVITY_LOGGER_ENABLED', true),
+
     /**
      * When running the clean-command all recording activities older than
      * the number of days specified here will be deleted.
@@ -58,7 +63,7 @@ return [
     'default_auth_driver' => null,
 
     /**
-     * When set to true, the subject returns soft deleted models
+     * When set to true, the subject returns soft deleted models.
      */
      'subject_returns_soft_deleted_models' => false,
 
