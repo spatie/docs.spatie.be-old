@@ -21,7 +21,7 @@ These are things you'll need to do:
 The package can be installed in your Laravel app via composer:
 
 ``` bash
-composer require spatie/laravel-slash-slack-command
+composer require spatie/laravel-slack-slash-command
 ```
 
 Next, you must install the service provider:
