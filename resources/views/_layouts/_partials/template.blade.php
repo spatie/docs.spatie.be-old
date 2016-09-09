@@ -31,7 +31,7 @@
                 <h1 class="header_caption_title">
                     <a href="/{{ $package }}/{{ $version }}" >{{ $siteTitle }}</a>
 
-                    @if ($package ===  'laravel-medialibrary')
+                    @if (in_array($package, ['laravel-medialibrary', 'laravel-backup']))
                         <a href="#" data-version class="header_version -selectable">
                             v.{{ substr($version, 1) }}
                             <span class="header_version_caret"></span>

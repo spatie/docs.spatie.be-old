@@ -7,11 +7,11 @@ Route::get('/', function () {
 Route::group(['prefix' => 'laravel-backup'], function () {
 
     Route::get('/', function () {
-        return redirect('laravel-backup/v3/introduction');
+        return redirect('laravel-backup/v4/introduction');
     });
 
     Route::get('v3', function () {
-        return redirect('laravel-backup/v3/introduction');
+        return redirect('laravel-backup/v4/introduction');
     });
 
 });
