@@ -71,7 +71,7 @@ class Navigation
         return !empty($page) ? "{$basePath}/{$page}" : '';
     }
 
-    private function generateMenu(string $prefix, array $items) : Menu
+    protected function generateMenu(string $prefix, array $items) : Menu
     {
         $contents = collect($items)->map(function (array $items, $title) use ($prefix) : Menu {
 
