@@ -4,7 +4,7 @@ title: Customizing the notifiable
 
 Laravel 5.3's notifications are sent to a notifiable. A notifiable provides configuration values that determine how notifications will be sent. 
 
-By default the package will use this notifiable class: `\Spatie\Backup\Notifications\Notifiable`. This class will read out the config file. All mail notifications will get sent to the mail address specified in the `notifications.mail.to` key of the config file.
+By default the package uses this notifiable class: `\Spatie\Backup\Notifications\Notifiable`. This class will read out the config file. All mail notifications will be sent to the mail address specified in the `notifications.mail.to` key of the config file.
 
 If you use a channel that needs some get some extra information out of the notifiable you can easily extend the default notifiable.
 
