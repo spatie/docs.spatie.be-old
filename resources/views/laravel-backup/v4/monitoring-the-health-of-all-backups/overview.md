@@ -2,7 +2,7 @@
 title: Monitoring the health of all backups
 ---
 
-The package can check the health of every application it has been installed into. A backup is considered unhealthy if the date of the newest backup is too far in the past or if the storage needed for all backups too large.
+The package can check the health of every application it has been installed into. A backup is considered unhealthy if the date of the newest backup is too far in the past or if the storage needed for all backups is too large.
 
 ## Installation
 
@@ -53,7 +53,7 @@ This is the part of the configuration where you can specify which applications s
     ],
 ```
 
-The `name` of a monitor should match the value you have specified in the `backup.name`-key of the config file in
+The `name` of a monitor should match the value you have specified in the `backup.name` key of the config file in
 the application that is being backed up.
 
 If you set `storageUsedMayNotBeHigherThanMegabytes` to `0` then the monitor will consider that the backup can use unlimited storage.

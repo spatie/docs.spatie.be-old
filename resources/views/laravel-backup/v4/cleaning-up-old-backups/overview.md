@@ -10,7 +10,7 @@ You can clean up your backups by running:
 php artisan backup:clean
 ```
 
-We'll tell you right off the bat that the package by default will never delete the newest backup regardless it's size or age.
+We'll tell you right off the bat that the package by default will never delete the newest backup regardless of it's size or age.
 
 ## Determining which backups should be deleted
 
@@ -71,13 +71,13 @@ This package provides an opinionated method to determine which old backups shoul
 
 - Rule #1: it will never delete the newest backup regardless of it's size or age
 - Rule #2: it will keep all backups for the amount of days specified in `keepAllBackupsForDays`
-- Rule #3: it'll only keep daily backups for the amount of days specified in `keepDailyBackupsForDays` for all backups
+- Rule #3: it will only keep daily backups for the amount of days specified in `keepDailyBackupsForDays` for all backups
 older than those that rule #2 takes care of
-- Rule #4: it'll only keep weekly backups for the amount of months specified in `keepMonthlyBackupsForMonths` for all backups older than those that rule #3 takes care of
-- Rule #5: it'll only keep yearly backups for the amount of years specified in `keepYearlyBackupsForYears` for all backups older than those that rule #4 takes care of
+- Rule #4: it will only keep weekly backups for the amount of months specified in `keepMonthlyBackupsForMonths` for all backups older than those that rule #3 takes care of
+- Rule #5: it will only keep yearly backups for the amount of years specified in `keepYearlyBackupsForYears` for all backups older than those that rule #4 takes care of
 - Rule #6: it will start deleting old backups until the used storage is lower than the number specified in `deleteOldestBackupsWhenUsingMoreMegabytesThan`.
 
-Of course the numbers used in the default configuration can be adjusted to your own liking.
+Of course, the numbers used in the default configuration can be adjusted to your own liking.
 
 ## Creating your own strategy
 
@@ -89,7 +89,7 @@ use Spatie\Backup\BackupDestination\BackupCollection;
 public function deleteOldBackups(BackupCollection $backupCollection)
 ```
 
-The `BackupCollection` class is extended of `Illuminate\Support\Collection` and contains `Spatie\Backup\BackupDestination\Backup`-objects sorted by age. The newest backup is the first one in the collection.
+The `BackupCollection` class is extended from `Illuminate\Support\Collection` and contains `Spatie\Backup\BackupDestination\Backup` objects sorted by age. The newest backup is the first one in the collection.
 
 Using the collection, you can easily manually delete the older backup:
 
@@ -105,4 +105,4 @@ Don't forget to specify the full classname of your custom strategy in the `clean
 
 ## Getting notified when a cleanup goes wrong
 
-You can receive a notification when a cleanup goes wrong. Read the section on  [notifications]('/laravel-backup/v4/sending-notifications/overview) to know more.
+You can receive a notification when a cleanup goes wrong. Read the section on [notifications]('/laravel-backup/v4/sending-notifications/overview) to know more.
