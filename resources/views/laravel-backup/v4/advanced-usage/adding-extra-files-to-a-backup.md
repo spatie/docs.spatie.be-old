@@ -1,10 +1,13 @@
 ---
-title: Adding extra Files to a backup
+title: Adding extra files to a backup
 ---
+The package ships with a BackupManifestWasCreated event that enables you to add additional files to the backup zip file.
 
-When performing a backup the package will create a manifest of all file that are selected for backup. After the manifest is created, a zip will made containing all files from the manifest. The zipfile will be copied over to the configured backup destinations.
+When backup process starts, the package will create a manifest of all file that are selected for backup. Once the manifest has been created, a zip file is made containing all the files in the manifest. The zip file will be copied to the backup destinations you configured.
 
-Right after the manifest is created and before the zip is created created the `Spatie\Backup\Events\BackupManifestWasCreated`-event will be fired. This is what is looks like:
+However, if you have cases where you need to add additonal files to a particular backup, you can do so, between the creation of the manifest and the ceation of the zip file.
+
+Right after the manifest is created and **before** the zip file is created the `Spatie\Backup\Events\BackupManifestWasCreated` event is fired. This is what is looks like:
 
 ```
 namespace Spatie\Backup\Events;
@@ -24,7 +27,7 @@ class BackupManifestWasCreated
 
 ```
 
-You can use that event to add extra files to the manifest.
+You can use that event to add extra files to the manifest as in the example below where the extra files are passed as an array to the addFiles() method.
 
 ```php
 use Spatie\Backup\Events\BackupManifestWasCreated;
