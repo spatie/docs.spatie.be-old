@@ -14,7 +14,7 @@ If you want to backup to a specific disk instead of all disks, run:
 php artisan backup:run --only-to-disk=name-of-your-disk
 ```
 
-If you only need to backup the db run:
+If you only need to backup the database run:
 
 ```bash
 php artisan backup:run --only-db
@@ -93,9 +93,9 @@ This is the portion of the configuration that will determine which files and dat
     ]
 ```
 
-The specified databases will be dumped and, together with the selected files, be zipped. The zipfile will be named`<specified name in configuration>/<Y-m-d-H-i-s>.zip`.
+The specified databases will be dumped and, together with the selected files, be zipped. The zip file will be named `<specified name in configuration>/<Y-m-d-H-i-s>.zip`.
  
-The more files you need to backup, the bigger the zip will become. Make sure there's enough free space on your disk to create the zip. After the zip has beens copied to all destinations it will be deleted.
+The more files you need to backup, the bigger the zip file will become. Make sure there's enough free space on your disk to create the zip file. After the zip file has been copied to all destinations it will be deleted.
  
 ### Determining the destination of the backup
 

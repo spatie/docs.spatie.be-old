@@ -1,10 +1,10 @@
 ---
-title: Adding extra Files to a backup
+title: Adding extra files to a backup
 ---
 
-When performing a backup the package will create a manifest of all file that are selected for backup. After the manifest is created, a zip will made containing all files from the manifest. The zipfile will be copied over to the configured backup destinations.
+When performing a backup, the package will create a manifest of all the files that have been selected for backup. After the manifest is created, a zip file will be made containing all the files from the manifest. The zip file will be copied to the configured backup destinations.
 
-Right after the manifest is created and before the zip is created created the `Spatie\Backup\Events\BackupManifestWasCreated`-event will be fired. This is what is looks like:
+Right after the manifest is created, and before the zip file is created, the `Spatie\Backup\Events\BackupManifestWasCreated` event will be fired. This is what it looks like:
 
 ```
 namespace Spatie\Backup\Events;

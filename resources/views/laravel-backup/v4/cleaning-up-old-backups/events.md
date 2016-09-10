@@ -20,6 +20,6 @@ This event will be fired when something goes wrong while cleaning up.
 
 It has two public properties:
 
-- `$exception`: an object that conforms to the `Exception`-interface. It is highly likely that `$exception->getMessage()` will return more information on what went wrong.
+- `$exception`: an object that conforms to the `Exception` interface. It is highly likely that `$exception->getMessage()` will return more information on what went wrong.
 - `$backupDestination`: if this is `null` then probably something went wrong before even connecting to one of the backup destinations. If it is an instance of `Spatie\Backup\BackupDestination\BackupDestination` something went wrong connecting or
 writing to that destination.
