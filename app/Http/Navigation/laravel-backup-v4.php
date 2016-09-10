@@ -28,7 +28,7 @@ return [
         'Creating a custom sender',
     ],
     'Advanced usage' => [
-        'Adding extra files to the zip',
+        'Adding extra files to a backup',
         'Backing up a non-Laravel application',
     ],
 ];

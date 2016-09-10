@@ -10,7 +10,7 @@ You can clean up your backups by running:
 php artisan backup:clean
 ```
 
-We'll tell you right off the bat that the package by default will never delete the youngest backup regardless it's size or age.
+We'll tell you right off the bat that the package by default will never delete the newest backup regardless it's size or age.
 
 ## Determining which backups should be deleted
 
@@ -21,20 +21,25 @@ This is the portion of the configuration that will determine which backups shoul
 
     'cleanup' => [
         /*
-         * The strategy that will be used to cleanup old backups.
-         * The youngest backup wil never be deleted.
+         * The strategy that will be used to cleanup old backups. The default strategy
+         * will keep all backups for a certain amount of days. After that period only
+         * a daily backup will be kept. After that period only weekly backups will
+         * be kept and so on.
+         *
+         * No matter how you configure it the default strategy will never
+         * deleted the newest backup.
          */
         'strategy' => \Spatie\Backup\Tasks\Cleanup\Strategies\DefaultStrategy::class,
 
         'defaultStrategy' => [
 
             /*
-             * The amount of days that all daily backups must be kept.
+             * The amount of days that all backups must be kept.
              */
             'keepAllBackupsForDays' => 7,
 
             /*
-             * The amount of days that daily backups must be kept.
+             * The amount of days that all daily backups must be kept.
              */
             'keepDailyBackupsForDays' => 16,
 
@@ -49,22 +54,22 @@ This is the portion of the configuration that will determine which backups shoul
             'keepMonthlyBackupsForMonths' => 4,
 
             /*
-             * The amount of years of which one yearly backup must be kept
+             * The amount of years of which one yearly backup must be kept.
              */
             'keepYearlyBackupsForYears' => 2,
 
             /*
-             * After clean up the backups remove the oldest backup until
-             * this amount of megabytes is reached.
+             * After cleaning up the backups remove the oldest backup until
+             * this amount of megabytes has been reached.
              */
-            'deleteOldestBackupsWhenUsingMoreMegabytesThan' => 5000
-        ]
+            'deleteOldestBackupsWhenUsingMoreMegabytesThan' => 5000,
+        ],
     ],
 ```
 
 This package provides an opinionated method to determine which old backups should be deleted. We call this the `DefaultStrategy`. This is how it works:
 
-- Rule #1: it will never delete the youngest backup regardless of it's size or age
+- Rule #1: it will never delete the newest backup regardless of it's size or age
 - Rule #2: it will keep all backups for the amount of days specified in `keepAllBackupsForDays`
 - Rule #3: it'll only keep daily backups for the amount of days specified in `keepDailyBackupsForDays` for all backups
 older than those that rule #2 takes care of
@@ -84,9 +89,9 @@ use Spatie\Backup\BackupDestination\BackupCollection;
 public function deleteOldBackups(BackupCollection $backupCollection)
 ```
 
-The `BackupCollection` class is extended of `Illuminate\Support\Collection` and contains `Spatie\Backup\BackupDestination\Backup`-objects sorted by age. The youngest backup is the first one in the collection.
+The `BackupCollection` class is extended of `Illuminate\Support\Collection` and contains `Spatie\Backup\BackupDestination\Backup`-objects sorted by age. The newest backup is the first one in the collection.
 
-Using the collection, you can easily manually delete the oldest backup:
+Using the collection, you can easily manually delete the older backup:
 
 ```php
 // Retrieve an instance of `Spatie\Backup\BackupDestination\Backup`
@@ -96,8 +101,8 @@ $backup = $backups->oldestBackup();
 $backup->delete();
 ```
 
-Don't forget to specify the full classname of your custom strategy in the `cleanup.strategy` key in the `laravel-backup` config file.
+Don't forget to specify the full classname of your custom strategy in the `cleanup.strategy` key of the `laravel-backup` config file.
 
 ## Getting notified when a cleanup goes wrong
 
-You can receive a notification when a cleanup goes wrong. Read the section on  [notifications]('/laravel-backup/v3/sending-notifications/overview) to know more.
+You can receive a notification when a cleanup goes wrong. Read the section on  [notifications]('/laravel-backup/v4/sending-notifications/overview) to know more.
