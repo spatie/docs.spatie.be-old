@@ -2,77 +2,47 @@
 title: Sending notifications
 ---
 
-The package can let you know that your backups are (not) ok. It can notify you via one or more channels
-when a certain event takes place.
+The package leverages Laravel 5.3's native notifications to let you know that your backups are (not) ok. Out of the box it can send notifcations via mail and Slack (for Slack you'll need to require `guzzlehttp/guzzle` in your project). 
 
 ## Configuration
 
 This is the portion of the configuration that will determine when and how notifications will be sent.
-Most options should be self-explanatory.
 
 ```php
 //config/laravel-backup.php
 
+    /*
+     * You can get notified when specific events occur. Out of the box you can use 'mail' and 'slack'.
+     * For Slack you need to install guzzlehttp/guzzle.
+     *
+     * You can also use your own notification classes, just make sure the class is named after one of
+     * the `Spatie\Backup\Events` classes.
+     */
     'notifications' => [
 
-        /*
-         * This class will be used to send all notifications.
-         */
-        'handler' => Spatie\Backup\Notifications\Notifier::class,
-
-        /*
-         * Here you can specify the ways you want to be notified when certain
-         * events take place. Possible values are "log", "mail", "slack", "pushover" and "telegram".
-         *
-         * Slack requires the installation of the maknz/slack package.
-         * Telegram requires the installation of the irazasyed/telegram-bot-sdk package.
-         */
-        'events' => [
-            'whenBackupWasSuccessful'     => ['log'],
-            'whenCleanupWasSuccessful'    => ['log'],
-            'whenHealthyBackupWasFound'   => ['log'],
-            'whenBackupHasFailed'         => ['log', 'mail'],
-            'whenCleanupHasFailed'        => ['log', 'mail'],
-            'whenUnhealthyBackupWasFound' => ['log', 'mail']
+        'notifications' => [
+            \Spatie\Backup\Notifications\Notifications\BackupHasFailed::class         => ['mail'],
+            \Spatie\Backup\Notifications\Notifications\UnhealthyBackupWasFound::class => ['mail'],
+            \Spatie\Backup\Notifications\Notifications\CleanupHasFailed::class        => ['mail'],
+            \Spatie\Backup\Notifications\Notifications\BackupWasSuccessful::class     => ['mail'],
+            \Spatie\Backup\Notifications\Notifications\HealthyBackupWasFound::class   => ['mail'],
+            \Spatie\Backup\Notifications\Notifications\CleanupWasSuccessful::class    => ['mail'],
         ],
 
         /*
-         * Here you can specify how emails should be sent.
+         * Here you can specify the notifiable to which the notifications should be sent. The default
+         * notifiable will use the variables specified in this config file.
          */
+        'notifiable' => \Spatie\Backup\Notifications\Notifiable::class,
+
         'mail' => [
-            'from' => 'your@email.com',
-            'to'   => 'your@email.com',
+            'to' => 'your@email.com',
         ],
 
-        /*
-         * Here you can specify how messages should be sent to Slack.
-         */
         'slack' => [
-            'channel'  => '#backups',
-            'username' => 'Backup bot',
-            'icon'     => ':robot:',
+            'webhook_url' => '',
         ],
-        
-        /*
-         * Here you can specify how messages should be sent to Pushover.
-         */
-        'pushover' => [
-            'token'  => env('PUSHOVER_APP_TOKEN'),
-            'user'   => env('PUSHOVER_USER_KEY'),
-            'sounds' => [
-                'success' => env('PUSHOVER_SOUND_SUCCESS','pushover'),
-                'error'   => env('PUSHOVER_SOUND_ERROR','siren'),
-            ],
-        ],
-        
-        /*
-         * Here you can specify how messages should be sent to Telegram Bot API.
-         */
-        'telegram' => [
-            'bot_token' => env('TELEGRAM_BOT_TOKEN'),
-            'chat_id'   => env('TELEGRAM_CHAT_ID'),
-            'async_requests' => env('TELEGRAM_ASYNC_REQUESTS', false),
-            'disable_web_page_preview' => env('TELEGRAM_DISABLE_WEB_PAGE_PREVIEW', true),
-        ],
-    ]
+    ],
+
+
 ```

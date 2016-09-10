@@ -49,4 +49,4 @@ Your custom sender can be used by specifying it's full class name in one the `mo
 // ...
 ```
 
-When you've created a sender that could be beneficial, consider [contributing](https://github.com/spatie/laravel-backup/blob/master/CONTRIBUTING.md) the code to this package.
+When you've created a sender that could be beneficial to the community, consider [contributing](https://github.com/spatie/laravel-backup/blob/master/CONTRIBUTING.md) the code to this package.

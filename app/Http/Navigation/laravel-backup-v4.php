@@ -25,7 +25,8 @@ return [
     ],
     'Sending notifications' => [
         'Overview',
-        'Creating a custom sender',
+        'Adding an extra notification channel',
+        'Customizing the notifiable',
     ],
     'Advanced usage' => [
         'Adding extra files to a backup',
