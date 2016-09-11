@@ -4,7 +4,7 @@ title: Adding extra notification channels
 
 By default the package send notifications via email or Slack. It's easy to add an extra notification channel such as Telegram or native mobile push notification, etc.
  
-The Laravel community is awesome. Shortly after Laravel 5.3 was released various developer worked together to create 30+ notification channels. You can view them all on [http://laravel-notification-channels.com](http://laravel-notification-channels.com).
+The Laravel community is awesome. Shortly after Laravel 5.3 was released various developers worked together to create 30+ notification channels. You can view them all on [http://laravel-notification-channels.com](http://laravel-notification-channels.com).
  
 In the following example we're going to add the Pusher push notifications channel. Other notification drivers can be added in the same way.
 

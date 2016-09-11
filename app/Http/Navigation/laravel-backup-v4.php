@@ -25,7 +25,7 @@ return [
     ],
     'Sending notifications' => [
         'Overview',
-        'Adding an extra notification channel',
+        'Adding extra notification channels',
         'Customizing the notifiable',
     ],
     'Advanced usage' => [
