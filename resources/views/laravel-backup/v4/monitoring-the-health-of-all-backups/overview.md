@@ -2,11 +2,11 @@
 title: Monitoring the health of all backups
 ---
 
-The package can check the health of every application it has been installed into. A backup is considered unhealthy if the date of the newest backup is too far in the past or if the storage needed for all backups too large.
-
+The package can check the health of backups for every application where it is installed. A backup is considered unhealthy if the date of the latest backup is too far in the past to be useful or if the amount of storage space required for all backups is not available.
+ 
 ## Installation
 
-We recommend setting up a separate Laravel installation, preferably on a separate server. Doing it this way will ensure you will still get notified of unhealthy backups even if one of the applications you are monitoring is broken.
+We recommend setting up a separate Laravel installation to do the monitoring, preferably on a separate server. This ensures you will be notified of unhealthy backups even if one of the applications you are monitoring is broken.
 
 To install the monitor follow the regular [installation instructions](/laravel-backup/v4/installation-and-setup).
 Instead of scheduling the `backup:run` and `backup:clean` commands, you should schedule the monitor command.
@@ -20,11 +20,11 @@ protected function schedule(Schedule $schedule)
 }
 ```
 
-You can of course still schedule `backup:run` and `backup:clean` to backup the monitoring application itself.
+If you want, you can still schedule `backup:run` and `backup:clean` to backup the monitoring application itself.
 
 ## Specifying which backups should be monitored
 
-This is the part of the configuration where you can specify which applications should be monitored and when the monitor should consider the backups of a certain application unhealthy.
+This is the part of the configuration where you can specify which applications should be monitored and when the monitor should consider the backups of a particular application unhealthy.
 
 ```php
 //config/laravel-backup.php
@@ -56,16 +56,16 @@ This is the part of the configuration where you can specify which applications s
 The `name` of a monitor should match the value you have specified in the `backup.name`-key of the config file in
 the application that is being backed up.
 
-If you set `storageUsedMayNotBeHigherThanMegabytes` to `0` then the monitor will consider that the backup can use unlimited storage.
+Setting `storageUsedMayNotBeHigherThanMegabytes` to `0` means the monitor will consider that the backup can use unlimited storage.
 
-## Getting notified of (un)healthy backups
+## Get notifications of (un)healthy backups
 
 You can receive notifications when the monitor finds an (un)healthy backup. 
-Read the section on [notifications](/laravel-backup/v4/sending-notifications/overview) to know more.
+Read the section on [notifications](/laravel-backup/v4/sending-notifications/overview) to learn more.
 
-## Seeing an overview of all backups
+## Checking all backups
 
-You can perform this command to see the status of all monitored destination filesystems.
+To see the status of all monitored destination filesystems, use this command
 
 ```bash
 php artisan backup:list
