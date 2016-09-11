@@ -10,7 +10,7 @@ You can install this package via composer using:
 composer require spatie/laravel-backup
 ```
 
-You'll need to register the serviceprovider:
+You'll need to register the service provider:
 
 ```php
 // config/app.php
@@ -200,7 +200,7 @@ return [
 
 After you have performed the basic installation you can start using the `backup:run`, `backup:clean`, `backup:list` and `backup:monitor`-commands. In most cases you'll want to schedule these commands so you don't have to manually run `backup:run` everytime you need a new backup.
 
-The commands can, like any other commands, be scheduled in Laravel's console kernel.
+The commands can be scheduled in Laravel's console kernel, just like any other command.
 
 ```php
 // app/Console/Kernel.php
@@ -212,7 +212,7 @@ protected function schedule(Schedule $schedule)
 }
 ```
 
-Of course, the times used in the code above are just examples. Adjust them to your own preferences.
+Of course, the times used in the code above are just examples. Adjust them to suit your own preferences.
 
 ## Monitoring
 

@@ -6,13 +6,13 @@ This Laravel package creates a backup of your application. The backup is a zipfi
 
 Feeling paranoid about backups? Don't be! You can backup your application to multiple filesystems at once.
 
-Once installed, making a backup of your files and databases is very easy. Just issue this artisan command:
+Once installed, making a backup of your files and databases is very easy. Just run this artisan command:
 
 ``` bash
 php artisan backup:run
 ```
 
-In addition to making the backup the package can also clean up old backups, monitor the health of the backups, and show an overview of all backups.
+In addition to making the backup, the package can also clean up old backups, monitor the health of the backups, and show an overview of all backups.
 
 ## We have badges!
 
