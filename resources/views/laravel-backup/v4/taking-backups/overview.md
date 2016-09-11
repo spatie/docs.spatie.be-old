@@ -14,21 +14,21 @@ If you want to backup to a specific disk instead of all disks, run:
 php artisan backup:run --only-to-disk=name-of-your-disk
 ```
 
-If you only need to backup the db run:
+If you only need to backup the db, run:
 
 ```bash
 php artisan backup:run --only-db
 ```
 
-If you only need to backup the files, and want to skip dumping databases, run:
+If you only need to backup the files, and want to skip dumping the databases, run:
 
 ```bash
 php artisan backup:run --only-files
 ```
 
 <div class="alert -warning">
-Be very careful with `--only-db` and `--only-files`. When monitoring backups the package will not make
-a distinction between full backups and a backup with only files or databases.
+Be very careful with `--only-db` and `--only-files`. When monitoring backups, the package **does not** make
+a distinction between full backups and a backup which only contains files or databases. It may be the case that you will not be able to recover from a partial backup.
 </div>
 
 
@@ -36,7 +36,7 @@ a distinction between full backups and a backup with only files or databases.
 
 ### Determining the content of the backup
 
-This is the portion of the configuration that will determine which files and databases will be backed up. Most options should be self explanatory.
+This section of the configuration determines which files and databases will be backed up. Most options should be self explanatory.
 
 ```php
 'backup' => [
@@ -93,13 +93,13 @@ This is the portion of the configuration that will determine which files and dat
     ]
 ```
 
-The specified databases will be dumped and, together with the selected files, be zipped. The zipfile will be named`<specified name in configuration>/<Y-m-d-H-i-s>.zip`.
+The specified databases will be dumped and, together with the selected files, zipped. The zip file will be named`<specified name in configuration>/<Y-m-d-H-i-s>.zip`.
  
-The more files you need to backup, the bigger the zip will become. Make sure there's enough free space on your disk to create the zip. After the zip has beens copied to all destinations it will be deleted.
+The more files you need to backup, the bigger the zip will become. Make sure there's enough free space on your disk to create the zip file. After the source zip file has been copied to all destinations, it will be deleted.
  
 ### Determining the destination of the backup
 
-The backup can be copied to one or more filesystems. This is the part of the configuration where you can specify those destination filesystems.
+The zipped backup can be copied to one or more filesystems. This section of the configuration is where you specify those destination filesystems.
 
 ```php
     'destination' => [
@@ -113,13 +113,13 @@ The backup can be copied to one or more filesystems. This is the part of the con
     ],
 ```
 
-The default value of `config('laravel-backup.destination.filesytems)` is an array with only one key: `local`. If you only use the local disk to take backups and that disk crashes you will have nothing left but tears.
+The default value of `config('laravel-backup.destination.filesytems)` is an array with only one key: `local`. Beware! If you only use the local disk to take backups and that disk crashes you will have nothing left but tears. Having a backup is not the same as having a backup strategy!
 
-We highly recommend to configure some extra disks in `app/config/filesystems.php` and adding their names as a destination filesystem for the backup. Those disks should use external servers or services (such as S3 or Dropbox).
+We highly recommend that you configure some extra disks in `app/config/filesystems.php` and add them as destination filesystems for the backup. Those disks should use external servers or services (such as S3 or Dropbox).
 
-If something goes wrong copying the zip file to a specific filesystem, we will still try to copy over to all other configured filesystems.
+If something goes wrong copying the zip file to one filesystem, the package will still try to copy zipped backup to all other configured filesystems.
 
-## Getting notified when a backup goes wrong
+## Get notifications when a backup goes wrong
 
 You can receive a notification when a backup goes wrong. Read
 the section on [notifications](/laravel-backup/v4/sending-notifications/overview) to find out more.
