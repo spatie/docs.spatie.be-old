@@ -2,13 +2,13 @@
 title: Events
 ---
 
-These events will be fired by the monitor.
+These events are fired by the monitor.
 
 ## HealthyBackupWasFound
 
 `Spatie\Backup\Events\HealthyBackupWasFound`
 
-This event will be fired when the monitor deems the backups on a destination filesystem healthy.
+This event is fired when the monitor deems the backups on a destination filesystem to be healthy.
 
 It has one public property `$backupDestinationStatus` that contains an instance of `Spatie\Backup\BackupDestination\BackupDestinationsStatus`.
 
@@ -16,7 +16,7 @@ It has one public property `$backupDestinationStatus` that contains an instance 
 
 `Spatie\Backup\Events\UnhealthyBackupWasFound`
 
-This event will be fired when the monitor deems the backups on a destination filesystem unhealthy. It will
-also be fired when the monitor cannot read from a destination filesystem.
+This event is fired when the monitor deems the backups on a destination filesystem to be unhealthy. It will
+also be fired if the monitor cannot read from a destination filesystem.
 
 It has one public property `$backupDestinationStatus` that contains an instance of `Spatie\Backup\BackupDestination\BackupDestinationsStatus`.
