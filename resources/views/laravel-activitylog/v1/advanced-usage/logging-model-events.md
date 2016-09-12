@@ -153,3 +153,15 @@ class NewsItem extends Model
 ```
 
 Changing `text` will not trigger an activity being logged.
+
+## Using the CausesActivity trait
+
+The package ships with a `CausesActivity` trait which can be added to any model that you use as a causer. It provides an `activity` relationship which returns all activities that are caused by the model.
+
+If you include it in the `User` model you can simply retrieve all the current users activities like this:
+
+```php
+
+\Auth::user()->activity;
+
+```
