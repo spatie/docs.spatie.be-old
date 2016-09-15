@@ -1,5 +1,5 @@
 ---
-title: Defining collections
+title: Defining conversions
 ---
 
 A media conversion can be added to your model in the `registerModelConversions`-function.
