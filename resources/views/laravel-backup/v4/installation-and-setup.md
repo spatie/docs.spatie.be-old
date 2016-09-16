@@ -236,11 +236,11 @@ Here's an example for MySQL:
 		'driver'    => 'mysql'
 		...,
 		'dump' => [
-		   'dump_command_path' => '/path/to/the/binary' // only the path, so without `mysqldump` or `pg_dump`
-		   'use_single_transaction'
-		   'timeout' => 5
-		   'exclude_tables' => ['table1', 'table2'] 
-           'add_extra_option' => '--optionname=optionvalue'  
+		   'dump_command_path' => '/path/to/the/binary', // only the path, so without `mysqldump` or `pg_dump`
+		   'use_single_transaction',
+		   'timeout' => 5,
+		   'exclude_tables' => ['table1', 'table2'],
+           'add_extra_option' => '--optionname=optionvalue', 
 		]  
 	],
 ```
