@@ -240,7 +240,7 @@ Here's an example for MySQL:
 		   'use_single_transaction',
 		   'timeout' => 5,
 		   'exclude_tables' => ['table1', 'table2'],
-           'add_extra_option' => '--optionname=optionvalue', 
+		   'add_extra_option' => '--optionname=optionvalue', 
 		]  
 	],
 ```
