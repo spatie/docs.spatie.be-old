@@ -18,15 +18,15 @@ In addition to making the backup, the package can also clean up old backups, mon
 
 If you're not on PHP 7 or Laravel 5.3 just use version 3 of this package. 
  
-Just issue this command, composer should figure out the correct version.
+Just issue this command:
 
 ```php
-composer require spatie/laravel-backup
+composer require "spatie/laravel-backup:^3.0.0"
 ```
 
 Read the extensive [documentation on version 3](https://docs.spatie.be/laravel-backup/v3) to learn how to set up and use the package.
 
-We wont't introduce new features to v3 anymore but we will still fix bugs.
+We won't introduce new features to v3 anymore but we will still fix bugs.
 
 ## We have badges!
 
