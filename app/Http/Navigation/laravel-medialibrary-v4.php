@@ -21,12 +21,15 @@ return [
         'Retrieving converted images',
         'Regenerating images',
     ],
+    'Converting other medias' => [
+        'Image generators',
+        'Custom generators',
+    ],
     'Advanced usage' => [
         'Working with multiple filesystems',
         'Adding custom properties',
         'Generating custom URLs',
         'Storing media specific manipulations',
-        'Creating video thumbnails',
         'Using your own model',
         'Using a custom directory structure',
         'Consuming events',
