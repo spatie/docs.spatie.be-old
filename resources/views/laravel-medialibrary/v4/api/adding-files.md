@@ -152,7 +152,7 @@ public function withCustomProperties(array $customProperties)
  *
  * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
  */
-public function toMediaLibrary($collectionName = 'default', $diskName = ''
+public function toMediaLibrary($collectionName = 'default', $diskName = '')
 ```
 
 ### toMediaLibraryOnDisk
