@@ -38,11 +38,15 @@ Route::group(['prefix' => 'laravel-medialibrary'], function () {
 Route::group(['prefix' => 'menu'], function () {
 
     Route::get('/', function () {
-        return redirect('menu/v1/introduction');
+        return redirect('menu/v2/introduction');
     });
 
     Route::get('v1', function () {
         return redirect('menu/v1/introduction');
+    });
+
+    Route::get('v2', function () {
+        return redirect('menu/v2/introduction');
     });
 });
 

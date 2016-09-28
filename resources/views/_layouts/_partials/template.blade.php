@@ -30,17 +30,22 @@
                 {{-- With dropdown --}}
                 <h1 class="header_caption_title">
                     <a href="/{{ $package }}/{{ $version }}" >{{ $siteTitle }}</a>
-                    @if (in_array($package, ['laravel-medialibrary', 'laravel-backup']))
+                    @if (count($versions) > 1)
                         <a href="#" data-version class="header_version -selectable">
                             v.{{ substr($version, 1) }}
                             <span class="header_version_caret"></span>
                         </a>
                     @endif
                 </h1>
-                <ul data-versions class="header_version_dropdown" style="display:none" >
-                    <li class="{{ $version === 'v3' ? '-current' : '' }}"><a href="/{{ $package }}/v3" >v.3</a></li>
-                    <li class="{{ $version === 'v4' ? '-current' : '' }}"><a href="/{{ $package }}/v4" >v.4</a></li>
-                </ul>
+                @if (count($versions) > 1)
+                    <ul data-versions class="header_version_dropdown" style="display:none" >
+                        @foreach($versions as $v)
+                            <li class="{{ $version === $v ? '-current' : '' }}">
+                                <a href="/{{ $package }}/{{ $v }}" >v.{{ substr($v, 1) }}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                @endif
                 {{-- End with dropdown --}}
                 <br>
                 <p class="header_caption_slogan">{!! $siteSlogan !!}</p>
