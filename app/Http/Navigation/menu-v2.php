@@ -25,15 +25,11 @@ return [
     ],
     'Menus in Your Laravel App' => [
         'Convenience Methods',
+        'Views as Menu Items',
         'Conditional Items Based on Permissions',
         'Using Macros',
     ],
     'Examples' => [
         'Bootstrap Menu',
-    ],
-    'Api' => [
-        'Menu',
-        'Link',
-        'Html',
     ],
 ];
