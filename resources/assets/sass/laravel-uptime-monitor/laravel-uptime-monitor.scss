@@ -1,0 +1,16 @@
+@import '../_base/base';
+
+.header {
+  overflow: hidden;
+}
+
+.header_background {
+  background: color($blue, lightest) url('/images/slack/slack.svg') 70% center no-repeat;
+  background-size: auto 300%;
+}
+
+.header_caption_title,
+.header_caption_slogan {
+  background: rgba($white, .85);
+  color: color($blue, darkest);
+}
