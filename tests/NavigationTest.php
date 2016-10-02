@@ -41,8 +41,6 @@ class NavigationTest extends PHPUnit_Framework_TestCase
             "basic-usage/working-with-collections",
 
         ];
-
-
     }
 
     /** @test */
@@ -62,10 +60,9 @@ class NavigationTest extends PHPUnit_Framework_TestCase
 
         $next = $this->getFlattenArray()->get($index+1, '');
 
-        if(!empty($next)){
+        if (!empty($next)) {
             $this->assertEquals($next, $nextUrl);
         }
-
     }
 
     /** @test */
@@ -83,7 +80,6 @@ class NavigationTest extends PHPUnit_Framework_TestCase
         $previous = $flattenArray->get($index-1, '');
 
         $this->assertEquals($previous, "requirements");
-
     }
 
     /** @test */
@@ -100,7 +96,6 @@ class NavigationTest extends PHPUnit_Framework_TestCase
         $previous = $flattenArray->get($index-1, '');
 
         $this->assertEquals($previous, '');
-
     }
 
     /** @test */
@@ -113,7 +108,6 @@ class NavigationTest extends PHPUnit_Framework_TestCase
         $next = $this->getFlattenArray()->get($index+1, '');
 
         $this->assertEquals($next, '');
-
     }
 
     protected function getFlattenArray()
@@ -122,7 +116,7 @@ class NavigationTest extends PHPUnit_Framework_TestCase
             ->flatMap(function (array $block, string $title) : array {
 
                 if (empty($title)) {
-                    return collect($block)->map(function(string $page){
+                    return collect($block)->map(function (string $page) {
                         return str_slug($page);
                     })->toArray();
                 }

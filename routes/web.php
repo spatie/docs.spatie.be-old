@@ -17,7 +17,6 @@ Route::group(['prefix' => 'laravel-backup'], function () {
     Route::get('v4', function () {
         return redirect('laravel-backup/v4/introduction');
     });
-
 });
 
 Route::group(['prefix' => 'laravel-medialibrary'], function () {
