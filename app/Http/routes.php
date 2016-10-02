@@ -68,5 +68,16 @@ Route::group(['prefix' => 'laravel-slack-slash-command'], function () {
     });
 });
 
+Route::group(['prefix' => 'laravel-uptime-monitor'], function () {
+
+    Route::get('/', function () {
+        return redirect('laravel-uptime-monitor/v1/introduction');
+    });
+
+    Route::get('v1', function () {
+        return redirect('laravel-uptime-monitor/v1/introduction');
+    });
+});
+
 Route::get('{slug}/edit', 'PageController@edit')->where('slug', '(.*)');
 Route::get('{slug}', 'PageController@page')->where('slug', '(.*)');
