@@ -14,6 +14,8 @@ module.exports = {
         'laravel-activitylog.style': './resources/assets/sass/laravel-activitylog/laravel-activitylog.scss',
         'laravel-slack-slash-command': './resources/assets/js/laravel-slack-slash-command.js',
         'laravel-slack-slash-command.style': './resources/assets/sass/laravel-slack-slash-command/laravel-slack-slash-command.scss',
+        'laravel-uptime-monitor': './resources/assets/js/laravel-uptime-monitor.js',
+        'laravel-uptime-monitor.style': './resources/assets/sass/laravel-uptime-monitor/laravel-uptime-monitor.scss',
     },
     output: {
         path: 'public/build',
