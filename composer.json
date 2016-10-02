@@ -50,7 +50,7 @@
             "php artisan optimize"
         ],
         "pre-update-cmd": [
-            "php artisan clear-compiled"
+
         ],
         "post-update-cmd": [
             "php artisan optimize"
