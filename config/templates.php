@@ -26,4 +26,9 @@ return [
         'siteSlogan' => 'Make a Laravel app respond to a slash command from Slack',
         'siteTitle' => 'Laravel Slack Slash Command',
     ],
+    'laravel-uptime-monitor' => [
+        'githubUrl' => 'https://github.com/spatie/laravel-uptime-monitor',
+        'siteSlogan' => 'A powerful and easy to configure uptime monitor',
+        'siteTitle' => 'Laravel Uptime Monitor',
+    ],
 ];
