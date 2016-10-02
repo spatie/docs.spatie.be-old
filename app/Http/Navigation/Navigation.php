@@ -33,7 +33,7 @@ class Navigation
             ->flatMap(function (array $block, string $title) : array {
 
                 if (empty($title)) {
-                    return collect($block)->map(function(string $page){
+                    return collect($block)->map(function (string $page) {
                         return str_slug($page);
                     })->toArray();
                 }
@@ -95,5 +95,4 @@ class Navigation
 
         return Menu::new($contents->toArray())->setActiveFromRequest();
     }
-
 }
