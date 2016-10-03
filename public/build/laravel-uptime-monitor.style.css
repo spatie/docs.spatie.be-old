@@ -1619,13 +1619,14 @@ sup {
   text-transform: none; }
 
 .header {
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: #a70852; }
 
 .header_background {
-  background: #ceebf2 url("/images/slack/slack.svg") 70% center no-repeat;
-  background-size: auto 300%; }
+  background: #a70852 url("/images/uptime-monitor/header.jpg") center no-repeat;
+  background-size: cover; }
 
 .header_caption_title,
 .header_caption_slogan {
   background: rgba(255, 255, 255, 0.85);
-  color: #1b3747; }
+  color: #8e0847; }
