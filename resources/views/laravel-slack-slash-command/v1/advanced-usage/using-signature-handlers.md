@@ -17,7 +17,9 @@ use Spatie\SlashCommand\Handlers\SignatureHandler;
 
 class SendEmail extends SignatureHandler
 {
-    public $signature = "your-command email:send {to} {$message} {--queue}"
+    protected $signature = "your-command email:send {to} {$message} {--queue}"
+    
+    protected $description = "A description of what your command does. This text will be displayed in the help command."
 
     public function handle(Request $request): Response
     {   
