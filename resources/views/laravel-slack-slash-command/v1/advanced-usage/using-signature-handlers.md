@@ -35,3 +35,5 @@ class SendEmail extends SignatureHandler
 ```
 
 Notice that there is no `canHandle` method present. The package will automatically determine that a command `/your-command email:send test@email.com hello` can be handled by this class.
+
+You may use a `*` as a wildcard in the `$signature`.
