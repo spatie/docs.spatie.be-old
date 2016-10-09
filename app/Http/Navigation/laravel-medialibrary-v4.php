@@ -21,9 +21,9 @@ return [
         'Retrieving converted images',
         'Regenerating images',
     ],
-    'Converting other medias' => [
-        'Image generators',
-        'Custom generators',
+    'Converting other file types' => [
+        'Using image generators',
+        'Creating a custom image generator',
     ],
     'Advanced usage' => [
         'Working with multiple filesystems',
