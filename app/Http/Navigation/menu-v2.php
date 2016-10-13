@@ -12,6 +12,7 @@ return [
     'Basic Usage' => [
         'Your First Menu',
         'Adding Items',
+        'Building a Menu From a Data Source',
     ],
     'Items in Depth' => [
         'Active Items',
