@@ -27,7 +27,6 @@ class PageController extends Controller
     {
         try {
             $content = Storage::disk('content')->get(request()->path() . '.md');
-
         } catch (Exception $e) {
             abort(404);
         }
@@ -48,7 +47,4 @@ class PageController extends Controller
 
         return $pageProperties;
     }
-
-
-
 }

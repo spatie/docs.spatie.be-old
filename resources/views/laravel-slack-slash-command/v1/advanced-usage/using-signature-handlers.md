@@ -17,7 +17,9 @@ use Spatie\SlashCommand\Handlers\SignatureHandler;
 
 class SendEmail extends SignatureHandler
 {
-    public $signature = "your-command email:send {to} {$message} {--queue}"
+    protected $signature = "your-command email:send {to} {$message} {--queue}"
+    
+    protected $description = "A description of what your command does. This text will be displayed in the help command."
 
     public function handle(Request $request): Response
     {   
@@ -33,3 +35,5 @@ class SendEmail extends SignatureHandler
 ```
 
 Notice that there is no `canHandle` method present. The package will automatically determine that a command `/your-command email:send test@email.com hello` can be handled by this class.
+
+You may use a `*` as a wildcard in the `$signature`.

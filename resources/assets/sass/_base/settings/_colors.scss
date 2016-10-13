@@ -1,10 +1,9 @@
-// Black
 $black: #000;
 
-// White
 $white: #fff;
 
-// Red colors
+$text-color: #1a1e25;
+
 $red: (
     lightest: #fcebec,
     lighter: #e69a9c,
@@ -15,7 +14,6 @@ $red: (
     darkest: #3d0109,
 );
 
-// Orange colors
 $orange: (
     lightest: #fff2de,
     lighter: #f5b180,
@@ -26,7 +24,6 @@ $orange: (
     darkest: #391102,
 );
 
-// Yellow colors
 $yellow: (
     lightest: #f7e8d4,
     lighter: #f7d1a1,
@@ -37,7 +34,6 @@ $yellow: (
     darkest: #422c00,
 );
 
-// Gold colors
 $gold: (
     lightest: #f5f2ea,
     lighter: #e6decd,
@@ -48,7 +44,6 @@ $gold: (
     darkest: #372c1c,
 );
 
-// Blue colors
 $blue: (
     lightest: #ceebf2,
     lighter: #a7dceb,
@@ -59,7 +54,6 @@ $blue: (
     darkest: #1b3747,
 );
 
-// Green colors
 $green: (
     lightest: #eaeddb,
     lighter: #d6d69d,
@@ -70,7 +64,6 @@ $green: (
     darkest: #323520,
 );
 
-// Gray colors
 $gray: (
     lightest: #ededf5,
     lighter: #cdcdda,
@@ -81,10 +74,16 @@ $gray: (
     darkest: #1a1e25,
 );
 
-// Text color
-$text-color: #1a1e25;
+$pink: (
+  lightest: #e2b4ca,
+  lighter: #e274a5,
+  light: #cd477e,
+  default: #a70852,
+  dark: #8e0847,
+  darker: #63082e,
+  darkest: #3c081f,
+);
 
-// link color
 $link: (
     default: #13869e,
     hover: #13869e,
@@ -92,7 +91,6 @@ $link: (
     visited: #13869e
 );
 
-// Social colors
 $social-color: (
     twitter: #55acee,
     facebook: #3b5999,
@@ -100,6 +98,7 @@ $social-color: (
     pinterest: #c92228,
     flickr: #ff0084
 );
+
 $hl: (
     text: #333b46,
     back: #f2f2fa,

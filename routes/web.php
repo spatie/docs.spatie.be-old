@@ -17,7 +17,6 @@ Route::group(['prefix' => 'laravel-backup'], function () {
     Route::get('v4', function () {
         return redirect('laravel-backup/v4/introduction');
     });
-
 });
 
 Route::group(['prefix' => 'laravel-medialibrary'], function () {
@@ -69,6 +68,17 @@ Route::group(['prefix' => 'laravel-slack-slash-command'], function () {
 
     Route::get('v1', function () {
         return redirect('laravel-slack-slash-command/v1/introduction');
+    });
+});
+
+Route::group(['prefix' => 'laravel-uptime-monitor'], function () {
+
+    Route::get('/', function () {
+        return redirect('laravel-uptime-monitor/v1/introduction');
+    });
+
+    Route::get('v1', function () {
+        return redirect('laravel-uptime-monitor/v1/introduction');
     });
 });
 

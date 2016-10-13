@@ -31,4 +31,9 @@ return [
         'siteTitle' => 'Laravel Slack Slash Command',
         'versions' => ['v1'],
     ],
+    'laravel-uptime-monitor' => [
+        'githubUrl' => 'https://github.com/spatie/laravel-uptime-monitor',
+        'siteSlogan' => 'A powerful and easy to configure uptime monitor',
+        'siteTitle' => 'Laravel Uptime Monitor',
+    ],
 ];
