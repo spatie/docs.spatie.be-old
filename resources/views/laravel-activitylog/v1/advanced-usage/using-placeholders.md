@@ -2,7 +2,7 @@
 title: Using placeholders
 ---
 
-When logging an activity you may use placholders that start with `:subject`, `:causer` or `:properties`. These place holders will get replaced with the properties of the given subject, causer or property.
+When logging an activity you may use placeholders that start with `:subject`, `:causer` or `:properties`. These placeholders will get replaced with the properties of the given subject, causer or property.
 
 Here's an example:
 
