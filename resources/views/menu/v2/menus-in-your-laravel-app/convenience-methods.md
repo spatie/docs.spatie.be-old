@@ -8,12 +8,12 @@ The items provided in the `laravel-menu` package have some added convenience met
 
 `Spatie\Menu\Laravel\Link`
 
-The `Link` class has three added factory methods, `toUrl`, `toRoute` and `toAction`. The methods require require the same parameters as their Laravel helper function counterparts, with a `$text` parameter squished between as the second one.
+The `Link` class has three added factory methods, `toUrl`, `toRoute` and `toAction`. The methods require the same parameters as their Laravel helper function counterparts, with a `$text` parameter squished between as the second one.
 
 ```php
 Link::toUrl('/', 'Home');
 Link::toRoute('contact', 'Contact');
-Link::toAction('PageController@about', 'About', [Page::findOrFail(1)]);
+Link::toAction('PageController@about', 'About');
 ```
 
 ## Menu
@@ -26,5 +26,5 @@ The `Menu` class has convenience methods for all of the above link factory metho
 Menu::new()
     ->url('/', 'Home')
     ->route('contact', 'Contact')
-    ->action('PageController@detail', 'About', [Page::findOrFail(1)]);
+    ->action('PageController@about', 'About');
 ```
