@@ -84,7 +84,7 @@ class UuidPathGenerator implements PathGenerator
      */
     public function getPath(Media $media): string
     {
-        return $this->getBasePath($media); // . '/';
+        return $this->getBasePath($media) . '/';
     }
 
     /**
