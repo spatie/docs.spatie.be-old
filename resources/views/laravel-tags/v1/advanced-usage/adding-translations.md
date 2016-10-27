@@ -14,7 +14,7 @@ $tag->setTranslation('name', 'nl', 'mijn tag');
 //don't forget to save the model
 $tag->save();
 
-$tag->getTranslation('name', 'fr') // returns 'mon tag'
+$tag->getTranslation('name', 'fr'); // returns 'mon tag'
 
 $tag->name // returns the name of the tag in current locale of your app.
 ```
@@ -23,7 +23,7 @@ The translations of the tags are stored in the `name` column of the `tags` table
 
 ```php
  \Spatie\Tags\Tag
-   ->where("name->fr", 'mon tag')
+   ->where('name->fr', 'mon tag')
    ->first();
 ```
 
