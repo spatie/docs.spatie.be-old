@@ -36,4 +36,10 @@ return [
         'siteSlogan' => 'A powerful and easy to configure uptime monitor',
         'siteTitle' => 'Laravel Uptime Monitor',
     ],
+
+    'laravel-tags' => [
+        'githubUrl' => 'https://github.com/spatie/laravel-tags',
+        'siteSlogan' => 'A powerful tagging package. Batteries included',
+        'siteTitle' => 'Laravel Tags',
+    ],
 ];
