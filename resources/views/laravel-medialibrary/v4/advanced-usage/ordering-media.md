@@ -21,8 +21,7 @@ You can easily reorder a list of media using the  ̀Media::setNewOrder` static m
 Media::setNewOrder([11, 2, 26]);
 ```
 
-If you have a more custom use case for medias order you can still take profit of the existing `order_column` column and
-change it's value using the power of [Laravel eloquent](https://laravel.com/docs/5.3/eloquent):
+Of course you can also manually change the value of the `order_column`.
 
 ```php
 $media->order_column = 10;
