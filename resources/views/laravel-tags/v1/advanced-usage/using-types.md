@@ -1,5 +1,5 @@
 ---
-title: Using tags
+title: Using types
 ---
 
 In your application you might want to have multiple collections of tags. For example: you might want one group of tags for your `News` model and another group of tags for your `BlogPost` model. 
@@ -8,7 +8,7 @@ To create separate collections of tags you can use tag types.
 
 ```php
 //creating a tag with a certain type
-$tagWithType = Tag::create('tag 1, 'news model tag'):
+$tagWithType = Tag::create('headline', 'newsTag'):
 ```
 
 In addition to strings, all methods mentioned in the basic usage section can take instances of `Tag` as well.
@@ -19,4 +19,25 @@ $newsItem->detachTag($tagWithType);
 ...
 ```
 
-The provided method scopes, `withAnyTags` and `withAllTags`, can take
+The provided method scopes, `withAnyTags` and `withAllTags`, can take instances of `Spatie\Tags\Tag` too:
+
+```php
+$tag2 = Tag::create('headline', 'newsTag'):
+$tag = Tag::create('gossip, 'newsTag''):
+
+NewsItem::withAnyTags([$tag, $tag2])->get();
+```
+
+To get all tags with a specific type use the `getWithType` method.
+
+```php
+$tagA = Tag::findOrCreate('tagA', 'firstType');
+$tagB = Tag::findOrCreate('tagB', 'firstType');
+$tagC = Tag::findOrCreate('tagC', 'secondType');
+$tagD = Tag::findOrCreate('tagD', 'secondType');
+
+Tag::getWithType('firstType'); // returns a collection with $tagA and $tagB
+
+//there's also a scoped version
+Tag::withType('firstType')->get(); // returns the same result
+```
