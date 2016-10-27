@@ -41,7 +41,7 @@ $tag->setTranslation('nl', 'mijn tag');
 $tag->save();
 
 //using tag types
-$tag = Tag::create('tag 1, 'my type'):
+$tag = Tag::create('tag 1', 'my type'):
 
 //tags have slugs
 $tag = Tag::create('yet another tag'):
