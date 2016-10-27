@@ -52,3 +52,25 @@ By syncing tags the package will make sure only the tags given will be attached 
 ```php
 $yourModel->syncTags(['tag 2', 'tag 3']);
 ```
+
+#### Managing tags
+
+Tags are stored in the `tags` table and can be managed with the included `Spatie\Tags\Tag`-model.
+
+```php
+//create a tag
+$tag = Tag::create(['name' => 'my tag']);
+
+//update a tag
+$tag->name = 'another tag';
+$tag->save();
+
+//use "findFromString" instead of "find" to retrieve a certain tag
+$tag = Tag::findFromString('another tag')
+
+//create a tag if it doesn't exist yet
+$tag = Tag::findFromString('yet another tag');
+
+//delete a tag
+$tag->delete();
+```
