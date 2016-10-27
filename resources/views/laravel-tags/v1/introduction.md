@@ -49,9 +49,9 @@ $tag->slug; //returns "yet-another-tag"
 
 //tags are sortable
 $tag = Tag::findOrCreate('my tag');
-$tag->order_column //returns 1
+$tag->order_column; //returns 1
 $tag2 = Tag::findOrCreate('another tag');
-$tag2->order_column //returns 2
+$tag2->order_column; //returns 2
 
 //manipulating the order of tags
 $tag->swapOrder($anotherTag);
