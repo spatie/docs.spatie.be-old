@@ -2,6 +2,8 @@
 title: Introduction
 ---
 
+**IMPORTANT: This package isn't stable yet. We will release v1.0.0 soon**
+
 This package provides you with a `HasTags` trait with which you can easily add tags to your Eloquent models. Once the package is set up you can do stuff like this:
 
 ```php
