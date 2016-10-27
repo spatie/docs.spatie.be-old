@@ -2,9 +2,7 @@
 title: Ordering media
 ---
 
-
-Laravel medialibrary has a built in feature to help you order the media in your project. By default all inserted media
-are ordered by they creation order (from the newest to the oldest) using the `order_column` column of the `media` table.
+Laravel medialibrary has a built in feature to help you order the media in your project. By default all inserted media are ordered by they creation order (from the newest to the oldest) using the `order_column` column of the `media` table.
 
 You can easily reorder a list of media using the  ̀Media::setNewOrder` static method:
 
@@ -27,6 +25,3 @@ Of course you can also manually change the value of the `order_column`.
 $media->order_column = 10;
 $media->save();
 ```
-
-
- 
