@@ -32,6 +32,7 @@ return [
         'Storing media specific manipulations',
         'Using your own model',
         'Using a custom directory structure',
+        'Ordering media',
         'Consuming events',
     ],
     'API' => [
