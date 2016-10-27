@@ -39,7 +39,7 @@ return [
 
     'laravel-tags' => [
         'githubUrl' => 'https://github.com/spatie/laravel-tags',
-        'siteSlogan' => 'A powerful tagging package. Batteries included',
+        'siteSlogan' => 'A powerful tagging package. Batteries included.',
         'siteTitle' => 'Laravel Tags',
         'versions' => ['v1'],
     ],
