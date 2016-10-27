@@ -170,7 +170,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        Spatie\ResponseCache\ResponseCacheServiceProvider::class
+        Spatie\ResponseCache\ResponseCacheServiceProvider::class,
+
+        Spatie\Tail\TailServiceProvider::class
     ],
 
     /*
@@ -218,6 +220,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'ResponseCache' => Spatie\ResponseCache\ResponseCacheFacade::class,
+
     ],
 
 ];
