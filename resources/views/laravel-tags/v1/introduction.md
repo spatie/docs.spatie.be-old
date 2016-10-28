@@ -55,8 +55,6 @@ $tag2->order_column; //returns 2
 $tag->swapOrder($anotherTag);
 ```
 
-This is the core functionality of almost every other tag package out there. What makes this spatie/laravel-tags unique is the built in support for translations, tag types, slugs, and sortable tags.
-
 ## We have badges!
 
 <section class="article_badges">
