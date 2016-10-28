@@ -11,7 +11,7 @@ But we didn't stop with the regular tagging capabilities you find in every packa
 Here are some code examples:
 
 ```php
-// create a model with some tags
+//create a model with some tags
 $newsItem = NewsItem::create([
    'name' => 'testModel',
    'tags' => ['tag', 'tag2'], //tags will be created if they don't exist
