@@ -1622,6 +1622,11 @@ sup {
   overflow: hidden;
   background-color: rgba(64, 71, 13, 0.85); }
 
+.header_background {
+  background: url("/images/tags/header.jpg") center no-repeat;
+  background-size: cover;
+  opacity: .2; }
+
 .header_caption_title,
 .header_caption_slogan {
   color: #fff; }
@@ -1630,10 +1635,10 @@ sup {
   border-radius: 3px;
   -webkit-transform: rotate(2deg);
   transform: rotate(2deg);
-  background: #40470d; }
+  background: #323520; }
 
 .header_caption_slogan {
   border-radius: 3px;
   -webkit-transform: rotate(-3deg);
   transform: rotate(-3deg);
-  background: rgba(64, 71, 13, 0.85); }
+  background: rgba(50, 53, 32, 0.85); }

@@ -7,8 +7,9 @@
 }
 
 .header_background {
-  // background: color($pink) url('/images/uptime-monitor/header.jpg') center no-repeat;
-  // background-size: cover;
+  background: url('/images/tags/header.jpg') center no-repeat;
+  background-size: cover;
+  opacity: .2;
 }
 
 .header_caption_title,
@@ -20,11 +21,11 @@
   // Becasue title is smaller than slogan
   border-radius: border-radius(s);
   transform: rotate(2deg);
-  background: color($green, darker);
+  background: color($green, darkest);
 }
 
 .header_caption_slogan {
   border-radius: border-radius(s);
   transform: rotate(-3deg);
-  background: color($green, darker, .85);
+  background: color($green, darkest, .85);
 }
