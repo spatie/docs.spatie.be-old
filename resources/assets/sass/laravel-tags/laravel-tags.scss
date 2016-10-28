@@ -2,16 +2,29 @@
 
 .header {
   overflow: hidden;
-  background-color: color($pink);
+  background-color: color($green, darker, .85);
+
 }
 
 .header_background {
-  background: color($pink) url('/images/uptime-monitor/header.jpg') center no-repeat;
-  background-size: cover;
+  // background: color($pink) url('/images/uptime-monitor/header.jpg') center no-repeat;
+  // background-size: cover;
 }
 
 .header_caption_title,
 .header_caption_slogan {
-  background: rgba($white, .85);
-  color: color($pink, dark);
+  color: $white;
+}
+
+.header_caption_title {
+  // Becasue title is smaller than slogan
+  border-radius: border-radius(s);
+  transform: rotate(2deg);
+  background: color($green, darker);
+}
+
+.header_caption_slogan {
+  border-radius: border-radius(s);
+  transform: rotate(-3deg);
+  background: color($green, darker, .85);
 }

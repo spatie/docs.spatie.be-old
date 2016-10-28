@@ -1620,13 +1620,20 @@ sup {
 
 .header {
   overflow: hidden;
-  background-color: #a70852; }
-
-.header_background {
-  background: #a70852 url("/images/uptime-monitor/header.jpg") center no-repeat;
-  background-size: cover; }
+  background-color: rgba(64, 71, 13, 0.85); }
 
 .header_caption_title,
 .header_caption_slogan {
-  background: rgba(255, 255, 255, 0.85);
-  color: #8e0847; }
+  color: #fff; }
+
+.header_caption_title {
+  border-radius: 3px;
+  -webkit-transform: rotate(2deg);
+  transform: rotate(2deg);
+  background: #40470d; }
+
+.header_caption_slogan {
+  border-radius: 3px;
+  -webkit-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  background: rgba(64, 71, 13, 0.85); }
