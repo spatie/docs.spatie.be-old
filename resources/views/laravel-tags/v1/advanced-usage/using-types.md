@@ -22,8 +22,8 @@ $newsItem->detachTag($tagWithType);
 The provided method scopes, `withAnyTags` and `withAllTags`, can take instances of `Spatie\Tags\Tag` too:
 
 ```php
-$tag2 = Tag::create('headline', 'newsTag'):
-$tag = Tag::create('gossip, 'newsTag''):
+$tag = Tag::create('gossip, 'newsTag');
+$tag2 = Tag::create('headline', 'newsTag');
 
 NewsItem::withAnyTags([$tag, $tag2])->get();
 ```
