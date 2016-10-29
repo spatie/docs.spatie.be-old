@@ -20,7 +20,7 @@ $newsItem->attachTag('tag3');
 $newsItem->attachTags(['tag4', 'tag5']);
 
 //detaching tags
-$newsItem->detachTags('tag3');
+$newsItem->detachTag('tag3');
 $newsItem->detachTags(['tag4', 'tag5']);
 
 //syncing tags
