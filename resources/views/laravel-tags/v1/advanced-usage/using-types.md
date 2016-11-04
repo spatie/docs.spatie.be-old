@@ -8,7 +8,7 @@ To create separate collections of tags you can use tag types.
 
 ```php
 //creating a tag with a certain type
-$tagWithType = Tag::create('headline', 'newsTag');
+$tagWithType = Tag::findOrCreate('headline', 'newsTag');
 ```
 
 In addition to strings, all methods mentioned in the basic usage section can take instances of `Tag` as well.
