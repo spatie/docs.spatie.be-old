@@ -11,6 +11,9 @@ The `withAnyTags` scope will return models that have on or more of the given tag
 ```php
 //returns models that have one or more of the given tags
 YourModel::withAnyTags(['tag 1', 'tag 2'])->get();
+
+//returns models that have one or more of the given tags that are typed `myType`
+YourModel::withAnyTags(['tag 1', 'tag 2'], 'myType')->get();
 ```
 
 ### withAllTags
@@ -20,4 +23,7 @@ The `withAllTags` scope will return only the models that all of the given tags a
 ```
 //returns models that have all given tags
 YourModel::withAllTags(['tag 1', 'tag 2'])->get();
+
+//returns models that have all given tags that are typed `myType`
+YourModel::withAllTags(['tag 1', 'tag 2'], 'myType')->get();
 ```
