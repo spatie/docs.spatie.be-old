@@ -10,7 +10,7 @@ After you've set up [the package](https://docs.spatie.be/laravel-uptime-monitor/
 php artisan monitor:add https://laravel.com
 ```
 
-You will be asked you if the uptime check should look for a specific string on the response. This is handy if you know a few words that appear on the url you want to monitor. If you choose to specify a string and the string is not contained in the response when checking the url, the package will consider that uptime check failed.
+You will be asked if the uptime check should look for a specific string on the response. This is handy if you know a few words that appear on the url you want to monitor. If you choose to specify a string and the string is not contained in the response when checking the url, the package will consider that uptime check failed.
 
 If the url you want to monitor starts with `https://` the package will also [start monitoring](TODO: link needed) the ssl certificate of your site.
 
