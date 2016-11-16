@@ -13,14 +13,14 @@ return [
 
     'Monitoring uptime' => [
         'Basics',
-        'Notifications'
+        'Notifications',
         'Advanced usage',
         'Events',
 
     ],
     'Monitoring ssl certificates' => [
         'Basics',
-        'Notifications'
+        'Notifications',
         'Advanced usage',
         'Events',
     ]
