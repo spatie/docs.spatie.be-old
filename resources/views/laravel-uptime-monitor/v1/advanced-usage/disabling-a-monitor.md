@@ -2,15 +2,15 @@
 title: Disabling a monitor
 ---
 
-If you want to temporarly disable both the uptime and ssl check of a monitor you can disable it.
+If you want to temporarily stop the uptime and the ssl check of a monitor you can disable it.
 
-This is how can disable a monitor for `https://laravel.com`
+This is how to disable a monitor for `https://laravel.com`
 
 ```bash
 php artisan monitor:disable https://laravel.com
 ```
 
-You can enable the checks of a monitor again with:
+You can re-enable the checks of a monitor with:
 
 ```bash
 php artisan monitor:enable https://laravel.com
