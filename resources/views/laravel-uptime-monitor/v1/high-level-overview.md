@@ -6,7 +6,7 @@ title: High level overview
 
 This package can monitor the uptime of the sites, api endpoints, or anything that communicates via `http` or `https`. To create a monitor use the `monitor:create` command. This will create a row in the `monitors`  table. 
 
-The `monitor:check-uptime` task should be scheduled to run every minute. When it runs it will send a request to the `url`  of every configured monitor. The package can perform requests in concurrent way, so don't be afraid to configure a high number of monitors.
+The `monitor:check-uptime` task [should be scheduled](https://docs.spatie.be/laravel-uptime-monitor/v1/installation-and-setup#scheduling) to run every minute. When it runs it will send a request to the `url`  of every configured monitor. The package can perform requests in concurrent way, so don't be afraid to configure a high number of monitors.
    
  If a request succeeds the `Spatie\UptimeMonitor\Events\MonitorSucceed`-event will fire. The uptime of the monitor will be checked again in the run of `monitor:check-uptime` after the given amount of minutes configured in the `run_interval_in_minutes` key in the config file.
 
