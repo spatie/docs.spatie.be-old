@@ -27,8 +27,6 @@ It has the following public properties:
 - `$monitor`: the instance of `Spatie\UptimeMonitor\Models\Monitor` that fired of the event
 - `$certificate`: if a valid certificate is found, this variable contains an instance of `\Spatie\SslCertificate\SslCertificate`. Refer to the [documentation of `spatie/ssl-certificate`](https://github.com/spatie/ssl-certificate) to learn how to work with this object. 
 
-????? It has one public property `$monitor` that contains an instance of `Spatie\UptimeMonitor\Models\Monitor`. ????
-
 ## SslExpiresSoon
 
 `Spatie\UptimeMonitor\Events\SslExpiresSoon`
