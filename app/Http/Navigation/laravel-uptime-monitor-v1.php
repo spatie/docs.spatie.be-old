@@ -28,7 +28,7 @@ return [
         'Customizing the uptime check',
         'Customizing notifications',
         'Disabling a monitor',
-        'Manually modifying monitors'
+        'Manually modifying monitors',
         'Using your own model',
-    ]
+    ],
 ];
