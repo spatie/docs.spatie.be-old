@@ -25,10 +25,10 @@ return [
     ],
 
     'Advanced usage' => [
+        'Manually modifying monitors',
         'Customizing the uptime check',
         'Customizing notifications',
         'Disabling a monitor',
-        'Manually modifying monitors',
         'Using your own model',
     ],
 ];
