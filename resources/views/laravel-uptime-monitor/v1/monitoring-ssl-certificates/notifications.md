@@ -2,15 +2,15 @@
 title: Notifications
 ---
 
-The package can notify you when certain events take place when running the ssl certificate check. In the config file you can specify to which channels the notifications for certain events should be sent. If you don't want any notifications for a certain event, just pass an empty array. Out of the box `slack` and `mail` channels are supported. If you want to use another channel or want to modify the notifications read the section on [customizing notifications](https://docs.spatie.be/laravel-uptime-monitor/v1/advanced-usage/customizing-notifications.
+The package can notify you when certain events take place when running the ssl certificate check. You can specify which channels the notifications for certain events should be sent in the config file. If you don't want notifications for a certain event, just pass an empty array. `slack` and `mail` channels are supported out of the box. If you want to use another channel or want to modify the notifications read the section on [customizing notifications](https://docs.spatie.be/laravel-uptime-monitor/v1/advanced-usage/customizing-notifications.
 
 ## SslCheckFailed
 
 `Spatie\UptimeMonitor\Notifications\Notifications\SslCheckFailed`
 
-This notification will be sent when the `Spatie\UptimeMonitor\Events\SslCheckFailed` event was fired.
+This notification will be sent when the `Spatie\UptimeMonitor\Events\SslCheckFailed` event is fired.
 
-This is how the notification looks like in Slack.
+This is how the notification looks in Slack.
 
 TODO: add image
 
@@ -18,9 +18,9 @@ TODO: add image
 
 `Spatie\UptimeMonitor\Notifications\Notifications\SslExpiresSoon`
 
-This notification will be sent when the `Spatie\UptimeMonitor\Events\SslExpiresSoon` event was fired.
+This notification will be sent when the `Spatie\UptimeMonitor\Events\SslExpiresSoon` event is fired.
 
-This is how the notification looks like in Slack.
+This is how the notification looks in Slack.
 
 TODO: add image
 
