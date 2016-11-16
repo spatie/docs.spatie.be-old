@@ -30,8 +30,6 @@ php artisan vendor:publish --provider="Spatie\UptimeMonitor\UptimeMonitorService
 This is the default contents of the configuration:
 
 ```php
-//config/laravel-uptime-monitor.php
-
 return [
 
     /*
@@ -41,13 +39,13 @@ return [
     'notifications' => [
 
         'notifications' => [
-            \Spatie\UptimeMonitor\Notifications\Notifications\SiteDown::class => ['slack'],
-            \Spatie\UptimeMonitor\Notifications\Notifications\SiteRestored::class => ['slack'],
-            \Spatie\UptimeMonitor\Notifications\Notifications\SiteUp::class => [],
+            \Spatie\UptimeMonitor\Notifications\Notifications\MonitorFailed::class => ['slack'],
+            \Spatie\UptimeMonitor\Notifications\Notifications\MonitorRecovered::class => ['slack'],
+            \Spatie\UptimeMonitor\Notifications\Notifications\MonitorSucceeded::class => [],
 
-            \Spatie\UptimeMonitor\Notifications\Notifications\InvalidSslCertificateFound::class => ['slack'],
-            \Spatie\UptimeMonitor\Notifications\Notifications\SoonExpiringSslCertificateFound::class => ['slack'],
-            \Spatie\UptimeMonitor\Notifications\Notifications\ValidSslCertificateFound::class => [],
+            \Spatie\UptimeMonitor\Notifications\Notifications\SslCheckFailed::class => ['slack'],
+            \Spatie\UptimeMonitor\Notifications\Notifications\SslExpiresSoon::class => ['slack'],
+            \Spatie\UptimeMonitor\Notifications\Notifications\SslCheckSucceeded::class => [],
         ],
 
         /*
@@ -61,12 +59,6 @@ return [
          * will be resent every given amount of minutes.
          */
         'resend_down_notification_every_minutes' => 60,
-
-        /*
-         * You will be notified whenever an ssl certificate will
-         * expire in the given amount of days.
-         */
-        'send_notification_when_ssl_certificate_will_expire_in_days' => 10,
 
         'mail' => [
             'to' => 'your@email.com',
@@ -109,10 +101,10 @@ return [
         'timeout_per_site' => 10,
 
         /*
-         * Fire SiteDown-event only after the given amount of checks
-         * have consecutively failed for a site.
+         * Fire `Spatie\UptimeMonitor\Events\MonitorFailed` event only after
+         * the given amount of checks have consecutively failed for a site.
          */
-        'fire_down_event_after_consecutive_failures' => 2,
+        'fire_monitor_failed_event_after_consecutive_failures' => 2,
 
         /*
          * When reaching out to sites this user agent will be used.
@@ -120,20 +112,30 @@ return [
         'user_agent' => 'spatie/laravel-uptime-monitor uptime checker',
     ],
 
+    'ssl-check' => [
+
+        /*
+         * The `Spatie\UptimeMonitor\Events\SslExpiresSoon` event will fire
+         * when a certificate is found whose expiration date is in
+         * the next amount given days.
+         */
+        'fire_expiring_soon_event_when_certificate_will_expire_in_less_than_days' => 10,
+    ],
+
     /*
      * To add or modify behaviour to the Site model you can specify your
      * own model here. They only requirement is that it should extend
      * `Spatie\UptimeMonitor\Test\Models\Site`.
      */
-     'site_model' => Spatie\UptimeMonitor\Models\Site::class,
+     'monitor_model' => Spatie\UptimeMonitor\Models\Monitor::class,
 ];
 ```
 
 ## Scheduling
 
-After you have performed the basic installation you can start monitoring sites using the `sites:check-uptime`, `sites:check-ssl`. In most cases you'll want to schedule these commands.
+After you have performed the basic installation you can check the uptime and ssl certificates of sites using the`sites:check-uptime`, `sites:check-ssl` commands. In most cases you'll want to schedule them. It is recommended to run the uptime check every minute and the ssl certificate check daily. 
 
-The commands can be scheduled in Laravel's console kernel, just like any other command. It is recommended to run the uptime check every minute and the ssl certificate check daily. 
+You can scheduled the commands, like any other command, in the console Kernel.
 
 ```php
 // app/Console/Kernel.php
