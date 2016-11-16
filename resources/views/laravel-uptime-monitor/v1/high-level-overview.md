@@ -21,4 +21,4 @@ The package can verify if the ssl certificate of a monitor is valid. By default 
 
 When a valid certificate for a monitor is found the `Spatie\UptimeMonitor\Events\SslCheckSucceeded` event will fire. If no valid certificate is found, `Spatie\UptimeMonitor\Events\SslCheckFailed` event will be unleashed. 
  
- If a valid certificate is found, but if will expire in less days that the value configured in `fire_expiring_soon_event_when_certificate_will_expire_in_less_than_days` the `Spatie\UptimeMonitor\Events\SslExpiresSoon` event fires off.
+ If a valid certificate is found, but if will expire in less days that the value configured in `fire_expiring_soon_event_if_certificate_expires_within_days` the `Spatie\UptimeMonitor\Events\SslExpiresSoon` event fires off.
