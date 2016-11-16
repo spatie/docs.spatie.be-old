@@ -27,5 +27,3 @@ It has one public property `$monitor` that contains an instance of `Spatie\Uptim
 This event is fired when the monitor could reach the configured `url` and, if you specified it, found the `look_for_string` on the response. This event only takes the uptime check in consideration, so it will still be fired if the ssl certificate check of the monitor is failing.
 
 It has one public property `$monitor` that contains an instance of `Spatie\UptimeMonitor\Models\Monitor`.
-
-
