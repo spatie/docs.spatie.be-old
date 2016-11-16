@@ -27,7 +27,7 @@ To publish the config file to `config/laravel-uptime-monitor.php` run:
 php artisan vendor:publish --provider="Spatie\UptimeMonitor\UptimeMonitorServiceProvider"
 ```
 
-This is the default contents of the configuration:
+The default contents of the configuration looks like this:
 
 ```php
 return [
@@ -55,7 +55,7 @@ return [
         'location' => '',
 
         /*
-         * To keep reminding you that a site is down down notifications
+         * To keep reminding you that a site is down notifications
          * will be resent every given amount of minutes.
          */
         'resend_down_notification_every_minutes' => 60,
@@ -78,8 +78,8 @@ return [
     'uptime_check' => [
 
         /*
-         * An uptime check will be performed if the last check was performed more that the
-         * given amount of minutes ago. If you change this setting you have to manually
+         * An uptime check will be performed if the last check was performed more than the
+         * given number of minutes ago. If you change this setting you have to manually
          * update the `uptime_check_interval_in_minutes` value of your existing sites.
          *
          * When a site is down we'll check the uptime every time `sites:check-uptime` runs
@@ -133,9 +133,9 @@ return [
 
 ## Scheduling
 
-After you have performed the basic installation you can check the uptime and ssl certificates of sites using the`sites:check-uptime`, `sites:check-ssl` commands. In most cases you'll want to schedule them. It is recommended to run the uptime check every minute and the ssl certificate check daily. 
+After you have performed the basic installation you can check the uptime and ssl certificates of sites using the `sites:check-uptime` and `sites:check-ssl` commands. In most cases you'll want to schedule them. We recommended that you run the uptime check every minute and the ssl certificate check daily. 
 
-You can scheduled the commands, like any other command, in the console Kernel.
+You can schedule the commands, like any other command, in the console Kernel.
 
 ```php
 // app/Console/Kernel.php
