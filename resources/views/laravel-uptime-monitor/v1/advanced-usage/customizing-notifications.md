@@ -11,8 +11,9 @@ This package leverages [Laravel's native notification capabilites](https://larav
     \Spatie\UptimeMonitor\Notifications\Notifications\MonitorSucceeded::class => [],
 
     \Spatie\UptimeMonitor\Notifications\Notifications\SslCheckFailed::class => ['slack'],
-    \Spatie\UptimeMonitor\Notifications\Notifications\SslExpiresSoon::class => ['slack'],    \Spatie\UptimeMonitor\Notifications\Notifications\SslCheckSucceeded::class => [],
+    \Spatie\UptimeMonitor\Notifications\Notifications\SslExpiresSoon::class => ['slack'],
+    \Spatie\UptimeMonitor\Notifications\Notifications\SslCheckSucceeded::class => [],
 ],
 ```
 
-Notice the the config keys are the fully qualified class names of the used `Notification` classes. Out of the box all notifications have support for `slack` and `mail`. If you want to add support for more channels or just want to use change some text in the notifications you can specify your own notification classes in the config file. When creating custom notifications it's probably best to extend the default ones shipped with this package.
+Notice that the config keys are fully qualified class names of the `Notification` classes. All notifications have support for `slack` and `mail` out of the box. If you want to add support for more channels or just want to use change some text in the notifications you can specify your own notification classes in the config file. When creating custom notifications, it's probably best to extend the default ones shipped with this package.
