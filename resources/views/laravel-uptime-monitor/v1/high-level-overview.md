@@ -10,7 +10,7 @@ The `monitor:check-uptime` task [should be scheduled](https://docs.spatie.be/lar
    
  If a request succeeds the `Spatie\UptimeMonitor\Events\MonitorSucceed` event will fire. The uptime of the monitor will be checked again in the run of `monitor:check-uptime` after the given amount of minutes configured in the `run_interval_in_minutes` key in the config file.
 
-When an uptime check fails the uptime check for that monitor will be performed any time `monitor:check-uptime` runs regardless of the value configured in `run_interval_in_minutes`.
+When an uptime check fails, the uptime check for that monitor will be performed any time `monitor:check-uptime` runs regardless of the value configured in `run_interval_in_minutes`.
 If the uptime check fails more times in a row then the value configured in `fire_down_event_after_consecutive_failures` the `Spatie\UptimeMonitor\Events\MonitorFailed` event will fire. 
 
 When, after it has failed, an uptime check succeeds again the `Spatie\UptimeMonitor\Events\MonitorRecovered` will be fired.
