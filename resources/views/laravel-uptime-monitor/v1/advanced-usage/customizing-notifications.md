@@ -15,4 +15,4 @@ This package leverages [Laravel's native notification capabilites](https://larav
 ],
 ```
 
-Notice the the config keys are the fully qualified class names of the used `Notification` classes. Out of the box all notifications have support for `slack` and `mail`. If you want to add support for more channels or just want to use change some text in the notifications you can specify your own notification classes in the config file. When creating custom notifications it's probably best to extend the default ones shipped with this package.
+Notice that the config keys are the fully qualified class names of the used `Notification` classes. Out of the box all notifications have support for `slack` and `mail`. If you want to add support for more channels or just want to change some text in the notifications you can specify your own notification classes in the config file. When creating custom notifications it's probably best to extend the default ones shipped with this package.
