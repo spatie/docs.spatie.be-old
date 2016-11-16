@@ -14,15 +14,21 @@ return [
 
     'Monitoring uptime' => [
         'Basics',
-        'Notifications',
-        'Advanced usage',
         'Events',
-
+        'Notifications',
     ],
+
     'Monitoring ssl certificates' => [
         'Basics',
-        'Notifications',
-        'Advanced usage',
         'Events',
+        'Notifications',
+    ],
+
+    'Advanced usage' => [
+        'Customizing the uptime check',
+        'Customizing notifications',
+        'Disabling a monitor',
+        'Manually modifying monitors'
+        'Using your own model',
     ]
 ];
