@@ -18,7 +18,7 @@ It has the following public properties:
 
 ## CertificateCheckSucceeded
 
-`Spatie\UptimeMonitor\Events\UptimeCheckRecovered`
+`Spatie\UptimeMonitor\Events\CertificateCheckSucceeded`
 
 This event is fired after the certificate check finds a valid certificate.
 
