@@ -14,5 +14,6 @@ Laravel-uptime-monitor is a powerful, easy to configure uptime monitor. It will 
     <a href="https://travis-ci.org/spatie/laravel-uptime-monitor"><img src="https://img.shields.io/travis/spatie/laravel-uptime-monitor/master.svg?style=flat-square" alt="Build Status"></a>
     <a href="https://insight.sensiolabs.com/projects/2551eaa3-34df-49e0-a170-709b96f2ac3e"><img src="https://img.shields.io/sensiolabs/i/2551eaa3-34df-49e0-a170-709b96f2ac3e.svg?style=flat-square" alt="SensioLabsInsight"></a>
     <a href="https://scrutinizer-ci.com/g/spatie/laravel-uptime-monitor"><img src="https://img.shields.io/scrutinizer/g/spatie/laravel-uptime-monitor.svg?style=flat-square" alt="Quality Score"></a>
+    <a href="https://styleci.io/repos/67774357"><img src="https://styleci.io/repos/67774357/shield?branch=master" alt="StyleCI"></a>
     <a href="https://packagist.org/packages/spatie/laravel-uptime-monitor"><img src="https://img.shields.io/packagist/dt/spatie/laravel-uptime-monitor.svg?style=flat-square" alt="Total Downloads"></a>
 </section>
