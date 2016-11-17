@@ -18,7 +18,7 @@ If an uptime check is successful after failing, the `Spatie\UptimeMonitor\Events
 
 ## Monitoring SSL certificates
 
-The package can verify if the ssl certificate of a monitor is valid. By default all monitors whose `url` starts with `https` will be checked. This is done by the `monitor:check-ssl` command which should be scheduled to run daily at least. 
+The package can verify if the ssl certificate of a monitor is valid. By default all monitors whose `url` starts with `https` will be checked. This is done by the `monitor:check-certificate` command which should be scheduled to run daily at least. 
 
 When a valid certificate for a monitor is found the `Spatie\UptimeMonitor\Events\SslCheckSucceeded` event will fire. If no valid certificate is found, the `Spatie\UptimeMonitor\Events\SslCheckFailed` event will be unleashed!
  
