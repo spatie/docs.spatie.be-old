@@ -18,10 +18,10 @@
         <div class="grid">
             <div class="header_caption">
                 <h1 class="header_caption_title">
-                    <a href="/" >Spatie Documentation</a>
+                    <a href="/" >Spatie Docs</a>
                 </h1>
                 <br>
-                <p class="header_caption_slogan">Get help with our comprehensive packages</p>
+                <p class="header_caption_slogan">Documentation for our comprehensive packages</p>
             </div>
             <div class="header_logos">
                 <a href="https://github.com/spatie" target="_external">
@@ -38,7 +38,7 @@
     <div class="grid">
         <div class="grid_col -width-2/3">
             <article class="article">
-                <h1>Documentation</h1>
+                <h1>Overview</h1>
 
                 <h2>Laravel</h2>
 
@@ -65,8 +65,8 @@
                 <h3><a href="/menu">Menu Documentation</a></h3>
                 <p>Html menu generator.</p>
 
-
-                <p class=":margin-top-large">Find even more <a href="https://spatie.be/en/opensource">Open Source projects</a> on our website.</p>
+                <hr>
+                <p>Find even more <a href="https://spatie.be/en/opensource">Open Source projects</a> on our website.</p>
 
             </article>
         </div>
