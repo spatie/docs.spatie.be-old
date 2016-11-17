@@ -1,8 +1,6 @@
 <?php
 
-Route::get('/', function () {
-    return redirect('https://spatie.be/opensource');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'laravel-backup'], function () {
 

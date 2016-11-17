@@ -19,6 +19,19 @@ body {
 
   color: $text-color;
   line-height: $line-height;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .header,
+  .footer {
+    flex-grow: 0;
+  }
+
+  .main {
+    flex-grow: 1;
+  }
 }
 
 h1,
@@ -197,6 +210,14 @@ mark {
   @include tag(color($yellow, darkest), color($yellow, lightest));
 
   text-decoration: none;
+}
+
+hr {
+  border: none;
+  height: 3px;
+  background: color($gold, lightest);
+  width: 100%;
+  margin: 10vh 0 4vh;
 }
 
 pre {
