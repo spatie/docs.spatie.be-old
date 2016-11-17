@@ -12,7 +12,7 @@ This notification will be sent when the `Spatie\UptimeMonitor\Events\SslCheckFai
 
 This is how the notification looks in Slack.
 
-TODO: add image
+<img src="/images/uptime-monitor/ssl-certificate-failed.jpg" />
 
 ## SslExpiresSoon
 
@@ -22,7 +22,7 @@ This notification will be sent when the `Spatie\UptimeMonitor\Events\SslExpiresS
 
 This is how the notification looks in Slack.
 
-TODO: add image
+<img src="/images/uptime-monitor/ssl-expiring-soon.jpg" />
 
 ## SslCheckSucceeded
 
