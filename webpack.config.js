@@ -4,6 +4,8 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
+        'home.style': './resources/assets/sass/home/home.scss',
+        'home': './resources/assets/js/home.js',
         'laravel-backup.style': './resources/assets/sass/laravel-backup/laravel-backup.scss',
         'laravel-backup': './resources/assets/js/laravel-backup.js',
         'laravel-medialibrary': './resources/assets/js/laravel-medialibrary.js',
