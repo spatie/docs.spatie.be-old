@@ -1,5 +1,5 @@
 ---
-title: Disabling a monitor
+title: Disabling monitors
 ---
 
 If you want to temporarily stop the uptime and the ssl check of a monitor you can disable it.
