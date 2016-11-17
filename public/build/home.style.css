@@ -1627,11 +1627,15 @@ sup {
   text-transform: none; }
 
 .header {
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: #1b3747; }
 
 .header_background {
-  background-color: #d4cab4; }
+  background: url("/images/home/header.jpg") no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+  opacity: .2; }
 
 .header_caption_title,
 .header_caption_slogan {
-  background: rgba(93, 78, 54, 0.2); }
+  background: rgba(27, 55, 71, 0.5); }

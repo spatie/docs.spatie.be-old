@@ -973,7 +973,15 @@ body {
   font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", -apple-system, "Segoe UI", sans-serif;
   font-weight: 300;
   color: #1a1e25;
-  line-height: 1.5; }
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; }
+  body .header,
+  body .footer {
+    flex-grow: 0; }
+  body .main {
+    flex-grow: 1; }
 
 h1,
 h2,
