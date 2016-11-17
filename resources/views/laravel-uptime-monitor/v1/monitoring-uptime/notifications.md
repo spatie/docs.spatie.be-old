@@ -12,7 +12,7 @@ This notification will be sent when the `Spatie\UptimeMonitor\Events\MonitorFail
 
 This is how the notification looks in Slack.
 
-TODO: add image
+<img src="/images/uptime-monitor/monitor-failed.png" />
 
 ## MonitorRecovered
 
@@ -22,7 +22,7 @@ This notification will be sent when the `Spatie\UptimeMonitor\Events\MonitorReco
 
 This is how the notification looks in Slack.
 
-TODO: add image
+<img src="/images/uptime-monitor/monitor-recovered.png" />
 
 ## MonitorSucceeded
 
