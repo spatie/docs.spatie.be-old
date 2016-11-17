@@ -39,13 +39,13 @@ return [
     'notifications' => [
 
         'notifications' => [
-            \Spatie\UptimeMonitor\Notifications\Notifications\MonitorFailed::class => ['slack'],
-            \Spatie\UptimeMonitor\Notifications\Notifications\MonitorRecovered::class => ['slack'],
-            \Spatie\UptimeMonitor\Notifications\Notifications\MonitorSucceeded::class => [],
+            \Spatie\UptimeMonitor\Notifications\Notifications\UptimeCheckFailed::class => ['slack'],
+            \Spatie\UptimeMonitor\Notifications\Notifications\UptimeCheckRecovered::class => ['slack'],
+            \Spatie\UptimeMonitor\Notifications\Notifications\UptimeCheckSucceeded::class => [],
 
-            \Spatie\UptimeMonitor\Notifications\Notifications\SslCheckFailed::class => ['slack'],
-            \Spatie\UptimeMonitor\Notifications\Notifications\SslExpiresSoon::class => ['slack'],
-            \Spatie\UptimeMonitor\Notifications\Notifications\SslCheckSucceeded::class => [],
+            \Spatie\UptimeMonitor\Notifications\Notifications\CertificateCheckFailed::class => ['slack'],
+            \Spatie\UptimeMonitor\Notifications\Notifications\CertificateExpiresSoon::class => ['slack'],
+            \Spatie\UptimeMonitor\Notifications\Notifications\CertificateCheckSucceeded::class => [],
         ],
 
         /*
@@ -101,7 +101,7 @@ return [
         'timeout_per_site' => 10,
 
         /*
-         * Fire `Spatie\UptimeMonitor\Events\MonitorFailed` event only after
+         * Fire `Spatie\UptimeMonitor\Events\UptimeCheckFailed` event only after
          * the given amount of checks have consecutively failed for a site.
          */
         'fire_monitor_failed_event_after_consecutive_failures' => 2,
@@ -112,10 +112,10 @@ return [
         'user_agent' => 'spatie/laravel-uptime-monitor uptime checker',
     ],
 
-    'ssl-check' => [
+    'certificate_check' => [
 
         /*
-         * The `Spatie\UptimeMonitor\Events\SslExpiresSoon` event will fire
+         * The `Spatie\UptimeMonitor\Events\CertificateExpiresSoon` event will fire
          * when a certificate is found whose expiration date is in
          * the next amount given days.
          */

@@ -12,14 +12,14 @@ If a request succeeds the `Spatie\UptimeMonitor\Events\MonitorSucceed`-event wil
 
 When an uptime check fails the uptime check for that monitor will be performed any time `monitor:check-uptime` runs regardless of the value configured in `run_interval_in_minutes`.
 
-If an uptime check fails consecutively more times than the value you set in `fire_down_event_after_consecutive_failures` the `Spatie\UptimeMonitor\Events\MonitorFailed` event will fire. 
+If an uptime check fails consecutively more times than the value you set in `fire_down_event_after_consecutive_failures` the `Spatie\UptimeMonitor\Events\UptimeCheckFailed` event will fire. 
 
-If an uptime check is successful after failing, the `Spatie\UptimeMonitor\Events\MonitorRecovered` will be fired.
+If an uptime check is successful after failing, the `Spatie\UptimeMonitor\Events\UptimeCheckRecovered` will be fired.
 
 ## Monitoring SSL certificates
 
 The package can verify if the ssl certificate of a monitor is valid. By default all monitors whose `url` starts with `https` will be checked. This is done by the `monitor:check-certificate` command which should be scheduled to run daily at least. 
 
-When a valid certificate for a monitor is found the `Spatie\UptimeMonitor\Events\SslCheckSucceeded` event will fire. If no valid certificate is found, the `Spatie\UptimeMonitor\Events\SslCheckFailed` event will be unleashed!
+When a valid certificate for a monitor is found the `Spatie\UptimeMonitor\Events\CertificateCheckSucceeded` event will fire. If no valid certificate is found, the `Spatie\UptimeMonitor\Events\CertificateCheckFailed` event will be unleashed!
  
-If a valid certificate is found, but it will expire in less days than the value set in `fire_expiring_soon_event_if_certificate_expires_within_days` the `Spatie\UptimeMonitor\Events\SslExpiresSoon` event is fired.
+If a valid certificate is found, but it will expire in less days than the value set in `fire_expiring_soon_event_if_certificate_expires_within_days` the `Spatie\UptimeMonitor\Events\CertificateExpiresSoon` event is fired.

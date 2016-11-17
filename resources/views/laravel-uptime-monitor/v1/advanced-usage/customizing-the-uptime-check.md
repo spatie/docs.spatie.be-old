@@ -33,7 +33,7 @@ These are the default values:
         'timeout_per_site' => 10,
 
         /*
-         * Fire `Spatie\UptimeMonitor\Events\MonitorFailed` event only after
+         * Fire `Spatie\UptimeMonitor\Events\UptimeCheckFailed` event only after
          * the given amount of checks have consecutively failed for a site.
          */
         'fire_monitor_failed_event_after_consecutive_failures' => 2,

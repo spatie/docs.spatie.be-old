@@ -2,7 +2,7 @@
 title: Disabling monitors
 ---
 
-If you want to temporarily stop the uptime and the ssl check of a monitor you can disable it.
+If you want to temporarily stop the uptime and the certificate check of a monitor you can disable it.
 
 This is how to disable a monitor for `https://laravel.com`
 
