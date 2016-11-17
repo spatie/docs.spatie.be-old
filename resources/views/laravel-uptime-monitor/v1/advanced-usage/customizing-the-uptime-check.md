@@ -2,7 +2,7 @@
 title: Customizing the uptime check
 ---
 
-This package ships with an sanely configured uptime check. You can modify the behaviour of the uptime check by changing the values under the `uptime_check` key in the config file.
+This package ships with a default configured uptime check. You can modify the behaviour of the uptime check by changing the values under the `uptime_check` key in the config file.
 
 These are the default values:
 

@@ -16,4 +16,4 @@ You can re-enable the checks of a monitor with:
 php artisan monitor:enable https://laravel.com
 ```
 
-Both commands accept multiple urls commaseparated to enable or disable multiple monitors at once.
+Both commands accept multiple urls comma-separated to enable or disable multiple monitors at once.

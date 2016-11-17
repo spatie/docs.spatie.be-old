@@ -133,7 +133,7 @@ return [
 
 ## Scheduling
 
-After you have performed the basic installation you can check the uptime and ssl certificates of sites using the `sites:check-uptime` and `sites:check-ssl` commands. In most cases you'll want to schedule them. We recommended that you run the uptime check every minute and the ssl certificate check daily. 
+After you have performed the basic installation you can check the uptime and ssl certificates of sites using the `sites:check-uptime` and `sites:check-ssl` commands. In most cases you'll want to schedule them. We recommend that you run the uptime check every minute and the ssl certificate check daily. 
 
 You can schedule the commands, like any other command, in the console Kernel.
 
