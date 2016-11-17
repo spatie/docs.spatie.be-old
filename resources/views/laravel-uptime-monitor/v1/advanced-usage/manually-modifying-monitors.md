@@ -11,7 +11,6 @@ All configured monitors are stored in the `monitors` table in the database. The 
  
 You can also manually manipulate the table rows instead. Here's a description of the fields you can manipulate:
  
- - `id`: your regular auto increment value.
  - `url`: the url to perform uptime and ssl certificate checks on. Take care not to insert duplicate values.
  - `enabled`: this is the master switch of the uptime and ssl certificate checks. If this is `false` those checks will not be executed.
  - `look_for_string`: if this string is not found in the response the uptime check will fail. You may set this to an empty string to disable the check.
