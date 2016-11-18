@@ -8,9 +8,9 @@ This package can monitor the uptime of sites, api endpoints, or anything that co
 
 The `monitor:check-uptime` task [should be scheduled](https://docs.spatie.be/laravel-uptime-monitor/v1/installation-and-setup#scheduling) to run every minute. When it runs it will send a request to the `url` of every configured monitor. The package can perform requests concurrently, so don't be afraid to configure a large number of monitors.
 
-If a request succeeds the `Spatie\UptimeMonitor\Events\UptimeCheckSucceeded`-event will fire. The uptime of the monitor will be checked again when `monitor:check-uptime` runs after the interval set in the `run_interval_in_minutes` key in the config file.
+If a request succeeds the `Spatie\UptimeMonitor\Events\UptimeCheckSucceeded`-event will fire. The uptime of the monitor will be checked again when `monitor:check-uptime` runs after the interval set in the `uptime_check_interval_in_minutes` key in the config file.
 
-When an uptime check fails the uptime check for that monitor will be performed any time `monitor:check-uptime` runs regardless of the value configured in `run_interval_in_minutes`.
+When an uptime check fails the uptime check for that monitor will be performed any time `monitor:check-uptime` runs regardless of the value configured in `uptime_check_interval_in_minutes`.
 
 If an uptime check fails consecutively more times than the value you set in `fire_down_event_after_consecutive_failures` the `Spatie\UptimeMonitor\Events\UptimeCheckFailed` event will fire. 
 
