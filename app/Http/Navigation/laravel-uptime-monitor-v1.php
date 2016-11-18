@@ -30,5 +30,6 @@ return [
         'Customizing notifications',
         'Disabling monitors',
         'Using your own model',
+        'Monitoring from multiple locations',
     ],
 ];
