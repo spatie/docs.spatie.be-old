@@ -17,6 +17,8 @@ If the url you want to monitor starts with `https://` the package will also [sta
 You've just set up your first monitor. Congratulations! The package will now send you [notifications](https://docs.spatie.be/laravel-uptime-monitor/v1/monitoring-uptime/notifications) when your monitor fails and when it is restored.
  
 Read the [high level overview section](https://docs.spatie.be/laravel-uptime-monitor/v1/high-level-overview) to learn how the uptime checking works in detail.
+
+Instead of using the `monitor:add` command you may also manually create a row in the `monitors` table. Here's [a description of all the fields in that table](https://docs.spatie.be/laravel-uptime-monitor/v1/advanced-usage/manually-modifying-monitors).
  
  ## Removing a monitor
  
@@ -27,4 +29,5 @@ Read the [high level overview section](https://docs.spatie.be/laravel-uptime-mon
  ```
  
 This will remove the monitor for laravel.com from the database. Want to delete multiple monitors at once? Just pass all the urls as comma-separated list.
- 
+
+Instead of using the `monitor:delete` command you may also manually delete the relevant row in the `monitors` table.
