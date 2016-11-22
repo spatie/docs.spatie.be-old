@@ -18,7 +18,7 @@ You've just set up your first monitor. Congratulations! The package will now sen
  
 Read the [high level overview section](https://docs.spatie.be/laravel-uptime-monitor/v1/high-level-overview) to learn how the uptime checking works in detail.
 
-Instead of using the `monitor:add` command you may also manually create a row in the `monitors` table. Here's [a description of all the fields in that table](https://docs.spatie.be/laravel-uptime-monitor/v1/advanced-usage/manually-modifying-monitors).
+Instead of using the `monitor:create` command you may also manually create a row in the `monitors` table. Here's [a description of all the fields in that table](https://docs.spatie.be/laravel-uptime-monitor/v1/advanced-usage/manually-modifying-monitors).
  
  ## Removing a monitor
  
