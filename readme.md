@@ -1,6 +1,6 @@
 # Spatie package documentation
 
-This repository contains the documention of several spatie packages. The application is automatically deployed
+This repository contains the documentation of several spatie packages. The application is automatically deployed
 to https://docs.spatie.be
 
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
