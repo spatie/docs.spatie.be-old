@@ -32,7 +32,6 @@ This is the default contents of the configuration:
 ```php
 //config/laravel-backup.php
 
-
 return [
 
     'backup' => [
@@ -56,6 +55,8 @@ return [
 
                 /*
                  * These directories and files will be excluded from the backup.
+                 *
+                 * Directories used by the backup process will automatically be excluded.
                  */
                 'exclude' => [
                     base_path('vendor'),
@@ -70,7 +71,7 @@ return [
 
             /*
              * The names of the connections to the databases that should be backed up
-             * Only MySQL- and PostgreSQL-databases are supported.
+             * Only MySQL and PostgreSQL databases are supported.
              */
             'databases' => [
                 'mysql',
@@ -78,6 +79,11 @@ return [
         ],
 
         'destination' => [
+
+            /*
+             * The filename prefix used for the backup zip file.
+             */
+            'filename_prefix' => '',
 
             /*
              * The disk names on which the backups will be stored.
@@ -125,7 +131,7 @@ return [
     /*
      * Here you can specify which backups should be monitored.
      * If a backup does not meet the specified requirements the
-     * UnHealthyBackupWasFound-event will be fired.
+     * UnHealthyBackupWasFound event will be fired.
      */
     'monitorBackups' => [
         [
@@ -154,34 +160,34 @@ return [
          * be kept and so on.
          *
          * No matter how you configure it the default strategy will never
-         * deleted the newest backup.
+         * delete the newest backup.
          */
         'strategy' => \Spatie\Backup\Tasks\Cleanup\Strategies\DefaultStrategy::class,
 
         'defaultStrategy' => [
 
             /*
-             * The amount of days that all backups must be kept.
+             * The number of days for which backups must be kept.
              */
             'keepAllBackupsForDays' => 7,
 
             /*
-             * The amount of days that all daily backups must be kept.
+             * The number of days for which daily backups must be kept.
              */
             'keepDailyBackupsForDays' => 16,
 
             /*
-             * The amount of weeks of which one weekly backup must be kept.
+             * The number of weeks for which one weekly backup must be kept.
              */
             'keepWeeklyBackupsForWeeks' => 8,
 
             /*
-             * The amount of months of which one monthly backup must be kept.
+             * The number of months for which one monthly backup must be kept.
              */
             'keepMonthlyBackupsForMonths' => 4,
 
             /*
-             * The amount of years of which one yearly backup must be kept.
+             * The number of years for which one yearly backup must be kept.
              */
             'keepYearlyBackupsForYears' => 2,
 
@@ -193,7 +199,6 @@ return [
         ],
     ],
 ];
-
 ```
 
 ## Scheduling
