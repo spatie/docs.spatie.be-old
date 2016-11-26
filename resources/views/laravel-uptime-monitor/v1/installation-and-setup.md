@@ -49,14 +49,14 @@ return [
         ],
 
         /*
-         * The location from where you are running this Laravel application. This location will be mentioned
-         * in all notifications that will be sent.
+         * The location from where you are running this Laravel application. This location will be
+         * mentioned in all notifications that will be sent.
          */
         'location' => '',
 
         /*
-         * To keep reminding you that a site is down notifications
-         * will be resent every given amount of minutes.
+         * To keep reminding you that a site is down, notifications
+         * will be resent every given number of minutes.
          */
         'resend_uptime_check_failed_notification_every_minutes' => 60,
 
@@ -73,7 +73,7 @@ return [
          * notifiable will use the variables specified in this config file.
          */
         'notifiable' => \Spatie\UptimeMonitor\Notifications\Notifiable::class,
-        
+
         /*
          * The date format used in notifications.
          */
@@ -89,34 +89,33 @@ return [
          * You can use any implementation of Spatie\UptimeMonitor\Helpers\UptimeResponseCheckers\UptimeResponseChecker here.
          */
         'response_checker' => Spatie\UptimeMonitor\Helpers\UptimeResponseCheckers\LookForStringChecker::class,
-     
 
         /*
          * An uptime check will be performed if the last check was performed more than the
          * given number of minutes ago. If you change this setting you have to manually
-         * update the `uptime_check_interval_in_minutes` value of your existing sites.
+         * update the `uptime_check_interval_in_minutes` value of your existing monitors.
          *
-         * When a site is down we'll check the uptime every time `sites:check-uptime` runs
-         * regardless of this setting.
+         * When an uptime check fails we'll check the uptime for that montitor every time `monitor:check-uptime`
+         * runs regardless of this setting.
          */
-        'uptime_check_interval_in_minutes' => 5,
+        'run_interval_in_minutes' => 5,
 
         /*
-         * To speed up the uptime checking process uptime monitor can check multiple sites
-         * concurrently. Set this to a lower value if you're getting weird errors
+         * To speed up the uptime checking process the package can perform the uptime check of several
+         * monitors concurrently. Set this to a lower value if you're getting weird errors
          * running the uptime check.
          */
         'concurrent_checks' => 10,
 
         /*
-         * The uptime check for a site will fail if site does not respond after the
-         * given amount of seconds.
+         * The uptime check for a monitor will fail if url does not respond after the
+         * given number of seconds.
          */
         'timeout_per_site' => 10,
 
         /*
-         * Fire `Spatie\UptimeMonitor\Events\UptimeCheckFailed` event only after
-         * the given amount of checks have consecutively failed for a site.
+         * Fire `Spatie\UptimeMonitor\Events\MonitorFailed` event only after
+         * the given number of uptime checks have consecutively failed for a monitor.
          */
         'fire_monitor_failed_event_after_consecutive_failures' => 2,
 
@@ -129,19 +128,19 @@ return [
     'certificate_check' => [
 
         /*
-         * The `Spatie\UptimeMonitor\Events\CertificateExpiresSoon` event will fire
+         * The `Spatie\UptimeMonitor\Events\SslExpiresSoon` event will fire
          * when a certificate is found whose expiration date is in
-         * the next amount given days.
+         * the next number of given days.
          */
         'fire_expiring_soon_event_if_certificate_expires_within_days' => 10,
     ],
 
     /*
      * To add or modify behaviour to the Monitor model you can specify your
-     * own model here. They only requirement is that it should extend
+     * own model here. The only requirement is that it should extend
      * `Spatie\UptimeMonitor\Models\Monitor`.
      */
-     'monitor_model' => Spatie\UptimeMonitor\Models\Monitor::class,
+    'monitor_model' => Spatie\UptimeMonitor\Models\Monitor::class,
 ];
 ```
 
