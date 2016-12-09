@@ -4,7 +4,9 @@ title: Installation and setup
 
 ## Basic installation
 
-This package is meant to be installed into an existing Laravel application. Standing in the directory of an exisitng Laravel application you can install the package via composer:
+This package is meant to be installed into an existing Laravel application. If you're not familiar with Laravel head over to [the official documentation](laravel.com/docs) to learn how to set up and use this amazing framework.
+  
+Standing in the directory of an existing Laravel application you can install the package via composer:
 
 ``` bash
 composer require spatie/laravel-uptime-monitor
