@@ -15,4 +15,3 @@ class YourModel extends Model
    }
 }
 ```
-
