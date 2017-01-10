@@ -26,3 +26,20 @@ You can also specify a default value when retrieving a custom property.
 ```php
 $mediaItem->getCustomProperty('isPublic', false);
 ```
+
+If you're dealing with nested custom properties, you can use dot notation in the alternative `nestedCustomProperty` methods:
+
+```php
+$mediaItem = $newsItem
+    ->addMedia($pathToFile)
+    ->withCustomProperties([
+        'nested' => ['mime-type' => 'image/jpeg']
+    ])
+    ->toMediaLibrary();
+
+$mediaItem->hasCustomProperty('file.mime-type'); // returns true
+$mediaItem->getCustomProperty('file.mime-type'); // returns 'image/jpeg'
+
+$mediaItem->hasCustomProperty('file.does-not-exist'); // returns false
+$mediaItem->getCustomProperty('file.does-not-exist'); // returns null
+```
