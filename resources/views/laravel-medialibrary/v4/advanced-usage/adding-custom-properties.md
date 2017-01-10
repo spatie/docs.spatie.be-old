@@ -37,9 +37,9 @@ $mediaItem = $newsItem
     ])
     ->toMediaLibrary();
 
-$mediaItem->hasCustomProperty('file.mime-type'); // returns true
-$mediaItem->getCustomProperty('file.mime-type'); // returns 'image/jpeg'
+$mediaItem->hasNestedCustomProperty('file.mime-type'); // returns true
+$mediaItem->getNestedCustomProperty('file.mime-type'); // returns 'image/jpeg'
 
-$mediaItem->hasCustomProperty('file.does-not-exist'); // returns false
-$mediaItem->getCustomProperty('file.does-not-exist'); // returns null
+$mediaItem->hasNestedCustomProperty('file.does-not-exist'); // returns false
+$mediaItem->getNestedCustomProperty('file.does-not-exist'); // returns null
 ```
