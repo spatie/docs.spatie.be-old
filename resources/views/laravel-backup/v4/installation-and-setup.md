@@ -241,7 +241,7 @@ Here's an example for MySQL:
 		'driver'    => 'mysql'
 		...,
 		'dump' => [
-		   'dump_binary_path' => '/path/to/the/binary', // only the path, so without `mysqldump` or `pg_dump`
+		   'set_dump_binary_path' => '/path/to/the/binary', // only the path, so without `mysqldump` or `pg_dump`
 		   'use_single_transaction',
 		   'timeout' => 5,
 		   'exclude_tables' => ['table1', 'table2'],
