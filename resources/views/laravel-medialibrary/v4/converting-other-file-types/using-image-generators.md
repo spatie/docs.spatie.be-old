@@ -15,9 +15,9 @@ $this->addMediaConversion('thumb')
 ```
 
 The medialibrary includes image generators for the following file types:
-- [PDF](/laravel-medialibrary/v4/converting-other-medias/image-generators#pdf)
-- [SVG](/laravel-medialibrary/v4/converting-other-medias/image-generators#svg)
-- [Video](/laravel-medialibrary/v4/converting-other-medias/image-generators#video)
+- [PDF](/laravel-medialibrary/v4/converting-other-file-types/using-image-generators#pdf)
+- [SVG](/laravel-medialibrary/v4/converting-other-file-types/using-image-generators#svg)
+- [Video](/laravel-medialibrary/v4/converting-other-file-types/using-image-generators#video)
 
 ## PDF
 
