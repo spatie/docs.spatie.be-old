@@ -80,7 +80,7 @@ Route::group(['prefix' => 'laravel-uptime-monitor'], function () {
     });
 
     Route::get('v2', function () {
-        return redirect('laravel-uptime-monitor/v1/introduction');
+        return redirect('laravel-uptime-monitor/v2/introduction');
     });
 });
 
