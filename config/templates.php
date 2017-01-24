@@ -35,7 +35,7 @@ return [
         'githubUrl' => 'https://github.com/spatie/laravel-uptime-monitor',
         'siteSlogan' => 'A powerful and easy to configure uptime monitor',
         'siteTitle' => 'Laravel Uptime Monitor',
-        'versions' => ['v1'],
+        'versions' => ['v1', 'v2'],
     ],
 
     'laravel-tags' => [
