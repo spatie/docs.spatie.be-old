@@ -19,3 +19,5 @@ class AppServiceProvider extends ServiceProvider
     }
 }
 ```
+
+Generally speaking you do not want to mess with this class, so only override this if you know what you're doing.
