@@ -95,5 +95,17 @@ Route::group(['prefix' => 'laravel-tags'], function () {
     });
 });
 
+Route::group(['prefix' => 'image'], function () {
+
+    Route::get('/', function () {
+        return redirect('image/v1/introduction');
+    });
+
+    Route::get('v1', function () {
+        return redirect('image/v1/introduction');
+    });
+});
+
+
 Route::get('{slug}/edit', 'PageController@edit')->where('slug', '(.*)');
 Route::get('{slug}', 'PageController@page')->where('slug', '(.*)');

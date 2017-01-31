@@ -44,4 +44,11 @@ return [
         'siteTitle' => 'Laravel Tags',
         'versions' => ['v1'],
     ],
+
+    'image' => [
+        'githubUrl' => 'https://github.com/spatie/image',
+        'siteSlogan' => 'Manipulate images with an expressive API',
+        'siteTitle' => 'Image',
+        'versions' => ['v1'],
+    ],
 ];
