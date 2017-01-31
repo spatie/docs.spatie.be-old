@@ -65,6 +65,9 @@
                 <h3><a href="/menu">Menu Documentation</a></h3>
                 <p>Html menu generator.</p>
 
+                <h3><a href="/image">Image Documentation</a></h3>
+                <p>Manipulate images with an expressive API.</p>
+
                 <hr>
                 <p>Find even more <a href="https://spatie.be/en/opensource">Open Source projects</a> on our website.</p>
 
@@ -75,7 +78,7 @@
 <footer class="footer">
     <div class="grid">
         <div class="footer_content">
-            © {{ Date('Y') }} • <a href="https://spatie.be/">Spatie</a>
+            © {{ date('Y') }} • <a href="https://spatie.be/">Spatie</a>
             • <a href="https://github.com/spatie">Github</a>
         </div>
     </div>
