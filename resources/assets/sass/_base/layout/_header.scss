@@ -156,8 +156,11 @@
   svg {
     display: block;
     height: 2em;
-    margin-left: 1em;
     width: auto;
+
+    & + & {
+      margin-left: 1em;
+    }
   }
 
   .spatie,

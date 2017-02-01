@@ -947,8 +947,9 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   .header_logos svg {
     display: block;
     height: 2em;
-    margin-left: 1em;
     width: auto; }
+    .header_logos svg + .header_logos svg {
+      margin-left: 1em; }
   .header_logos .spatie:hover,
   .header_logos .github:hover {
     opacity: .7; }

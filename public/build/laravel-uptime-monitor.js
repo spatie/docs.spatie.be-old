@@ -110,7 +110,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * jQuery JavaScript Library v2.2.4
+	 * jQuery JavaScript Library v2.2.1
 	 * http://jquery.com/
 	 *
 	 * Includes Sizzle.js
@@ -120,7 +120,7 @@
 	 * Released under the MIT license
 	 * http://jquery.org/license
 	 *
-	 * Date: 2016-05-20T17:23Z
+	 * Date: 2016-02-22T19:11Z
 	 */
 
 	(function( global, factory ) {
@@ -176,7 +176,7 @@
 
 
 	var
-		version = "2.2.4",
+		version = "2.2.1",
 
 		// Define a local copy of jQuery
 		jQuery = function( selector, context ) {
@@ -387,7 +387,6 @@
 		},
 
 		isPlainObject: function( obj ) {
-			var key;
 
 			// Not plain objects:
 			// - Any object or value whose internal [[Class]] property is not "[object Object]"
@@ -397,18 +396,14 @@
 				return false;
 			}
 
-			// Not own constructor property must be Object
 			if ( obj.constructor &&
-					!hasOwn.call( obj, "constructor" ) &&
-					!hasOwn.call( obj.constructor.prototype || {}, "isPrototypeOf" ) ) {
+					!hasOwn.call( obj.constructor.prototype, "isPrototypeOf" ) ) {
 				return false;
 			}
 
-			// Own properties are enumerated firstly, so to speed up,
-			// if last one is own, then all properties are own
-			for ( key in obj ) {}
-
-			return key === undefined || hasOwn.call( obj, key );
+			// If the function hasn't returned already, we're confident that
+			// |obj| is a plain object, created by {} or constructed with new Object
+			return true;
 		},
 
 		isEmptyObject: function( obj ) {
@@ -5117,14 +5112,13 @@
 		isDefaultPrevented: returnFalse,
 		isPropagationStopped: returnFalse,
 		isImmediatePropagationStopped: returnFalse,
-		isSimulated: false,
 
 		preventDefault: function() {
 			var e = this.originalEvent;
 
 			this.isDefaultPrevented = returnTrue;
 
-			if ( e && !this.isSimulated ) {
+			if ( e ) {
 				e.preventDefault();
 			}
 		},
@@ -5133,7 +5127,7 @@
 
 			this.isPropagationStopped = returnTrue;
 
-			if ( e && !this.isSimulated ) {
+			if ( e ) {
 				e.stopPropagation();
 			}
 		},
@@ -5142,7 +5136,7 @@
 
 			this.isImmediatePropagationStopped = returnTrue;
 
-			if ( e && !this.isSimulated ) {
+			if ( e ) {
 				e.stopImmediatePropagation();
 			}
 
@@ -6072,6 +6066,19 @@
 			val = name === "width" ? elem.offsetWidth : elem.offsetHeight,
 			styles = getStyles( elem ),
 			isBorderBox = jQuery.css( elem, "boxSizing", false, styles ) === "border-box";
+
+		// Support: IE11 only
+		// In IE 11 fullscreen elements inside of an iframe have
+		// 100x too small dimensions (gh-1764).
+		if ( document.msFullscreenElement && window.top !== window ) {
+
+			// Support: IE11 only
+			// Running getBoundingClientRect on a disconnected node
+			// in IE throws an error.
+			if ( elem.getClientRects().length ) {
+				val = Math.round( elem.getBoundingClientRect()[ name ] * 100 );
+			}
+		}
 
 		// Some non-html elements return undefined for offsetWidth, so check for null/undefined
 		// svg - https://bugzilla.mozilla.org/show_bug.cgi?id=649285
@@ -7429,12 +7436,6 @@
 		}
 	} );
 
-	// Support: IE <=11 only
-	// Accessing the selectedIndex property
-	// forces the browser to respect setting selected
-	// on the option
-	// The getter ensures a default option is selected
-	// when in an optgroup
 	if ( !support.optSelected ) {
 		jQuery.propHooks.selected = {
 			get: function( elem ) {
@@ -7443,16 +7444,6 @@
 					parent.parentNode.selectedIndex;
 				}
 				return null;
-			},
-			set: function( elem ) {
-				var parent = elem.parentNode;
-				if ( parent ) {
-					parent.selectedIndex;
-
-					if ( parent.parentNode ) {
-						parent.parentNode.selectedIndex;
-					}
-				}
 			}
 		};
 	}
@@ -7647,8 +7638,7 @@
 
 
 
-	var rreturn = /\r/g,
-		rspaces = /[\x20\t\r\n\f]+/g;
+	var rreturn = /\r/g;
 
 	jQuery.fn.extend( {
 		val: function( value ) {
@@ -7724,15 +7714,9 @@
 			option: {
 				get: function( elem ) {
 
-					var val = jQuery.find.attr( elem, "value" );
-					return val != null ?
-						val :
-
-						// Support: IE10-11+
-						// option.text throws exceptions (#14686, #14858)
-						// Strip and collapse whitespace
-						// https://html.spec.whatwg.org/#strip-and-collapse-whitespace
-						jQuery.trim( jQuery.text( elem ) ).replace( rspaces, " " );
+					// Support: IE<11
+					// option.value not trimmed (#14858)
+					return jQuery.trim( elem.value );
 				}
 			},
 			select: {
@@ -7785,7 +7769,7 @@
 					while ( i-- ) {
 						option = options[ i ];
 						if ( option.selected =
-							jQuery.inArray( jQuery.valHooks.option.get( option ), values ) > -1
+								jQuery.inArray( jQuery.valHooks.option.get( option ), values ) > -1
 						) {
 							optionSet = true;
 						}
@@ -7963,7 +7947,6 @@
 		},
 
 		// Piggyback on a donor event to simulate a different one
-		// Used only for `focus(in | out)` events
 		simulate: function( type, elem, event ) {
 			var e = jQuery.extend(
 				new jQuery.Event(),
@@ -7971,10 +7954,27 @@
 				{
 					type: type,
 					isSimulated: true
+
+					// Previously, `originalEvent: {}` was set here, so stopPropagation call
+					// would not be triggered on donor event, since in our own
+					// jQuery.event.stopPropagation function we had a check for existence of
+					// originalEvent.stopPropagation method, so, consequently it would be a noop.
+					//
+					// But now, this "simulate" function is used only for events
+					// for which stopPropagation() is noop, so there is no need for that anymore.
+					//
+					// For the 1.x branch though, guard for "click" and "submit"
+					// events is still used, but was moved to jQuery.event.stopPropagation function
+					// because `originalEvent` should point to the original event for the constancy
+					// with other events and for more focused logic
 				}
 			);
 
 			jQuery.event.trigger( e, null, elem );
+
+			if ( e.isDefaultPrevented() ) {
+				event.preventDefault();
+			}
 		}
 
 	} );
@@ -9464,6 +9464,18 @@
 
 
 
+	// Support: Safari 8+
+	// In Safari 8 documents created via document.implementation.createHTMLDocument
+	// collapse sibling forms: the second one becomes a child of the first one.
+	// Because of that, this security measure has to be disabled in Safari 8.
+	// https://bugs.webkit.org/show_bug.cgi?id=137337
+	support.createHTMLDocument = ( function() {
+		var body = document.implementation.createHTMLDocument( "" ).body;
+		body.innerHTML = "<form></form><form></form>";
+		return body.childNodes.length === 2;
+	} )();
+
+
 	// Argument "data" should be string of html
 	// context (optional): If specified, the fragment will be created in this context,
 	// defaults to document
@@ -9476,7 +9488,12 @@
 			keepScripts = context;
 			context = false;
 		}
-		context = context || document;
+
+		// Stop scripts or inline event handlers from being executed immediately
+		// by using document.implementation
+		context = context || ( support.createHTMLDocument ?
+			document.implementation.createHTMLDocument( "" ) :
+			document );
 
 		var parsed = rsingleTag.exec( data ),
 			scripts = !keepScripts && [];
@@ -9558,7 +9575,7 @@
 			// If it fails, this function gets "jqXHR", "status", "error"
 			} ).always( callback && function( jqXHR, status ) {
 				self.each( function() {
-					callback.apply( this, response || [ jqXHR.responseText, status, jqXHR ] );
+					callback.apply( self, response || [ jqXHR.responseText, status, jqXHR ] );
 				} );
 			} );
 		}
@@ -9940,7 +9957,6 @@
 	    toolbar: $('[data-viewport-toolbar]'),
 	    vhItems: $('[data-viewport-vh]'),
 	    scrollLinks: $('[data-viewport-scroll]'),
-	    classPrefix: '$viewport-',
 	    lang: 'en',
 	    // Default config
 	    config: {
@@ -9989,12 +10005,12 @@
 	    },
 	    _executeScroll: function _executeScroll(offsetY) {
 	        this.state.scrolling = true;
-	        this.root.addClass(this.classPrefix + 'scrolling');
+	        this.root.addClass('$viewport-scrolling');
 	        offsetY = offsetY - this.config.scrollOffset - this._addToolbar();
 	        var viewport = this;
 	        $('body,html').animate({ scrollTop: offsetY }, '5000', 'swing', function () {
 	            viewport.state.scrolling = false;
-	            viewport.root.removeClass(this.classPrefix + 'scrolling');
+	            viewport.root.removeClass('$viewport-scrolling');
 	            viewport._afterScroll();
 	        });
 	        return this;
@@ -10014,7 +10030,7 @@
 	                _this2._setDirection();
 	            }, 100);
 
-	            this.root.toggleClass(this.classPrefix + 'started', this.state.started).toggleClass(this.classPrefix + 'ended', this.state.ended);
+	            this.root.toggleClass('$viewport-started', this.state.started).toggleClass('$viewport-ended', this.state.ended);
 	        }
 	        return this;
 	    },
@@ -10030,7 +10046,7 @@
 
 	        this.direction.down = !this.direction.up;
 	        this._lastPosition = this.start;
-	        this.root.toggleClass(this.classPrefix + 'direction-down', this.direction.down).toggleClass(this.classPrefix + 'direction-up', this.direction.up);
+	        this.root.toggleClass('$viewport-direction-down', this.direction.down).toggleClass('$viewport-direction-up', this.direction.up);
 	        return this;
 	    },
 	    _initHandlers: function _initHandlers() {
@@ -10040,7 +10056,7 @@
 	            e.preventDefault();
 	            var href = $(this).attr('href');
 	            var whenInView = $(this).data('viewport-scroll') === '' ? true : $(this).data('viewport-scroll');
-	            viewport.scrollTo(href === '#' ? 0 : $(href), whenInView);
+	            viewport.scrollTo(href == '#' ? 0 : $(href), whenInView);
 	        });
 	        return this;
 	    },
@@ -10052,7 +10068,7 @@
 	        this.orientation.portrait = !this.orientation.landscape;
 	        this.state.small = this.config.small > this.width;
 	        this.state.large = !this.state.small;
-	        this.root.toggleClass(this.classPrefix + 'small', this.state.small).toggleClass(this.classPrefix + 'large', this.state.large).toggleClass(this.classPrefix + 'orientation-portrait', this.orientation.portrait).toggleClass(this.classPrefix + 'orientation-landscape', this.orientation.landscape);
+	        this.root.toggleClass('$viewport-small', this.state.small).toggleClass('$viewport-large', this.state.large).toggleClass('$viewport-orientation-portrait', this.orientation.portrait).toggleClass('$viewport-orientation-landscape', this.orientation.landscape);
 	        return this;
 	    },
 	    _fixVH: function _fixVH() {
@@ -10093,7 +10109,7 @@
 	        return this;
 	    },
 	    scrollToHash: function scrollToHash() {
-	        if (window.location.hash) {
+	        if (window.location.hash != '') {
 	            $(window).scrollTop(0);
 	            this.scrollTo($(window.location.hash));
 	        }
@@ -10101,12 +10117,12 @@
 	    },
 	    disableScroll: function disableScroll() {
 	        this.state.disabledScroll = true;
-	        this.root.css('overflow', 'hidden').addClass(this.classPrefix + 'disabled-scroll');
+	        this.root.css('overflow', 'hidden').addClass('$viewport-disabled-scroll');
 	        return this;
 	    },
 	    enableScroll: function enableScroll() {
 	        this.state.disabledScroll = false;
-	        this.root.css('overflow', 'initial').removeClass(this.classPrefix + 'disabled-scroll');
+	        this.root.css('overflow', 'initial').removeClass('$viewport-disabled-scroll');
 	        return this;
 	    },
 	    update: function update() {
@@ -10114,16 +10130,14 @@
 	        return this;
 	    },
 	    init: function init(options) {
-	        var _this4 = this;
-
 	        var viewport = this;
 	        if (options) {
 	            merge(this, options);
 	        }
 
 	        viewport._readConfigFromDom().update();
-	        $(window).on('load', function () {
-	            viewport.root.removeClass(_this4.classPrefix + 'loading').addClass(_this4.classPrefix + 'loaded');
+	        $(window).load(function () {
+	            viewport.root.removeClass('$viewport-loading').addClass('$viewport-loaded');
 	            viewport.loaded = true;
 	        }).scroll(function () {
 	            viewport._afterScroll();
@@ -10823,12 +10837,12 @@
 /***/ function(module, exports) {
 
 	/**
-	 * lodash (Custom Build) <https://lodash.com/>
+	 * lodash 3.0.8 (Custom Build) <https://lodash.com/>
 	 * Build: `lodash modularize exports="npm" -o ./`
-	 * Copyright jQuery Foundation and other contributors <https://jquery.org/>
-	 * Released under MIT license <https://lodash.com/license>
+	 * Copyright 2012-2016 The Dojo Foundation <http://dojofoundation.org/>
 	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Copyright 2009-2016 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <https://lodash.com/license>
 	 */
 
 	/** Used as references for various `Number` constants. */
@@ -10846,8 +10860,7 @@
 	var hasOwnProperty = objectProto.hasOwnProperty;
 
 	/**
-	 * Used to resolve the
-	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+	 * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
 	 * of values.
 	 */
 	var objectToString = objectProto.toString;
@@ -10856,15 +10869,38 @@
 	var propertyIsEnumerable = objectProto.propertyIsEnumerable;
 
 	/**
+	 * The base implementation of `_.property` without support for deep paths.
+	 *
+	 * @private
+	 * @param {string} key The key of the property to get.
+	 * @returns {Function} Returns the new function.
+	 */
+	function baseProperty(key) {
+	  return function(object) {
+	    return object == null ? undefined : object[key];
+	  };
+	}
+
+	/**
+	 * Gets the "length" property value of `object`.
+	 *
+	 * **Note:** This function is used to avoid a [JIT bug](https://bugs.webkit.org/show_bug.cgi?id=142792)
+	 * that affects Safari on at least iOS 8.1-8.3 ARM64.
+	 *
+	 * @private
+	 * @param {Object} object The object to query.
+	 * @returns {*} Returns the "length" value.
+	 */
+	var getLength = baseProperty('length');
+
+	/**
 	 * Checks if `value` is likely an `arguments` object.
 	 *
 	 * @static
 	 * @memberOf _
-	 * @since 0.1.0
 	 * @category Lang
 	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is an `arguments` object,
-	 *  else `false`.
+	 * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
 	 * @example
 	 *
 	 * _.isArguments(function() { return arguments; }());
@@ -10874,7 +10910,7 @@
 	 * // => false
 	 */
 	function isArguments(value) {
-	  // Safari 8.1 makes `arguments.callee` enumerable in strict mode.
+	  // Safari 8.1 incorrectly makes `arguments.callee` enumerable in strict mode.
 	  return isArrayLikeObject(value) && hasOwnProperty.call(value, 'callee') &&
 	    (!propertyIsEnumerable.call(value, 'callee') || objectToString.call(value) == argsTag);
 	}
@@ -10886,7 +10922,6 @@
 	 *
 	 * @static
 	 * @memberOf _
-	 * @since 4.0.0
 	 * @category Lang
 	 * @param {*} value The value to check.
 	 * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
@@ -10905,7 +10940,7 @@
 	 * // => false
 	 */
 	function isArrayLike(value) {
-	  return value != null && isLength(value.length) && !isFunction(value);
+	  return value != null && isLength(getLength(value)) && !isFunction(value);
 	}
 
 	/**
@@ -10914,11 +10949,9 @@
 	 *
 	 * @static
 	 * @memberOf _
-	 * @since 4.0.0
 	 * @category Lang
 	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is an array-like object,
-	 *  else `false`.
+	 * @returns {boolean} Returns `true` if `value` is an array-like object, else `false`.
 	 * @example
 	 *
 	 * _.isArrayLikeObject([1, 2, 3]);
@@ -10942,10 +10975,9 @@
 	 *
 	 * @static
 	 * @memberOf _
-	 * @since 0.1.0
 	 * @category Lang
 	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a function, else `false`.
+	 * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
 	 * @example
 	 *
 	 * _.isFunction(_);
@@ -10956,7 +10988,8 @@
 	 */
 	function isFunction(value) {
 	  // The use of `Object#toString` avoids issues with the `typeof` operator
-	  // in Safari 8-9 which returns 'object' for typed array and other constructors.
+	  // in Safari 8 which returns 'object' for typed array and weak map constructors,
+	  // and PhantomJS 1.9 which returns 'function' for `NodeList` instances.
 	  var tag = isObject(value) ? objectToString.call(value) : '';
 	  return tag == funcTag || tag == genTag;
 	}
@@ -10964,12 +10997,10 @@
 	/**
 	 * Checks if `value` is a valid array-like length.
 	 *
-	 * **Note:** This method is loosely based on
-	 * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
+	 * **Note:** This function is loosely based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
 	 *
 	 * @static
 	 * @memberOf _
-	 * @since 4.0.0
 	 * @category Lang
 	 * @param {*} value The value to check.
 	 * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
@@ -10993,13 +11024,11 @@
 	}
 
 	/**
-	 * Checks if `value` is the
-	 * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
-	 * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+	 * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
+	 * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
 	 *
 	 * @static
 	 * @memberOf _
-	 * @since 0.1.0
 	 * @category Lang
 	 * @param {*} value The value to check.
 	 * @returns {boolean} Returns `true` if `value` is an object, else `false`.
@@ -11028,7 +11057,6 @@
 	 *
 	 * @static
 	 * @memberOf _
-	 * @since 4.0.0
 	 * @category Lang
 	 * @param {*} value The value to check.
 	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
@@ -11545,12 +11573,12 @@
 /***/ function(module, exports) {
 
 	/**
-	 * lodash 3.0.6 (Custom Build) <https://lodash.com/>
+	 * lodash 3.0.5 (Custom Build) <https://lodash.com/>
 	 * Build: `lodash modularize exports="npm" -o ./`
-	 * Copyright jQuery Foundation and other contributors <https://jquery.org/>
-	 * Released under MIT license <https://lodash.com/license>
+	 * Copyright 2012-2016 The Dojo Foundation <http://dojofoundation.org/>
 	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Copyright 2009-2016 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	 * Available under MIT license <https://lodash.com/license>
 	 */
 
 	/** Used as references for various `Number` constants. */
@@ -11572,7 +11600,6 @@
 	    weakMapTag = '[object WeakMap]';
 
 	var arrayBufferTag = '[object ArrayBuffer]',
-	    dataViewTag = '[object DataView]',
 	    float32Tag = '[object Float32Array]',
 	    float64Tag = '[object Float64Array]',
 	    int8Tag = '[object Int8Array]',
@@ -11592,12 +11619,11 @@
 	typedArrayTags[uint32Tag] = true;
 	typedArrayTags[argsTag] = typedArrayTags[arrayTag] =
 	typedArrayTags[arrayBufferTag] = typedArrayTags[boolTag] =
-	typedArrayTags[dataViewTag] = typedArrayTags[dateTag] =
-	typedArrayTags[errorTag] = typedArrayTags[funcTag] =
-	typedArrayTags[mapTag] = typedArrayTags[numberTag] =
-	typedArrayTags[objectTag] = typedArrayTags[regexpTag] =
-	typedArrayTags[setTag] = typedArrayTags[stringTag] =
-	typedArrayTags[weakMapTag] = false;
+	typedArrayTags[dateTag] = typedArrayTags[errorTag] =
+	typedArrayTags[funcTag] = typedArrayTags[mapTag] =
+	typedArrayTags[numberTag] = typedArrayTags[objectTag] =
+	typedArrayTags[regexpTag] = typedArrayTags[setTag] =
+	typedArrayTags[stringTag] = typedArrayTags[weakMapTag] = false;
 
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -11611,16 +11637,13 @@
 	/**
 	 * Checks if `value` is a valid array-like length.
 	 *
-	 * **Note:** This function is loosely based on
-	 * [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
+	 * **Note:** This function is loosely based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
 	 *
 	 * @static
 	 * @memberOf _
-	 * @since 4.0.0
 	 * @category Lang
 	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a valid length,
-	 *  else `false`.
+	 * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
 	 * @example
 	 *
 	 * _.isLength(3);
@@ -11646,7 +11669,6 @@
 	 *
 	 * @static
 	 * @memberOf _
-	 * @since 4.0.0
 	 * @category Lang
 	 * @param {*} value The value to check.
 	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
@@ -11673,11 +11695,9 @@
 	 *
 	 * @static
 	 * @memberOf _
-	 * @since 3.0.0
 	 * @category Lang
 	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is correctly classified,
-	 *  else `false`.
+	 * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
 	 * @example
 	 *
 	 * _.isTypedArray(new Uint8Array);
@@ -12174,8 +12194,8 @@
 	(function(factory) {
 
 	  // Find the global object for export to both the browser and web workers.
-	  var globalObject = typeof window === 'object' && window ||
-	                     typeof self === 'object' && self;
+	  var globalObject = typeof window == 'object' && window ||
+	                     typeof self == 'object' && self;
 
 	  // Setup highlight.js for different environments. First is Node.js or
 	  // CommonJS.
@@ -12195,43 +12215,11 @@
 	  }
 
 	}(function(hljs) {
-	  // Convenience variables for build-in objects
-	  var ArrayProto = [],
-	      objectKeys = Object.keys;
-
-	  // Global internal variables used within the highlight.js library.
-	  var languages = {},
-	      aliases   = {};
-
-	  // Regular expressions used throughout the highlight.js library.
-	  var noHighlightRe    = /^(no-?highlight|plain|text)$/i,
-	      languagePrefixRe = /\blang(?:uage)?-([\w-]+)\b/i,
-	      fixMarkupRe      = /((^(<[^>]+>|\t|)+|(?:\n)))/gm;
-
-	  var spanEndTag = '</span>';
-
-	  // Global options used when within external APIs. This is modified when
-	  // calling the `hljs.configure` function.
-	  var options = {
-	    classPrefix: 'hljs-',
-	    tabReplace: null,
-	    useBR: false,
-	    languages: undefined
-	  };
-
-	  // Object map that is used to escape some common HTML characters.
-	  var escapeRegexMap = {
-	    '&': '&amp;',
-	    '<': '&lt;',
-	    '>': '&gt;'
-	  };
 
 	  /* Utility functions */
 
 	  function escape(value) {
-	    return value.replace(/[&<>]/gm, function(character) {
-	      return escapeRegexMap[character];
-	    });
+	    return value.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
 	  }
 
 	  function tag(node) {
@@ -12240,40 +12228,35 @@
 
 	  function testRe(re, lexeme) {
 	    var match = re && re.exec(lexeme);
-	    return match && match.index === 0;
+	    return match && match.index == 0;
 	  }
 
 	  function isNotHighlighted(language) {
-	    return noHighlightRe.test(language);
+	    return (/^(no-?highlight|plain|text)$/i).test(language);
 	  }
 
 	  function blockLanguage(block) {
-	    var i, match, length, _class;
-	    var classes = block.className + ' ';
+	    var i, match, length,
+	        classes = block.className + ' ';
 
 	    classes += block.parentNode ? block.parentNode.className : '';
 
 	    // language-* takes precedence over non-prefixed class names.
-	    match = languagePrefixRe.exec(classes);
+	    match = (/\blang(?:uage)?-([\w-]+)\b/i).exec(classes);
 	    if (match) {
 	      return getLanguage(match[1]) ? match[1] : 'no-highlight';
 	    }
 
 	    classes = classes.split(/\s+/);
-
 	    for (i = 0, length = classes.length; i < length; i++) {
-	      _class = classes[i]
-
-	      if (isNotHighlighted(_class) || getLanguage(_class)) {
-	        return _class;
+	      if (getLanguage(classes[i]) || isNotHighlighted(classes[i])) {
+	        return classes[i];
 	      }
 	    }
 	  }
 
 	  function inherit(parent, obj) {
-	    var key;
-	    var result = {};
-
+	    var result = {}, key;
 	    for (key in parent)
 	      result[key] = parent[key];
 	    if (obj)
@@ -12288,9 +12271,9 @@
 	    var result = [];
 	    (function _nodeStream(node, offset) {
 	      for (var child = node.firstChild; child; child = child.nextSibling) {
-	        if (child.nodeType === 3)
+	        if (child.nodeType == 3)
 	          offset += child.nodeValue.length;
-	        else if (child.nodeType === 1) {
+	        else if (child.nodeType == 1) {
 	          result.push({
 	            event: 'start',
 	            offset: offset,
@@ -12323,7 +12306,7 @@
 	      if (!original.length || !highlighted.length) {
 	        return original.length ? original : highlighted;
 	      }
-	      if (original[0].offset !== highlighted[0].offset) {
+	      if (original[0].offset != highlighted[0].offset) {
 	        return (original[0].offset < highlighted[0].offset) ? original : highlighted;
 	      }
 
@@ -12342,12 +12325,12 @@
 
 	      ... which is collapsed to:
 	      */
-	      return highlighted[0].event === 'start' ? original : highlighted;
+	      return highlighted[0].event == 'start' ? original : highlighted;
 	    }
 
 	    function open(node) {
 	      function attr_str(a) {return ' ' + a.nodeName + '="' + escape(a.value) + '"';}
-	      result += '<' + tag(node) + ArrayProto.map.call(node.attributes, attr_str).join('') + '>';
+	      result += '<' + tag(node) + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
 	    }
 
 	    function close(node) {
@@ -12355,14 +12338,14 @@
 	    }
 
 	    function render(event) {
-	      (event.event === 'start' ? open : close)(event.node);
+	      (event.event == 'start' ? open : close)(event.node);
 	    }
 
 	    while (original.length || highlighted.length) {
 	      var stream = selectStream();
-	      result += escape(value.substring(processed, stream[0].offset));
+	      result += escape(value.substr(processed, stream[0].offset - processed));
 	      processed = stream[0].offset;
-	      if (stream === original) {
+	      if (stream == original) {
 	        /*
 	        On any opening or closing tag of the original markup we first close
 	        the entire highlighted node stack, then render the original tag along
@@ -12373,10 +12356,10 @@
 	        do {
 	          render(stream.splice(0, 1)[0]);
 	          stream = selectStream();
-	        } while (stream === original && stream.length && stream[0].offset === processed);
+	        } while (stream == original && stream.length && stream[0].offset == processed);
 	        nodeStack.reverse().forEach(open);
 	      } else {
-	        if (stream[0].event === 'start') {
+	        if (stream[0].event == 'start') {
 	          nodeStack.push(stream[0].node);
 	        } else {
 	          nodeStack.pop();
@@ -12421,16 +12404,16 @@
 	          });
 	        };
 
-	        if (typeof mode.keywords === 'string') { // string
+	        if (typeof mode.keywords == 'string') { // string
 	          flatten('keyword', mode.keywords);
 	        } else {
-	          objectKeys(mode.keywords).forEach(function (className) {
+	          Object.keys(mode.keywords).forEach(function (className) {
 	            flatten(className, mode.keywords[className]);
 	          });
 	        }
 	        mode.keywords = compiled_keywords;
 	      }
-	      mode.lexemesRe = langRe(mode.lexemes || /\w+/, true);
+	      mode.lexemesRe = langRe(mode.lexemes || /\b\w+\b/, true);
 
 	      if (parent) {
 	        if (mode.beginKeywords) {
@@ -12449,7 +12432,7 @@
 	      }
 	      if (mode.illegal)
 	        mode.illegalRe = langRe(mode.illegal);
-	      if (mode.relevance == null)
+	      if (mode.relevance === undefined)
 	        mode.relevance = 1;
 	      if (!mode.contains) {
 	        mode.contains = [];
@@ -12459,7 +12442,7 @@
 	        if (c.variants) {
 	          c.variants.forEach(function(v) {expanded_contains.push(inherit(c, v));});
 	        } else {
-	          expanded_contains.push(c === 'self' ? mode : c);
+	          expanded_contains.push(c == 'self' ? mode : c);
 	        }
 	      });
 	      mode.contains = expanded_contains;
@@ -12494,9 +12477,7 @@
 	  function highlight(name, value, ignore_illegals, continuation) {
 
 	    function subMode(lexeme, mode) {
-	      var i, length;
-
-	      for (i = 0, length = mode.contains.length; i < length; i++) {
+	      for (var i = 0; i < mode.contains.length; i++) {
 	        if (testRe(mode.contains[i].beginRe, lexeme)) {
 	          return mode.contains[i];
 	        }
@@ -12527,7 +12508,7 @@
 	    function buildSpan(classname, insideSpan, leaveOpen, noPrefix) {
 	      var classPrefix = noPrefix ? '' : options.classPrefix,
 	          openSpan    = '<span class="' + classPrefix,
-	          closeSpan   = leaveOpen ? '' : spanEndTag
+	          closeSpan   = leaveOpen ? '' : '</span>';
 
 	      openSpan += classname + '">';
 
@@ -12535,19 +12516,15 @@
 	    }
 
 	    function processKeywords() {
-	      var keyword_match, last_index, match, result;
-
 	      if (!top.keywords)
 	        return escape(mode_buffer);
-
-	      result = '';
-	      last_index = 0;
+	      var result = '';
+	      var last_index = 0;
 	      top.lexemesRe.lastIndex = 0;
-	      match = top.lexemesRe.exec(mode_buffer);
-
+	      var match = top.lexemesRe.exec(mode_buffer);
 	      while (match) {
-	        result += escape(mode_buffer.substring(last_index, match.index));
-	        keyword_match = keywordMatch(top, match);
+	        result += escape(mode_buffer.substr(last_index, match.index - last_index));
+	        var keyword_match = keywordMatch(top, match);
 	        if (keyword_match) {
 	          relevance += keyword_match[1];
 	          result += buildSpan(keyword_match[0], escape(match[0]));
@@ -12561,7 +12538,7 @@
 	    }
 
 	    function processSubLanguage() {
-	      var explicit = typeof top.subLanguage === 'string';
+	      var explicit = typeof top.subLanguage == 'string';
 	      if (explicit && !languages[top.subLanguage]) {
 	        return escape(mode_buffer);
 	      }
@@ -12584,11 +12561,11 @@
 	    }
 
 	    function processBuffer() {
-	      result += (top.subLanguage != null ? processSubLanguage() : processKeywords());
+	      result += (top.subLanguage !== undefined ? processSubLanguage() : processKeywords());
 	      mode_buffer = '';
 	    }
 
-	    function startNewMode(mode) {
+	    function startNewMode(mode, lexeme) {
 	      result += mode.className? buildSpan(mode.className, '', true): '';
 	      top = Object.create(mode, {parent: {value: top}});
 	    }
@@ -12597,7 +12574,7 @@
 
 	      mode_buffer += buffer;
 
-	      if (lexeme == null) {
+	      if (lexeme === undefined) {
 	        processBuffer();
 	        return 0;
 	      }
@@ -12635,13 +12612,13 @@
 	        }
 	        do {
 	          if (top.className) {
-	            result += spanEndTag;
+	            result += '</span>';
 	          }
 	          if (!top.skip) {
 	            relevance += top.relevance;
 	          }
 	          top = top.parent;
-	        } while (top !== end_mode.parent);
+	        } while (top != end_mode.parent);
 	        if (end_mode.starts) {
 	          startNewMode(end_mode.starts, '');
 	        }
@@ -12669,7 +12646,7 @@
 	    var top = continuation || language;
 	    var continuations = {}; // keep continuations for sub-languages
 	    var result = '', current;
-	    for(current = top; current !== language; current = current.parent) {
+	    for(current = top; current != language; current = current.parent) {
 	      if (current.className) {
 	        result = buildSpan(current.className, '', true) + result;
 	      }
@@ -12683,13 +12660,13 @@
 	        match = top.terminators.exec(value);
 	        if (!match)
 	          break;
-	        count = processLexeme(value.substring(index, match.index), match[0]);
+	        count = processLexeme(value.substr(index, match.index - index), match[0]);
 	        index = match.index + count;
 	      }
 	      processLexeme(value.substr(index));
 	      for(current = top; current.parent; current = current.parent) { // close dangling modes
 	        if (current.className) {
-	          result += spanEndTag;
+	          result += '</span>';
 	        }
 	      }
 	      return {
@@ -12699,7 +12676,7 @@
 	        top: top
 	      };
 	    } catch (e) {
-	      if (e.message && e.message.indexOf('Illegal') !== -1) {
+	      if (e.message.indexOf('Illegal') != -1) {
 	        return {
 	          relevance: 0,
 	          value: escape(value)
@@ -12722,13 +12699,16 @@
 
 	  */
 	  function highlightAuto(text, languageSubset) {
-	    languageSubset = languageSubset || options.languages || objectKeys(languages);
+	    languageSubset = languageSubset || options.languages || Object.keys(languages);
 	    var result = {
 	      relevance: 0,
 	      value: escape(text)
 	    };
 	    var second_best = result;
-	    languageSubset.filter(getLanguage).forEach(function(name) {
+	    languageSubset.forEach(function(name) {
+	      if (!getLanguage(name)) {
+	        return;
+	      }
 	      var current = highlight(name, text, false);
 	      current.language = name;
 	      if (current.relevance > second_best.relevance) {
@@ -12753,15 +12733,15 @@
 
 	  */
 	  function fixMarkup(value) {
-	    return !(options.tabReplace || options.useBR)
-	      ? value
-	      : value.replace(fixMarkupRe, function(match, p1) {
-	          if (options.useBR && match === '\n') {
-	            return '<br>';
-	          } else if (options.tabReplace) {
-	            return p1.replace(/\t/g, options.tabReplace);
-	          }
+	    if (options.tabReplace) {
+	      value = value.replace(/^((<[^>]+>|\t)+)/gm, function(match, p1 /*..., offset, s*/) {
+	        return p1.replace(/\t/g, options.tabReplace);
 	      });
+	    }
+	    if (options.useBR) {
+	      value = value.replace(/\n/g, '<br>');
+	    }
+	    return value;
 	  }
 
 	  function buildClassName(prevClassName, currentLang, resultLang) {
@@ -12784,24 +12764,23 @@
 	  two optional parameters for fixMarkup.
 	  */
 	  function highlightBlock(block) {
-	    var node, originalStream, result, resultNode, text;
 	    var language = blockLanguage(block);
-
 	    if (isNotHighlighted(language))
 	        return;
 
+	    var node;
 	    if (options.useBR) {
 	      node = document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
 	      node.innerHTML = block.innerHTML.replace(/\n/g, '').replace(/<br[ \/]*>/g, '\n');
 	    } else {
 	      node = block;
 	    }
-	    text = node.textContent;
-	    result = language ? highlight(language, text, true) : highlightAuto(text);
+	    var text = node.textContent;
+	    var result = language ? highlight(language, text, true) : highlightAuto(text);
 
-	    originalStream = nodeStream(node);
+	    var originalStream = nodeStream(node);
 	    if (originalStream.length) {
-	      resultNode = document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
+	      var resultNode = document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
 	      resultNode.innerHTML = result.value;
 	      result.value = mergeStreams(originalStream, nodeStream(resultNode), text);
 	    }
@@ -12821,6 +12800,13 @@
 	    }
 	  }
 
+	  var options = {
+	    classPrefix: 'hljs-',
+	    tabReplace: null,
+	    useBR: false,
+	    languages: undefined
+	  };
+
 	  /*
 	  Updates highlight.js global options with values passed in the form of an object.
 	  */
@@ -12837,7 +12823,7 @@
 	    initHighlighting.called = true;
 
 	    var blocks = document.querySelectorAll('pre code');
-	    ArrayProto.forEach.call(blocks, highlightBlock);
+	    Array.prototype.forEach.call(blocks, highlightBlock);
 	  }
 
 	  /*
@@ -12848,6 +12834,9 @@
 	    addEventListener('load', initHighlighting, false);
 	  }
 
+	  var languages = {};
+	  var aliases = {};
+
 	  function registerLanguage(name, language) {
 	    var lang = languages[name] = language(hljs);
 	    if (lang.aliases) {
@@ -12856,7 +12845,7 @@
 	  }
 
 	  function listLanguages() {
-	    return objectKeys(languages);
+	    return Object.keys(languages);
 	  }
 
 	  function getLanguage(name) {
@@ -12903,7 +12892,7 @@
 	    contains: [hljs.BACKSLASH_ESCAPE]
 	  };
 	  hljs.PHRASAL_WORDS_MODE = {
-	    begin: /\b(a|an|the|are|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such|will|you|your|like)\b/
+	    begin: /\b(a|an|the|are|I|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such|will|you|your|like)\b/
 	  };
 	  hljs.COMMENT = function (begin, end, inherits) {
 	    var mode = hljs.inherit(
@@ -12917,7 +12906,7 @@
 	    mode.contains.push(hljs.PHRASAL_WORDS_MODE);
 	    mode.contains.push({
 	      className: 'doctag',
-	      begin: '(?:TODO|FIXME|NOTE|BUG|XXX):',
+	      begin: "(?:TODO|FIXME|NOTE|BUG|XXX):",
 	      relevance: 0
 	    });
 	    return mode;
@@ -13018,7 +13007,7 @@
 
 	  return {
 	    aliases: ['sh', 'zsh'],
-	    lexemes: /-?[a-z\._]+/,
+	    lexemes: /-?[a-z\.]+/,
 	    keywords: {
 	      keyword:
 	        'if then else elif fi for while in do done case esac function',
@@ -13142,9 +13131,6 @@
 	        ]
 	      },
 	      PREPROCESSOR,
-	      {
-	        className: 'keyword', begin: /\$this\b/
-	      },
 	      VARIABLE,
 	      {
 	        // swallow composed identifiers to avoid parsing them as keywords
@@ -13213,16 +13199,15 @@
 	        relevance: 0
 	      },
 	      {
-	        begin: /=\s*/,
+	        begin: '=',
 	        relevance: 0,
 	        contains: [
 	          {
 	            className: 'string',
-	            endsParent: true,
 	            variants: [
 	              {begin: /"/, end: /"/},
 	              {begin: /'/, end: /'/},
-	              {begin: /[^\s"'=<>`]+/}
+	              {begin: /[^\s\/>]+/}
 	            ]
 	          }
 	        ]
@@ -13230,7 +13215,7 @@
 	    ]
 	  };
 	  return {
-	    aliases: ['html', 'xhtml', 'rss', 'atom', 'xjb', 'xsd', 'xsl', 'plist'],
+	    aliases: ['html', 'xhtml', 'rss', 'atom', 'xsl', 'plist'],
 	    case_insensitive: true,
 	    contains: [
 	      {
