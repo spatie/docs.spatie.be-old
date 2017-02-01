@@ -20,11 +20,11 @@ Menu::new()
         $link->addClass('link');
     })
     ->each(function (Html $html) {
-        $html->addClass('html');
+        $html->addParentClass('html');
     });
 ```
 
-In the above example, all links will recieve a `link` class, and all html chunks will receive an `html` class.
+In the above example, all links will recieve a `link` class, and all html chunk parents (`li`'s) will receive an `html` class.
 
 ## each
 
