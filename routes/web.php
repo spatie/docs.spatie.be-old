@@ -30,6 +30,10 @@ Route::prefix('laravel-medialibrary')->group(function () {
     Route::get('v4', function () {
         return redirect('laravel-medialibrary/v4/introduction');
     });
+
+    Route::get('v5', function () {
+        return redirect('laravel-medialibrary/v5/introduction');
+    });
 });
 
 Route::prefix('menu')->group(function () {

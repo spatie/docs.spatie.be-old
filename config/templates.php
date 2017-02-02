@@ -11,7 +11,7 @@ return [
         'githubUrl' => 'https://github.com/spatie/laravel-medialibrary',
         'siteSlogan' => 'Associate files with Eloquent models',
         'siteTitle' => 'Laravel Medialibrary',
-        'versions' => ['v3', 'v4'],
+        'versions' => ['v3', 'v4', 'v5'],
     ],
     'menu' => [
         'githubUrl' => 'https://github.com/spatie/menu',
