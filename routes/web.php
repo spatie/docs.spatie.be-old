@@ -2,7 +2,7 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'laravel-backup'], function () {
+Route::prefix('laravel-backup')->group(function () {
 
     Route::get('/', function () {
         return redirect('laravel-backup/v4/introduction');
@@ -17,7 +17,7 @@ Route::group(['prefix' => 'laravel-backup'], function () {
     });
 });
 
-Route::group(['prefix' => 'laravel-medialibrary'], function () {
+Route::prefix('laravel-medialibrary')->group(function () {
 
     Route::get('/', function () {
         return redirect('laravel-medialibrary/v4/introduction');
@@ -32,7 +32,7 @@ Route::group(['prefix' => 'laravel-medialibrary'], function () {
     });
 });
 
-Route::group(['prefix' => 'menu'], function () {
+Route::prefix('menu')->group(function () {
 
     Route::get('/', function () {
         return redirect('menu/v2/introduction');
@@ -47,7 +47,7 @@ Route::group(['prefix' => 'menu'], function () {
     });
 });
 
-Route::group(['prefix' => 'laravel-activitylog'], function () {
+Route::prefix('laravel-activitylog')->group(function () {
 
     Route::get('/', function () {
         return redirect('laravel-activitylog/v1/introduction');
@@ -58,7 +58,7 @@ Route::group(['prefix' => 'laravel-activitylog'], function () {
     });
 });
 
-Route::group(['prefix' => 'laravel-slack-slash-command'], function () {
+Route::prefix('laravel-slack-slash-command')->group(function () {
 
     Route::get('/', function () {
         return redirect('laravel-slack-slash-command/v1/introduction');
@@ -69,7 +69,7 @@ Route::group(['prefix' => 'laravel-slack-slash-command'], function () {
     });
 });
 
-Route::group(['prefix' => 'laravel-uptime-monitor'], function () {
+Route::prefix('laravel-uptime-monitor')->group(function () {
 
     Route::get('/', function () {
         return redirect('laravel-uptime-monitor/v2/introduction');
@@ -84,7 +84,7 @@ Route::group(['prefix' => 'laravel-uptime-monitor'], function () {
     });
 });
 
-Route::group(['prefix' => 'laravel-tags'], function () {
+Route::prefix('laravel-tags')->group(function () {
 
     Route::get('/', function () {
         return redirect('laravel-tags/v1/introduction');
@@ -95,7 +95,7 @@ Route::group(['prefix' => 'laravel-tags'], function () {
     });
 });
 
-Route::group(['prefix' => 'image'], function () {
+Route::prefix('image')->group(function () {
 
     Route::get('/', function () {
         return redirect('image/v1/introduction');
