@@ -8,18 +8,16 @@ return [
         'Questions and issues',
         'Changelog',
         'About us',
-
-        'Usage' => [
-            'Applying manipulations',
-            'Saving images'
-        ],
-
-        'Image manipulations' => [
-            'Overview',
-            'Resizing images',
-            'Adjustments',
-            'Image canvas',
-            'Effects'
-        ]
+    ],
+    'Usage' => [
+        'Applying manipulations',
+        'Saving images'
+    ],
+    'Image manipulations' => [
+        'Overview',
+        'Resizing images',
+        'Adjustments',
+        'Image canvas',
+        'Effects'
     ]
 ];
