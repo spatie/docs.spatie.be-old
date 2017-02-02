@@ -2,7 +2,6 @@
 
 namespace Tests;
 
-
 /**
  * Class NavigationTest
  *
