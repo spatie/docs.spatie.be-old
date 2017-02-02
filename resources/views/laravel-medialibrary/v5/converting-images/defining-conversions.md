@@ -2,9 +2,11 @@
 title: Defining conversions
 ---
 
-Imagine making a site with a list of all news items. Wouldn't it be nice to show the user a thumbnail of the image associated with the news item? When adding an image to a media collection, these derived images can be created automatically.
+When adding files to the medialibrary it can automatically created derived versions such a thumbnails and banners.
 
-If you want to use this functionality your models should implement the `HasMediaConversions` interface instead of `HasMedia`. This interface expects an implementation of the `registerMediaConversions` method:
+If you want to use this functionality your models should implement the `HasMediaConversions` interface instead of `HasMedia`. This interface expects an implementation of the `registerMediaConversions` method.
+
+Here's an example of how a model can implement this.
 
 ```php
 use Illuminate\Database\Eloquent\Model;
@@ -18,62 +20,58 @@ class NewsItem extends Model implements HasMediaConversions
     public function registerMediaConversions()
     {
         $this->addMediaConversion('thumb')
-             ->setManipulations(['w' => 368, 'h' => 232])
-             ->performOnCollections('images');
+              ->width(368)
+              ->height(232);
     }
 }
 ```
 
-When associating a jpg-, png-, svg-, pdf-, mp4-, mov- or webm-file, the package will—besides storing the original image—create a derived image for every media conversion that was added (see the [Image generators](/laravel-medialibrary/v5/converting-other-medias/image-generators) section). By default, the output will be saved as a jpg-file.
+Now let's add an image to it
 
-Internally, [Glide](http://glide.thephpleague.com/) is used to manipulate the images. You can use any parameter from their image API. So if you want to output to another image format you 
-can specify png or gif using the `fm`-key in an image profile. If you specify `src` in the `fm`-key, the derived image will have the same format as the original image.
+```php
+$media = NewsItem::first()->addMedia($pathToImage)->toMediaLibrary();
+$media->getPath();  // the path to the where the original image is stored
+$media->getPath('thumb') // the path to the converted image 
 
-By default, a conversion will be added to the queue that you've specified in the configuration. You can avoid the usage of the queue by calling `nonQueued` on a conversion.
+$media->getUrl();  // the url to the where the original image is stored
+$media->getUrl('thumb') // the url to the converted image 
+```
 
-You can add as many conversions on a model as you'd like. Conversions can also be performed on all collections by dropping the `performOnCollections`-call, or passing "*" as the collections parameter.
+Media conversions will be executed whenever  a `jpg`, `png`, `svg`, `pdf`, `mp4 `, `mov` or `webm` file is added to the medialibrary. By default, the conversions will be saved as a `jpg` files.
+
+Internally, [spatie/image](https://docs.spatie.be/image/v1/) is used to manipulate the images. You can use [any manipulation function](TO DO: add link to docs) from that package. 
+
+By default, a conversion will be added to the queue that you've [specified in the configuration](TO DO add link). If you want your image to be created directly (and not on a queue) use `nonQueued` on a conversion.
+
+You can add as many conversions on a model as you'd like. Conversions can also be performed on all specific collections by adding a call to  `performOnCollections`
 
 ## Examples
 
 ```php
-// In your NewsItem model
+// in your NewsItem model
 
 public function registerMediaConversions()
 {
-    // Perform a resize and filter on images from the 'images' and 'anotherCollection' collections
+    // perform a resize and filter on images from the 'images' and 'anotherCollection' collections
     // and save them as png files.
     $this->addMediaConversion('thumb')
-         ->setManipulations(['w' => 368, 'h' => 232, 'filt' => 'greyscale', 'fm' => 'png'])
+         ->width(368)
+         ->height(232)
+         ->greyscale()
+         ->format('png')
          ->performOnCollections('images', 'anotherCollection')
          ->nonQueued();
 
-    // Perform a resize and sharpen on every collection
+    // perform a resize and sharpen on every collection
     $this->addMediaConversion('adminThumb')
-         ->setManipulations(['w' => 50, 'h' => 50, 'sharp'=> 15])
+         ->width(50)
+         ->height(50)
+         ->sharpen(15)
          ->performOnCollections('*');
 
-    // Perform a resize on every collection
+    // perform a resize on every collection
     $this->addMediaConversion('big')
-         ->setManipulations(['w' => 500, 'h' => 500]);
+         ->width(500)
+         ->height(500);
 }
 ```
-
-## Convenience Methods
-
-Instead of specifying the glide parameters in the `setManipulations` method, you can also you use the built-in convenience methods.
-
-This media conversion:
-
-```php
-$this->addMediaConversion('thumb')
-     ->setManipulations(['w' => 500]);
-```
-
-is equivalent to:
-
-```php
-$this->addMediaConversion('thumb')
-     ->setWidth(500);
-```
-
-For a list of all the convenience methods, visit the [Defining Conversions page in the API docs](/laravel-medialibrary/v5/api/defining-conversions/).
