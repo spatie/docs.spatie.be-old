@@ -54,6 +54,8 @@ You can register as many media conversions as you want
 
 ```php
 // in your model
+use Spatie\Image\Manipulations;
+
     public function registerMediaConversions()
     {
         $this->addMediaConversion('thumb')

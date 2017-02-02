@@ -5,19 +5,19 @@ title: Associating files
 You can associate a file with a model like this:
 
 ```php
-$newsItem = News::find(1);
+$newsItem = NewsItem::find(1);
 $newsItem
    ->addMedia($pathToFile)
    ->toMediaLibrary();
 ```
 
-The file will now be associated with the newsitem and will be moved to the disk you've configured.
+The file will now be associated with the `NewsItem` and will be moved to the disk you've configured.
 
-If you want to preserve the original file, you can call `preservingOriginal`:
+If you want to not move, but copy, the original file you can call `preservingOriginal`:
 
 ```php
 $newsItem
-  ->addMedia($pathToFile)
+   ->addMedia($pathToFile)
    ->preservingOriginal()
    ->toMediaLibrary();
 ```

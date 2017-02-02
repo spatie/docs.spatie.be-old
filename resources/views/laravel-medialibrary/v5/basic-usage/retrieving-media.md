@@ -29,7 +29,10 @@ $mediaItems[0]->save(); // The new name gets saved. Activerecord ftw!
 The name of a `Media` instance can be changed when it's added to the medialibrary:
 
 ```php
-$newsItem->addMedia($pathToFile)->usingName('new name')->toMediaLibrary();
+$newsItem
+   ->addMedia($pathToFile)
+   ->usingName('new name')
+   ->toMediaLibrary();
 ```
 
 The name of the uploaded file can be changed via the media-object:
@@ -53,6 +56,12 @@ You can also retrieve the size of the file via  `size` and `human_readable_size`
 ```php
 $mediaItems[0]->size; // Returns the size in bytes
 $mediaItems[0]->human_readable_size; // Returns the size in a human readable format (eg. 1,5 MB)
+```
+
+An instance of `Media` also contains the mime type of the file.
+
+```php
+$mediaItems[0]->mime_type; // Returns the mime type
 ```
 
 You can remove something from the library by simply calling `delete` on an instance of `Media`:

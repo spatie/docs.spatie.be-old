@@ -7,7 +7,7 @@ When adding a file to the medialibrary you can pass an array with custom propert
 ```php
 $mediaItem = $newsItem
     ->addMedia($pathToFile)
-    ->withCustomProperties(['mime-type' => 'image/jpeg'])
+    ->withCustomProperties()
     ->toMediaLibrary();
 ```
 
