@@ -11,7 +11,7 @@ $newsItem
    ->toMediaLibrary();
 ```
 
-The file will now be associated with the `NewsItem` and will be moved to the disk you've configured.
+The file will now be associated with the `NewsItem` instance and will be moved to the disk you've configured.
 
 If you want to not move, but copy, the original file you can call `preservingOriginal`:
 
