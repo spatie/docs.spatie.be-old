@@ -6,20 +6,20 @@ Medialibrary is a Laravel (5.4 and up) package that can associate all sorts of f
 
 ```php
 $newsItem = News::find(1);
-$newsItem->addMedia($pathToFile)->toCollection('images');
+$newsItem->addMedia($pathToFile)->toMediaLibrary('images');
 ```
 
 It can also directly handle your uploads:
 
 ```php
-$newsItem->addMediaFromRequest('image')->toCollection('images');
+$newsItem->addMediaFromRequest('image')->toMediaLibrary('images');
 ```
 
 Want to store some large files on another filesystem? No problem:
 
 ```php
-$newsItem->addMedia($smallFile)->toCollectionOnDisk('downloads', 'local');
-$newsItem->addMedia($bigFile)->toCollectionOnDisk('downloads', 's3');
+$newsItem->addMedia($smallFile)->toMediaLibrary('downloads', 'local');
+$newsItem->addMedia($bigFile)->toMediaLibrary('downloads', 's3');
 ```
 
 The storage of the files is handled by [Laravel's Filesystem](http://laravel.com/docs/5.4/filesystem),  so you can plug in any compatible filesystem.

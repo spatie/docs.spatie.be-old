@@ -60,7 +60,7 @@ return [
     'media_model' => Spatie\MediaLibrary\Media::class,
 
     /*
-     * When urls to files are generated this class will be called. Leave empty
+     * When urls to files get generated this class will be called. Leave empty
      * if your files are stored locally above the site root or on s3.
      */
     'custom_url_generator_class' => null,
@@ -76,7 +76,40 @@ return [
          */
         'domain' => 'https://xxxxxxx.s3.amazonaws.com',
     ],
+
+    'remote' => [
+        /*
+         * Any extra headers that should be included when uploading media to
+         * a remote disk. Even though supported headers may vary between
+         * different drivers, a sensible default has been provided.
+         *
+         * Supported by S3: CacheControl, Expires, StorageClass,
+         * ServerSideEncryption, Metadata, ACL, ContentEncoding
+         */
+        'extra_headers' => [
+            'CacheControl' => 'max-age=604800',
+        ],
+    ],
+
+    /*
+     * These generators will be used to created conversion of media files.
+     */
+    'imageGenerators' => [
+        Spatie\MediaLibrary\ImageGenerators\FileTypes\Image::class,
+        Spatie\MediaLibrary\ImageGenerators\FileTypes\Pdf::class,
+        Spatie\MediaLibrary\ImageGenerators\FileTypes\Svg::class,
+        Spatie\MediaLibrary\ImageGenerators\FileTypes\Video::class,
+    ],
+
+    /*
+     * FFMPEG & FFProbe binaries path, only used if you try to generate video
+     * thumbnails and have installed the php-ffmpeg/php-ffmpeg composer
+     * dependency.
+     */
+    'ffmpeg_binaries' => '/usr/bin/ffmpeg',
+    'ffprobe_binaries' => '/usr/bin/ffprobe',
 ];
+
 ```
 
 Finally you should add a disk to `app/config/filesystems.php`. All files added to the media library will be stored on that disk, this would be a typical configuration:
@@ -93,10 +126,8 @@ return [
 ];   
 ```
 
-Don't forget to ignore the directory of your media disk. Using git? add a .gitignore file
-to the directory where the media will be stored.
+Don't forget to ignore the directory of your media disk so the files won't end up in your git repo.
 
-If you are planning on working with image manipulations it's recommended to configure a 
-queue on your service and specify it in the config file.
+If you are planning on working with image manipulations it's recommended to configure a queue on your server and specify it in the config file. 
 
-Want to use S3? Then follow Laravel's instructions on [how to add the S3 Flysystem driver](http://laravel.com/docs/5.1/filesystem#configuration).
+Want to use S3? Then follow Laravel's instructions on [how to add the S3 Flysystem driver](https://laravel.com/docs/5.4/filesystem#configuration).

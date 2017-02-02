@@ -7,23 +7,23 @@ you can put them in their own collection.
 
 ```php
 $newsItem = News::find(1);
-$newsItem->addMedia($pathToImage)->toCollection('images');
-$newsItem->addMedia($pathToAnotherImage)->toCollection('images');
-$newsItem->addMedia($pathToPdfFile)->toCollection('downloads');
-$newsItem->addMedia($pathToAnExcelFile)->toCollection('downloads');
+$newsItem->addMedia($pathToImage)->toMediaLibrary('images');
+$newsItem->addMedia($pathToAnotherImage)->toMediaLibrary('images');
+$newsItem->addMedia($pathToPdfFile)->toMediaLibrary('downloads');
+$newsItem->addMedia($pathToAnExcelFile)->toMediaLibrary('downloads');
 ```
 
 All media in a specific collection can be retrieved like this:
 
 ```php
+// will return media instances for all files in the images collection
 $newsItem->getMedia('images');
-// Returns media objects for all files in the images collection
 
+// will returns media instance for all files in the downloads collection
 $newsItem->getMedia('downloads');
-// Returns media objects for all files in the downloads collection
 ```
 
-A collection can have any name you want. If you don't specify a name, the file will be added to a `default`-collection.
+A collection can have any name you want. If you don't specify a name, the file will be added to a collection named `default`.
 
 You can clear out a specific collection by passing the name to `clearMediaCollection`:
 
