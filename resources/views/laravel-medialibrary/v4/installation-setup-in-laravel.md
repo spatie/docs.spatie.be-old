@@ -93,8 +93,8 @@ return [
 ];   
 ```
 
-The package will add a .gitignore file to the directory where the media will be stored.
-Using another versioning sytem than git? Don't forget to ignore the directory of your media disk.
+Don't forget to ignore the directory of your media disk. Using git? add a .gitignore file
+to the directory where the media will be stored.
 
 If you are planning on working with image manipulations it's recommended to configure a 
 queue on your service and specify it in the config file.
