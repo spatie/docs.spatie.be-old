@@ -2,9 +2,7 @@
 title: Defining conversions
 ---
 
-A media conversion can be added to your model in the `registerModelConversions`-function.
-It should start with a call to `addMediaConversion`. From there on you can use any of
-the methods available in the API. They are all chainable.
+A media conversion can be added to your model in the `registerModelConversions`-function. It should start with a call to `addMediaConversion`. From there on you can use any of the methods available in the API. They are all chainable.
 
 Take a look in the [Defining conversions section](/laravel-medialibrary/v5/converting-images/defining-conversions/)
 for more details.
@@ -37,21 +35,6 @@ public function addMediaConversion($name)
 public function performOnCollections($collectionNames)
 ``` 
 
-### setManipulations
-
-Note: you should pass an array with Glide parameters to `$manipulations`.
-
-```php
-/**
- * Set the manipulations for this conversion.
- *
- * @param string $manipulations,...
- *
- * @return $this
- */
-public function setManipulations($manipulations)
-```
-
 ### queued
 
 ```php 
@@ -74,4 +57,7 @@ public function setManipulations($manipulations)
 public function nonQueued()
 ```
 
+## Image manipulations
+
+You may add any call to of [the manipulation functions](https://docs.spatie.be/imagine) available on [the spatie/image package](https://github.com/spatie/image).
 
