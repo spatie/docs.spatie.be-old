@@ -61,3 +61,57 @@ the md5 value of media-id to name directories. The directories where conversions
 
 There aren't any restrictions on how the directories can be named. When a `Media`-object gets deleted the package will delete its entire associated directory.
 So make sure that every media gets its own unique directory.
+
+### PathGenerator for Uuid Folder Structure
+Let's say you are not using incrementing Id's on the Media Model but instead you are using Uuid which would generate an Id like `b261dd1b-7876-44ef-aed2-ba34eae050bb` on your Media Model.
+
+You would have to create your custom Generator to properly work with Uuid's like this:
+
+```php
+<?php
+namespace App\Support;
+
+use Spatie\MediaLibrary\Media;
+use Spatie\MediaLibrary\PathGenerator\PathGenerator;
+
+class UuidPathGenerator implements PathGenerator
+{
+    /**
+     * Get the path for the given media, relative to the root storage path.
+     *
+     * @param  \Spatie\MediaLibrary\Media $media
+     * @return string
+     */
+    public function getPath(Media $media): string
+    {
+        return $this->getBasePath($media) . '/';
+    }
+
+    /**
+     * Get the path for conversions of the given media, relative to the root storage path.
+     *
+     * @param  \Spatie\MediaLibrary\Media $media
+     * @return string
+     */
+    public function getPathForConversions(Media $media): string
+    {
+        return $this->getBasePath($media) . '/conversions/';
+    }
+
+    /*
+     * Get a (unique) base path for the given media.
+     */
+    /**
+     * @param  Media   $media
+     * @return mixed
+     */
+    protected function getBasePath(Media $media): string
+    {
+        return $media->getAttributes()['id'];
+    }
+}
+```
+
+Don't forget to add your UuidPathGenerator to your config file like this `'custom_path_generator_class' => App\Support\UuidPathGenerator::class,`
+
+
