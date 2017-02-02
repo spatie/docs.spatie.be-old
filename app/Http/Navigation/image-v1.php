@@ -10,7 +10,7 @@ return [
         'About us',
     ],
     'Usage' => [
-        'Applying manipulations',
+        'Basic usage',
         'Saving images'
     ],
     'Image manipulations' => [
