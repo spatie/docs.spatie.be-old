@@ -2,9 +2,9 @@
 title: Generating custom urls
 ---
 
-When `getUrl` is called, the task of generating that URL is passed to an implementation of `Spatie\MediaLibrary\UrlGenerator`.
+When `getUrl` is called, the task of generating that url is passed to an implementation of `Spatie\MediaLibrary\UrlGenerator`.
 
-The package contains a `LocalUrlGenerator` that can generate URLs for a media library that is stored inside the public path. An `S3UrlGenerator` is also included for when you're using S3 to store your files.
+The package contains a `LocalUrlGenerator` that can generate urls for a media library that is stored inside the public path. An `S3UrlGenerator` is also included for when you're using S3 to store your files.
 
 If you are storing your media files in a private directory or are using a different filesystem, you can write your own `UrlGenerator`. Your generator must adhere to the `Spatie\MediaLibrary\UrlGenerator` interface. If you'd extend `Spatie\MediaLibrary\UrlGenerator\BaseUrlGenerator` you only need to implement one method: `getUrl`, which should return the URL. You can call `getPathRelativeToRoot` to get the relative path to the root of your disk.
 

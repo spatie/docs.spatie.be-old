@@ -7,12 +7,12 @@ A media object has a property `manipulations`, which can be set to an array of m
 When saving the media object, the package will regenerate all files and use the saved manipulation as the first manipulation when creating a derived image.
 
 ```php
-// Add a greyscale filter to the 'thumb' manipulations
+// Add a width filter to the 'thumb' manipulations
 $mediaItems = $newsItem->getMedia('images');
-$mediaItems[0]->manipulations = ['thumb' => [ 'filt' => 'greyscale']];
+$mediaItems[0]->manipulations = ['thumb' => [ 'width' => '10']];
 
 // This will cause the thumb conversion to be regenerated
 $mediaItems[0]->save();
 ```
 
-Calling `save` in this example will regenerate the thumb-image. The output will be a greyscale image.
+Calling `save` in this example will regenerate the `thumb` image.

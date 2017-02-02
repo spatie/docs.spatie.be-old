@@ -7,15 +7,15 @@ When adding a file to the medialibrary you can pass an array with custom propert
 ```php
 $mediaItem = $newsItem
     ->addMedia($pathToFile)
-    ->withCustomProperties()
+    ->withCustomProperties(['primaryColor' => 'red'])
     ->toMediaLibrary();
 ```
 
 There are some convenience methods to work with custom properties:
 
 ```php
-$mediaItem->hasCustomProperty('mime-type'); // returns true
-$mediaItem->getCustomProperty('mime-type'); // returns 'image/jpeg'
+$mediaItem->hasCustomProperty('primaryColor'); // returns true
+$mediaItem->getCustomProperty('primaryColor'); // returns 'red'
 
 $mediaItem->hasCustomProperty('does not exists'); // returns false
 $mediaItem->getCustomProperty('does not exists'); // returns null
@@ -27,19 +27,19 @@ You can also specify a default value when retrieving a custom property.
 $mediaItem->getCustomProperty('isPublic', false);
 ```
 
-If you're dealing with nested custom properties, you can use dot notation in the alternative `nestedCustomProperty` methods:
+If you're dealing with nested custom properties, you can use dot notation.
 
 ```php
 $mediaItem = $newsItem
     ->addMedia($pathToFile)
     ->withCustomProperties([
-        'nested' => ['mime-type' => 'image/jpeg']
+        'group' => ['primaryColor' => 'red']
     ])
     ->toMediaLibrary();
 
-$mediaItem->hasNestedCustomProperty('nested.mime-type'); // returns true
-$mediaItem->getNestedCustomProperty('nested.mime-type'); // returns 'image/jpeg'
+$mediaItem->hasCustomProperty('group.primaryColor'); // returns true
+$mediaItem->getCustomProperty('group.primaryColor'); // returns 'image/jpeg'
 
-$mediaItem->hasNestedCustomProperty('nested.does-not-exist'); // returns false
-$mediaItem->getNestedCustomProperty('nested.does-not-exist'); // returns null
+$mediaItem->hasCustomProperty('nested.does-not-exist'); // returns false
+$mediaItem->getCustomProperty('nested.does-not-exist'); // returns null
 ```

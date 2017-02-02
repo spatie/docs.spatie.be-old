@@ -7,8 +7,7 @@ The medialibrary will fire the following events that your handlers can listen fo
 ### MediaHasBeenAdded
 This event is fired after the a file has been saved to disk.
 
-The event has a property `media` that holds the `\Spatie\MediaLibrary\Media`-object of which the file 
-has been stored.  
+The event has a property `media` that holds the `\Spatie\MediaLibrary\Media`-object of which the file has been stored.  
 
 ### ConversionHasBeenCompleted
 This event is fired when a conversion has been completed.
@@ -28,8 +27,7 @@ The event has two public properties:
 
 ## Sample usage
 
-First you must created a listener class. Here's one that will log the paths
-of added media.
+First you must created a listener class. Here's one that will log the paths of added media.
 
 ```php
 namespace App\Listeners;
@@ -39,9 +37,6 @@ use Spatie\MediaLibrary\Events\MediaHasBeenAdded;
 
 class MediaLogger
 {
-    /**
-     * @param \Spatie\MediaLibrary\Events\MediaHasBeenAdded $event
-     */
     public function handle(MediaHasBeenAdded $event)
     {
         $media = $event->getMedia();
@@ -51,8 +46,7 @@ class MediaLogger
 }
 ```
 
-Hook it up in `app/Providers/EventServiceProvider.php` to let Laravel know that your handler should
-be called when the event is fired:
+Hook it up in `app/Providers/EventServiceProvider.php` to let Laravel know that your handler should be called when the event is fired:
 
 ```php
 protected $listen = [
