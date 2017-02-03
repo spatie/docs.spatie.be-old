@@ -45,7 +45,7 @@ The image will be stretched out to the exact dimensions given.
 
 The image will be resized to completely cover the given dimensions respecting the orginal aspect ratio. Some parts of the image may be cropped out.
 
-## Example usage
+### Example usage
 
 ```php
 Image::load('example.jpg')
