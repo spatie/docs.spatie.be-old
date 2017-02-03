@@ -2,7 +2,7 @@
 title: Introduction
 ---
 
-## THIS VERSION IS IN DEVELOPMENT, DO NOT USE IN PRODUCTION
+_v5 of this package (and documentation) are a work in progress. A stable release will be tagged early February_
 
 Medialibrary is a Laravel (5.4 and up) package that can associate all sorts of files with Eloquent models. It provides a simple, fluent API to work with. Here's a quick example:
 
