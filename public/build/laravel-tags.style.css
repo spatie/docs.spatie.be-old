@@ -1635,7 +1635,6 @@ sup {
   text-transform: none; }
 
 .header {
-  overflow: hidden;
   background-color: rgba(64, 71, 13, 0.85); }
 
 .header_background {

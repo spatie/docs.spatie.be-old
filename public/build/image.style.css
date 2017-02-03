@@ -1635,8 +1635,7 @@ sup {
   text-transform: none; }
 
 .header {
-  background-color: #1b3747;
-  overflow: hidden; }
+  background-color: #1b3747; }
 
 .header_background {
   background: url("/images/image/header.jpg") center no-repeat;
