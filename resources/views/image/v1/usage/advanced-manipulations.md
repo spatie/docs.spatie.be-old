@@ -2,7 +2,7 @@
 title: Advanced manipulations
 ---
 
-By default every manipulation will only be applied once to your image. When calling a manipulation method multiple times only the last call will be applied when the image is `save`d.
+By default every manipulation will only be applied once to your image. When calling a manipulation method multiple times only the last call will be applied when the image is saved.
 
 For example:
 
