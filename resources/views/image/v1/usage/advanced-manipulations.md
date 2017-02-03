@@ -2,8 +2,6 @@
 title: Advanced manipulations
 ---
 
-## The `apply` method
-
 By default every manipulation will only be applied only once to your image. When calling a manipulation method multiple times only the last call will be applied when the image is `save`d.
 
 For example:
@@ -17,6 +15,8 @@ Image::load('example.jpg')
 ```
 
 ![Example](https://docs.spatie.be/images/image/example-brightness.jpg)
+
+## The `apply` method
 
 The `apply` method will apply all previous manipulations to the image before continuing with the next manipulations.
 
