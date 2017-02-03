@@ -42,7 +42,15 @@ The image will be resized to be contained within the given dimensions respecting
 
 #### `Manipulations::FIT_FILL`
 
-Like `FIT_CONTAIN` the image will be resized to be contained within the given dimensions respecting the original aspect ratio. The remaining canvas will be filled with a background color (see [image canvas manipulations](/image/v1/usage/image-canvas)).
+Like `FIT_CONTAIN` the image will be resized to be contained within the given dimensions respecting the original aspect ratio. The remaining canvas will be filled with a background color.
+
+```php
+$image
+    ->fit(Manipulations::FIT_FILL, 450, 200)
+    ->background('007698');
+```
+
+![Blue background on fitted JPG](https://docs.spatie.be/images/image/example-fill-background.jpg)
 
 #### `Manipulations::FIT_STRETCH`
 
