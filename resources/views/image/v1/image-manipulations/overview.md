@@ -3,10 +3,10 @@ title: Overview
 ---
 
 ## Resizing images
-- [Crop](/image/v1/image-manipulations/resizing-images)
 - [Width](/image/v1/image-manipulations/resizing-images)
 - [Height](/image/v1/image-manipulations/resizing-images)
 - [Fit](/image/v1/image-manipulations/resizing-images)
+- [Crop](/image/v1/image-manipulations/resizing-images)
 - [Device pixel ratio](/image/v1/image-manipulations/resizing-images)
 
 ## Adjustments

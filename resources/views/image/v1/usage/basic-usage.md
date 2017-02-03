@@ -21,6 +21,8 @@ Image::load('example.jpg')
     ->save();
 ```
 
+![Sepia + blur manipulation](https://docs.spatie.be/images/image/example-sepia-blur.jpg)
+
 ## Saving the image
 
 To save the image as a copy, in a different image format or with a different jpeg quality [see saving images](/image/v1/usage/saving-images).

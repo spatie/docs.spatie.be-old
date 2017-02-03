@@ -47,4 +47,4 @@ Image::load('example.jpg')
     ->save();
 ```
 
-![Original](https://docs.spatie.be/images/image/example.jpg)
+![JPEG quality lowered](https://docs.spatie.be/images/image/example-quality.jpg)
