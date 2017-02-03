@@ -23,7 +23,7 @@ The `apply` method will apply all previous manipulations to the image before con
 For example:
 
 ```php
-// This will lower the brightness by 20%, then lower it again by %10
+// This will lower the brightness by 40%, then lower it again by 20%
 Image::load('example.jpg')
     ->brightness(-40)
     ->apply()
