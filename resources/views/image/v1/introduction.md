@@ -16,6 +16,8 @@ For all the examples in this documentation we'll use this beautiful photo of New
 
 ### Sepia and blur
 
+By chaining multiple manipulation methods together we can quickly add a nice effect to our image:
+
 ```php
 Image::load('example.jpg')
     ->sepia()
@@ -25,7 +27,9 @@ Image::load('example.jpg')
 
 ![Sepia + blur manipulation](https://docs.spatie.be/images/image/example-sepia-blur.jpg)
 
-### Cropping the Starbucks store
+### Cropping the Starbucks storefront
+
+The `manualCrop` method allows you to crop very specific parts of an image:
 
 ```php
 Image::load('example.jpg')
@@ -37,10 +41,10 @@ Image::load('example.jpg')
 
 ### Converting a transparent PNG to JPG
 
-The image is converted to PNG by explicitly saving it with the right file extension.
+The image is converted to PNG simply by saving it with the correct file extension.
 
 ```php
-Image::load('example.png')
+Image::load('github-logo.png')
     ->fit(Manipulations::FIT_FILL, 500, 300)
     ->background('lightblue')
     ->border(15, '007698', Manipulations::BORDER_EXPAND)

@@ -25,4 +25,12 @@ Image::load('example.jpg')
 
 ## Saving the image
 
-To save the image as a copy, in a different image format or with a different jpeg quality [see saving images](/image/v1/usage/saving-images).
+Calling the `save` method on an `Image` will save the modifications to the original file. You can save you modified image by passing a `$outputPath` to the `save` method.
+
+```php
+Image::load('example.jpg')
+    ->width(50)
+    ->save('modified-example.jpg');
+```
+
+To save the image in a different image format or with a different jpeg quality [see saving images](/image/v1/usage/saving-images).

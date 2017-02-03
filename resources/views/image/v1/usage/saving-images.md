@@ -18,7 +18,7 @@ Image::load('example.jpg')
     ->save('sepia-example.jpg');
 ```
 
-## Save image as a different format
+## Saving in a different image format
 
 To save you image as a different image format call the `format` method and pass in the desired format. Currently the following formats are supported: `FORMAT_JPG`, `FORMAT_PJPG`, `FORMAT_PNG` and `FORMAT_GIF`.
 
