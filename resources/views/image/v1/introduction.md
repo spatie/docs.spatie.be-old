@@ -8,4 +8,45 @@ For all availabe manipulations, please see the [overview](/image/v1/image-manipu
 
 Under the hood this package uses [Glide](http://glide.thephpleague.com) by [Jonathan Reinink](https://twitter.com/reinink).
 
+## Quick examples
+
+For all the examples in this documentation we'll use this beautiful photo of New York:
+
+![Example Image](https://docs.spatie.be/images/image/example.jpg)
+
+### Sepia and blur
+
+```php
+Image::load('example.jpg')
+    ->sepia()
+    ->blur(50)
+    ->save();
+```
+
+![Sepia + blur manipulation](https://docs.spatie.be/images/image/example-sepia-blur.jpg)
+
+### Cropping the Starbucks store
+
+```php
+Image::load('example.jpg')
+    ->manualCrop(600, 400, 20, 620)
+    ->save();
+```
+
+![Crop Starbucks](https://docs.spatie.be/images/image/example-manual-crop.jpg)
+
+### Converting a transparent PNG to JPG
+
+The image is converted to PNG by explicitly saving it with the right file extension.
+
+```php
+Image::load('example.png')
+    ->fit(Manipulations::FIT_FILL, 500, 300)
+    ->background('lightblue')
+    ->border(15, '007698', Manipulations::BORDER_EXPAND)
+    ->save('example.png');
+```
+
+![Example PNG to JPG](https://docs.spatie.be/images/image/example-png-to-jpg.jpg)
+
 _This package (and documentation) are a work in progress._

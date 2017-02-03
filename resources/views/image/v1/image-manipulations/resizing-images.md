@@ -81,7 +81,7 @@ $image->crop(string $cropMethod, int $width, int $height);
 The following `$cropMethod`s are available through constants of the `Manipulations` class:  
 `CROP_TOP_LEFT`, `CROP_TOP`, `CROP_TOP_RIGHT`, `CROP_LEFT`, `CROP_CENTER`, `CROP_RIGHT`, `CROP_BOTTOM_LEFT`, `CROP_BOTTOM`, `CROP_BOTTOM_RIGHT`.
 
-### Example usage
+### Example
 
 ```php
 Image::load('example.jpg')
@@ -90,3 +90,29 @@ Image::load('example.jpg')
 ```
 
 ![Crop top right to 250x250](https://docs.spatie.be/images/image/example-crop.jpg)
+
+## Focal crop
+
+The `focalCrop` method can be used to crop around an exact position. The center of the crop is controlled by the `$focalX` and `$focalY` values in percent (`0` - `100`).
+
+```php
+$image->focalCrop(int $width, int $height, int $focalX, int $focalY);
+```
+
+## Manual crop
+
+The `manualCrop` method crops a specific area of the image by specifying the `$startX` and `$startY` positions and the crop's `$width` and `$height` in pixels. 
+
+```php
+$image->manualCrop(int $width, int $height, int $x, int $y);
+```
+
+### Example
+
+```php
+Image::load('example.jpg')
+    ->manualCrop(600, 400, 20, 620)
+    ->save();
+```
+
+![Manual crop](https://docs.spatie.be/images/image/example-manual-crop.jpg)
