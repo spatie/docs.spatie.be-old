@@ -50,7 +50,7 @@ Image::load('github-logo.png')
     ->fit(Manipulations::FIT_FILL, 500, 300)
     ->background('lightblue')
     ->border(15, '007698', Manipulations::BORDER_EXPAND)
-    ->save('example.png');
+    ->save('example.jpg');
 ```
 
 ![Example PNG to JPG](https://docs.spatie.be/images/image/example-png-to-jpg.jpg)
