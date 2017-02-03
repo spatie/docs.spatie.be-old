@@ -4,7 +4,14 @@ title: Resizing images
 
 ## Width and height
 
-The width and height of the `Image` can be modified by calling the `width` and `height` functions and passing in the desired dimensions in pixels. The resized image will be contained within the given `width` and `height` dimensions respecting the original aspect ratio.
+The width and height of the `Image` can be modified by calling the `width` and `height` functions and passing in the desired dimensions in pixels. The resized image will be contained within the given `$width` and `$height` dimensions respecting the original aspect ratio.
+
+```php
+$image->width(int $width);
+$image->height(int $height);
+```
+
+### Example usage
 
 ```php
 Image::load('example.jpg')
