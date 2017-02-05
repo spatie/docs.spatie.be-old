@@ -11,7 +11,7 @@ For example:
 Image::load('example.jpg')
     ->brightness(-40)
     ->brightness(-20)
-    ->save()
+    ->save();
 ```
 
 ![Example](https://docs.spatie.be/images/image/example-brightness.jpg)
@@ -28,7 +28,7 @@ Image::load('example.jpg')
     ->brightness(-40)
     ->apply()
     ->brightness(-20)
-    ->save()
+    ->save();
 ```
 
 ![Example](https://docs.spatie.be/images/image/example-advanced-manipulations.jpg)
