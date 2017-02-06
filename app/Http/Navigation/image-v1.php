@@ -12,7 +12,8 @@ return [
     'Usage' => [
         'Basic usage',
         'Saving images',
-        'Applying manipulations'
+        'Applying manipulations',
+        'Preparing manipulations',
     ],
     'Image manipulations' => [
         'Overview',
