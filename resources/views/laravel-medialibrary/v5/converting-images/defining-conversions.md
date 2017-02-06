@@ -89,7 +89,7 @@ This is how that looks like in the model:
         $this->addMediaConversion('thumb')
               ->width(368)
               ->height(232)
-              ->performOnCollections('images, 'downloads');
+              ->performOnCollections('images', 'downloads');
     }
 ```
 
