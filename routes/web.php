@@ -20,7 +20,7 @@ Route::prefix('laravel-backup')->group(function () {
 Route::prefix('laravel-medialibrary')->group(function () {
 
     Route::get('/', function () {
-        return redirect('laravel-medialibrary/v4/introduction');
+        return redirect('laravel-medialibrary/v5/introduction');
     });
 
     Route::get('v3', function () {
