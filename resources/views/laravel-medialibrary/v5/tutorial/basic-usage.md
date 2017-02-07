@@ -1,5 +1,5 @@
 ---
-title: Basic usage (BlogPost model)
+title: Basic usage
 ---
 
 In these basic examples we'll use the `BlogPost` model to add, update and remove some media files. 

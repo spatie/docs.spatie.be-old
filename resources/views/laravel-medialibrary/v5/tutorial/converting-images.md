@@ -1,10 +1,10 @@
 ---
-title: Converting images (PhotoAlbum model)
+title: Converting images
 ---
 
 When working with images you'll often find yourself needing a couple different versions of the same image. You might for example need a smaller thumbnail with a fixed aspect ratio and a wide, blurred banner. This can be achieved by using conversions.
 
-When adding a `jpg`, `png`, `svg`, `pdf`, `mp4 `, `mov` or `webm` file to the medialibrary conversions will automatically kick in and generate your derived versions in `jpg` format.
+When adding a `jpg`, `png`, `svg`, `pdf`, `mp4 `, `mov` or `webm` file to the medialibrary, the conversions will automatically kick in and generate your derived versions in `jpg` format.
 
 We've already prepared a `PhotoAlbum` model for you that implements the `HasMediaConversions` interface and has a `registerMediaConversions` method. Feel free to modify these conversions. All [manipulation methods from `spatie/image`](https://docs.spatie.be/image/v1/image-manipulations/overview) can be applied.
 
