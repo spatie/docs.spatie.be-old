@@ -1,0 +1,21 @@
+---
+title: Introduction
+---
+
+_This 'tutorial' is a work in progress._
+
+To get you started we've prepared a couple of basic real-life examples showing off the capabilities of the medialibrary.
+ They're available in this seperate Laravel project: [https://github.com/spatie/laravel-medialibrary-demo]().
+
+To get started with this demo project follow the instructions in the repo's [README](https://github.com/spatie/laravel-medialibrary-demo/blob/master/README.md). You'll have to set up a database with some migrations and seed it with the demo data.
+
+All examples are available as commands in the `app/Console/Commands` directory. We've also prepared some models for you in the `app` directory.
+
+Finally, in the `demofiles` directory you'll find some demo files which you can use in the example commands.
+
+## Available examples
+
+- [Basic usage (`BlogPost` model)]()
+- [Image conversions (`PhotoAlbum` model)]()
+- [Converting other files (`Article` model)]()
+- [Advanced usage]()

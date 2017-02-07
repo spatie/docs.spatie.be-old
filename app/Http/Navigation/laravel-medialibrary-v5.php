@@ -9,6 +9,13 @@ return [
         'Questions & issues',
         'Changelog',
     ],
+    'Tutorial' => [
+        'Introduction',
+        'Basic usage',
+        'Converting images',
+        'Converting other files',
+        'Advanced usage',
+    ],
     'Basic usage' => [
         'Preparing your model',
         'Associating files',
