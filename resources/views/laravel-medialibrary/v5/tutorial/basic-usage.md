@@ -1,5 +1,5 @@
 ---
-title: Basic usage (`BlogPost` model)
+title: Basic usage (BlogPost model)
 ---
 
 In these basic examples we'll use the `BlogPost` model to add, update and remove some media files. 
@@ -12,11 +12,11 @@ php artisan list blogpost
 
 ![Blogpost commands](https://docs.spatie.be/images/medialibrary/tutorial/list-blogpost.jpg)
 
-We've already prepared the `BlogPost` model for you to implement `HasMedia` and the `HasMediaTrait`. Read more about preparing your model [in the documentation](https://docs.spatie.be/laravel-medialibrary/v5/basic-usage/preparing-your-model).
+We've already prepared the `BlogPost` model for you by implementing `HasMedia` and the `HasMediaTrait`. Read more about preparing your model [in the documentation](https://docs.spatie.be/laravel-medialibrary/v5/basic-usage/preparing-your-model).
 
 ### Adding media to the blogpost (`BlogPostAddMedia.php`)
 
-Use the following command to a media file to the existing `BlogPost` model. Media files aren't limited to images. Try adding `demofiles/hamlet.pdf` or `demofiles/coolvideo.webm`. You can add as many media files as you want.
+Use the following command to add media file to the existing `BlogPost` model. Media files aren't limited to images. Try adding `demofiles/hamlet.pdf` or `demofiles/coolvideo.webm`. You can add as many media files as you want.
 
 ```php
 php artisan blogpost:addmedia demofiles/sheep.jpg
