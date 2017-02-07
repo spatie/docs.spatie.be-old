@@ -2,7 +2,7 @@
 title: Advanced manipulations
 ---
 
-By default every manipulation will only be applied once to your image. When calling a manipulation method multiple times only the last call will be applied when the image is `save`d.
+By default every manipulation will only be applied once to your image. When calling a manipulation method multiple times only the last call will be applied when the image is saved.
 
 For example:
 
@@ -11,7 +11,7 @@ For example:
 Image::load('example.jpg')
     ->brightness(-40)
     ->brightness(-20)
-    ->save()
+    ->save();
 ```
 
 ![Example](https://docs.spatie.be/images/image/example-brightness.jpg)
@@ -23,12 +23,12 @@ The `apply` method will apply all previous manipulations to the image before con
 For example:
 
 ```php
-// This will lower the brightness by 20%, then lower it again by %10
+// This will lower the brightness by 40%, then lower it again by 20%
 Image::load('example.jpg')
     ->brightness(-40)
     ->apply()
     ->brightness(-20)
-    ->save()
+    ->save();
 ```
 
 ![Example](https://docs.spatie.be/images/image/example-advanced-manipulations.jpg)
