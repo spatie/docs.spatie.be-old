@@ -46,11 +46,11 @@ Like `FIT_CONTAIN` the image will be resized to be contained within the given di
 
 ```php
 $image
-    ->fit(Manipulations::FIT_FILL, 450, 200)
+    ->fit(Manipulations::FIT_FILL, 497, 290)
     ->background('007698');
 ```
 
-![Blue background on fitted JPG](https://docs.spatie.be/images/image/example-fill-background.jpg)
+![Blue background on fitted JPG](https://docs.spatie.be/images/image/example-background.png)
 
 #### `Manipulations::FIT_STRETCH`
 
