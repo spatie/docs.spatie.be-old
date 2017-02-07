@@ -44,3 +44,13 @@ php artisan photoalbum:addimage demofile/otter.gif
 ![Photoalbum add image](https://docs.spatie.be/images/medialibrary/tutorial/photoalbum-addimage-gif.jpg)
 
 As you can see the medialibrary has generated still `jpg` conversions from the `gif` with the correct image manipulations applied, amazing!
+
+## Regenerating conversions
+
+After adding a couple of images you might want to change some conversions. Feel free to modify the conversions in the `PhotoAlbum` model. When you're done run the following command to regenerate all conversions on existing media files:
+
+```bash
+php artisan medialibrary:regenerate
+```
+
+![Medialibrary regenerate](https://docs.spatie.be/images/medialibrary/tutorial/medialibrary-regenerate.jpg)
