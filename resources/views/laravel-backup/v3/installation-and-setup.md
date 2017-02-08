@@ -261,3 +261,5 @@ Here's an example for MySQL:
 ```
 
 For PostgreSQL db's you can also set a config key named `dump_use_inserts` to use `inserts` instead of `copy` in the database dump file.
+
+If `mysqldump` fails with a `1045: Access denied for user` error please make sure your MySql credentials are correct and do not contain any PHP [escape sequences](http://php.net/manual/en/language.types.string.php#language.types.string.syntax.double) (for example `\n` or `\r`).
