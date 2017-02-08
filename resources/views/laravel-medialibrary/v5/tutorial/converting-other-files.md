@@ -52,7 +52,7 @@ $this->addMediaConversion('thumbnail')
 
 You'll notice that the conversions look very similar to image conversions. The only difference being that we've specified a time when the still image should be generated from the video files using `extractVideoFrameAtSecond()`.
 
-## Adding media to the `Article`
+## Adding media to the Article (`ArticleAddMedia.php`)
 
 Use the `article:addmedia` command to add some `SVG` (`demofiles/logo.svg`), `WEBM` (`demofiles/coolvideo.webm`) or `PDF` (`demofiles/hamlet.pdf`) files to the `Article`.
 
