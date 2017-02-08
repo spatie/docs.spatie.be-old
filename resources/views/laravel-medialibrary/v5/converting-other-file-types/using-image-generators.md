@@ -44,7 +44,7 @@ The video image generator allows you to choose at which time of the video the de
 $this->addMediaConversion('thumb')
      ->width(368)
      ->height(232)
-     ->setExtractVideoFrameAtSecond(20)
+     ->extractVideoFrameAtSecond(20)
      ->performOnCollections('videos');
 ```
 
