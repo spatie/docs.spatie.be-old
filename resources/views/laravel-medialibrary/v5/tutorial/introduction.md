@@ -18,4 +18,3 @@ Finally, in the `demofiles` directory you'll find some demo files which you can 
 - [Basic usage (`BlogPost` model)](https://docs.spatie.be/laravel-medialibrary/v5/tutorial/basic-usage)
 - [Image conversions (`PhotoAlbum` model)](https://docs.spatie.be/laravel-medialibrary/v5/tutorial/image-conversions)
 - [Converting other files (`Article` model)](https://docs.spatie.be/laravel-medialibrary/v5/tutorial/converting-other-files)
-- [Advanced usage](https://docs.spatie.be/laravel-medialibrary/v5/tutorial/advanced-usage)

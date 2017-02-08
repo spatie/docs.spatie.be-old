@@ -14,7 +14,6 @@ return [
         'Basic usage',
         'Converting images',
         'Converting other files',
-        'Advanced usage',
     ],
     'Basic usage' => [
         'Preparing your model',
