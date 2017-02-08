@@ -10,7 +10,8 @@ To generate conversions of other media types â€“ most notably PDFs and videos â€
 Conversion of specific file type are defined in the exact same way as images:
 ```php
 $this->addMediaConversion('thumb')
-     ->setManipulations(['w' => 368, 'h' => 232])
+     ->width(368)
+     ->height(232)
      ->performOnCollections('videos');
 ```
 
@@ -41,7 +42,8 @@ The video image generator allows you to choose at which time of the video the de
 
 ```php
 $this->addMediaConversion('thumb')
-     ->setManipulations(['w' => 368, 'h' => 232])
+     ->width(368)
+     ->height(232)
      ->setExtractVideoFrameAtSecond(20)
      ->performOnCollections('videos');
 ```
