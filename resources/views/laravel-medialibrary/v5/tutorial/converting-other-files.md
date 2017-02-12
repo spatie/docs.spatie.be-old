@@ -57,7 +57,7 @@ You'll notice that the conversions look very similar to image conversions. The o
 Use the `article:addmedia` command to add some `SVG` (`demofiles/logo.svg`), `WEBM` (`demofiles/coolvideo.webm`) or `PDF` (`demofiles/hamlet.pdf`) files to the `Article`.
 
 ```bash
-php artisan article:addmedia demofiles/coolvideo.webm
+php artisan article:add-media demofiles/coolvideo.webm
 ```
 
 ![article addmedia](https://docs.spatie.be/images/medialibrary/tutorial/article-addmedia.jpg)

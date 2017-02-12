@@ -30,7 +30,7 @@ More information about defining conversions can be read [in the documentation](h
 To see the conversions in action run the `addimage` command:
 
 ```bash
-php artisan photoalbum:addimage demofiles/otter.jpg
+php artisan photoalbum:add-image demofiles/otter.jpg
 ```
 
 ![Photoalbum add image](https://docs.spatie.be/images/medialibrary/tutorial/photoalbum-addimage.jpg)
@@ -38,7 +38,7 @@ php artisan photoalbum:addimage demofiles/otter.jpg
 The medialibrary has automatically created a conversions folder with the derived `jpg` images. Feel free to add another image format as well. A `gif` for example:
 
 ```bash
-php artisan photoalbum:addimage demofile/otter.gif
+php artisan photoalbum:add-image demofile/otter.gif
 ```
 
 ![Photoalbum add image](https://docs.spatie.be/images/medialibrary/tutorial/photoalbum-addimage-gif.jpg)

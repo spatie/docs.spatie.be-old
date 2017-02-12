@@ -2,8 +2,6 @@
 title: Introduction
 ---
 
-_This 'tutorial' is a work in progress._
-
 To get you started we've prepared a couple of basic real-life examples showing off the capabilities of the medialibrary.
  They're available in this seperate Laravel project: [https://github.com/spatie/laravel-medialibrary-demo]().
 
