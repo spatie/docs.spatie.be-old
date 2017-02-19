@@ -154,6 +154,8 @@ class NewsItem extends Model
 
 Changing `text` will not trigger an activity being logged.
 
+By default the `updated_at` attribute is _not_ ignored and will trigger an activity being logged. You can simply add the `updated_at` attribute to the `$ignoreChangedAttributes` array to override this behaviour.
+
 ## Using the CausesActivity trait
 
 The package ships with a `CausesActivity` trait which can be added to any model that you use as a causer. It provides an `activity` relationship which returns all activities that are caused by the model.
