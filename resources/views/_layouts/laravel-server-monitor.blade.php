@@ -1,1 +1,1 @@
-@include('_layouts._partials.template', config('templates.laravel-uptime-monitor'))
+@include('_layouts._partials.template', config('templates.laravel-server-monitor'))
