@@ -22,6 +22,8 @@ module.exports = {
         'image.style': './resources/assets/sass/image/image.scss',
         'laravel-tags': './resources/assets/js/laravel-tags.js',
         'laravel-tags.style': './resources/assets/sass/laravel-tags/laravel-tags.scss',
+        'laravel-server-monitor': './resources/assets/js/laravel-server-monitor.js',
+        'laravel-server-monitor.style': './resources/assets/sass/laravel-server-monitor/laravel-server-monitor.scss',
     },
     output: {
         path: 'public/build',

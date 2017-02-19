@@ -110,6 +110,16 @@ Route::prefix('image')->group(function () {
     });
 });
 
+Route::prefix('laravel-server-monitor')->group(function () {
+
+    Route::get('/', function () {
+        return redirect('laravel-server-monitor/v1/introduction');
+    });
+
+    Route::get('v1', function () {
+        return redirect('laravel-server-monitor/v1/introduction');
+    });
+});
 
 Route::get('{slug}/edit', 'PageController@edit')->where('slug', '(.*)');
 Route::get('{slug}', 'PageController@page')->where('slug', '(.*)');

@@ -110,7 +110,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * jQuery JavaScript Library v2.2.1
+	 * jQuery JavaScript Library v2.2.4
 	 * http://jquery.com/
 	 *
 	 * Includes Sizzle.js
@@ -120,7 +120,7 @@
 	 * Released under the MIT license
 	 * http://jquery.org/license
 	 *
-	 * Date: 2016-02-22T19:11Z
+	 * Date: 2016-05-20T17:23Z
 	 */
 
 	(function( global, factory ) {
@@ -176,7 +176,7 @@
 
 
 	var
-		version = "2.2.1",
+		version = "2.2.4",
 
 		// Define a local copy of jQuery
 		jQuery = function( selector, context ) {
@@ -387,6 +387,7 @@
 		},
 
 		isPlainObject: function( obj ) {
+			var key;
 
 			// Not plain objects:
 			// - Any object or value whose internal [[Class]] property is not "[object Object]"
@@ -396,14 +397,18 @@
 				return false;
 			}
 
+			// Not own constructor property must be Object
 			if ( obj.constructor &&
-					!hasOwn.call( obj.constructor.prototype, "isPrototypeOf" ) ) {
+					!hasOwn.call( obj, "constructor" ) &&
+					!hasOwn.call( obj.constructor.prototype || {}, "isPrototypeOf" ) ) {
 				return false;
 			}
 
-			// If the function hasn't returned already, we're confident that
-			// |obj| is a plain object, created by {} or constructed with new Object
-			return true;
+			// Own properties are enumerated firstly, so to speed up,
+			// if last one is own, then all properties are own
+			for ( key in obj ) {}
+
+			return key === undefined || hasOwn.call( obj, key );
 		},
 
 		isEmptyObject: function( obj ) {
@@ -5112,13 +5117,14 @@
 		isDefaultPrevented: returnFalse,
 		isPropagationStopped: returnFalse,
 		isImmediatePropagationStopped: returnFalse,
+		isSimulated: false,
 
 		preventDefault: function() {
 			var e = this.originalEvent;
 
 			this.isDefaultPrevented = returnTrue;
 
-			if ( e ) {
+			if ( e && !this.isSimulated ) {
 				e.preventDefault();
 			}
 		},
@@ -5127,7 +5133,7 @@
 
 			this.isPropagationStopped = returnTrue;
 
-			if ( e ) {
+			if ( e && !this.isSimulated ) {
 				e.stopPropagation();
 			}
 		},
@@ -5136,7 +5142,7 @@
 
 			this.isImmediatePropagationStopped = returnTrue;
 
-			if ( e ) {
+			if ( e && !this.isSimulated ) {
 				e.stopImmediatePropagation();
 			}
 
@@ -6066,19 +6072,6 @@
 			val = name === "width" ? elem.offsetWidth : elem.offsetHeight,
 			styles = getStyles( elem ),
 			isBorderBox = jQuery.css( elem, "boxSizing", false, styles ) === "border-box";
-
-		// Support: IE11 only
-		// In IE 11 fullscreen elements inside of an iframe have
-		// 100x too small dimensions (gh-1764).
-		if ( document.msFullscreenElement && window.top !== window ) {
-
-			// Support: IE11 only
-			// Running getBoundingClientRect on a disconnected node
-			// in IE throws an error.
-			if ( elem.getClientRects().length ) {
-				val = Math.round( elem.getBoundingClientRect()[ name ] * 100 );
-			}
-		}
 
 		// Some non-html elements return undefined for offsetWidth, so check for null/undefined
 		// svg - https://bugzilla.mozilla.org/show_bug.cgi?id=649285
@@ -7436,6 +7429,12 @@
 		}
 	} );
 
+	// Support: IE <=11 only
+	// Accessing the selectedIndex property
+	// forces the browser to respect setting selected
+	// on the option
+	// The getter ensures a default option is selected
+	// when in an optgroup
 	if ( !support.optSelected ) {
 		jQuery.propHooks.selected = {
 			get: function( elem ) {
@@ -7444,6 +7443,16 @@
 					parent.parentNode.selectedIndex;
 				}
 				return null;
+			},
+			set: function( elem ) {
+				var parent = elem.parentNode;
+				if ( parent ) {
+					parent.selectedIndex;
+
+					if ( parent.parentNode ) {
+						parent.parentNode.selectedIndex;
+					}
+				}
 			}
 		};
 	}
@@ -7638,7 +7647,8 @@
 
 
 
-	var rreturn = /\r/g;
+	var rreturn = /\r/g,
+		rspaces = /[\x20\t\r\n\f]+/g;
 
 	jQuery.fn.extend( {
 		val: function( value ) {
@@ -7714,9 +7724,15 @@
 			option: {
 				get: function( elem ) {
 
-					// Support: IE<11
-					// option.value not trimmed (#14858)
-					return jQuery.trim( elem.value );
+					var val = jQuery.find.attr( elem, "value" );
+					return val != null ?
+						val :
+
+						// Support: IE10-11+
+						// option.text throws exceptions (#14686, #14858)
+						// Strip and collapse whitespace
+						// https://html.spec.whatwg.org/#strip-and-collapse-whitespace
+						jQuery.trim( jQuery.text( elem ) ).replace( rspaces, " " );
 				}
 			},
 			select: {
@@ -7769,7 +7785,7 @@
 					while ( i-- ) {
 						option = options[ i ];
 						if ( option.selected =
-								jQuery.inArray( jQuery.valHooks.option.get( option ), values ) > -1
+							jQuery.inArray( jQuery.valHooks.option.get( option ), values ) > -1
 						) {
 							optionSet = true;
 						}
@@ -7947,6 +7963,7 @@
 		},
 
 		// Piggyback on a donor event to simulate a different one
+		// Used only for `focus(in | out)` events
 		simulate: function( type, elem, event ) {
 			var e = jQuery.extend(
 				new jQuery.Event(),
@@ -7954,27 +7971,10 @@
 				{
 					type: type,
 					isSimulated: true
-
-					// Previously, `originalEvent: {}` was set here, so stopPropagation call
-					// would not be triggered on donor event, since in our own
-					// jQuery.event.stopPropagation function we had a check for existence of
-					// originalEvent.stopPropagation method, so, consequently it would be a noop.
-					//
-					// But now, this "simulate" function is used only for events
-					// for which stopPropagation() is noop, so there is no need for that anymore.
-					//
-					// For the 1.x branch though, guard for "click" and "submit"
-					// events is still used, but was moved to jQuery.event.stopPropagation function
-					// because `originalEvent` should point to the original event for the constancy
-					// with other events and for more focused logic
 				}
 			);
 
 			jQuery.event.trigger( e, null, elem );
-
-			if ( e.isDefaultPrevented() ) {
-				event.preventDefault();
-			}
 		}
 
 	} );
@@ -9464,18 +9464,6 @@
 
 
 
-	// Support: Safari 8+
-	// In Safari 8 documents created via document.implementation.createHTMLDocument
-	// collapse sibling forms: the second one becomes a child of the first one.
-	// Because of that, this security measure has to be disabled in Safari 8.
-	// https://bugs.webkit.org/show_bug.cgi?id=137337
-	support.createHTMLDocument = ( function() {
-		var body = document.implementation.createHTMLDocument( "" ).body;
-		body.innerHTML = "<form></form><form></form>";
-		return body.childNodes.length === 2;
-	} )();
-
-
 	// Argument "data" should be string of html
 	// context (optional): If specified, the fragment will be created in this context,
 	// defaults to document
@@ -9488,12 +9476,7 @@
 			keepScripts = context;
 			context = false;
 		}
-
-		// Stop scripts or inline event handlers from being executed immediately
-		// by using document.implementation
-		context = context || ( support.createHTMLDocument ?
-			document.implementation.createHTMLDocument( "" ) :
-			document );
+		context = context || document;
 
 		var parsed = rsingleTag.exec( data ),
 			scripts = !keepScripts && [];
@@ -9575,7 +9558,7 @@
 			// If it fails, this function gets "jqXHR", "status", "error"
 			} ).always( callback && function( jqXHR, status ) {
 				self.each( function() {
-					callback.apply( self, response || [ jqXHR.responseText, status, jqXHR ] );
+					callback.apply( this, response || [ jqXHR.responseText, status, jqXHR ] );
 				} );
 			} );
 		}
@@ -9957,6 +9940,7 @@
 	    toolbar: $('[data-viewport-toolbar]'),
 	    vhItems: $('[data-viewport-vh]'),
 	    scrollLinks: $('[data-viewport-scroll]'),
+	    classPrefix: '$viewport-',
 	    lang: 'en',
 	    // Default config
 	    config: {
@@ -10005,12 +9989,12 @@
 	    },
 	    _executeScroll: function _executeScroll(offsetY) {
 	        this.state.scrolling = true;
-	        this.root.addClass('$viewport-scrolling');
+	        this.root.addClass(this.classPrefix + 'scrolling');
 	        offsetY = offsetY - this.config.scrollOffset - this._addToolbar();
 	        var viewport = this;
 	        $('body,html').animate({ scrollTop: offsetY }, '5000', 'swing', function () {
 	            viewport.state.scrolling = false;
-	            viewport.root.removeClass('$viewport-scrolling');
+	            viewport.root.removeClass(this.classPrefix + 'scrolling');
 	            viewport._afterScroll();
 	        });
 	        return this;
@@ -10030,7 +10014,7 @@
 	                _this2._setDirection();
 	            }, 100);
 
-	            this.root.toggleClass('$viewport-started', this.state.started).toggleClass('$viewport-ended', this.state.ended);
+	            this.root.toggleClass(this.classPrefix + 'started', this.state.started).toggleClass(this.classPrefix + 'ended', this.state.ended);
 	        }
 	        return this;
 	    },
@@ -10046,7 +10030,7 @@
 
 	        this.direction.down = !this.direction.up;
 	        this._lastPosition = this.start;
-	        this.root.toggleClass('$viewport-direction-down', this.direction.down).toggleClass('$viewport-direction-up', this.direction.up);
+	        this.root.toggleClass(this.classPrefix + 'direction-down', this.direction.down).toggleClass(this.classPrefix + 'direction-up', this.direction.up);
 	        return this;
 	    },
 	    _initHandlers: function _initHandlers() {
@@ -10068,7 +10052,7 @@
 	        this.orientation.portrait = !this.orientation.landscape;
 	        this.state.small = this.config.small > this.width;
 	        this.state.large = !this.state.small;
-	        this.root.toggleClass('$viewport-small', this.state.small).toggleClass('$viewport-large', this.state.large).toggleClass('$viewport-orientation-portrait', this.orientation.portrait).toggleClass('$viewport-orientation-landscape', this.orientation.landscape);
+	        this.root.toggleClass(this.classPrefix + 'small', this.state.small).toggleClass(this.classPrefix + 'large', this.state.large).toggleClass(this.classPrefix + 'orientation-portrait', this.orientation.portrait).toggleClass(this.classPrefix + 'orientation-landscape', this.orientation.landscape);
 	        return this;
 	    },
 	    _fixVH: function _fixVH() {
@@ -10117,12 +10101,12 @@
 	    },
 	    disableScroll: function disableScroll() {
 	        this.state.disabledScroll = true;
-	        this.root.css('overflow', 'hidden').addClass('$viewport-disabled-scroll');
+	        this.root.css('overflow', 'hidden').addClass(this.classPrefix + 'disabled-scroll');
 	        return this;
 	    },
 	    enableScroll: function enableScroll() {
 	        this.state.disabledScroll = false;
-	        this.root.css('overflow', 'initial').removeClass('$viewport-disabled-scroll');
+	        this.root.css('overflow', 'initial').removeClass(this.classPrefix + 'disabled-scroll');
 	        return this;
 	    },
 	    update: function update() {
@@ -10130,6 +10114,8 @@
 	        return this;
 	    },
 	    init: function init(options) {
+	        var _this4 = this;
+
 	        var viewport = this;
 	        if (options) {
 	            merge(this, options);
@@ -10137,7 +10123,7 @@
 
 	        viewport._readConfigFromDom().update();
 	        $(window).load(function () {
-	            viewport.root.removeClass('$viewport-loading').addClass('$viewport-loaded');
+	            viewport.root.removeClass(_this4.classPrefix + 'loading').addClass(_this4.classPrefix + 'loaded');
 	            viewport.loaded = true;
 	        }).scroll(function () {
 	            viewport._afterScroll();
@@ -11573,12 +11559,12 @@
 /***/ function(module, exports) {
 
 	/**
-	 * lodash 3.0.5 (Custom Build) <https://lodash.com/>
+	 * lodash 3.0.6 (Custom Build) <https://lodash.com/>
 	 * Build: `lodash modularize exports="npm" -o ./`
-	 * Copyright 2012-2016 The Dojo Foundation <http://dojofoundation.org/>
+	 * Copyright jQuery Foundation and other contributors <https://jquery.org/>
+	 * Released under MIT license <https://lodash.com/license>
 	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2016 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
+	 * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 */
 
 	/** Used as references for various `Number` constants. */
@@ -11600,6 +11586,7 @@
 	    weakMapTag = '[object WeakMap]';
 
 	var arrayBufferTag = '[object ArrayBuffer]',
+	    dataViewTag = '[object DataView]',
 	    float32Tag = '[object Float32Array]',
 	    float64Tag = '[object Float64Array]',
 	    int8Tag = '[object Int8Array]',
@@ -11619,11 +11606,12 @@
 	typedArrayTags[uint32Tag] = true;
 	typedArrayTags[argsTag] = typedArrayTags[arrayTag] =
 	typedArrayTags[arrayBufferTag] = typedArrayTags[boolTag] =
-	typedArrayTags[dateTag] = typedArrayTags[errorTag] =
-	typedArrayTags[funcTag] = typedArrayTags[mapTag] =
-	typedArrayTags[numberTag] = typedArrayTags[objectTag] =
-	typedArrayTags[regexpTag] = typedArrayTags[setTag] =
-	typedArrayTags[stringTag] = typedArrayTags[weakMapTag] = false;
+	typedArrayTags[dataViewTag] = typedArrayTags[dateTag] =
+	typedArrayTags[errorTag] = typedArrayTags[funcTag] =
+	typedArrayTags[mapTag] = typedArrayTags[numberTag] =
+	typedArrayTags[objectTag] = typedArrayTags[regexpTag] =
+	typedArrayTags[setTag] = typedArrayTags[stringTag] =
+	typedArrayTags[weakMapTag] = false;
 
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -11637,13 +11625,16 @@
 	/**
 	 * Checks if `value` is a valid array-like length.
 	 *
-	 * **Note:** This function is loosely based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
+	 * **Note:** This function is loosely based on
+	 * [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
 	 *
 	 * @static
 	 * @memberOf _
+	 * @since 4.0.0
 	 * @category Lang
 	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
+	 * @returns {boolean} Returns `true` if `value` is a valid length,
+	 *  else `false`.
 	 * @example
 	 *
 	 * _.isLength(3);
@@ -11669,6 +11660,7 @@
 	 *
 	 * @static
 	 * @memberOf _
+	 * @since 4.0.0
 	 * @category Lang
 	 * @param {*} value The value to check.
 	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
@@ -11695,9 +11687,11 @@
 	 *
 	 * @static
 	 * @memberOf _
+	 * @since 3.0.0
 	 * @category Lang
 	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
+	 * @returns {boolean} Returns `true` if `value` is correctly classified,
+	 *  else `false`.
 	 * @example
 	 *
 	 * _.isTypedArray(new Uint8Array);
@@ -12413,7 +12407,7 @@
 	        }
 	        mode.keywords = compiled_keywords;
 	      }
-	      mode.lexemesRe = langRe(mode.lexemes || /\b\w+\b/, true);
+	      mode.lexemesRe = langRe(mode.lexemes || /\w+/, true);
 
 	      if (parent) {
 	        if (mode.beginKeywords) {
@@ -12705,10 +12699,7 @@
 	      value: escape(text)
 	    };
 	    var second_best = result;
-	    languageSubset.forEach(function(name) {
-	      if (!getLanguage(name)) {
-	        return;
-	      }
+	    languageSubset.filter(getLanguage).forEach(function(name) {
 	      var current = highlight(name, text, false);
 	      current.language = name;
 	      if (current.relevance > second_best.relevance) {
@@ -12892,7 +12883,7 @@
 	    contains: [hljs.BACKSLASH_ESCAPE]
 	  };
 	  hljs.PHRASAL_WORDS_MODE = {
-	    begin: /\b(a|an|the|are|I|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such|will|you|your|like)\b/
+	    begin: /\b(a|an|the|are|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such|will|you|your|like)\b/
 	  };
 	  hljs.COMMENT = function (begin, end, inherits) {
 	    var mode = hljs.inherit(
@@ -13131,6 +13122,9 @@
 	        ]
 	      },
 	      PREPROCESSOR,
+	      {
+	        className: 'keyword', begin: /\$this\b/
+	      },
 	      VARIABLE,
 	      {
 	        // swallow composed identifiers to avoid parsing them as keywords
@@ -13199,15 +13193,16 @@
 	        relevance: 0
 	      },
 	      {
-	        begin: '=',
+	        begin: /=\s*/,
 	        relevance: 0,
 	        contains: [
 	          {
 	            className: 'string',
+	            endsParent: true,
 	            variants: [
 	              {begin: /"/, end: /"/},
 	              {begin: /'/, end: /'/},
-	              {begin: /[^\s\/>]+/}
+	              {begin: /[^\s"'=<>`]+/}
 	            ]
 	          }
 	        ]
@@ -13215,7 +13210,7 @@
 	    ]
 	  };
 	  return {
-	    aliases: ['html', 'xhtml', 'rss', 'atom', 'xsl', 'plist'],
+	    aliases: ['html', 'xhtml', 'rss', 'atom', 'xjb', 'xsd', 'xsl', 'plist'],
 	    case_insensitive: true,
 	    contains: [
 	      {
