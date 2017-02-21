@@ -5,7 +5,7 @@ title: Installation & setup in Laravel
 Medialibrary can be installed via composer:
 
 ```bash
-$ composer require spatie/laravel-medialibrary
+$ composer require spatie/laravel-medialibrary:^5.0.0
 ```
 
 Next, you need to register the service provider:
