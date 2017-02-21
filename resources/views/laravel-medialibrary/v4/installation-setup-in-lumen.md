@@ -7,7 +7,7 @@ Lumen configuration is slightly more involved but features and API are identical
 Install using this command:
 
 ```bash
-composer require spatie/laravel-medialibrary
+composer require spatie/laravel-medialibrary:^4.0.0
 ```
 
 Uncomment the following lines in the bootstrap file:
