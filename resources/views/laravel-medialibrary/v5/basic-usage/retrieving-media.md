@@ -10,6 +10,12 @@ $mediaItems = $newsItem->getMedia();
 
 The method returns a collection of `Media`-objects.
 
+By default, `getMedia` looks for all media items accosiated with a collection with name `default`. To retrieve files from a different collection, specify the collection name in method's arguments:
+
+```php
+$mediaItems = $newsItem->getMedia('collectionName');
+```
+
 You can retrieve the url and path to the file associated with the `Media`-object using  `getUrl` and `getPath`:
 
 ```php
