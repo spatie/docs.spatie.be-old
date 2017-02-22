@@ -129,7 +129,6 @@ true` on your model.
 // in your model
     public $registerMediaConversionsUsingModelInstance = true;
 
-
     public function registerMediaConversions()
     {
         $this->addMediaConversion('thumb')
