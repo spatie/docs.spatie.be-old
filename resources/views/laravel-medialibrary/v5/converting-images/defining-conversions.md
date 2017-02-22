@@ -118,3 +118,25 @@ By default, a conversion will be added to the queue that you've [specified in th
               ->nonQueued();
     }
 ```
+
+
+## Using model properties in a conversion
+
+When registering conversions inside the `registerMediaConversions` function you won't have access to your model properties. If you want to use a property of your model as input for defining a conversion you must set `registerMediaConversionsUsingModelInstance` to `
+true` on your model.
+
+```php
+// in your model
+    public $registerMediaConversionsUsingModelInstance = true;
+
+
+    public function registerMediaConversions()
+    {
+        $this->addMediaConversion('thumb')
+              ->width($this->width)
+              ->height($this-height)
+              ->performOnCollections('images', 'downloads');
+    }
+```
+
+Be aware that this can lead to much more queries when processing media as the medialibrary has to fetch each separate model.
