@@ -122,7 +122,7 @@ By default, a conversion will be added to the queue that you've [specified in th
 
 ## Using model properties in a conversion
 
-When registering conversions inside the `registerMediaConversions` function you won't have access to your model properties. If you want to use a property of your model as input for defining a conversion you must set `registerMediaConversionsUsingModelInstance` to `
+When registering conversions inside the `registerMediaConversions` function you won't have access to your model properties by default. If you want to use a property of your model as input for defining a conversion you must set `registerMediaConversionsUsingModelInstance` to `
 true` on your model.
 
 ```php
