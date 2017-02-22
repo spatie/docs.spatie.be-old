@@ -134,9 +134,9 @@ true` on your model.
     {
         $this->addMediaConversion('thumb')
               ->width($this->width)
-              ->height($this-height)
+              ->height($this->height)
               ->performOnCollections('images', 'downloads');
     }
 ```
 
-Be aware that this can lead to much more queries when processing media as the medialibrary has to fetch each separate model.
+Be aware that this can lead a performance hit. When processing media the medialibrary has to perform queries to fetch each separate model.
