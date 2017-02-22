@@ -139,4 +139,4 @@ true` on your model.
     }
 ```
 
-Be aware that this can lead a performance hit. When processing media the medialibrary has to perform queries to fetch each separate model.
+Be aware that this can lead to a hit in performance. When processing media the medialibrary has to perform queries to fetch each separate model.
