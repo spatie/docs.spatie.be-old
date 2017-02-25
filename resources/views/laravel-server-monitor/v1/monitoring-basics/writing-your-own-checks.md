@@ -20,7 +20,7 @@ use Symfony\Component\Process\Process;
 
 class Nginx extends CheckDefinition
 {
-    public $command = 'service nginx status';
+    public $command = 'systemctl is-active nginx';
 
     public function handleSuccessfulProcess(Process $process)
     {
