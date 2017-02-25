@@ -59,7 +59,7 @@ return [
 
     'laravel-server-monitor' => [
         'githubUrl' => 'https://github.com/spatie/laravel-server-monitor',
-        'siteSlogan' => 'Monitor the health your server',
+        'siteSlogan' => 'Monitor the health of your server',
         'siteTitle' => 'Laravel Server Monitor',
         'versions' => ['v1'],
     ],
