@@ -16,12 +16,12 @@ return [
         'Adding hosts',
         'Built in checks',
         'Writing your own checks',
-        'Configuring notifications',
+        'Notifications and events',
     ],
 
     'Advanced usage' => [
         'Manually modifying hosts and checks',
-        'Customizing the checks',
         'Using your own model',
+        'Customizing notifications'
     ]
 ];
