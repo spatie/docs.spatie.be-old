@@ -2,6 +2,9 @@
 title: Introduction
 ---
 
+**THIS PACKAGE AND IT'S DOCUMENTATION ARE STILL IN DEVELOPMENT**
+
+
 We all dream over servers that need no maintenance at all. But unfortunately in reality this is not the case. Disks can get full, processes can crash, the server can run out of memory. 
 
 Using this package you can keep an eye on the health of your server. There are a few checks that come out of the box. Adding new checks is a breeze.

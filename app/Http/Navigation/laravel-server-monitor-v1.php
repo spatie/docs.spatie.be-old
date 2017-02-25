@@ -13,9 +13,9 @@ return [
     ],
 
     'Monitoring basics' => [
-        'Adding a host',
+        'Adding hosts',
         'Built in checks',
-        'Notifications',
+        'Configuring notifications',
         'Writing your own checks',
     ],
 ];
