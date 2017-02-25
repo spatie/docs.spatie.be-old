@@ -18,4 +18,10 @@ return [
         'Configuring notifications',
         'Writing your own checks',
     ],
+
+    'Advanced usage' => [
+        'Manually modifying hosts and checks',
+        'Customizing the checks',
+        'Using your own model',
+    ]
 ];
