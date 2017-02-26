@@ -37,7 +37,7 @@ class Nginx extends CheckDefinition
 
 Let's go over this code in detail. The command that needs to be executed on the server needs to go in the `$command` property of that class.
 
-The `handleSuccessfulProcess` function that accepts an instance of `Symfony\Component\Process\Process`. The output of that  `process` can be inspected using  `$process->getOutput()`. If the output contains `active` we'll call `$this->check->succeeded` which will mark the check as being succeed. If it does not contain that string `$this->check->failed` will be called which will mark the check as failed. By default the package will [send you a notification](https://docs.spatie.be/laravel-server-monitor/v1/monitoring-basics/configuring-notifications) whenever a check is marked as failed. The string that is passed to `$this->check->failed` will be displayed in the notification.
+The `handleSuccessfulProcess` function that accepts an instance of `Symfony\Component\Process\Process`. The output of that  `process` can be inspected using  `$process->getOutput()`. If the output contains `active` we'll call `$this->check->succeeded` which will mark the check as being succeed. If it does not contain that string `$this->check->failed` will be called which will mark the check as failed. By default the package will [send you a notification](https://docs.spatie.be/laravel-server-monitor/v1/monitoring-basics/notifications-and-events) whenever a check is marked as failed. The string that is passed to `$this->check->failed` will be displayed in the notification.
 
 ### Determining when a check will run the next time
 
