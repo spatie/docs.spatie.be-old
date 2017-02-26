@@ -17,8 +17,7 @@ You can also manually manipulate the rows of both tables. Here's a description o
 - `ip`: if this field contains an ip-address we'll use that instead of the `name` when connecting to a server
 `custom_properties`: see the section on [using custom properties](https://docs.spatie.be/laravel-server-monitor/v1/monitoring-basics/writing-your-own-checks#using-custom-properties)
  
- 
-The are the fields you can manipulate in the `checks` table: 
+These are the fields you can manipulate in the `checks` table: 
 
 - `host_id`: the `id` of the host in the `hosts` table on which this check will be performed.
 - `type`: TO DO
