@@ -24,17 +24,17 @@ Although we don't recommend this you could opt to [disable the host authenticity
 
 ## Deleting hosts
 
-Deleting hosts is a simple as running
+Deleting a host is a simple as running
 
 ```bash
 php artisan server-monitor:add-host <host-name>
 ```
 
-where `<host-name>` is the name of the host you which to delete.
+where `<host-name>` is the name of the host you wish to delete.
 
 ## Manually modifying hosts and checks
 
-Instead of using the artisan commands you may opt to [manually configure](https://docs.spatie.be/laravel-server-monitor/v1/advanced-usage/manually-configure-hosts-and-checks) the hosts and checks in the database
+Instead of using the artisan commands you may opt to [manually configure](https://docs.spatie.be/laravel-server-monitor/v1/advanced-usage/manually-configure-hosts-and-checks) the hosts and checks in the database.
 
 ## Listing hosts and checks
 
