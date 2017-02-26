@@ -1,8 +1,10 @@
 ---
-title: Adding hosts
+title: Managing hosts
 ---
 
-You can add hosts by running
+## Adding
+
+You can add hosts by running.
 
 ```bash
 php artisan server-monitor:add-host

@@ -13,7 +13,7 @@ return [
     ],
 
     'Monitoring basics' => [
-        'Adding hosts',
+        'Managing hosts',
         'Built in checks',
         'Writing your own checks',
         'Notifications and events',
