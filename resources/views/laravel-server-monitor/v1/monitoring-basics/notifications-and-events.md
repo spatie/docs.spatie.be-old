@@ -12,7 +12,7 @@ By default we'll only send you one notification an hour per warning or failure p
 
 In the [config file](https://docs.spatie.be/laravel-server-monitor/v1/installation-and-setup) your can customize the throttling behaviour by passing a differente value to `throttle_failing_notifications_for_minutes`.
 
-## Available notification
+## Available notifications
 
 ### CheckFailed
 
