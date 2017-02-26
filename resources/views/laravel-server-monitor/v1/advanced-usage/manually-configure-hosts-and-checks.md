@@ -15,10 +15,17 @@ You can also manually manipulate the rows of both tables. Here's a description o
 - `ssh-user`: the name of the ssh user the package should use when connecting to the remote server.
 - `port`: the port that should be used when connecting to the server. If this is empty port 22 will be used.
 - `ip`: if this field contains an ip-address we'll use that instead of the `name` when connecting to a server
-- `custom_properties`: see the section on [using custom properties](TO DO: add link)
+`custom_properties`: see the section on [using custom properties](https://docs.spatie.be/laravel-server-monitor/v1/monitoring-basics/writing-your-own-checks#using-custom-properties)
  
  
 The are the fields you can manipulate in the `checks` table: 
+
+- `host_id`: the `id` of the host in the `hosts` table on which this check will be performed.
+- `type`: TO DO
+- `enabled`: if this contains `0` the check won't be executed.
+- `custom_properties`: see the section on [using custom properties](https://docs.spatie.be/laravel-server-monitor/v1/monitoring-basics/writing-your-own-checks#using-custom-properties)
+   
+
 
  All other fields in the `checks` and `hosts tables are managed by the package and should not be manually modified.
  
