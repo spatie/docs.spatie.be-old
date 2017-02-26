@@ -14,6 +14,6 @@ When a check fails, and on other events, the package can send you a notification
  
  [In the config file](TO DO: add link) you can specify via which channels it will send notifications. By default the package has support for [Slack](https://slack.com/) and mail notifications. Because the package leverages Laravel's native notifications you can use any of the [community supported drivers](https://github.com/laravel-notification-channels) or [write your own](https://laravel.com/docs/5.4/notifications#custom-channels).
  
- Hosts can be added via the [`add-host` artisan command]() or by manually [adding them](TO DO: add link) in the `hosts` table.
+ Hosts and checks can be added via the [`add-host` artisan command]() or by manually [adding them](https://docs.spatie.be/laravel-server-monitor/v1/advanced-usage/manually-modifying-hosts-and-checks) in the `hosts` and `checks` table.
 
 This package comes with a small number of [built in checks](TO DO: add link). It's laughably easy to add your [own checks](TO DO: add link).
