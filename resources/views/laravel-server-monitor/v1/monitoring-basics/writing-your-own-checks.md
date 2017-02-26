@@ -2,7 +2,9 @@
 title: Writing your own checks
 ---
 
-Writing your own checks is very easy. Let's take a look at how we can manually verify wheter nginx is running. The easiest way to do this is to run `systemctl is-active nginx`. This command will output  `active` if Nginx is running.
+Writing your own checks is very easy. Let's create a check that'll verify if `nginx` is running.
+
+Let's take a look at how to manually verify if nginx is running. The easiest way is to run `systemctl is-active nginx`. This command outputs `active` if Nginx is running.
 
 <img src="/images/server-monitor/nginx.jpg">
 
@@ -33,9 +35,9 @@ class Nginx extends CheckDefinition
 }
 ```
 
-Let's go over this code in detail. The command that needs to be executed on the server needs to go in the `$command` property of that class.
+Let's go over this code in detail. The command to be executed on the server is specified in the `$command` property of the class.
 
-The `handleSuccessfulProcess` function that accepts an instance of `Symfony\Component\Process\Process`. The output of that  `process` can be inspected using  `$process->getOutput()`. If the output contains `active` we'll call `$this->check->succeeded` which will mark the check as being succeed. If it does not contain that string `$this->check->failed` will be called which will mark the check as failed. By default the package will [send you a notification](https://docs.spatie.be/laravel-server-monitor/v1/monitoring-basics/notifications-and-events) whenever a check is marked as failed. The string that is passed to `$this->check->failed` will be displayed in the notification.
+The `handleSuccessfulProcess` function that accepts an instance of `Symfony\Component\Process\Process`. The output of that `process` can be inspected using `$process->getOutput()`. If the output contains `active` we'll call `$this->check->succeeded` which will mark the check successful. If it does not contain that string `$this->check->failed` will be called and the check marked as failed. By default the package [sends you a notification](https://docs.spatie.be/laravel-server-monitor/v1/monitoring-basics/notifications-and-events) whenever a check fails. The string that is passed to `$this->check->failed` will be displayed in the notification.
 
 After creating this class you must register your class in the config file.
 
@@ -47,11 +49,11 @@ After creating this class you must register your class in the config file.
 ],
 ```
 
-### Determining when a check will run the next time
+### Determining when a check will run the next
 
- If you scheduled `php artisan server-monitor:run-checks`, [like we recommended](https://docs.spatie.be/laravel-server-monitor/v1/installation-and-setup#scheduling), to run every minute a check will, if it succeeds be run again after 10 minutes. If it succeeds it'll be run again the next minute.
+If you scheduled `php artisan server-monitor:run-checks`, [like we recommended](https://docs.spatie.be/laravel-server-monitor/v1/installation-and-setup#scheduling), to run every minute a successful check will run again 10 minutes later. If it succeeds it'll be run again the next minute.
  
- This behaviour is defined on the `Spatie\ServerMonitor\CheckDefinitions\CheckDefinition` class where all `CheckDefinitions` are extending from.
+This behaviour is defined on the `Spatie\ServerMonitor\CheckDefinitions\CheckDefinition` class where all `CheckDefinitions` are extending from.
  
  ```php
  // in class Spatie\ServerMonitor\CheckDefinitions\CheckDefinition
@@ -69,9 +71,9 @@ You may override that function in your own check.
 
 ### Setting the timeout of a command
 
-When executing a command on the server a timeout of 10 seconds will be used. If a command takes longer that that the check will be marked as failed.
+When executing a command on the server a timeout of 10 seconds will be used. If a command takes longer than that the check will be marked as failed.
 
- This behaviour is defined on the `Spatie\ServerMonitor\CheckDefinitions\CheckDefinition` class where all `CheckDefinitions` are extending from.
+This behaviour is defined in the `Spatie\ServerMonitor\CheckDefinitions\CheckDefinition` class from which all `CheckDefinitions` are extended.
  
 ```php
 public function timeoutInSeconds(): int
@@ -80,11 +82,11 @@ public function timeoutInSeconds(): int
 }
 ```
 
-Need another timeout for your, just override the `timeoutInSeconds` function in your own check.
+Need a different timeout? Just override the `timeoutInSeconds` function in your own check.
 
 ### Handling failed commands
 
-Whenever your command itself fails, because eg a connection to the host couldn't be made or your command itself was invalid, `handleFailedProcess` will be called.
+Whenever your command fails, e.g. because a connection to the host can't be made or your command is invalid, `handleFailedProcess` will be called.
 
 This is the default implementation on `Spatie\ServerMonitor\CheckDefinitions\CheckDefinition`:
 
@@ -101,7 +103,7 @@ Again, if you which to customize this behaviour, you can override that function 
 
 Both the check and the host can retrieve and store custom properties. These properties are stored as json in the `custom_properties` field in the `checks` and `hosts` tables.
 
-Here's how to work with those custom properties: 
+Here's how to work with custom properties: 
 
 ```php
 // a $model can be instance of `host` or `check`
@@ -112,7 +114,7 @@ $model->forgetCustomProperty('key');
 $model->getCustomProperty('key'); // returns null
 ```
 
-In you checks you can retrieve those custom properties like this:
+You can retrieve custom properties from your checks like this:
 
 ```php
 public function handleFailedProcess(Process $process)
