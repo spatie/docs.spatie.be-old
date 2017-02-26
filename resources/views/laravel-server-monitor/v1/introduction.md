@@ -7,9 +7,9 @@ title: Introduction
 
 We all dream over servers that need no maintenance at all. But unfortunately in reality this is not the case. Disks can get full, processes can crash, the server can run out of memory. 
 
-Using this package you can keep an eye on the health of your server. There are a few checks that come out of the box. Adding new checks is a breeze.
+Using this package you can keep an eye on the health of your server. There are a few [checks that come out of the box](https://docs.spatie.be/laravel-server-monitor/v1/monitoring-basics/built-in-checks). [Adding new checks](https://docs.spatie.be/laravel-server-monitor/v1/monitoring-basics/writing-your-own-checks) is a breeze.
 
-When something goes wrong it can notify via Slack or mail. Behind the scenes [Laravel's native notification system]() is leveraged so you can use one of the [many notification drivers](http://laravel-notification-channels.com/).
+When something goes wrong it can [notify you](https://docs.spatie.be/laravel-server-monitor/v1/monitoring-basics/notifications-and-events) via Slack or mail. Behind the scenes [Laravel's native notification system](https://laravel.com/docs/5.4/notifications) is leveraged so you can use one of the [many notification drivers](http://laravel-notification-channels.com/).
 
 ## We have badges!
 
