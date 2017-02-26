@@ -23,6 +23,17 @@ You'll need to register the service provider:
 ];
 ```
 
+You can publish the migrations with:
+```bash
+php artisan vendor:publish --provider="Spatie\ServerMonitor\ServerMonitorServiceProvider" --tag="migrations"
+```
+
+After the migration has been published you can create the `hosts`  and `checks `tables by running the migrations:
+
+```bash
+php artisan migrate
+```
+
 To publish the config file to `config/server-monitor.php` run:
 
 ``` bash
