@@ -2,4 +2,23 @@
 title: Manually modifying hosts and checks
 ---
 
-Coming soon...
+All configured checks are stored in the `checks` table in the database. Every check is related to one host stored in the `hosts` table  The various `serer-monitor` commands manipulate those two tables:
+ 
+ - `server-monitor:add-host` adds a host in the `hosts` table and creates checks in the `check` table related to that host.
+ - `server-monitor:delete-host` deletes a host and all related checks
+ - `server-monitor:list-hosts` lists all hosts
+  - `server-monitor:list-checks` lists detailed information about all checks
+ 
+You can also manually manipulate the rows of both tables. Here's a description of the fields you can manipulate in the `hosts` table:
+
+- `name`: the name of the host that will be checked.
+- `ssh-user`: the name of the ssh user the package should use when connecting to the remote server.
+- `port`: the port that should be used when connecting to the server. If this is empty port 22 will be used.
+- `ip`: if this field contains an ip-address we'll use that instead of the `name` when connecting to a server
+- `custom_properties`: see the section on [using custom properties](TO DO: add link)
+ 
+ 
+The are the fields you can manipulate in the `checks` table: 
+
+ All other fields in the `checks` and `hosts tables are managed by the package and should not be manually modified.
+ 

@@ -98,3 +98,9 @@ public function handleFailedProcess(Process $process)
 ```
 
 Again, if you which to customize this behaviour, you can override that function in your own check.
+
+### Using custom properties
+
+Coming soon...
+
+TO DO
