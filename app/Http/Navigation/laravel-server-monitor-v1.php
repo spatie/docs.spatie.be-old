@@ -20,7 +20,7 @@ return [
     ],
 
     'Advanced usage' => [
-        'Manually modifying hosts and checks',
+        'Manually configure hosts and checks',
         'Using your own model',
         'Customizing notifications'
     ]
