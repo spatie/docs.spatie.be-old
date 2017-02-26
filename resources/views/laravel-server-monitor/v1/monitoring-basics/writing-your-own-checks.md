@@ -4,7 +4,7 @@ title: Writing your own checks
 
 Writing your own checks is very easy. Let's create a check that'll verify if `nginx` is running.
 
-Let's take a look at how to manually verify if nginx is running. The easiest way is to run `systemctl is-active nginx`. This command outputs `active` if Nginx is running.
+Let's take a look at how to manually verify if Nginx is running. The easiest way is to run `systemctl is-active nginx`. This command outputs `active` if Nginx is running.
 
 <img src="/images/server-monitor/nginx.jpg">
 
@@ -51,7 +51,7 @@ After creating this class you must register your class in the config file.
 
 ### Determining when a check will run the next
 
-If you scheduled `php artisan server-monitor:run-checks`, [like we recommended](https://docs.spatie.be/laravel-server-monitor/v1/installation-and-setup#scheduling), to run every minute a successful check will run again 10 minutes later. If it succeeds it'll be run again the next minute.
+If you scheduled `php artisan server-monitor:run-checks`, [like we recommended](https://docs.spatie.be/laravel-server-monitor/v1/installation-and-setup#scheduling), to run every minute a successful check will run again 10 minutes later. If it fails it'll be run again the next minute.
  
 This behaviour is defined on the `Spatie\ServerMonitor\CheckDefinitions\CheckDefinition` class where all `CheckDefinitions` are extending from.
  
