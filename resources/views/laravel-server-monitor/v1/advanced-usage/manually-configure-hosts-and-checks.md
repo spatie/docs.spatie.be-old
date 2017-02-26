@@ -9,7 +9,7 @@ All configured checks are stored in the `checks` table in the database. Every ch
  - `server-monitor:list-hosts` lists all hosts
   - `server-monitor:list-checks` lists detailed information about all checks
  
-You can also manually manipulate the rows of both tables. Here's a description of the fields you can manipulate in the `hosts` table:
+You can also manually manipulate the rows of both tables. These fields can be manipulated in the `hosts` table:
 
 - `name`: the name of the host that will be checked.
 - `ssh-user`: the name of the ssh user the package should use when connecting to the remote server.
