@@ -4,9 +4,9 @@ title: Installation and setup
 
 ## Basic installation
 
-This package is meant to be installed into an existing Laravel application. If you're not familiar with Laravel head over to [the official documentation](https://laravel.com/docs) to learn how to set up and use this amazing framework.
+This package should be installed in an existing Laravel application. If you're not familiar with Laravel head over to [the official documentation](https://laravel.com/docs) to learn how to set up and use this amazing framework.
   
-Standing in the directory of an existing Laravel application you can install the package via composer:
+From the directory of an existing Laravel application you can install the package via composer:
 
 ``` bash
 composer require spatie/laravel-server-monitor:^1.0
@@ -29,7 +29,7 @@ To publish the config file to `config/server-monitor.php` run:
 php artisan vendor:publish --provider="Spatie\ServerMonitor\ServerMonitorServiceProvider"
 ```
 
-The default contents of the configuration looks like this:
+By default, the configuration looks like this:
 
 ```php
 
@@ -103,7 +103,7 @@ The default contents of the configuration looks like this:
 
 ## Scheduling
 
-After you have performed the basic installation you must schedule the `server-monitor:run-checks` command to run every minute.
+After performing the basic installation schedule the `server-monitor:run-checks` command to run every minute.
 
 ```php
 // app/Console/Kernel.php
