@@ -22,7 +22,6 @@ This notification will be sent whe calling `$this-check->failed()` in a check. T
 
 This is how the notification looks in Slack.
 
-TO DO: add image
 <img src="/images/server-monitor/check-failed.jpg" />
 
 ### CheckWarning
@@ -33,9 +32,7 @@ This notification will be sent whe calling `$this-check->warning()` in a check. 
 
 This is how the notification looks in Slack.
 
-TO DO: add image
 <img src="/images/server-monitor/check-warning.jpg" />
-
 
 ### CheckRestored
 
@@ -46,7 +43,6 @@ This notification will be sent when a check succeeds again after it had been fai
 
 This is how the notification looks in Slack.
 
-TO DO: add image
 <img src="/images/server-monitor/check-restored.jpg" />
 
 ### CheckSucceeded
