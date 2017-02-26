@@ -2,7 +2,7 @@
 title: Manually modifying hosts and checks
 ---
 
-All configured checks are stored in the `checks` table in the database. Every check is related to one host stored in the `hosts` table  The various `serer-monitor` commands manipulate those two tables:
+All configured checks are stored in the `checks` table in the database. Every check is related to one host stored in the `hosts` table  The various `server-monitor` commands manipulate those two tables:
  
  - `server-monitor:add-host` adds a host in the `hosts` table and creates checks in the `check` table related to that host.
  - `server-monitor:delete-host` deletes a host and all related checks
