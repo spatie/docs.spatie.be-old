@@ -2,7 +2,7 @@
 title: Managing hosts
 ---
 
-## Adding
+## Adding hosts
 
 You can add hosts by running.
 
