@@ -20,7 +20,7 @@ On most systems the authenticity of the host will be verified when connecting to
 
 <img src="/images/server-monitor/authenticity.jpg">
 
-Although we don't recommend this you could opt to [disable the host authenticity check](http://linuxcommando.blogspot.be/2008/10/how-to-disable-ssh-host-key-checking.html) altogether. Be aware that this will leave you open to man in the middle attacks. If you want to go ahead with this option add `-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no` to the `ssh_command_suffix` key in the `server-monitor` config file.
+Although we don't recommend this, you could opt to [disable the host authenticity check](http://linuxcommando.blogspot.be/2008/10/how-to-disable-ssh-host-key-checking.html) altogether. Be aware that this will leave yourself open to man in the middle attacks. If you want to go ahead with this option add `-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no` to the `ssh_command_suffix` key in the `server-monitor` config file.
 
 ## Deleting hosts
 
