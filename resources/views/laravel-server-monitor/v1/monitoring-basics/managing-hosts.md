@@ -12,11 +12,11 @@ You can add hosts by running:
 php artisan server-monitor:add-host
 ```
 
-It will ask you what the name of your host is, which ssh user and port should be used to connect to it and which of checks it should run.
+It will ask you what the name of your host is, which ssh user and port should be used to connect to the host and which of checks it should run.
 
 <img src="/images/server-monitor/add-host.jpg">
 
-On most systems when the authenticity of the host will be verified when connecting for the first time to it. The avoid problems while running the check we recommend manually opening up an ssh connection to the server you want to monitor to get past that check.
+On most systems the authenticity of the host will be verified when connecting for the first time to it. The avoid problems while running the check we recommend manually opening up an ssh connection to the server you want to monitor to get past that check.
 
 <img src="/images/server-monitor/authenticity.jpg">
 
