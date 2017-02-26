@@ -20,11 +20,9 @@ You can also manually manipulate the rows of both tables. Here's a description o
 These are the fields you can manipulate in the `checks` table: 
 
 - `host_id`: the `id` of the host in the `hosts` table on which this check will be performed.
-- `type`: TO DO
+- `type`: this value determines what check should be performed. The value should correspond with on one the key in `checks` key of the config file eg `diskspace`, `mysql`, ...
 - `enabled`: if this contains `0` the check won't be executed.
 - `custom_properties`: see the section on [using custom properties](https://docs.spatie.be/laravel-server-monitor/v1/monitoring-basics/writing-your-own-checks#using-custom-properties)
    
-
-
  All other fields in the `checks` and `hosts tables are managed by the package and should not be manually modified.
  

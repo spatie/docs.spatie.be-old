@@ -101,6 +101,30 @@ Again, if you which to customize this behaviour, you can override that function 
 
 ### Using custom properties
 
-Coming soon...
+Both the check and the host can retrieve and store custom properties. These properties are stored as json in the `custom_properties` field in the `checks` and `hosts` tables.
 
-TO DO
+Here's how to work with those custom properties: 
+
+```php
+// a $model can be instance of `host` or `check`
+$model->setCustomProperty('key', 'value');
+$model->getCustomProperty('key'); // returns 'value'
+
+$model->forgetCustomProperty('key');
+$model->getCustomProperty('key'); // returns null
+```
+
+In you checks you can retrieve those custom properties like this:
+
+```php
+public function handleFailedProcess(Process $process)
+{
+    ...
+
+    $customValueStoredOnCheck = $this->check->getCustomProperty('key');
+    
+    $customValueStoredOnHost = $this->check->host->getCustomProperty('key');
+    
+    ...
+}
+```
