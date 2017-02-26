@@ -44,7 +44,7 @@ You can list all configured hosts with:
 php artisan server-monitor:list-hosts
 ``` 
 
-TO DO: add image
+<img src="/images/server-monitor/list-hosts.jpg">
 
 Alternatively you can list all configured checks with: 
 
@@ -52,4 +52,4 @@ Alternatively you can list all configured checks with:
 php artisan server-monitor:list-checks
 ``` 
 
-TO DO: add image
+<img src="/images/server-monitor/list-checks.jpg">
