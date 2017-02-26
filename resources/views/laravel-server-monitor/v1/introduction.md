@@ -5,7 +5,7 @@ title: Introduction
 **THIS PACKAGE AND IT'S DOCUMENTATION ARE STILL IN DEVELOPMENT**
 
 
-We all dream over servers that need no maintenance at all. But unfortunately in reality this is not the case. Disks can get full, processes can crash, the server can run out of memory. 
+We all dream of servers that need no maintenance at all. But unfortunately in reality this is not the case. Disks can get full, processes can crash, the server can run out of memory. 
 
 Using this package you can keep an eye on the health of your server. There are a few [checks that come out of the box](https://docs.spatie.be/laravel-server-monitor/v1/monitoring-basics/built-in-checks). [Adding new checks](https://docs.spatie.be/laravel-server-monitor/v1/monitoring-basics/writing-your-own-checks) is a breeze.
 
