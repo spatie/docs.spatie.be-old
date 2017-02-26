@@ -7,10 +7,10 @@ This package leverages [Laravel's native notification capabilites](https://larav
 ```php
 'notifications' => [
    Spatie\ServerMonitor\Notifications\Notifications\CheckSucceeded::class => [],
-   Spatie\ServerMonitor\Notifications\Notificat ons\CheckRestored::class => ['slack'],
+   Spatie\ServerMonitor\Notifications\Notifications\CheckRestored::class => ['slack'],
    Spatie\ServerMonitor\Notifications\Notifications\CheckWarning::class => ['slack'],
    Spatie\ServerMonitor\Notifications\Notifications\CheckFailed::class => ['slack'],
 ],
 ```
 
-Notice that the config keys are fully qualified class names of the `Notification` classes. All notifications have support for `slack` and `mail` out of the box. If you want to add support for more channels or just want to use change some texts in the notifications you can specify your own notification classes in the config file. When creating custom notifications, it's  best to extend the default ones shipped with this package.
+Notice that the config keys are fully qualified class names of the `Notification` classes. All notifications have support for `slack` and `mail` out of the box. If you want to add support for more channels or just want to change the text of the notifications you can specify your own notification classes in the config file. When creating custom notifications, it's  best to extend the default ones shipped with this package.
