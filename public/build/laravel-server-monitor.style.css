@@ -1635,13 +1635,14 @@ sup {
   text-transform: none; }
 
 .header {
-  background-color: #a70852; }
+  background-color: #1b3747; }
 
 .header_background {
-  background: #a70852 url("/images/uptime-monitor/header.jpg") center no-repeat;
-  background-size: cover; }
+  background: #1b3747 url("/images/server-monitor/header.jpg") center no-repeat;
+  background-size: cover;
+  opacity: .65; }
 
 .header_caption_title,
 .header_caption_slogan {
   background: rgba(255, 255, 255, 0.85);
-  color: #8e0847; }
+  color: #1b3747; }

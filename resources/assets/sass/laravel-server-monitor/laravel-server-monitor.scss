@@ -1,16 +1,17 @@
 @import '../_base/base';
 
 .header {
-  background-color: color($pink);
+  background-color: color($blue, darkest);
 }
 
 .header_background {
-  background: color($pink) url('/images/uptime-monitor/header.jpg') center no-repeat;
+  background: color($blue, darkest) url('/images/server-monitor/header.jpg') center no-repeat;
   background-size: cover;
+  opacity: .65;
 }
 
 .header_caption_title,
 .header_caption_slogan {
   background: rgba($white, .85);
-  color: color($pink, dark);
+  color: color($blue, darkest);
 }

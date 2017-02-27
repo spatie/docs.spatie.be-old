@@ -10040,7 +10040,7 @@
 	            e.preventDefault();
 	            var href = $(this).attr('href');
 	            var whenInView = $(this).data('viewport-scroll') === '' ? true : $(this).data('viewport-scroll');
-	            viewport.scrollTo(href == '#' ? 0 : $(href), whenInView);
+	            viewport.scrollTo(href === '#' ? 0 : $(href), whenInView);
 	        });
 	        return this;
 	    },
@@ -10093,7 +10093,7 @@
 	        return this;
 	    },
 	    scrollToHash: function scrollToHash() {
-	        if (window.location.hash != '') {
+	        if (window.location.hash) {
 	            $(window).scrollTop(0);
 	            this.scrollTo($(window.location.hash));
 	        }
@@ -10122,7 +10122,7 @@
 	        }
 
 	        viewport._readConfigFromDom().update();
-	        $(window).load(function () {
+	        $(window).on('load', function () {
 	            viewport.root.removeClass(_this4.classPrefix + 'loading').addClass(_this4.classPrefix + 'loaded');
 	            viewport.loaded = true;
 	        }).scroll(function () {
@@ -10823,12 +10823,12 @@
 /***/ function(module, exports) {
 
 	/**
-	 * lodash 3.0.8 (Custom Build) <https://lodash.com/>
+	 * lodash (Custom Build) <https://lodash.com/>
 	 * Build: `lodash modularize exports="npm" -o ./`
-	 * Copyright 2012-2016 The Dojo Foundation <http://dojofoundation.org/>
+	 * Copyright jQuery Foundation and other contributors <https://jquery.org/>
+	 * Released under MIT license <https://lodash.com/license>
 	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2016 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
+	 * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 */
 
 	/** Used as references for various `Number` constants. */
@@ -10846,7 +10846,8 @@
 	var hasOwnProperty = objectProto.hasOwnProperty;
 
 	/**
-	 * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
+	 * Used to resolve the
+	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
 	 * of values.
 	 */
 	var objectToString = objectProto.toString;
@@ -10855,38 +10856,15 @@
 	var propertyIsEnumerable = objectProto.propertyIsEnumerable;
 
 	/**
-	 * The base implementation of `_.property` without support for deep paths.
-	 *
-	 * @private
-	 * @param {string} key The key of the property to get.
-	 * @returns {Function} Returns the new function.
-	 */
-	function baseProperty(key) {
-	  return function(object) {
-	    return object == null ? undefined : object[key];
-	  };
-	}
-
-	/**
-	 * Gets the "length" property value of `object`.
-	 *
-	 * **Note:** This function is used to avoid a [JIT bug](https://bugs.webkit.org/show_bug.cgi?id=142792)
-	 * that affects Safari on at least iOS 8.1-8.3 ARM64.
-	 *
-	 * @private
-	 * @param {Object} object The object to query.
-	 * @returns {*} Returns the "length" value.
-	 */
-	var getLength = baseProperty('length');
-
-	/**
 	 * Checks if `value` is likely an `arguments` object.
 	 *
 	 * @static
 	 * @memberOf _
+	 * @since 0.1.0
 	 * @category Lang
 	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
+	 * @returns {boolean} Returns `true` if `value` is an `arguments` object,
+	 *  else `false`.
 	 * @example
 	 *
 	 * _.isArguments(function() { return arguments; }());
@@ -10896,7 +10874,7 @@
 	 * // => false
 	 */
 	function isArguments(value) {
-	  // Safari 8.1 incorrectly makes `arguments.callee` enumerable in strict mode.
+	  // Safari 8.1 makes `arguments.callee` enumerable in strict mode.
 	  return isArrayLikeObject(value) && hasOwnProperty.call(value, 'callee') &&
 	    (!propertyIsEnumerable.call(value, 'callee') || objectToString.call(value) == argsTag);
 	}
@@ -10908,6 +10886,7 @@
 	 *
 	 * @static
 	 * @memberOf _
+	 * @since 4.0.0
 	 * @category Lang
 	 * @param {*} value The value to check.
 	 * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
@@ -10926,7 +10905,7 @@
 	 * // => false
 	 */
 	function isArrayLike(value) {
-	  return value != null && isLength(getLength(value)) && !isFunction(value);
+	  return value != null && isLength(value.length) && !isFunction(value);
 	}
 
 	/**
@@ -10935,9 +10914,11 @@
 	 *
 	 * @static
 	 * @memberOf _
+	 * @since 4.0.0
 	 * @category Lang
 	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is an array-like object, else `false`.
+	 * @returns {boolean} Returns `true` if `value` is an array-like object,
+	 *  else `false`.
 	 * @example
 	 *
 	 * _.isArrayLikeObject([1, 2, 3]);
@@ -10961,9 +10942,10 @@
 	 *
 	 * @static
 	 * @memberOf _
+	 * @since 0.1.0
 	 * @category Lang
 	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
+	 * @returns {boolean} Returns `true` if `value` is a function, else `false`.
 	 * @example
 	 *
 	 * _.isFunction(_);
@@ -10974,8 +10956,7 @@
 	 */
 	function isFunction(value) {
 	  // The use of `Object#toString` avoids issues with the `typeof` operator
-	  // in Safari 8 which returns 'object' for typed array and weak map constructors,
-	  // and PhantomJS 1.9 which returns 'function' for `NodeList` instances.
+	  // in Safari 8-9 which returns 'object' for typed array and other constructors.
 	  var tag = isObject(value) ? objectToString.call(value) : '';
 	  return tag == funcTag || tag == genTag;
 	}
@@ -10983,10 +10964,12 @@
 	/**
 	 * Checks if `value` is a valid array-like length.
 	 *
-	 * **Note:** This function is loosely based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
+	 * **Note:** This method is loosely based on
+	 * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
 	 *
 	 * @static
 	 * @memberOf _
+	 * @since 4.0.0
 	 * @category Lang
 	 * @param {*} value The value to check.
 	 * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
@@ -11010,11 +10993,13 @@
 	}
 
 	/**
-	 * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
-	 * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+	 * Checks if `value` is the
+	 * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+	 * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
 	 *
 	 * @static
 	 * @memberOf _
+	 * @since 0.1.0
 	 * @category Lang
 	 * @param {*} value The value to check.
 	 * @returns {boolean} Returns `true` if `value` is an object, else `false`.
@@ -11043,6 +11028,7 @@
 	 *
 	 * @static
 	 * @memberOf _
+	 * @since 4.0.0
 	 * @category Lang
 	 * @param {*} value The value to check.
 	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
@@ -12188,8 +12174,8 @@
 	(function(factory) {
 
 	  // Find the global object for export to both the browser and web workers.
-	  var globalObject = typeof window == 'object' && window ||
-	                     typeof self == 'object' && self;
+	  var globalObject = typeof window === 'object' && window ||
+	                     typeof self === 'object' && self;
 
 	  // Setup highlight.js for different environments. First is Node.js or
 	  // CommonJS.
@@ -12209,11 +12195,43 @@
 	  }
 
 	}(function(hljs) {
+	  // Convenience variables for build-in objects
+	  var ArrayProto = [],
+	      objectKeys = Object.keys;
+
+	  // Global internal variables used within the highlight.js library.
+	  var languages = {},
+	      aliases   = {};
+
+	  // Regular expressions used throughout the highlight.js library.
+	  var noHighlightRe    = /^(no-?highlight|plain|text)$/i,
+	      languagePrefixRe = /\blang(?:uage)?-([\w-]+)\b/i,
+	      fixMarkupRe      = /((^(<[^>]+>|\t|)+|(?:\n)))/gm;
+
+	  var spanEndTag = '</span>';
+
+	  // Global options used when within external APIs. This is modified when
+	  // calling the `hljs.configure` function.
+	  var options = {
+	    classPrefix: 'hljs-',
+	    tabReplace: null,
+	    useBR: false,
+	    languages: undefined
+	  };
+
+	  // Object map that is used to escape some common HTML characters.
+	  var escapeRegexMap = {
+	    '&': '&amp;',
+	    '<': '&lt;',
+	    '>': '&gt;'
+	  };
 
 	  /* Utility functions */
 
 	  function escape(value) {
-	    return value.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
+	    return value.replace(/[&<>]/gm, function(character) {
+	      return escapeRegexMap[character];
+	    });
 	  }
 
 	  function tag(node) {
@@ -12222,35 +12240,40 @@
 
 	  function testRe(re, lexeme) {
 	    var match = re && re.exec(lexeme);
-	    return match && match.index == 0;
+	    return match && match.index === 0;
 	  }
 
 	  function isNotHighlighted(language) {
-	    return (/^(no-?highlight|plain|text)$/i).test(language);
+	    return noHighlightRe.test(language);
 	  }
 
 	  function blockLanguage(block) {
-	    var i, match, length,
-	        classes = block.className + ' ';
+	    var i, match, length, _class;
+	    var classes = block.className + ' ';
 
 	    classes += block.parentNode ? block.parentNode.className : '';
 
 	    // language-* takes precedence over non-prefixed class names.
-	    match = (/\blang(?:uage)?-([\w-]+)\b/i).exec(classes);
+	    match = languagePrefixRe.exec(classes);
 	    if (match) {
 	      return getLanguage(match[1]) ? match[1] : 'no-highlight';
 	    }
 
 	    classes = classes.split(/\s+/);
+
 	    for (i = 0, length = classes.length; i < length; i++) {
-	      if (getLanguage(classes[i]) || isNotHighlighted(classes[i])) {
-	        return classes[i];
+	      _class = classes[i]
+
+	      if (isNotHighlighted(_class) || getLanguage(_class)) {
+	        return _class;
 	      }
 	    }
 	  }
 
 	  function inherit(parent, obj) {
-	    var result = {}, key;
+	    var key;
+	    var result = {};
+
 	    for (key in parent)
 	      result[key] = parent[key];
 	    if (obj)
@@ -12265,9 +12288,9 @@
 	    var result = [];
 	    (function _nodeStream(node, offset) {
 	      for (var child = node.firstChild; child; child = child.nextSibling) {
-	        if (child.nodeType == 3)
+	        if (child.nodeType === 3)
 	          offset += child.nodeValue.length;
-	        else if (child.nodeType == 1) {
+	        else if (child.nodeType === 1) {
 	          result.push({
 	            event: 'start',
 	            offset: offset,
@@ -12300,7 +12323,7 @@
 	      if (!original.length || !highlighted.length) {
 	        return original.length ? original : highlighted;
 	      }
-	      if (original[0].offset != highlighted[0].offset) {
+	      if (original[0].offset !== highlighted[0].offset) {
 	        return (original[0].offset < highlighted[0].offset) ? original : highlighted;
 	      }
 
@@ -12319,12 +12342,12 @@
 
 	      ... which is collapsed to:
 	      */
-	      return highlighted[0].event == 'start' ? original : highlighted;
+	      return highlighted[0].event === 'start' ? original : highlighted;
 	    }
 
 	    function open(node) {
 	      function attr_str(a) {return ' ' + a.nodeName + '="' + escape(a.value) + '"';}
-	      result += '<' + tag(node) + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
+	      result += '<' + tag(node) + ArrayProto.map.call(node.attributes, attr_str).join('') + '>';
 	    }
 
 	    function close(node) {
@@ -12332,14 +12355,14 @@
 	    }
 
 	    function render(event) {
-	      (event.event == 'start' ? open : close)(event.node);
+	      (event.event === 'start' ? open : close)(event.node);
 	    }
 
 	    while (original.length || highlighted.length) {
 	      var stream = selectStream();
-	      result += escape(value.substr(processed, stream[0].offset - processed));
+	      result += escape(value.substring(processed, stream[0].offset));
 	      processed = stream[0].offset;
-	      if (stream == original) {
+	      if (stream === original) {
 	        /*
 	        On any opening or closing tag of the original markup we first close
 	        the entire highlighted node stack, then render the original tag along
@@ -12350,10 +12373,10 @@
 	        do {
 	          render(stream.splice(0, 1)[0]);
 	          stream = selectStream();
-	        } while (stream == original && stream.length && stream[0].offset == processed);
+	        } while (stream === original && stream.length && stream[0].offset === processed);
 	        nodeStack.reverse().forEach(open);
 	      } else {
-	        if (stream[0].event == 'start') {
+	        if (stream[0].event === 'start') {
 	          nodeStack.push(stream[0].node);
 	        } else {
 	          nodeStack.pop();
@@ -12398,10 +12421,10 @@
 	          });
 	        };
 
-	        if (typeof mode.keywords == 'string') { // string
+	        if (typeof mode.keywords === 'string') { // string
 	          flatten('keyword', mode.keywords);
 	        } else {
-	          Object.keys(mode.keywords).forEach(function (className) {
+	          objectKeys(mode.keywords).forEach(function (className) {
 	            flatten(className, mode.keywords[className]);
 	          });
 	        }
@@ -12426,7 +12449,7 @@
 	      }
 	      if (mode.illegal)
 	        mode.illegalRe = langRe(mode.illegal);
-	      if (mode.relevance === undefined)
+	      if (mode.relevance == null)
 	        mode.relevance = 1;
 	      if (!mode.contains) {
 	        mode.contains = [];
@@ -12436,7 +12459,7 @@
 	        if (c.variants) {
 	          c.variants.forEach(function(v) {expanded_contains.push(inherit(c, v));});
 	        } else {
-	          expanded_contains.push(c == 'self' ? mode : c);
+	          expanded_contains.push(c === 'self' ? mode : c);
 	        }
 	      });
 	      mode.contains = expanded_contains;
@@ -12471,7 +12494,9 @@
 	  function highlight(name, value, ignore_illegals, continuation) {
 
 	    function subMode(lexeme, mode) {
-	      for (var i = 0; i < mode.contains.length; i++) {
+	      var i, length;
+
+	      for (i = 0, length = mode.contains.length; i < length; i++) {
 	        if (testRe(mode.contains[i].beginRe, lexeme)) {
 	          return mode.contains[i];
 	        }
@@ -12502,7 +12527,7 @@
 	    function buildSpan(classname, insideSpan, leaveOpen, noPrefix) {
 	      var classPrefix = noPrefix ? '' : options.classPrefix,
 	          openSpan    = '<span class="' + classPrefix,
-	          closeSpan   = leaveOpen ? '' : '</span>';
+	          closeSpan   = leaveOpen ? '' : spanEndTag
 
 	      openSpan += classname + '">';
 
@@ -12510,15 +12535,19 @@
 	    }
 
 	    function processKeywords() {
+	      var keyword_match, last_index, match, result;
+
 	      if (!top.keywords)
 	        return escape(mode_buffer);
-	      var result = '';
-	      var last_index = 0;
+
+	      result = '';
+	      last_index = 0;
 	      top.lexemesRe.lastIndex = 0;
-	      var match = top.lexemesRe.exec(mode_buffer);
+	      match = top.lexemesRe.exec(mode_buffer);
+
 	      while (match) {
-	        result += escape(mode_buffer.substr(last_index, match.index - last_index));
-	        var keyword_match = keywordMatch(top, match);
+	        result += escape(mode_buffer.substring(last_index, match.index));
+	        keyword_match = keywordMatch(top, match);
 	        if (keyword_match) {
 	          relevance += keyword_match[1];
 	          result += buildSpan(keyword_match[0], escape(match[0]));
@@ -12532,7 +12561,7 @@
 	    }
 
 	    function processSubLanguage() {
-	      var explicit = typeof top.subLanguage == 'string';
+	      var explicit = typeof top.subLanguage === 'string';
 	      if (explicit && !languages[top.subLanguage]) {
 	        return escape(mode_buffer);
 	      }
@@ -12555,11 +12584,11 @@
 	    }
 
 	    function processBuffer() {
-	      result += (top.subLanguage !== undefined ? processSubLanguage() : processKeywords());
+	      result += (top.subLanguage != null ? processSubLanguage() : processKeywords());
 	      mode_buffer = '';
 	    }
 
-	    function startNewMode(mode, lexeme) {
+	    function startNewMode(mode) {
 	      result += mode.className? buildSpan(mode.className, '', true): '';
 	      top = Object.create(mode, {parent: {value: top}});
 	    }
@@ -12568,7 +12597,7 @@
 
 	      mode_buffer += buffer;
 
-	      if (lexeme === undefined) {
+	      if (lexeme == null) {
 	        processBuffer();
 	        return 0;
 	      }
@@ -12606,13 +12635,13 @@
 	        }
 	        do {
 	          if (top.className) {
-	            result += '</span>';
+	            result += spanEndTag;
 	          }
 	          if (!top.skip) {
 	            relevance += top.relevance;
 	          }
 	          top = top.parent;
-	        } while (top != end_mode.parent);
+	        } while (top !== end_mode.parent);
 	        if (end_mode.starts) {
 	          startNewMode(end_mode.starts, '');
 	        }
@@ -12640,7 +12669,7 @@
 	    var top = continuation || language;
 	    var continuations = {}; // keep continuations for sub-languages
 	    var result = '', current;
-	    for(current = top; current != language; current = current.parent) {
+	    for(current = top; current !== language; current = current.parent) {
 	      if (current.className) {
 	        result = buildSpan(current.className, '', true) + result;
 	      }
@@ -12654,13 +12683,13 @@
 	        match = top.terminators.exec(value);
 	        if (!match)
 	          break;
-	        count = processLexeme(value.substr(index, match.index - index), match[0]);
+	        count = processLexeme(value.substring(index, match.index), match[0]);
 	        index = match.index + count;
 	      }
 	      processLexeme(value.substr(index));
 	      for(current = top; current.parent; current = current.parent) { // close dangling modes
 	        if (current.className) {
-	          result += '</span>';
+	          result += spanEndTag;
 	        }
 	      }
 	      return {
@@ -12670,7 +12699,7 @@
 	        top: top
 	      };
 	    } catch (e) {
-	      if (e.message.indexOf('Illegal') != -1) {
+	      if (e.message && e.message.indexOf('Illegal') !== -1) {
 	        return {
 	          relevance: 0,
 	          value: escape(value)
@@ -12693,7 +12722,7 @@
 
 	  */
 	  function highlightAuto(text, languageSubset) {
-	    languageSubset = languageSubset || options.languages || Object.keys(languages);
+	    languageSubset = languageSubset || options.languages || objectKeys(languages);
 	    var result = {
 	      relevance: 0,
 	      value: escape(text)
@@ -12724,15 +12753,15 @@
 
 	  */
 	  function fixMarkup(value) {
-	    if (options.tabReplace) {
-	      value = value.replace(/^((<[^>]+>|\t)+)/gm, function(match, p1 /*..., offset, s*/) {
-	        return p1.replace(/\t/g, options.tabReplace);
+	    return !(options.tabReplace || options.useBR)
+	      ? value
+	      : value.replace(fixMarkupRe, function(match, p1) {
+	          if (options.useBR && match === '\n') {
+	            return '<br>';
+	          } else if (options.tabReplace) {
+	            return p1.replace(/\t/g, options.tabReplace);
+	          }
 	      });
-	    }
-	    if (options.useBR) {
-	      value = value.replace(/\n/g, '<br>');
-	    }
-	    return value;
 	  }
 
 	  function buildClassName(prevClassName, currentLang, resultLang) {
@@ -12755,23 +12784,24 @@
 	  two optional parameters for fixMarkup.
 	  */
 	  function highlightBlock(block) {
+	    var node, originalStream, result, resultNode, text;
 	    var language = blockLanguage(block);
+
 	    if (isNotHighlighted(language))
 	        return;
 
-	    var node;
 	    if (options.useBR) {
 	      node = document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
 	      node.innerHTML = block.innerHTML.replace(/\n/g, '').replace(/<br[ \/]*>/g, '\n');
 	    } else {
 	      node = block;
 	    }
-	    var text = node.textContent;
-	    var result = language ? highlight(language, text, true) : highlightAuto(text);
+	    text = node.textContent;
+	    result = language ? highlight(language, text, true) : highlightAuto(text);
 
-	    var originalStream = nodeStream(node);
+	    originalStream = nodeStream(node);
 	    if (originalStream.length) {
-	      var resultNode = document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
+	      resultNode = document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
 	      resultNode.innerHTML = result.value;
 	      result.value = mergeStreams(originalStream, nodeStream(resultNode), text);
 	    }
@@ -12791,13 +12821,6 @@
 	    }
 	  }
 
-	  var options = {
-	    classPrefix: 'hljs-',
-	    tabReplace: null,
-	    useBR: false,
-	    languages: undefined
-	  };
-
 	  /*
 	  Updates highlight.js global options with values passed in the form of an object.
 	  */
@@ -12814,7 +12837,7 @@
 	    initHighlighting.called = true;
 
 	    var blocks = document.querySelectorAll('pre code');
-	    Array.prototype.forEach.call(blocks, highlightBlock);
+	    ArrayProto.forEach.call(blocks, highlightBlock);
 	  }
 
 	  /*
@@ -12825,9 +12848,6 @@
 	    addEventListener('load', initHighlighting, false);
 	  }
 
-	  var languages = {};
-	  var aliases = {};
-
 	  function registerLanguage(name, language) {
 	    var lang = languages[name] = language(hljs);
 	    if (lang.aliases) {
@@ -12836,7 +12856,7 @@
 	  }
 
 	  function listLanguages() {
-	    return Object.keys(languages);
+	    return objectKeys(languages);
 	  }
 
 	  function getLanguage(name) {
@@ -12897,7 +12917,7 @@
 	    mode.contains.push(hljs.PHRASAL_WORDS_MODE);
 	    mode.contains.push({
 	      className: 'doctag',
-	      begin: "(?:TODO|FIXME|NOTE|BUG|XXX):",
+	      begin: '(?:TODO|FIXME|NOTE|BUG|XXX):',
 	      relevance: 0
 	    });
 	    return mode;
@@ -12998,7 +13018,7 @@
 
 	  return {
 	    aliases: ['sh', 'zsh'],
-	    lexemes: /-?[a-z\.]+/,
+	    lexemes: /-?[a-z\._]+/,
 	    keywords: {
 	      keyword:
 	        'if then else elif fi for while in do done case esac function',
