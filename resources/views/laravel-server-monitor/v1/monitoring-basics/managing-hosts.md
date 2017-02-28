@@ -14,11 +14,11 @@ php artisan server-monitor:add-host
 
 You'll be prompted for the name of your host, the ssh user and the port that should be used to connect to the server and which checks it should run.
 
-<img src="/images/server-monitor/add-host.jpg">
+<img src="/images/server-monitor/add-host.jpg" class="screenshot -cli">
 
 On most systems the authenticity of the host will be verified when connecting to it for the first time. To avoid problems while running the check we recommend manually opening up an ssh connection to the server you want to monitor to get past that check.
 
-<img src="/images/server-monitor/authenticity.jpg">
+<img src="/images/server-monitor/authenticity.jpg" class="screenshot -cli">
 
 Although we don't recommend this, you could opt to [disable the host authenticity check](http://linuxcommando.blogspot.be/2008/10/how-to-disable-ssh-host-key-checking.html) altogether. Be aware that this will leave yourself open to man in the middle attacks. If you want to go ahead with this option add `-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no` to the `ssh_command_suffix` key in the `server-monitor` config file.
 
@@ -44,7 +44,7 @@ You can list all configured hosts with:
 php artisan server-monitor:list-hosts
 ``` 
 
-<img src="/images/server-monitor/list-hosts.jpg">
+<img src="/images/server-monitor/list-hosts.jpg" class="screenshot -cli">
 
 You can list all configured checks with: 
 
@@ -52,4 +52,4 @@ You can list all configured checks with:
 php artisan server-monitor:list-checks
 ``` 
 
-<img src="/images/server-monitor/list-checks.jpg">
+<img src="/images/server-monitor/list-checks.jpg" class="screenshot -cli">

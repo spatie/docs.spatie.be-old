@@ -1370,6 +1370,13 @@ sup {
       content: 'next topic';
       padding-left: 1em; }
 
+.screenshot {
+  margin: 2em 0; }
+  .screenshot.-slack {
+    max-width: 400px; }
+  .screenshot.-cli {
+    max-width: 500px; }
+
 .toolbar {
   font-size: 0.75em;
   position: absolute;
