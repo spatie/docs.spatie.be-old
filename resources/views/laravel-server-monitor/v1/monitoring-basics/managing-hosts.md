@@ -32,24 +32,36 @@ php artisan server-monitor:add-host <host-name>
 
 where `<host-name>` is the name of the host you which to delete.
 
+## Syncing from a file
+
+If you have a large number of hosts that you which to monitor using the `server-monitor:add-host` becomes tedious fast. Luckily there's also a command to bulk import hosts and check from a json.file
+
+```
+php artisan server-monitor:sych-hosts <path-to-file>
+```
+
+Here's an example of the structure that json file should have:
+
+```json
+[
+  {
+    "name": "my-site.com",
+    "ssh_user": "forge",
+    "ip": "1.2.3.4",
+    "checks": [
+      "diskspace", "mysql"
+    ]
+  },
+  {
+    "name": "another-site.be",
+    "ssh_user": "forge",
+    "checks": [
+      "diskspace"
+    ]
+  }
+]
+```
+
 ## Manually modifying hosts and checks
 
 Instead of using artisan commands you may opt to [manually configure](https://docs.spatie.be/laravel-server-monitor/v1/advanced-usage/manually-configure-hosts-and-checks) the hosts and checks in the database
-
-## Listing hosts and checks
-
-You can list all configured hosts with:
-
-```bash
-php artisan server-monitor:list-hosts
-``` 
-
-<img src="/images/server-monitor/list-hosts.jpg" class="screenshot -cli">
-
-You can list all configured checks with: 
-
-```bash
-php artisan server-monitor:list-checks
-``` 
-
-<img src="/images/server-monitor/list-checks.jpg" class="screenshot -cli">
