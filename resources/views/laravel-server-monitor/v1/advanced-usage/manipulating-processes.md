@@ -36,4 +36,4 @@ class MyManipulator implements Manipulator
 
 ```
 
-After creating the class you must specify it's fully qualified name in the `process_manipulator` key of the config file.
+After creating the class you must specify it's fully qualified name in the `process_manipulator` key of the `server-monitor` config file.
