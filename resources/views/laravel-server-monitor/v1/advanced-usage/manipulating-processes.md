@@ -24,6 +24,7 @@ class MyManipulator implements Manipulator
     {
         if ($check->host->name = 'my-host') {
             $manipulatedCommand = "{$process->getCommandLine()} appending extra options";
+            
             $process->setCommandLine($manipulatedCommand);
             
             $process->setTimeout(60);
