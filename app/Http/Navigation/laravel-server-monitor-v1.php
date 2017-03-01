@@ -23,6 +23,7 @@ return [
     'Advanced usage' => [
         'Manually configure hosts and checks',
         'Using your own model',
-        'Customizing notifications'
+        'Customizing notifications',
+        'Manipulating processes',
     ]
 ];
