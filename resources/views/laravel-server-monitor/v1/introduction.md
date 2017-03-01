@@ -18,7 +18,6 @@ Behind the scenes [Laravel's native notification system](https://laravel.com/doc
     <a href="https://github.com/spatie/laravel-server-monitor/releases"><img src="https://img.shields.io/github/release/spatie/laravel-server-monitor.svg?style=flat-square" alt="Latest Version"></a>
     <a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></a>
     <a href="https://travis-ci.org/spatie/laravel-server-monitor"><img src="https://img.shields.io/travis/spatie/laravel-server-monitor/master.svg?style=flat-square" alt="Build Status"></a>
-    <a href="https://insight.sensiolabs.com/projects/f28c2e98-ba1f-468a-9a5c-7ef4fe41a78a"><img src="https://img.shields.io/sensiolabs/i/f28c2e98-ba1f-468a-9a5c-7ef4fe41a78a.svg?style=flat-square" alt="SensioLabsInsight"></a>
     <a href="https://scrutinizer-ci.com/g/spatie/laravel-server-monitor"><img src="https://img.shields.io/scrutinizer/g/spatie/laravel-server-monitor.svg?style=flat-square" alt="Quality Score"></a>
     <a href="https://styleci.io/repos/67774357"><img src="https://styleci.io/repos/67774357/shield?branch=master" alt="StyleCI"></a>
     <a href="https://packagist.org/packages/spatie/laravel-server-monitor"><img src="https://img.shields.io/packagist/dt/spatie/laravel-server-monitor.svg?style=flat-square" alt="Total Downloads"></a>
