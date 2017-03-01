@@ -4,7 +4,7 @@ title: High level overview
 
 This package can perform health checks on all your servers. It does this by ssh'ing into them and performing certain commands. It'll interpret the output returned by the command to determine if the check failed or not.
 
-Let's illustrate this with the `memcached` check provided out of the box. This verifies if [Memcached](https://memcached.org/) is running. Thw check runs `service memcached status` on your server and if it outputs a string that contains `memcached is running` the check will succeed. If not, the check will fail.
+Let's illustrate this with the `memcached` check provided out of the box. This verifies if [Memcached](https://memcached.org/) is running. The check runs `service memcached status` on your server and if it outputs a string that contains `memcached is running` the check will succeed. If not, the check will fail.
 
 When a check fails, and on other events, the package can send you a notification. Notifications looks like this in Slack.
  
