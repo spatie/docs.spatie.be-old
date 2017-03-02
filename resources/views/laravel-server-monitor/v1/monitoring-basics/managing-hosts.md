@@ -37,7 +37,7 @@ where `<host-name>` is the name of the host you which to delete.
 If you have a large number of hosts that you which to monitor using the `server-monitor:add-host` becomes tedious fast. Luckily there's also a command to bulk import hosts and check from a json.file
 
 ```
-php artisan server-monitor:sych-hosts <path-to-file>
+php artisan server-monitor:sync-file <path-to-file>
 ```
 
 Here's an example of the structure that json file should have:
