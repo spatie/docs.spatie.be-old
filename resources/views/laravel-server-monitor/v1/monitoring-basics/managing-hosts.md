@@ -27,7 +27,7 @@ Although we don't recommend this, you could opt to [disable the host authenticit
 Deleting hosts is a simple as running
 
 ```bash
-php artisan server-monitor:add-host <host-name>
+php artisan server-monitor:delete-host <host-name>
 ```
 
 where `<host-name>` is the name of the host you which to delete.
