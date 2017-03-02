@@ -120,7 +120,6 @@ return [
      */
     'process_manipulator' => Spatie\ServerMonitor\Manipulators\Passthrough::class,
 ];
-
 ```
 
 ## Scheduling
