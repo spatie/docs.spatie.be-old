@@ -59,5 +59,5 @@ public function nonQueued()
 
 ## Image manipulations
 
-You may add any call to of [the manipulation functions](https://docs.spatie.be/imagine) available on [the spatie/image package](https://github.com/spatie/image).
+You may add any call to one of [the manipulation functions](https://docs.spatie.be/image) available on [the spatie/image package](https://github.com/spatie/image).
 
