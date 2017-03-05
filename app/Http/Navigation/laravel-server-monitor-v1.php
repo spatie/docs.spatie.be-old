@@ -7,6 +7,7 @@ return [
         'Requirements',
         'High level overview',
         'Installation and setup',
+        'Using the stand alone version',
         'Questions and issues',
         'Changelog',
         'About us',
