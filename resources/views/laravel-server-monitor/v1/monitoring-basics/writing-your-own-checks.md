@@ -22,22 +22,22 @@ class Nginx extends CheckDefinition
 {
     public $command = 'systemctl is-active nginx';
 
-    public function handleSuccessfulProcess(Process $process)
+    public function resolve(Process $process)
     {
         if (str_contains($process->getOutput(), 'active')) {
-            $this->check->succeeded('is running');
+            $this->check->succeed('is running');
 
             return;
         }
 
-        $this->check->failed('is not running');
+        $this->check->fail('is not running');
     }
 }
 ```
 
 Let's go over this code in detail. The command to be executed on the server is specified in the `$command` property of the class.
 
-The `handleSuccessfulProcess` function that accepts an instance of `Symfony\Component\Process\Process`. The output of that `process` can be inspected using `$process->getOutput()`. If the output contains `active` we'll call `$this->check->succeeded` which will mark the check successful. If it does not contain that string `$this->check->failed` will be called and the check marked as failed. By default the package [sends you a notification](https://docs.spatie.be/laravel-server-monitor/v1/monitoring-basics/notifications-and-events) whenever a check fails. The string that is passed to `$this->check->failed` will be displayed in the notification.
+The `resolve` function that accepts an instance of `Symfony\Component\Process\Process`. The output of that `process` can be inspected using `$process->getOutput()`. If the output contains `active` we'll call `$this->check->succeeded` which will mark the check successful. If it does not contain that string `$this->check->fail` will be called and the check marked as failed. By default the package [sends you a notification](https://docs.spatie.be/laravel-server-monitor/v1/monitoring-basics/notifications-and-events) whenever a check fails. The string that is passed to `$this->check->failed` will be displayed in the notification.
 
 After creating this class you must register your class in the config file.
 

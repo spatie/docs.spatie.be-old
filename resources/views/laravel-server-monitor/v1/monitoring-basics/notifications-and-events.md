@@ -18,7 +18,7 @@ In the [config file](https://docs.spatie.be/laravel-server-monitor/v1/installati
 
 `Spatie\ServerMonitor\Notifications\Notifications\CheckFailed`
 
-This notification is sent when calling `$this-check->failed()` in a check. This also causes the `Spatie\ServerMonitor\Events\CheckFailed`-event to fire.
+This notification is sent when calling `$this-check->fial()` in a check. This also causes the `Spatie\ServerMonitor\Events\CheckFailed`-event to fire.
 
 This is how the notification looks in Slack.
 
@@ -28,7 +28,7 @@ This is how the notification looks in Slack.
 
 `Spatie\ServerMonitor\Notifications\Notifications\CheckWarning`
 
-This notification is sent when calling `$this-check->warning()` in a check. This also causes the `Spatie\ServerMonitor\Events\CheckWarning`-event to fire.
+This notification is sent when calling `$this-check->warn()` in a check. This also causes the `Spatie\ServerMonitor\Events\CheckWarning`-event to fire.
 
 The notification looks like this in Slack.
 
@@ -49,6 +49,6 @@ The notification looks like this in Slack.
 
 `Spatie\ServerMonitor\Notifications\Notifications\CheckSucceeded`
 
-This notification is sent when calling `$this-check->succeeded()` in a check. This also fires the `Spatie\ServerMonitor\Events\CheckSucceeded`-event.
+This notification is sent when calling `$this-check->succeed()` in a check. This also fires the `Spatie\ServerMonitor\Events\CheckSucceeded`-event.
 
 You probably don't want to be notified of this event as it is fired many many times. 
