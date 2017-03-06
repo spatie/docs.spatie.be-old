@@ -24,7 +24,7 @@ class Nginx extends CheckDefinition
 
     public function resolve(Process $process)
     {
-        if (trim($process->getOutput()) == 'active') {
+        if (trim($process->getOutput()) === 'active') {
             $this->check->succeed('is running');
 
             return;
