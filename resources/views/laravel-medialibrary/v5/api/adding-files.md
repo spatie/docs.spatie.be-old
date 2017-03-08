@@ -52,14 +52,54 @@ public function addMediaFromUrl(string $url)
 /**
  * Add file from the current request to the medialibrary.
  * 
- * @param $url
+ * @param string $keyName
  *
- * @return mixed
+ * @return \Spatie\MediaLibrary\FileAdder\FileAdder
  *
-     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
+ * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
  */
-public function addMediaFromRequest($keyNAme)
+public function addMediaFromRequest(string $keyName): FileAdder
 ```
+
+### addMultipleMediaFromRequest
+
+```php
+/**
+ * Add multiple files from the current request to the medialibrary.
+ * 
+ * @param string[] $keys
+ *
+ * @return Collection
+ *
+ * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
+ */
+public function addMultipleMediaFromRequest(array $keyNames): Collection
+```
+
+Please note the return type of `addMultipleMediaFromRequest` is a collection of `FileAdder`s. This means you'll have to loop over every `FileAdder` to use any of the middle methods. For example:
+
+```php
+$fileAdders = $this->model
+    ->addMultipleMediaFromRequest(['file-one', 'file-two'])
+    ->each(function ($fileAdder) {
+        $fileAdder->toMediaLibrary();
+    });
+```
+
+### addAllMediaFromRequest
+
+```php
+/**
+ * Add all files from the current request to the medialibrary.
+ *
+ * @return Collection
+ *
+ * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
+ */
+public function addAllMediaFromRequest(): Collection
+```
+
+Please note the return type of `addAllMediaFromRequest` is a Collection of `FileAdder`s. This means you'll have to loop over every `FileAdder` to use any of the middle methods. See the `addMultipleMediaFromRequest` method above for an example.
 
 ### copyMedia
 
