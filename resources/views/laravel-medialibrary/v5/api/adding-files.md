@@ -69,22 +69,21 @@ public function addMediaFromRequest(string $keyName): FileAdder
  * 
  * @param string[] $keys
  *
- * @return \Spatie\MediaLibrary\FileAdder\FileAdder[]
+ * @return Collection
  *
  * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
  */
-public function addMultipleMediaFromRequest(array $keyNames): array
+public function addMultipleMediaFromRequest(array $keyNames): Collection
 ```
 
-Please note the return type of `addMultipleMediaFromRequest` is an array of `FileAdder`s. This means you'll have to loop over every `FileAdder` to use any of the middle methods. For example:
+Please note the return type of `addMultipleMediaFromRequest` is a collection of `FileAdder`s. This means you'll have to loop over every `FileAdder` to use any of the middle methods. For example:
 
 ```php
 $fileAdders = $this->model
-    ->addMultipleMediaFromRequest(['file-one', 'file-two']);
-
-foreach($fileAdders as $fileAdder) {
-    $media = $fileAdder->toMediaLibrary();
-}
+    ->addMultipleMediaFromRequest(['file-one', 'file-two'])
+    ->each(function ($fileAdder) {
+        $fileAdder->toMediaLibrary();
+    });
 ```
 
 ### addAllMediaFromRequest
@@ -93,14 +92,14 @@ foreach($fileAdders as $fileAdder) {
 /**
  * Add all files from the current request to the medialibrary.
  *
- * @return \Spatie\MediaLibrary\FileAdder\FileAdder[]
+ * @return Collection
  *
  * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
  */
-public function addAllMediaFromRequest(): array
+public function addAllMediaFromRequest(): Collection
 ```
 
-Please note the return type of `addAllMediaFromRequest` is an array of `FileAdder`s. This means you'll have to loop over every `FileAdder` to use any of the middle methods. See the `addMultipleMediaFromRequest` method above for an example.
+Please note the return type of `addAllMediaFromRequest` is a Collection of `FileAdder`s. This means you'll have to loop over every `FileAdder` to use any of the middle methods. See the `addMultipleMediaFromRequest` method above for an example.
 
 ### copyMedia
 
