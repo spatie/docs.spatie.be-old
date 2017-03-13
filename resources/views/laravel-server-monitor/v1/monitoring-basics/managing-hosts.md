@@ -30,11 +30,11 @@ Deleting hosts is a simple as running
 php artisan server-monitor:delete-host <host-name>
 ```
 
-where `<host-name>` is the name of the host you which to delete.
+where `<host-name>` is the name of the host you wish to delete.
 
 ## Syncing from a file
 
-If you have a large number of hosts that you which to monitor using the `server-monitor:add-host` becomes tedious fast. Luckily there's also a command to bulk import hosts and check from a json.file
+If you have a large number of hosts that you wish to monitor using the `server-monitor:add-host` becomes tedious fast. Luckily there's also a command to bulk import hosts and check from a json file:
 
 ```
 php artisan server-monitor:sync-file <path-to-file>
