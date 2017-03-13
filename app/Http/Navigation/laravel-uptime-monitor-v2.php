@@ -27,6 +27,7 @@ return [
 
     'Advanced usage' => [
         'Manually modifying monitors',
+        'Syncing monitors from a file',
         'Customizing the uptime check',
         'Customizing notifications',
         'Disabling monitors',
