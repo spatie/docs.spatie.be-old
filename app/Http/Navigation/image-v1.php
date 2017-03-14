@@ -21,6 +21,6 @@ return [
         'Adjustments',
         'Image canvas',
         'Effects',
-        'Watermark',
+        'Watermarks',
     ]
 ];
