@@ -26,8 +26,7 @@ title: Overview
 - [Sepia](/image/v1/image-manipulations/effects)
 - [Sharpen](/image/v1/image-manipulations/effects)
 
-## Watermark
-
+## Watermarks
 - [Adding a watermark](/image/v1/image-manipulations/watermark)
 - [Watermark opacity](/image/v1/image-manipulations/watermark)
 - [Watermark position](/image/v1/image-manipulations/watermark)
