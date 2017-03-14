@@ -20,6 +20,7 @@ return [
         'Resizing images',
         'Adjustments',
         'Image canvas',
-        'Effects'
+        'Effects',
+        'Watermark',
     ]
 ];

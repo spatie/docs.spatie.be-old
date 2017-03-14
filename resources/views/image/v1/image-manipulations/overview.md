@@ -25,3 +25,11 @@ title: Overview
 - [Greyscale](/image/v1/image-manipulations/effects)
 - [Sepia](/image/v1/image-manipulations/effects)
 - [Sharpen](/image/v1/image-manipulations/effects)
+
+## Watermark
+
+- [Adding a watermark](/image/v1/image-manipulations/watermark)
+- [Watermark opacity](/image/v1/image-manipulations/watermark)
+- [Watermark position](/image/v1/image-manipulations/watermark)
+- [Watermark padding](/image/v1/image-manipulations/watermark)
+- [Watermark size](/image/v1/image-manipulations/watermark)
