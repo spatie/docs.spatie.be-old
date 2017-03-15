@@ -24,5 +24,5 @@ These are the fields you can manipulate in the `checks` table:
 - `enabled`: if this contains `0` the check won't be executed.
 - `custom_properties`: see the section on [using custom properties](https://docs.spatie.be/laravel-server-monitor/v1/monitoring-basics/writing-your-own-checks#using-custom-properties)
    
- All other fields in the `checks` and `hosts tables are managed by the package and should not be manually modified.
+ All other fields in the `checks` and `hosts` tables are managed by the package and should not be manually modified.
  
