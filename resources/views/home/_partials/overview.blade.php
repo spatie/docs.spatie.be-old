@@ -29,5 +29,5 @@
 <h3><a href="/image">Image Documentation</a></h3>
 <p>Manipulate images with an expressive API.</p>
 
-<h3><a href="/html">Html</a></h3>
+<h3><a href="/html">Html Documentation</a></h3>
 <p>Generate html with ease.</p>
