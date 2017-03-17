@@ -59,8 +59,15 @@ return [
 
     'laravel-server-monitor' => [
         'githubUrl' => 'https://github.com/spatie/laravel-server-monitor',
-        'siteSlogan' => 'Don\'t let them melt',
+        'siteSlogan' => "Don't let them melt",
         'siteTitle' => 'Laravel Server Monitor',
+        'versions' => ['v1'],
+    ],
+
+    'html' => [
+        'githubUrl' => 'https://github.com/spatie/html',
+        'siteSlogan' => 'Generate html with ease',
+        'siteTitle' => 'Html',
         'versions' => ['v1'],
     ],
 ];
