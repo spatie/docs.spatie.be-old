@@ -74,8 +74,6 @@ $image->watermark('watermark.png')
 
 ![Example](https://docs.spatie.be/images/image/example-watermark-resize.jpg)
 
-> You might want to use a higher resolution watermark for your images.
-
 As you can see in the example above. The watermark automatically resized itself to be contained within the given dimension but also keep the aspect ratio the same.
 
 ### Watermark fit resize
@@ -101,4 +99,4 @@ $image->watermark('watermark.png')
 
 ![Example](https://docs.spatie.be/images/image/example-watermark-resize-stretch.jpg)
 
-> Very pretty.
+_Very pretty._
