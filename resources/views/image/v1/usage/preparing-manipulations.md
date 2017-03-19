@@ -10,7 +10,7 @@ $manipulations = (new Manipulations())
 	->brightness(-20);
 ```
 
-and then you can use that to manipulate a collection of images.
+Then you can use that to manipulate a collection of images.
 
 ```php
 //using Laravel's collect function
