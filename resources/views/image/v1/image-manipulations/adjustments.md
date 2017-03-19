@@ -4,7 +4,7 @@ title: Adjustments
 
 ## Brightness
 
-The `brightness` method adjusts the brightness of the `Image`. Accepts a value between `-100` and `100`.
+The `brightness` method adjusts the brightness of the `Image`. The method accepts a value between `-100` and `100`.
 
 ```php
 $image->brightness(-20);
@@ -14,7 +14,7 @@ $image->brightness(-20);
 
 ## Contrast
 
-The `contrast` method adjusts the contrast of the `Image`. Accepts a value between `-100` and `100`.
+The `contrast` method adjusts the contrast of the `Image`. The method accepts a value between `-100` and `100`.
 
 ```php
 $image->contrast(20);
@@ -24,7 +24,7 @@ $image->contrast(20);
 
 ## Gamma
 
-The `gamma` method adjusts the gamma of the `Image`. Accepts a value between `0.1` and `9.99`.
+The `gamma` method adjusts the gamma of the `Image`. The method accepts a value between `0.1` and `9.99`.
 
 ```php
 $image->gamma(4.1);
