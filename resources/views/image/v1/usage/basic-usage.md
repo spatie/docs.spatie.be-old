@@ -25,7 +25,7 @@ Image::load('example.jpg')
 
 ## Saving the image
 
-Calling the `save` method on an `Image` will save the modifications to the original file. You can save you modified image by passing a `$outputPath` to the `save` method.
+Calling the `save` method on an `Image` will save the modifications to the original file. You can save your modified image by passing a `$outputPath` to the `save` method.
 
 ```php
 Image::load('example.jpg')
