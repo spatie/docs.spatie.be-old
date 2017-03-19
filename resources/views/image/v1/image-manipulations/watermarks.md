@@ -2,7 +2,7 @@
 title: Watermarks
 ---
 
-Adding a watermark to an image is really simple:
+Adding a watermark to an `Image` is really simple:
 
 ```php
 $image->watermark('watermark.png');
@@ -27,7 +27,9 @@ $image->watermark('watermark.png')
 
 ## Watermark position
 
-As you can see in the example above the watermark is placed in the bottom right corner by default. This behaviour can be override via `watermarkPosition`. You can use the `POSITION_*` constants on the `Manipulations` class as arguments. For example:
+As you can see in the example above the watermark is placed in the bottom right corner by default. This behaviour can be overridden via the `watermarkPosition`. You can use the `POSITION_*` constants on the `Manipulations` class as arguments. 
+
+### Example usage
 
 ```php
 $image->watermark('watermark.png')
@@ -43,7 +45,7 @@ Use the `watermarkPadding` method to set the distance from the watermark to the 
 
 By default the padding values are assumed to be pixels. You can however pass in `Manipulations::UNIT_PERCENT` as the `$unit` to use percentages as padding values.
 
-For example: 
+### Example usage 
 
 ```php
 $image->watermark('watermark.png')
@@ -78,7 +80,7 @@ As you can see in the example above. The watermark automatically resized itself 
 
 ### Watermark fit resize
 
-To change the way the watermark is resized within the given boundaries you can use the `watermarkFit` method. This method accepts a `$fitMethod` argument. The following `$fitMethods` are available om the `Manipulations` class as constants:
+To change the way the watermark is resized within the given boundaries you can use the `watermarkFit` method. This method accepts a `$fitMethod` argument. The following `$fitMethods` are available on the `Manipulations` class as constants:
 
 - `Manipulations::FIT_CONTAIN`
 - `Manipulations::FIT_MAX`
