@@ -12,7 +12,7 @@ All configured checks are stored in the `checks` table in the database. Every ch
 You can also manually manipulate the rows of both tables. These fields can be manipulated in the `hosts` table:
 
 - `name`: the name of the host that will be checked.
-- `ssh-user`: the name of the ssh user the package should use when connecting to the remote server.
+- `ssh_user`: the name of the ssh user the package should use when connecting to the remote server.
 - `port`: the port that should be used when connecting to the server. If this is empty port 22 will be used.
 - `ip`: if this field contains an ip-address we'll use that instead of the `name` when connecting to a server
 - `custom_properties`: see the section on [using custom properties](https://docs.spatie.be/laravel-server-monitor/v1/monitoring-basics/writing-your-own-checks#using-custom-properties)
