@@ -4,7 +4,7 @@ title: Effects
 
 ## Blur
 
-The `blur` method blurs the `Image`. Accepts a value between `0` and `100`.
+The `blur` method blurs the `Image`. The method accepts a value between `0` and `100`.
 
 ```php
 $image->blur(50);
@@ -14,7 +14,7 @@ $image->blur(50);
 
 ## Pixelate
 
-The `pixelate` method pixelates the `Image`. Accepts a value between `0` and `100`.
+The `pixelate` method pixelates the `Image`. The method accepts a value between `0` and `100`.
 
 ```php
 $image->pixelate(50);
@@ -44,7 +44,7 @@ $image->sepia();
 
 ## Sharpen
 
-The `sharpen` method sharpens `Image`. Accepts a value between `0` and `100`.
+The `sharpen` method sharpens `Image`. The method accepts a value between `0` and `100`.
 
 ```php
 $image->sharpen(40);
