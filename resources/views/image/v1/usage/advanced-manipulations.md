@@ -4,7 +4,7 @@ title: Advanced manipulations
 
 By default every manipulation will only be applied once to your image. When calling a manipulation method multiple times only the last call will be applied when the image is saved.
 
-For example:
+### Example usage
 
 ```php
 // This will only lower the brightness by 20%
@@ -20,7 +20,7 @@ Image::load('example.jpg')
 
 The `apply` method will apply all previous manipulations to the image before continuing with the next manipulations.
 
-For example:
+### Example usage
 
 ```php
 // This will lower the brightness by 40%, then lower it again by 20%
