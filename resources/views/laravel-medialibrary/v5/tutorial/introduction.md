@@ -3,7 +3,7 @@ title: Introduction
 ---
 
 To get you started we've prepared a couple of basic real-life examples showing off the capabilities of the medialibrary.
- They're available in this seperate Laravel project: [https://github.com/spatie/laravel-medialibrary-demo]().
+ They're available in this separate Laravel project: [https://github.com/spatie/laravel-medialibrary-demo]( https://github.com/spatie/laravel-medialibrary-demo).
 
 To get started with this demo project follow the instructions in the repo's [readme](https://github.com/spatie/laravel-medialibrary-demo/blob/master/README.md). You'll have to set up a database with some migrations and seed it with the demo data.
 
