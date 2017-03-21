@@ -81,7 +81,7 @@ $image->crop(string $cropMethod, int $width, int $height);
 The following `$cropMethod`s are available through constants of the `Manipulations` class:  
 `CROP_TOP_LEFT`, `CROP_TOP`, `CROP_TOP_RIGHT`, `CROP_LEFT`, `CROP_CENTER`, `CROP_RIGHT`, `CROP_BOTTOM_LEFT`, `CROP_BOTTOM`, `CROP_BOTTOM_RIGHT`.
 
-### Example
+### Example usage
 
 ```php
 Image::load('example.jpg')
@@ -107,7 +107,7 @@ The `manualCrop` method crops a specific area of the image by specifying the `$s
 $image->manualCrop(int $width, int $height, int $x, int $y);
 ```
 
-### Example
+### Example usage
 
 ```php
 Image::load('example.jpg')
