@@ -32,7 +32,7 @@ The name of a `Media` instance can be changed when it's added to the medialibrar
 $newsItem
    ->addMedia($pathToFile)
    ->usingName('new name')
-   ->toMediaLibrary();
+   ->toMediaLibraryCollection();
 ```
 
 The name of the uploaded file can be changed via the media-object:
@@ -48,7 +48,7 @@ The name of the uploaded file can also be changed when it gets added to the medi
 $newsItem
    ->addMedia($pathToFile)
    ->usingFileName('otherFileName.txt')
-   ->toMediaLibrary();
+   ->toMediaLibraryCollection();
 ```
 
 You can also retrieve the size of the file via  `size` and `human_readable_size` :
