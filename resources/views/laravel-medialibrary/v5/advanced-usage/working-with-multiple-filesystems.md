@@ -10,5 +10,5 @@ Files can also be stored [on any filesystem that is configured in your Laravel a
 
 ```php
 // Will be stored on a disk named s3
-$newsItem->addMedia($pathToAFile)->toMediaLibrary('images', 's3');
+$newsItem->addMedia($pathToAFile)->toMediaLibraryCollection('images', 's3');
 ```
