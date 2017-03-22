@@ -8,7 +8,7 @@ You can associate a file with a model like this:
 $newsItem = NewsItem::find(1);
 $newsItem
    ->addMedia($pathToFile)
-   ->toMediaLibraryCollection();
+   ->toMediaCollection();
 ```
 
 The file will now be associated with the `NewsItem` instance and will be moved to the disk you've configured.
@@ -19,7 +19,7 @@ If you want to not move, but copy, the original file you can call `preservingOri
 $newsItem
    ->addMedia($pathToFile)
    ->preservingOriginal()
-   ->toMediaLibraryCollection();
+   ->toMediaCollection();
 ```
 
 You can also add a remote file to the media library:
@@ -28,5 +28,5 @@ You can also add a remote file to the media library:
 $url = 'http://medialibrary.spatie.be/assets/images/mountain.jpg';
 $newsItem
    ->addMediaFromUrl($url)
-   ->toMediaLibraryCollection();
+   ->toMediaCollection();
 ```

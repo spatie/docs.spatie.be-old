@@ -8,7 +8,7 @@ When adding a file to the medialibrary you can pass an array with custom propert
 $mediaItem = $newsItem
     ->addMedia($pathToFile)
     ->withCustomProperties(['primaryColor' => 'red'])
-    ->toMediaLibraryCollection();
+    ->toMediaCollection();
 ```
 
 There are some convenience methods to work with custom properties:
@@ -35,7 +35,7 @@ $mediaItem = $newsItem
     ->withCustomProperties([
         'group' => ['primaryColor' => 'red']
     ])
-    ->toMediaLibraryCollection();
+    ->toMediaCollection();
 
 $mediaItem->hasCustomProperty('group.primaryColor'); // returns true
 $mediaItem->getCustomProperty('group.primaryColor'); // returns 'image/jpeg'
