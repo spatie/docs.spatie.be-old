@@ -7,10 +7,10 @@ you can put them in their own collection.
 
 ```php
 $newsItem = News::find(1);
-$newsItem->addMedia($pathToImage)->toMediaLibrary('images');
-$newsItem->addMedia($pathToAnotherImage)->toMediaLibrary('images');
-$newsItem->addMedia($pathToPdfFile)->toMediaLibrary('downloads');
-$newsItem->addMedia($pathToAnExcelFile)->toMediaLibrary('downloads');
+$newsItem->addMedia($pathToImage)->toMediaLibraryCollection('images');
+$newsItem->addMedia($pathToAnotherImage)->toMediaLibraryCollection('images');
+$newsItem->addMedia($pathToPdfFile)->toMediaLibraryCollection('downloads');
+$newsItem->addMedia($pathToAnExcelFile)->toMediaLibraryCollection('downloads');
 ```
 
 All media in a specific collection can be retrieved like this:
