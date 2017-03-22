@@ -36,7 +36,7 @@ class NewsItem extends Model implements HasMediaConversions
 Let's add an image to the medialibrary.
 
 ```php
-$media = NewsItem::first()->addMedia($pathToImage)->toMediaLibrary();
+$media = NewsItem::first()->addMedia($pathToImage)->toMediaLibraryCollection();
 ```
 
 Besides storing the original item, the medialibrary also has created a derived image.
@@ -96,11 +96,11 @@ This is how that looks like in the model:
 
 ```php
 // a thumbnail will be generated for this media item
-$media = $newsItem->addMedia($pathToImage)->toMediaLibrary('images');
+$media = $newsItem->addMedia($pathToImage)->toMediaLibraryCollection('images');
 $media->getUrl('thumb') // the url to the thubmnail
 
 //but not for this one
-$media = $newsItem->addMedia($pathToImage)->toMediaLibrary('other collection');
+$media = $newsItem->addMedia($pathToImage)->toMediaLibraryCollection('other collection');
 $media->getUrl('thumb') // returns ''
 ```
 
