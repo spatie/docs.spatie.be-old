@@ -24,7 +24,7 @@ To save your image as a different image format call the `format` method and pass
 
 ```php
 Image::load('example.jpg')
-    ->format(Image::FORMAT_PNG)
+    ->format(Manipulations::FORMAT_PNG)
     ->save('example.png');
 ```
 
