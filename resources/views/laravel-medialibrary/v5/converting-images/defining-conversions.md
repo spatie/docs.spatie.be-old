@@ -6,7 +6,7 @@ When adding files to the medialibrary it can automatically created derived versi
 
 If you want to use this functionality your models should implement the `HasMediaConversions` interface instead of `HasMedia`. This interface expects an implementation of the `registerMediaConversions` method.
 
-Media conversions will be executed whenever  a `jpg`, `png`, `svg`, `pdf`, `mp4 `, `mov` or `webm` file is added to the medialibrary. By default, the conversions will be saved as a `jpg` files.
+Media conversions will be executed whenever  a `jpg`, `png`, `svg`, `pdf`, `mp4 `, `mov` or `webm` file is added to the medialibrary. By default, the conversions will be saved as a `jpg` files. This can be overwritten using the `format()` or `keepOriginalImageFormat()` methods.
 
 Internally, [spatie/image](https://docs.spatie.be/image/v1/) is used to manipulate the images. You can use [any manipulation function](https://docs.spatie.be/image) from that package. 
 
@@ -48,6 +48,7 @@ $media->getPath('thumb') // the path to the converted image with dimensions 368x
 $media->getUrl();  // the url to the where the original image is stored
 $media->getUrl('thumb') // the url to the converted image with dimensions 368x232
 ```
+
 ## Using multiple conversions
 
 You can register as many media conversions as you want
@@ -62,7 +63,7 @@ use Spatie\Image\Manipulations;
               ->width(368)
               ->height(232)
               ->sharpen;
-              
+
         $this->addMediaConversion('old-picture')
               ->sepia()
               ->border(10, 'black', Manipulations::BORDER_OVERLAY);
