@@ -24,8 +24,8 @@ module.exports = {
         'laravel-tags.style': './resources/assets/sass/laravel-tags/laravel-tags.scss',
         'laravel-server-monitor': './resources/assets/js/laravel-server-monitor.js',
         'laravel-server-monitor.style': './resources/assets/sass/laravel-server-monitor/laravel-server-monitor.scss',
-        'html': './resources/assets/js/html.js',
-        'html.style': './resources/assets/sass/html/html.scss',
+        'laravel-html': './resources/assets/js/laravel-html.js',
+        'laravel-html.style': './resources/assets/sass/laravel-html/laravel-html.scss',
     },
     output: {
         path: 'public/build',
