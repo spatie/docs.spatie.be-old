@@ -52,3 +52,8 @@ Finally dump the current autoloader with the following command:
 ```bash
 composer dump-autoload
 ```
+
+We don't ship the helper method in the package for two reasons:
+
+- Some people prefer not to pollute the global namespace with helpers
+- By defining your own helper method, you could change the return type to your own `Html` class which extends this packages' base class, so you can add your own shortcut methods
