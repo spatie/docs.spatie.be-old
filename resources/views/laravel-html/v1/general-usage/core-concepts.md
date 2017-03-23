@@ -16,6 +16,26 @@ For example when building input fields the `Html` builder will pull old values f
 
 Because the `Html` builder will generally return `Spatie\Html\Elements`, you can chain most of the [elements' fluent methods](/html/v1/general-usage/element-methods) directly onto the builder.
 
+## The Difference Between Builder Params and Element Methods
+
+Say we're adding a text input field in a form that's bound to a model:
+
+```php
+{{ html()->model(new User(['name' => 'Sebastian'])) }}
+{{ html()->text('name', 'Alex') }}
+// <input type="text" name="name" id="name" value="Sebastian" />
+```
+
+Since we're passing the input field's name `name` to the builder, it will try to infer it from the model, filling in `Sebastian` despite us providing `Alex` as it's value. If we want to ensure that `Alex` is the value of the input element, we need to set the value *after* the element has been created by the HTML builder.
+
+```php
+{{ html()->model(new User(['name' => 'Sebastian'])) }}
+{{ html()->input('name')->value('Alex') }}
+// <input type="text" name="name" id="name" value="Alex" />
+```
+
+Here, the builder creates a field, using `Sebastian` as it's value. Afterwards, we chain a `value` call on the element object itself, which doesn't have any outside context, to overwrite the value, which was previously set, to `Alex`.
+
 ## Rendering elements
 
 Every `Element` instance can be rendered to an HTML string using the `render()` method or simply by using it in a string context.
@@ -27,4 +47,11 @@ echo Div::render();
 $elementInstance = new Div();
 $htmlString = (string) $elementInstance;
 // $htmlString is now "<div></div>"
+```
+
+Since elements implement Laravel's `Htmlable` interface, we don't need to use any special tags to prevent the output from being escaped.
+
+```html
+{!! html()->div() !!} <!-- Not necessary! -->
+{{ html()->div() }} <!-- This works too -->
 ```
