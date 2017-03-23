@@ -2,14 +2,14 @@
 title: Introduction
 ---
 
-This package helps you generate HTML using a clean, simple and easy to read API. All elements can be dynamically generated an put together. The HTML builder helps you generate dynamically assigned form elements based on your selected model, the session or a default value.
+This package helps you generate HTML using a clean, simple and easy to read API. All elements can be dynamically generated and put together. The HTML builder helps you generate dynamically assigned form elements based on your selected model, the session or a default value.
 
 ### Generating elements
 
 For example creating a new `span` element with a class is super easy with the [fluent methods for elements]():
- 
+
  ```php
-    html()->span()->text('Hello world!')->class('fa fa-eye');
+html()->span()->text('Hello world!')->class('fa fa-eye');
 ```
 
 ### Building forms
@@ -31,7 +31,7 @@ The generated HTML will look like this:
     <input type="hidden" name="_method" id="_method" value="PUT">
     <input type="hidden" name="_token" id="_token" value="csrf_token_will_be_here">
     <input type="email" name="email" id="email" placeholder="Your e-mail address">
-</form> 
+</form>
 ```
 
 Notice how the hidden `_method` and `_token` fields were automatically added and filled? You'll never forget to add `csrf_field()` again because now you simply wont have to anymore!
@@ -43,7 +43,7 @@ Another common use case might be to fill an input element based on the value tha
 The HTML builder can also generate elements based on a model:
 
 ```php
-{{ html()->model($user)) }}
+{{ html()->model($user) }}
 
 {{ html()->input('name') }}
 ```
@@ -53,3 +53,5 @@ The value of the `name` field will automatically be filled with the model's `nam
 ```html
 <input type="text" name="name" id="name" value="John">
 ```
+
+A "model" can be any object that implements `ArrayAcces` — anything from a complex Eloquent model to a plain array.
