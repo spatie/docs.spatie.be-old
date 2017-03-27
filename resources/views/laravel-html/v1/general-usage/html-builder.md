@@ -4,7 +4,7 @@ title: HTML builder
 
 ## Building general elements
 
-The following builder methods can be used to generate general HTML elements like links, `div`s, `span`s, etc... All these methods return instances of `Spatie\Html\Elements`. Of course all [element methods](/html/v1/general-usage/element-methods) are available on the returned instances.
+The following builder methods can be used to generate general HTML elements like links, `div`s, `span`s, etc... All these methods return instances of `Spatie\Html\Elements`. Of course all [element methods](/laravel-html/v1/general-usage/element-methods) are available on the returned instances.
 
 - `function a(?string $href = '', ?string $text = ''): A`
 - `function button(?string $text = '', ?string $type = 'button'): Button`
