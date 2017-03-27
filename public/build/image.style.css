@@ -855,7 +855,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   display: inline-block; }
 
 .header_caption_title {
-  border-bottom-right-radius: 3px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   color: #fff;
@@ -864,7 +863,10 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   padding: 0 10px; }
   @media (max-width: 900px) {
     .header_caption_title {
-      font-size: 1.65em; } }
+      font-size: 1.65em;
+      border-radius: 3px;
+      display: block;
+      padding: 3px 10px; } }
   .header_caption_title a {
     color: inherit; }
 
@@ -926,7 +928,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   padding: .5em 10px; }
   @media (max-width: 900px) {
     .header_caption_slogan {
-      font-size: 0.85em; } }
+      display: none; } }
 
 .header_logos {
   bottom: 0;
@@ -940,16 +942,17 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       margin-top: 1em;
       opacity: 1 !important;
       position: relative;
-      text-align: center; } }
+      text-align: center;
+      right: 0; } }
   .header_logos a {
     display: inline-block;
     vertical-align: middle; }
+    .header_logos a + .header_logos a {
+      margin-left: 1em; }
   .header_logos svg {
     display: block;
     height: 2em;
     width: auto; }
-    .header_logos svg + .header_logos svg {
-      margin-left: 1em; }
   .header_logos .spatie:hover,
   .header_logos .github:hover {
     opacity: .7; }

@@ -40,9 +40,11 @@
 .header_caption_title {
   @include mq(s) {
     font-size: 1.65em;
+    border-radius: border-radius(s);
+    display: block;
+    padding: 3px 10px;
   }
 
-  border-bottom-right-radius: border-radius(s);
   border-top-left-radius: border-radius(s);
   border-top-right-radius: border-radius(s);
   color: $white;
@@ -122,7 +124,7 @@
 
 .header_caption_slogan {
   @include mq(s) {
-    font-size: font-size(s);
+    display: none;
   }
 
   border-bottom-left-radius: border-radius(s);
@@ -139,6 +141,7 @@
     opacity: 1 !important;
     position: relative;
     text-align: center;
+    right: 0;
   }
 
   bottom: 0;
@@ -151,16 +154,16 @@
   a {
     display: inline-block;
     vertical-align: middle;
+
+    & + & {
+      margin-left: 1em;
+    }
   }
 
   svg {
     display: block;
     height: 2em;
     width: auto;
-
-    & + & {
-      margin-left: 1em;
-    }
   }
 
   .spatie,

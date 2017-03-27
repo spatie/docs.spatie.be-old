@@ -1,31 +1,17 @@
 @import '../_base/base';
 
 .header {
-  background-color: color($blue, darkest);
+  background-color: black;
 }
 
 .header_background {
-  background: url('/images/image/header.jpg') center no-repeat;
+  background: url('/images/html/header.jpg') center no-repeat;
   background-size: cover;
-  opacity: .5;
+  opacity: .8;
 }
 
 .header_caption_title,
 .header_caption_slogan {
-  background-color: rgba(color($blue, darkest), .8);
-  color: $white;
-}
-
-.header_caption_title {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.header_caption_slogan {
-  border-top-right-radius: border-radius(s);
-
-  @include mq(s){
-    border-top-right-radius: border-radius(s);
-    border-top-left-radius: border-radius(s);
-  }
+  background-color: rgba(black, .8);
+  color: color($yellow, default);
 }
