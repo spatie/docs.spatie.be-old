@@ -7,7 +7,7 @@ When using the package like described in the basic usage section all tags will b
 ```php
 $tag = Tag::findOrCreate('my tag'); //store in the current locale of your app
 
-//let's add some translattion for other languages
+//let's add some translation for other languages
 $tag->setTranslation('name', 'fr', 'mon tag');
 $tag->setTranslation('name', 'nl', 'mijn tag');
 
