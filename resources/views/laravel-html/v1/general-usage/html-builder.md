@@ -86,7 +86,7 @@ To make things easier we've added the `modelForm()` and `closeModelForm()` metho
 
 ## Form-related elements
 
-- `function checkbox(string $name = '', ?string $value = ''): Input`
+- `function checkbox(string $name = '', ?bool $checked = false, ?string $value = '1'): Input`
 - `function email(string $name = '', ?string $value = ''): Input`
 - `function input(?string $type = '', string $name = '', ?string $value = ''): Input`
 - `function fieldset($legend = null): Fieldset`
