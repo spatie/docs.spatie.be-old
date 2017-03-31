@@ -54,4 +54,4 @@ The value of the `name` field will automatically be filled with the model's `nam
 <input type="text" name="name" id="name" value="John">
 ```
 
-A "model" can be any object that implements `ArrayAcces` — anything from a complex Eloquent model to a plain array.
+A "model" can be any object that implements `ArrayAccess` — anything from a complex Eloquent model to a plain array.
