@@ -156,9 +156,9 @@ Changing `text` will not trigger an activity being logged.
 
 By default the `updated_at` attribute is _not_ ignored and will trigger an activity being logged. You can simply add the `updated_at` attribute to the `$ignoreChangedAttributes` array to override this behaviour.
 
-## Log only changed attributes
+## Logging only the changed attributes
 
-If you do not want to log every attribute in your `$logAttributes` variable, but only those that has actually changed after the update, you can use `$logDirtyOnly`
+If you do not want to log every attribute in your `$logAttributes` variable, but only those that has actually changed after the update, you can use `$logOnlyDirty`
 
 ```php
 use Illuminate\Database\Eloquent\Model;
@@ -172,7 +172,7 @@ class NewsItem extends Model
     
     protected static $logAttributes = ['name', 'text'];
     
-    protected $logDirtyOnly = true;
+    protected $logOnlyDirty = true;
 }
 ```
 
