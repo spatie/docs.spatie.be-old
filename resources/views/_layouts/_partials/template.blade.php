@@ -29,7 +29,7 @@
 
                 {{-- With dropdown --}}
                 <h1 class="header_caption_title">
-                    <a href="/{{ $package }}/{{ $version }}" >{{ $siteTitle }}</a>
+                    <a class="header_caption_title_link" href="/{{ $package }}/{{ $version }}" >{{ $siteTitle }}</a>
                     @if (count($versions) > 1)
                         <a href="#" data-version class="header_version -selectable">
                             v.{{ substr($version, 1) }}

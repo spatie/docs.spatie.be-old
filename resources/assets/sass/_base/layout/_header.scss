@@ -50,11 +50,16 @@
   color: $white;
   display: inline-block;
   margin: 0 -10px;
-  padding: 0 10px;
 
   a {
     color: inherit;
   }
+}
+
+.header_caption_title_link {
+  display: inline-block;
+  padding: .2em 10px .2em 10px;
+  vertical-align: middle;
 }
 
 .header_version {
@@ -66,7 +71,8 @@
   display: inline-block;
   font-size: font-size(s);
   font-weight: font-weight(bold);
-  margin: .2em 0;
+  margin: 0 10px 0 0;
+  vertical-align: middle;
 
   &.-selectable {
     background-color: $white;
@@ -104,7 +110,7 @@
   z-index: z-index(above);
 
   li {
-    padding: 0 1em 0 .25em;
+
     text-align: center;
 
     &.-current {
@@ -118,6 +124,8 @@
 
   a {
     color: color($orange);
+    padding: 0 1em 0 .25em;
+    display: block;
   }
 }
 
