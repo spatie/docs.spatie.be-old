@@ -172,7 +172,7 @@ class NewsItem extends Model
     
     protected static $logAttributes = ['name', 'text'];
     
-    protected $logOnlyDirty = true;
+    protected static $logOnlyDirty = true;
 }
 ```
 
