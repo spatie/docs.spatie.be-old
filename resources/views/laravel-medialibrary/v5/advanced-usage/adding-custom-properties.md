@@ -38,7 +38,7 @@ $mediaItem = $newsItem
     ->toMediaCollection();
 
 $mediaItem->hasCustomProperty('group.primaryColor'); // returns true
-$mediaItem->getCustomProperty('group.primaryColor'); // returns 'image/jpeg'
+$mediaItem->getCustomProperty('group.primaryColor'); // returns 'red'
 
 $mediaItem->hasCustomProperty('nested.does-not-exist'); // returns false
 $mediaItem->getCustomProperty('nested.does-not-exist'); // returns null
