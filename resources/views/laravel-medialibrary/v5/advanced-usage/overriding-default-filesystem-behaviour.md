@@ -1,5 +1,5 @@
 ---
-title: Overriding the default filesystem behavior
+title: Overriding default filesystem behavior
 ---
 
 The `Spatie\MediaLibrary\Filesystem\DefaultFilesystem` class contains the behavior for actions like adding files, renaming files and deleting files. It applies these actions to the disks (local, S3, etc) that you configured.
