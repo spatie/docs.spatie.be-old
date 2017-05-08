@@ -4,15 +4,15 @@ title: HTML builder
 
 ## Building general elements
 
-The following builder methods can be used to generate general HTML elements like links, `div`s, `span`s, etc... All these methods return instances of `Spatie\Html\Elements`. Of course all [element methods](/html/v1/general-usage/element-methods) are available on the returned instances.
+The following builder methods can be used to generate general HTML elements like links, `div`s, `span`s, etc... All these methods return instances of `Spatie\Html\Elements`. Of course all [element methods](/laravel-html/v1/general-usage/element-methods) are available on the returned instances.
 
-- `function a(?string $href, ?string $text = '')`
-- `function button(?string $text = '', ?string $type = 'button')`
-- `function div($contents = null)`
-- `function element(string $tag)`
-- `function mailto(string $email, string $text = '')`
-- `function span($contents = null)`
-- `function tel(?string $number, ?string $text = '')`
+- `function a(?string $href = '', ?string $text = ''): A`
+- `function button(?string $text = '', ?string $type = 'button'): Button`
+- `function div($contents = null): Div`
+- `function element(string $tag): Element`
+- `function mailto(string $email, string $text = ''): A`
+- `function span($contents = null): Span`
+- `function tel(?string $number, ?string $text = ''): A`
 
 
 ## Working with a model
@@ -49,7 +49,7 @@ Generally speaking you'll want to use this in combination with `open()` and `clo
 {{ html()->form('PUT', '/update-url')->open() }}
 
     {{ html()->text('username') }}
-    
+
 {{ html()->form()->close() }}
 
 <!-- This will output the following HTML code: -->
@@ -69,7 +69,7 @@ To make things easier we've added the `modelForm()` and `closeModelForm()` metho
 <!-- $user is an existing User names "Johnny" passed into the view -->
 {{ html()->modelForm($user, 'PUT', '/update-url')->open() }}
 
-    {{ html()->text('name')}}
+    {{ html()->text('name') }}
     {{ html()->email('email')}}
 
 {{ html()->closeModelForm() }}
@@ -86,17 +86,17 @@ To make things easier we've added the `modelForm()` and `closeModelForm()` metho
 
 ## Form-related elements
 
-- `function checkbox(string $name = '', ?string $value = '')`
-- `function email(string $name = '', ?string $value = '')`
-- `function input(?string $type = '', string $name = '', ?string $value = '')`
-- `function fieldset($legend = null)`
-- `function hidden(string $name = '', ?string $value = '')`
-- `function label($contents = null, string $for = '')`
-- `function legend($contents = null)`
-- `function option(?string $text = '', ?string $value = '', $selected = false)`
-- `function password(string $name = '')`
-- `function select(string $name = '', iterable $options = [], ?string $value = '')`
-- `function submit(?string $value = '')`
-- `function text(string $name = '', ?string $value = '')`
-- `function textarea(string $name = '', ?string $value = '')`
-- `function token()`
+- `function checkbox(string $name = '', ?bool $checked = false, ?string $value = '1'): Input`
+- `function email(string $name = '', ?string $value = ''): Input`
+- `function input(?string $type = '', string $name = '', ?string $value = ''): Input`
+- `function fieldset($legend = null): Fieldset`
+- `function hidden(string $name = '', ?string $value = ''): Input`
+- `function label($contents = null, string $for = ''): Label`
+- `function legend($contents = null): Legend`
+- `function option(?string $text = '', ?string $value = '', $selected = false): Option`
+- `function password(string $name = ''): Input`
+- `function select(string $name = '', iterable $options = [], ?string $value = ''): Select`
+- `function submit(?string $text = ''): Button`
+- `function text(string $name = '', ?string $value = ''): Input`
+- `function textarea(string $name = '', ?string $value = ''): Textarea`
+- `function token(): Input`

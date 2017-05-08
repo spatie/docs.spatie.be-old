@@ -6,7 +6,7 @@ This package helps you generate HTML using a clean, simple and easy to read API.
 
 ### Generating elements
 
-For example creating a new `span` element with a class is super easy with the [fluent methods for elements]():
+For example creating a new `span` element with a class is super easy with the [fluent methods for elements](/laravel-html/v1/general-usage/element-methods):
 
  ```php
 html()->span()->text('Hello world!')->class('fa fa-eye');
@@ -54,4 +54,4 @@ The value of the `name` field will automatically be filled with the model's `nam
 <input type="text" name="name" id="name" value="John">
 ```
 
-A "model" can be any object that implements `ArrayAcces` — anything from a complex Eloquent model to a plain array.
+A "model" can be any object that implements `ArrayAccess` — anything from a complex Eloquent model to a plain array.

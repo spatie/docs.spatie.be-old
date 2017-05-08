@@ -156,6 +156,28 @@ Changing `text` will not trigger an activity being logged.
 
 By default the `updated_at` attribute is _not_ ignored and will trigger an activity being logged. You can simply add the `updated_at` attribute to the `$ignoreChangedAttributes` array to override this behaviour.
 
+## Logging only the changed attributes
+
+If you do not want to log every attribute in your `$logAttributes` variable, but only those that has actually changed after the update, you can use `$logOnlyDirty`
+
+```php
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
+
+class NewsItem extends Model
+{
+    use LogsActivity;
+
+    protected $fillable = ['name', 'text'];
+    
+    protected static $logAttributes = ['name', 'text'];
+    
+    protected static $logOnlyDirty = true;
+}
+```
+
+Changing only `name` means only the `name` attribute will be logged in the activity, and `text` will be left out.
+
 ## Using the CausesActivity trait
 
 The package ships with a `CausesActivity` trait which can be added to any model that you use as a causer. It provides an `activity` relationship which returns all activities that are caused by the model.

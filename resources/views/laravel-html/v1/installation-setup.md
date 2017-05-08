@@ -2,7 +2,9 @@
 title: Installation & setup in Laravel
 ---
 
-Laravel HTML can be installed via composer:
+Before installing the package make sure you have PHP 7.1 installed. (No, we won't make a version that's compatible with an earlier version of PHP).
+
+Laravel Html can be installed via composer:
 
 ```bash
 $ composer require spatie/laravel-html
@@ -20,7 +22,7 @@ Next, you need to register the service provider:
 
 ## `html()` helper method
 
-Optionally we recommend to create a `html()` helper method. This way you can easily access the `HTML` instance and get code completion in your favourite IDE.
+Optionally we recommend to create a `html()` helper method. This way you can easily access the `Html` instance and get code completion in your favourite IDE.
 
 Start by creating the file `app/helpers.php` and add the following method:
 

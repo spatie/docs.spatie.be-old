@@ -855,25 +855,32 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   display: inline-block; }
 
 .header_caption_title {
-  border-bottom-right-radius: 3px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   color: #fff;
   display: inline-block;
-  margin: 0 -10px;
-  padding: 0 10px; }
+  margin: 0 -10px; }
   @media (max-width: 900px) {
     .header_caption_title {
-      font-size: 1.65em; } }
+      font-size: 1.65em;
+      border-radius: 3px;
+      display: block;
+      padding: 3px 10px; } }
   .header_caption_title a {
     color: inherit; }
+
+.header_caption_title_link {
+  display: inline-block;
+  padding: .2em 10px .2em 10px;
+  vertical-align: middle; }
 
 .header_version {
   color: #e14a0c;
   display: inline-block;
   font-size: 0.85em;
   font-weight: 600;
-  margin: .2em 0; }
+  margin: 0 10px 0 0;
+  vertical-align: middle; }
   @media (max-width: 900px) {
     .header_version {
       font-size: 0.75em; } }
@@ -908,14 +915,15 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     .header_version_dropdown {
       font-size: 1.40em; } }
   .header_version_dropdown li {
-    padding: 0 1em 0 .25em;
     text-align: center; }
     .header_version_dropdown li.-current {
       font-weight: 600; }
     .header_version_dropdown li:hover {
       background: #fff2de; }
   .header_version_dropdown a {
-    color: #e14a0c; }
+    color: #e14a0c;
+    padding: 0 1em 0 .25em;
+    display: block; }
 
 .header_caption_slogan {
   border-bottom-left-radius: 3px;
@@ -926,7 +934,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   padding: .5em 10px; }
   @media (max-width: 900px) {
     .header_caption_slogan {
-      font-size: 0.85em; } }
+      display: none; } }
 
 .header_logos {
   bottom: 0;
@@ -940,16 +948,17 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       margin-top: 1em;
       opacity: 1 !important;
       position: relative;
-      text-align: center; } }
+      text-align: center;
+      right: 0; } }
   .header_logos a {
     display: inline-block;
     vertical-align: middle; }
+    .header_logos a + .header_logos a {
+      margin-left: 1em; }
   .header_logos svg {
     display: block;
     height: 2em;
     width: auto; }
-    .header_logos svg + .header_logos svg {
-      margin-left: 1em; }
   .header_logos .spatie:hover,
   .header_logos .github:hover {
     opacity: .7; }

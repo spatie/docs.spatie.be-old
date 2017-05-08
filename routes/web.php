@@ -121,14 +121,14 @@ Route::prefix('laravel-server-monitor')->group(function () {
     });
 });
 
-Route::prefix('html')->group(function () {
+Route::prefix('laravel-html')->group(function () {
 
     Route::get('/', function () {
-        return redirect('html/v1/introduction');
+        return redirect('laravel-html/v1/introduction');
     });
 
     Route::get('v1', function () {
-        return redirect('html/v1/introduction');
+        return redirect('laravel-html/v1/introduction');
     });
 });
 
