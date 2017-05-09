@@ -16,9 +16,12 @@ Tags::setNewOrder($arrayWithTagIds);
 $myModel->moveOrderUp();
 $myModel->moveOrderDown();
 
+//let's grab a Tag instance
+$tag = $orderedTags->first();
+
 //move the tag to the first or last position
-$myModel->moveToStart();
-$myModel->moveToEnd();
+$tag->moveToStart();
+$tag->moveToEnd();
 
 $tag->swapOrder($anotherTag);
 ```
