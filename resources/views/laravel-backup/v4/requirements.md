@@ -11,6 +11,8 @@ Make sure `mysqldump` is installed on your system if you want to backup MySQL da
 
 Make sure `pg_dump` is installed on your system if you want to backup PostgreSQL databases.
 
+Make sure `mongodump` is installed on your system if you want to backup Mongo databases.
+
 To send notifications to Slack you'll need to install `guzzlehtpp/guzzle` v6:
 
 ```bash
