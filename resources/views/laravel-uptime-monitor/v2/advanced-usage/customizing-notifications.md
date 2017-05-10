@@ -2,7 +2,7 @@
 title: Customizing notifications
 ---
 
-This package leverages [Laravel's native notification capabilites](https://laravel.com/docs/5.3/notifications) to send out [several](https://docs.spatie.be/laravel-uptime-monitor/v1/monitoring-uptime/notifications) [notifications](https://docs.spatie.be/laravel-uptime-monitor/v1/monitoring-ssl-certificates/notifications). 
+This package leverages [Laravel's native notification capabilites](https://laravel.com/docs/5.4/notifications) to send out [several](https://docs.spatie.be/laravel-uptime-monitor/v2/monitoring-uptime/notifications) [notifications](https://docs.spatie.be/laravel-uptime-monitor/v2/monitoring-ssl-certificates/notifications).
 
 ```php
 'notifications' => [
