@@ -4,7 +4,7 @@ title: Adding and removing sites
 
 ## Creating your first monitor
 
-After you've set up [the package](https://docs.spatie.be/laravel-uptime-monitor/v2/installation-and-setup) you can use the `monitor:create` [artisan](https://laravel.com/docs/5.3/artisan) command to monitor a url. Here's how to add a monitor for `https://laravel.com`:
+After you've set up [the package](https://docs.spatie.be/laravel-uptime-monitor/v2/installation-and-setup) you can use the `monitor:create` [artisan](https://laravel.com/docs/5.4/artisan) command to monitor a url. Here's how to add a monitor for `https://laravel.com`:
 
 ```php
 php artisan monitor:create https://laravel.com
