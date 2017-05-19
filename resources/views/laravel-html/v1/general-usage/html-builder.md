@@ -95,6 +95,7 @@ To make things easier we've added the `modelForm()` and `closeModelForm()` metho
 - `function legend($contents = null): Legend`
 - `function option(?string $text = '', ?string $value = '', $selected = false): Option`
 - `function password(string $name = ''): Input`
+- `function radio(string $name = '', ?bool $checked = false, ?string $value = ''): Input`
 - `function select(string $name = '', iterable $options = [], ?string $value = ''): Select`
 - `function submit(?string $text = ''): Button`
 - `function text(string $name = '', ?string $value = ''): Input`
