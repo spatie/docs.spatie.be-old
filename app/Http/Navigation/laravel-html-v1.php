@@ -12,6 +12,6 @@ return [
         'HTML builder',
         'Element classes',
         'Element methods',
-        'The Class Helper'
+        'The Class Helper',
     ]
 ];
