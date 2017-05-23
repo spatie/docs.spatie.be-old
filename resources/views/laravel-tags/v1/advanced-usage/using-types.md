@@ -19,6 +19,14 @@ $newsItem->detachTag($tagWithType);
 ...
 ```
 
+In addition to `syncTags`, an additional method called `syncTagsWithType` is available for syncing tags on a per-type basis: 
+
+```php
+$newsItem->syncTagsWithType(['tagA', 'tagB'], 'firstType');
+$newsItem->syncTagsWithType(['tagC', 'tagD'], 'secondType');
+```
+
+
 The provided method scopes, `withAnyTags` and `withAllTags`, can take instances of `Spatie\Tags\Tag` too:
 
 ```php
@@ -40,4 +48,10 @@ Tag::getWithType('firstType'); // returns a collection with $tagA and $tagB
 
 //there's also a scoped version
 Tag::withType('firstType')->get(); // returns the same result
+```
+
+From your model object, you can also get all tags with a specific type via the `tagsWithType` method:
+
+```php
+$newsItem->tagsWithType('firstType'); // returns a collection
 ```
