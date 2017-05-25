@@ -85,11 +85,11 @@ By default the package will log the `created`, `updated`, `deleted` events. You 
 
 ```php
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Activitylog\Traits\CausesActivity;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class NewsItem extends Model
 {
-    use CausesActivity;
+    use LogsActivity;
 
     //only the `deleted` event will get logged automatically
     protected static $recordEvents = ['deleted'];
@@ -102,11 +102,11 @@ By default the package will log `created`, `updated`, `deleted` in the descripti
 
 ```php
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Activitylog\Traits\CausesActivity;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class NewsItem extends Model
 {
-    use CausesActivity;
+    use LogsActivity;
 
     protected $fillable = ['name', 'text'];
 
