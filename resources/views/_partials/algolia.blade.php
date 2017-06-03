@@ -5,7 +5,7 @@
         inputSelector: '#algolia-search',
         algoliaOptions: {
             'hitsPerPage': 5,
-            'facetFilters': ['project:{{ $package }}']
+            'facetFilters': ['project:{{ $package }}', 'version:{{ $version }}']
         }
     });
 </script>
