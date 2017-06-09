@@ -1650,9 +1650,14 @@ sup {
   text-decoration: none;
   text-transform: none; }
 
+.header {
+  background-color: #5d4e36; }
+
 .header_background {
-  background-color: #8d7e5f; }
+  background: url("/images/activitylog/header.jpg") center no-repeat;
+  background-size: cover;
+  opacity: .75; }
 
 .header_caption_title,
 .header_caption_slogan {
-  background: rgba(230, 222, 205, 0.25); }
+  background: rgba(27, 55, 71, 0.25); }
