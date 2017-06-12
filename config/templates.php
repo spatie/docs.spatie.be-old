@@ -68,6 +68,6 @@ return [
         'githubUrl' => 'https://github.com/spatie/laravel-html',
         'siteSlogan' => 'Generate html with ease',
         'siteTitle' => 'Laravel Html',
-        'versions' => ['v1'],
+        'versions' => ['v1', 'v2'],
     ],
 ];

@@ -130,6 +130,10 @@ Route::prefix('laravel-html')->group(function () {
     Route::get('v1', function () {
         return redirect('laravel-html/v1/introduction');
     });
+
+    Route::get('v2', function () {
+        return redirect('laravel-html/v2/introduction');
+    });
 });
 
 Route::get('{slug}/edit', 'PageController@edit')->where('slug', '(.*)');
