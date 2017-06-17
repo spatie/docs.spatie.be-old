@@ -12,7 +12,7 @@ $yourModel
     ->addMedia($pathToFile) //starting method
     ->withCustomProperties(['mime-type' => 'image/jpeg']) //middle method
     ->preservingOriginal() //middle method
-    ->toMediaCollection(); //finishing method
+    ->toMediaLibrary(); //finishing method
 ```
 
 ## Starting methods
@@ -82,7 +82,7 @@ Please note the return type of `addMultipleMediaFromRequest` is a collection of 
 $fileAdders = $this->model
     ->addMultipleMediaFromRequest(['file-one', 'file-two'])
     ->each(function ($fileAdder) {
-        $fileAdder->toMediaCollection();
+        $fileAdder->toMediaLibrary();
     });
 ```
 
@@ -178,7 +178,7 @@ public function withCustomProperties(array $customProperties)
 
 ## Finishing methods
 
-### toMediaCollection
+### toMediaLibrary
 
 ```php
 /**
@@ -192,7 +192,7 @@ public function withCustomProperties(array $customProperties)
  *
  * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
  */
-public function toMediaCollection($collectionName = 'default', $diskName = '')
+public function toMediaLibrary($collectionName = 'default', $diskName = '')
 ```
 
 ### toMediaLibraryOnCloudDisk
