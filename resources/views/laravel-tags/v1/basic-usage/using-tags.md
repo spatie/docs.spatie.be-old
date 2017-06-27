@@ -42,7 +42,7 @@ $yourModel->detachTag('tag 1');
 $yourModel->detachTags(['tag 2', 'tag 3']);
 
 //using an instance of \Spatie\Tags\Tag
-$yourModel->attach(\Spatie\Tags\Tag::Find('tag4'));
+$yourModel->detach(\Spatie\Tags\Tag::Find('tag4'));
 ```
 
 #### Syncing tags
