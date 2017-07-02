@@ -24,6 +24,9 @@ Image::load('example.jpg')
 
 The size of the optimized image is 573 Kb.
 
+No matter where or how many times you call `optimize` in you chain, it will always be performed as the last operation once.
+
+
 ## Customizing the optimization
 
 To optimization of images is done by the underlying [psliwa/image-optimizer](https://github.com/psliwa/image-optimizer) package. You can pass all the [configuration parameters](https://github.com/psliwa/image-optimizer) of that package to the `optimize` method of this package.
