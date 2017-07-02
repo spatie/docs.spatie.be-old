@@ -18,6 +18,7 @@ return [
     'Image manipulations' => [
         'Overview',
         'Resizing images',
+        'Optimizing images',
         'Adjustments',
         'Image canvas',
         'Effects',
