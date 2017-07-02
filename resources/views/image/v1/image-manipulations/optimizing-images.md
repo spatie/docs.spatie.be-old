@@ -4,16 +4,7 @@ title: Optimizing images
 
 ## Requirements
 
-Optimization of images works by passing the images to these binaries:
-
-- [`advpng`](http://advancemame.sourceforge.net/doc-advpng.html)
-- [`gifsicle`](http://www.lcdf.org/gifsicle/)
-- [`jpegoptim`](http://freecode.com/projects/jpegoptim)
-- [`jpegtran`](http://jpegclub.org/jpegtran/)
-- [`optipng`](http://optipng.sourceforge.net/)
-- [`pngcrush`](http://pmt.sourceforge.net/pngcrush/)
-- [`pngout`](http://www.jonof.id.au/kenutils)
-- [`pngquant`](http://pngquant.org/)
+Optimization of images works by passing the images to these binaries: [`advpng`](http://advancemame.sourceforge.net/doc-advpng.html), [`gifsicle`](http://www.lcdf.org/gifsicle/), [`jpegoptim`](http://freecode.com/projects/jpegoptim), [`jpegtran`](http://jpegclub.org/jpegtran/), [`optipng`](http://optipng.sourceforge.net/), [`pngcrush`](http://pmt.sourceforge.net/pngcrush/), [`pngout`](http://www.jonof.id.au/kenutils) and [`pngquant`](http://pngquant.org/)
 
 Allthough it would a good idea to install them all, it's not required. If one of these binaries is present on your system it will be used.
 
