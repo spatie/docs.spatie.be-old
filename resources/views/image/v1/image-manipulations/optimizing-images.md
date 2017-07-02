@@ -12,12 +12,7 @@ Allthough it would a good idea to install them all, it's not required. If one of
 
 To shave off some kilobytes of the images the package can optimize images by calling the `optimize` method.
 
-Here's the original file we're going to work with:
-
-![Example Image](https://docs.spatie.be/images/image/example.jpg)
-
-
-It's size is current 622 Kb. Let's optimize it.
+Here's the original image of New York used in all examples has a size of 622 Kb. Let's optimize it.
 
 ```php
 Image::load('example.jpg')
