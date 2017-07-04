@@ -1,5 +1,5 @@
 ---
-title: Installation & setup in Laravel
+title: Installation & setup
 ---
 
 Medialibrary can be installed via composer:
