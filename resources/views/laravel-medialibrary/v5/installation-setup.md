@@ -21,8 +21,8 @@ Next, you need to register the service provider:
 And publish and run the migration:
 
 ```bash
-$ php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="migrations"
-$ php artisan migrate
+php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="migrations"
+php artisan migrate
 ```
 
 Publishing the config file is optional:
