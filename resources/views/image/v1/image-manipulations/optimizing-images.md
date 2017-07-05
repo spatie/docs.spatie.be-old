@@ -29,10 +29,12 @@ No matter where or how many times you call `optimize` in you chain, it will alwa
 
 ## Customizing the optimization
 
-To optimization of images is done by the underlying [psliwa/image-optimizer](https://github.com/psliwa/image-optimizer) package. You can pass all the [configuration parameters](https://github.com/psliwa/image-optimizer) of that package to the `optimize` method of this package.
+To optimization of images is done by the underlying [spatie/image-optimizer](https://github.com/spatie/image-optimizer) package. You can pass your own customized chains as array. The keys should be fully qualified class names of optimizers and the values the options that they should get. Here's an example
 
 ```php
 Image::load('example.jpg')
-    ->optimize(['ignore_errors' => false])
+    ->optimize([Jpegoptim::class => [
+        '--all-progressive',
+    ]])
     ->save();
 ```
