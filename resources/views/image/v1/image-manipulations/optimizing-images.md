@@ -4,9 +4,7 @@ title: Optimizing images
 
 ## Requirements
 
-Optimization of images works by passing the images to these binaries: [`advpng`](http://advancemame.sourceforge.net/doc-advpng.html), [`gifsicle`](http://www.lcdf.org/gifsicle/), [`jpegoptim`](http://freecode.com/projects/jpegoptim), [`jpegtran`](http://jpegclub.org/jpegtran/), [`optipng`](http://optipng.sourceforge.net/), [`pngcrush`](http://pmt.sourceforge.net/pngcrush/), [`pngout`](http://www.jonof.id.au/kenutils) and [`pngquant`](http://pngquant.org/)
-
-Allthough it would a good idea to install them all, it's not required. If one of these binaries is present on your system it will be used.
+Optimization of images is done by the underlying [spatie/image-optimizer](https://github.com/spatie/image-optimizer). It assumes that there are a few optimization tools, such as [JpegOptim](http://freecode.com/projects/jpegoptim) an [Pngquant](https://pngquant.org/) present on your system. For more info, check out [the relevant docs](https://github.com/spatie/image-optimizer#optimization-tools).
 
 ## How to use
 
