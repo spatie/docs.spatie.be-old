@@ -28,7 +28,8 @@ class NewsItem extends Model implements HasMediaConversions
         $this->addMediaConversion('thumb')
               ->width(368)
               ->height(232)
-              ->sharpen(10);
+              ->sharpen(10)
+              ->optimize();
     }
 }
 ```
