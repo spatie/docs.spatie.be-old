@@ -50,6 +50,8 @@ $media->getUrl();  // the url to the where the original image is stored
 $media->getUrl('thumb') // the url to the converted image with dimensions 368x232
 ```
 
+Because we used `optimize` in the `registerMediaConversions` method, the converted image will have been optimized by [the underlying image-optimizer package](https://github.com/spatie/image-optimizer).
+
 ## Using multiple conversions
 
 You can register as many media conversions as you want
