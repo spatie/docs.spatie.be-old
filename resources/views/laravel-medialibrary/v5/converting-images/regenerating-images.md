@@ -11,5 +11,5 @@ $ php artisan medialibrary:regenerate
 If you only want to regenerate the images for a single model, you can specify it as a parameter:
 
 ```bash
-$ php artisan medialibrary:regenerate news
+$ php artisan medialibrary:regenerate "App\Post"
 ```
