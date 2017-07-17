@@ -32,8 +32,8 @@ title: Overview
 - [Sharpen](/image/v1/image-manipulations/effects#sharpen)
 
 ## Watermarks
-- [Adding a watermark](/image/v1/image-manipulations/watermark#watermarks)
-- [Watermark opacity](/image/v1/image-manipulations/watermark#watermark-opacity)
-- [Watermark position](/image/v1/image-manipulations/watermark#watermark-position)
-- [Watermark padding](/image/v1/image-manipulations/watermark#watermark-padding)
-- [Watermark size](/image/v1/image-manipulations/watermark#watermark-size)
+- [Adding a watermark](/image/v1/image-manipulations/watermarks#watermarks)
+- [Watermark opacity](/image/v1/image-manipulations/watermarks#watermark-opacity)
+- [Watermark position](/image/v1/image-manipulations/watermarks#watermark-position)
+- [Watermark padding](/image/v1/image-manipulations/watermarks#watermark-padding)
+- [Watermark size](/image/v1/image-manipulations/watermarks#watermark-size)
