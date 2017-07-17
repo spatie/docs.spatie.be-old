@@ -3,32 +3,37 @@ title: Overview
 ---
 
 ## Resizing images
-- [Width](/image/v1/image-manipulations/resizing-images)
-- [Height](/image/v1/image-manipulations/resizing-images)
-- [Fit](/image/v1/image-manipulations/resizing-images)
-- [Crop](/image/v1/image-manipulations/resizing-images)
+- [Width](/image/v1/image-manipulations/resizing-images#width-and-height)
+- [Height](/image/v1/image-manipulations/resizing-images#width-and-height)
+- [Fit](/image/v1/image-manipulations/resizing-images#fit)
+- [Crop](/image/v1/image-manipulations/resizing-images#crop)
 - [Device pixel ratio](/image/v1/image-manipulations/resizing-images)
 
+## Optimizing images
+- [Requirements](/image/v1/image-manipulations/optimizing-images#requirements)
+- [How To Use](/image/v1/image-manipulations/optimizing-images#how-to-use)
+- [Customizing the Optimization](/image/v1/image-manipulations/optimizing-images#customizing-the-optimization)
+
 ## Adjustments
-- [Brightness](/image/v1/image-manipulations/adjustments)
-- [Contrast](/image/v1/image-manipulations/adjustments)
-- [Gamma](/image/v1/image-manipulations/adjustments)
+- [Brightness](/image/v1/image-manipulations/adjustments#brightness)
+- [Contrast](/image/v1/image-manipulations/adjustments#contrast)
+- [Gamma](/image/v1/image-manipulations/adjustments#gamma)
 
 ## Image canvas
-- [Background](/image/v1/image-manipulations/image-canvas)
-- [Border](/image/v1/image-manipulations/image-canvas)
-- [Orientation](/image/v1/image-manipulations/image-canvas)
+- [Background](/image/v1/image-manipulations/image-canvas#background)
+- [Border](/image/v1/image-manipulations/image-canvas#border)
+- [Orientation](/image/v1/image-manipulations/image-canvas#orientation)
 
 ## Effects
-- [Blur](/image/v1/image-manipulations/effects)
-- [Pixelate](/image/v1/image-manipulations/effects)
-- [Greyscale](/image/v1/image-manipulations/effects)
-- [Sepia](/image/v1/image-manipulations/effects)
-- [Sharpen](/image/v1/image-manipulations/effects)
+- [Blur](/image/v1/image-manipulations/effects#blur)
+- [Pixelate](/image/v1/image-manipulations/effects#pixelate)
+- [Greyscale](/image/v1/image-manipulations/effects#greyscale)
+- [Sepia](/image/v1/image-manipulations/effects#sepia)
+- [Sharpen](/image/v1/image-manipulations/effects#sharpen)
 
 ## Watermarks
-- [Adding a watermark](/image/v1/image-manipulations/watermark)
-- [Watermark opacity](/image/v1/image-manipulations/watermark)
-- [Watermark position](/image/v1/image-manipulations/watermark)
-- [Watermark padding](/image/v1/image-manipulations/watermark)
-- [Watermark size](/image/v1/image-manipulations/watermark)
+- [Adding a watermark](/image/v1/image-manipulations/watermark#watermarks)
+- [Watermark opacity](/image/v1/image-manipulations/watermark#watermark-opacity)
+- [Watermark position](/image/v1/image-manipulations/watermark#watermark-position)
+- [Watermark padding](/image/v1/image-manipulations/watermark#watermark-padding)
+- [Watermark size](/image/v1/image-manipulations/watermark#watermark-size)
