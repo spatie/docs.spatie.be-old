@@ -34,6 +34,7 @@ return [
         'Ordering media',
         'Consuming events',
         'Overriding the default filesystem behaviour',
+        'Soft Deleting',
     ],
     'API' => [
         'Adding files',
