@@ -15,7 +15,8 @@ $this->respondToSlack()
     ->withAttachment(Attachment::create()
         ->setColor('good')
         ->setText('This is good!')
-        ->setCallback('good-message')
+        ->setFallback('good-message')
+        ->setCallbackId('good-1')
         ->addAction(Action::create('cool button', 'A Cool Button', 'button'))
     );
 ```
