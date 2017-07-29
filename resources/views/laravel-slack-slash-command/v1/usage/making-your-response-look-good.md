@@ -30,4 +30,4 @@ $this->respondToSlack()
     );
 ```
 
-Take a look at [Slacks documentation on attachments](https://api.slack.com/docs/message-attachments) to learn what's possible. Please not that, as of this moment attaching buttons is not supported.
+Take a look at [Slacks documentation on attachments](https://api.slack.com/docs/message-attachments) to learn what's possible.
