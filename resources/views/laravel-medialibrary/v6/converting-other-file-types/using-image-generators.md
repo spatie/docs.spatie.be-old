@@ -2,10 +2,7 @@
 title: Using image generators
 ---
 
-As explained in the [Defining conversions](/laravel-medialibrary/v5/converting-images/defining-conversions/) section 
-this package use [Glide](http://glide.thephpleague.com/) under the hood which only perform conversions on images files. 
-
-To generate conversions of other media types – most notably PDFs and videos – the medialibrary uses a image generators to create a derived image file of the media. 
+The medialibrary has built-in support to convert images. To generate conversions of other media types – most notably PDFs and videos – the medialibrary uses a image generators to create a derived image file of the media. 
 
 Conversion of specific file type are defined in the exact same way as images:
 ```php
@@ -16,8 +13,8 @@ $this->addMediaConversion('thumb')
 ```
 
 The medialibrary includes image generators for the following file types:
-- [PDF](/laravel-medialibrary/v5/converting-other-file-types/using-image-generators#pdf)
-- [SVG](/laravel-medialibrary/v5/converting-other-file-types/using-image-generators#svg)
+- [PDF](/laravel-medialibrary/v6/converting-other-file-types/using-image-generators#pdf)
+- [SVG](/laravel-medialibrary/v6/converting-other-file-types/using-image-generators#svg)
 - [Video](/laravel-medialibrary/v5/converting-other-file-types/using-image-generators#video)
 
 ## PDF

@@ -164,7 +164,7 @@ Want to use S3? Then follow Laravel's instructions on [how to add the S3 Flysyst
 
 ### Optimization tools
 
-Medialibrary will use these tools to [optimize converted images](TODO: add link) if they are present on your system:
+Medialibrary will use these tools to [optimize converted images](https://docs.spatie.be/laravel-medialibrary/v6/converting-images/optimizing-converted-images) if they are present on your system:
 
 - [JpegOptim](http://freecode.com/projects/jpegoptim)
 - [Optipng](http://optipng.sourceforge.net/)

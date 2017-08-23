@@ -17,7 +17,6 @@ public function registerMediaConversions()
 }
 ```
 
-
 The package will use these optimizers if they are present on your system:
 
 - [JpegOptim](http://freecode.com/projects/jpegoptim)
@@ -26,7 +25,7 @@ The package will use these optimizers if they are present on your system:
 - [SVGO](https://github.com/svg/svgo)
 - [Gifsicle](http://www.lcdf.org/gifsicle/)
 
-Head over to [the installation page](TO DO: add link) to learn how to install these.
+Head over to [the installation page](https://docs.spatie.be/laravel-medialibrary/v6/installation-setup#optimization-tools) to learn how to install these.
 
 ## Which tools will do what?
 
