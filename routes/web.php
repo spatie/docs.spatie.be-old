@@ -36,7 +36,7 @@ Route::prefix('laravel-medialibrary')->group(function () {
     });
 
     Route::get('v6', function () {
-        return redirect('laravel-medialibrary/v5/introduction');
+        return redirect('laravel-medialibrary/v6/introduction');
     });
 });
 
