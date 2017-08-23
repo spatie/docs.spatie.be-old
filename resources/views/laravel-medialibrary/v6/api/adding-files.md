@@ -195,9 +195,9 @@ public function withCustomProperties(array $customProperties)
 public function toMediaCollection($collectionName = 'default', $diskName = '')
 ```
 
-### toMediaLibraryOnCloudDisk
+### toMediaCollectionOnCloudDisk
 
-This function does almost the same as `toMediaLibrary`. It'll store all media on the disk configured in the `cloud` key of `config/filesystems.php`
+This function does almost the same as `toMediaCollection`. It'll store all media on the disk configured in the `cloud` key of `config/filesystems.php`
 
 ```php
  /**
@@ -208,5 +208,5 @@ This function does almost the same as `toMediaLibrary`. It'll store all media on
   * @throws FileCannotBeAdded
   * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
   */
- public function toMediaLibraryOnCloudDisk(string $collectionName = 'default')
+ public function toMediaCollectionOnCloudDisk(string $collectionName = 'default')
 ```
