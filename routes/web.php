@@ -20,7 +20,7 @@ Route::prefix('laravel-backup')->group(function () {
 Route::prefix('laravel-medialibrary')->group(function () {
 
     Route::get('/', function () {
-        return redirect('laravel-medialibrary/v5/introduction');
+        return redirect('laravel-medialibrary/v6/introduction');
     });
 
     Route::get('v3', function () {
@@ -32,6 +32,10 @@ Route::prefix('laravel-medialibrary')->group(function () {
     });
 
     Route::get('v5', function () {
+        return redirect('laravel-medialibrary/v5/introduction');
+    });
+
+    Route::get('v6', function () {
         return redirect('laravel-medialibrary/v5/introduction');
     });
 });
