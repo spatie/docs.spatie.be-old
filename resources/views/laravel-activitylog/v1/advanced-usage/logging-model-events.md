@@ -189,3 +189,43 @@ If you include it in the `User` model you can simply retrieve all the current us
 \Auth::user()->activity;
 
 ```
+
+## Disabling logging on demand
+
+You can also disable logging for a specific model at runtime. To do so, you can use the `disableLogging()` method:
+
+```php
+$newsItem = NewsItem::create([
+   'name' => 'original name',
+   'text' => 'Lorum'
+]);
+
+// Updating with logging disabled
+$newsItem->disableLogging();
+
+$newsItem->update(['name' => 'The new name is not logged']);
+```
+
+You can also chain `disableLogging()` with the `update()` method.
+
+### Enable logging again
+
+You can use the `enableLogging()` method to re-enable logging.
+
+```php
+$newsItem = NewsItem::create([
+   'name' => 'original name',
+   'text' => 'Lorum'
+]);
+
+// Updating with logging disabled
+$newsItem->disableLogging();
+
+$newsItem->update(['name' => 'The new name is not logged']);
+
+// Updating with logging enabled
+$newsItem->enableLogging();
+
+$newsItem->update(['name' => 'The new name is logged']);
+```
+
