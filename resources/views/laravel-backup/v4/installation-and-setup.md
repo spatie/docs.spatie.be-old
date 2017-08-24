@@ -10,7 +10,9 @@ You can install this package via composer using:
 composer require spatie/laravel-backup
 ```
 
-You'll need to register the service provider:
+In Laravel 5.5 & above, the package will automatically register itself.
+
+If you are using Laravel 5.4 or below, you'll need to register the service provider yourself:
 
 ```php
 // config/app.php
