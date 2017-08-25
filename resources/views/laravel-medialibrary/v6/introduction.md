@@ -2,7 +2,13 @@
 title: Introduction
 ---
 
-Medialibrary is a Laravel (5.5 and up) package that can associate all sorts of files with Eloquent models. It provides a simple, fluent API to work with. Here's a quick example:
+Medialibrary is a Laravel (5.5 and up) package that can associate all sorts of files with Eloquent models. It provides a simple, fluent API to work with.
+ 
+Are you a visual learner? Then watch this video that demonstrates what the package can do.
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/4lq_6JLR2H8?rel=0" frameborder="0" allowfullscreen></iframe> 
+ 
+Here are some quick code examples:
 
 ```php
 $newsItem = News::find(1);
