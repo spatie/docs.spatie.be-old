@@ -26,7 +26,7 @@ return [
         'githubUrl' => 'https://github.com/spatie/laravel-activitylog',
         'siteSlogan' => 'Log the activities of your users',
         'siteTitle' => 'Laravel Activitylog',
-        'versions' => ['v1'],
+        'versions' => ['v1', 'v2'],
     ],
 
     'laravel-slack-slash-command' => [

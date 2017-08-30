@@ -15,6 +15,7 @@ Route::prefix('laravel-backup')->group(function () {
     Route::get('v4', function () {
         return redirect('laravel-backup/v4/introduction');
     });
+    
 
     Route::get('v5', function () {
         return redirect('laravel-backup/v5/introduction');
@@ -67,6 +68,10 @@ Route::prefix('laravel-activitylog')->group(function () {
 
     Route::get('v1', function () {
         return redirect('laravel-activitylog/v1/introduction');
+    });
+
+    Route::get('v2', function () {
+        return redirect('laravel-activitylog/v2/introduction');
     });
 });
 
