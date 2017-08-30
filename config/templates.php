@@ -5,7 +5,7 @@ return [
         'githubUrl' => 'https://github.com/spatie/laravel-backup',
         'siteSlogan' => 'One day you\'ll thank us for this',
         'siteTitle' => 'Laravel Backup',
-        'versions' => ['v3', 'v4'],
+        'versions' => ['v3', 'v4', 'v5'],
     ],
 
     'laravel-medialibrary' => [
