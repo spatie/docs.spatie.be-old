@@ -35,7 +35,7 @@ $activity = Activity::all()->last();
 
 $activity->description; //returns 'created'
 $activity->subject; //returns the instance of NewsItem that was created
-$activity->changes; //returns ['attributes' => ['name' => 'original name', 'text' => 'Lorum']];
+$activity->changes(); //returns ['attributes' => ['name' => 'original name', 'text' => 'Lorum']];
 ```
 
 Now let's update some that `$newsItem`.
