@@ -47,7 +47,7 @@ return [
         'githubUrl' => 'https://github.com/spatie/laravel-tags',
         'siteSlogan' => 'A powerful tagging package. Batteries included.',
         'siteTitle' => 'Laravel Tags',
-        'versions' => ['v1'],
+        'versions' => ['v1', 'v2'],
     ],
 
     'image' => [

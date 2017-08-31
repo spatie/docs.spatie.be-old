@@ -104,11 +104,15 @@ Route::prefix('laravel-uptime-monitor')->group(function () {
 Route::prefix('laravel-tags')->group(function () {
 
     Route::get('/', function () {
-        return redirect('laravel-tags/v1/introduction');
+        return redirect('laravel-tags/v2/introduction');
     });
 
     Route::get('v1', function () {
         return redirect('laravel-tags/v1/introduction');
+    });
+
+    Route::get('v2', function () {
+        return redirect('laravel-tags/v2/introduction');
     });
 });
 
