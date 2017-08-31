@@ -16,6 +16,7 @@ Here's an example of how a model can implement this.
 
 ```php
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\Media;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
@@ -23,7 +24,7 @@ class NewsItem extends Model implements HasMediaConversions
 {
     use HasMediaTrait;
 
-    public function registerMediaConversions()
+    public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
               ->width(368)
@@ -57,7 +58,7 @@ You can register as many media conversions as you want
 // in your model
 use Spatie\Image\Manipulations;
 
-    public function registerMediaConversions()
+    public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
               ->width(368)
@@ -85,7 +86,7 @@ This is how that looks like in the model:
 
 ```php
 // in your model
-    public function registerMediaConversions()
+    public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
               ->width(368)
@@ -111,7 +112,7 @@ By default, a conversion will be added to the queue that you've [specified in th
 
 ```php
 // in your model
-    public function registerMediaConversions()
+    public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
               ->width(368)
@@ -130,7 +131,7 @@ true` on your model.
 // in your model
     public $registerMediaConversionsUsingModelInstance = true;
 
-    public function registerMediaConversions()
+    public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
               ->width($this->width)
