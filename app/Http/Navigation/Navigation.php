@@ -89,7 +89,7 @@ class Navigation
             });
 
             return Menu::new($subMenuContents->toArray())
-                ->prefixLinks("/{$prefix}")
+                //->prefixLinks("/{$prefix}")
                 ->prependIf(!is_null($title), "<h2>{$title}</h2>");
         });
 
