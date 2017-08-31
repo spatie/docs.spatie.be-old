@@ -70,6 +70,26 @@ Menu::new()->html('<span>Hi!</span>');
 </ul>
 ```
 
+It is also possible to add html directly into link display text, by calling `render` on the raw html and concatenating it with the rest of your desired output text or by writing the html directly into the display text.
+
+```php
+Menu::new()->link('/hi',Html::raw('<b>Hello</b>')->render()." World")
+```
+
+```php
+Menu::new()->link('/hi',"<b>Hello</b> World")
+```
+
+```html
+<ul>
+    <li>
+        <a href="/hi">
+            <b>Hello</b> World
+        </a>
+    </li>
+</ul>
+```
+
 ## Submenus
 
 `Spatie\Menu\Menu`
