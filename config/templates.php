@@ -43,6 +43,13 @@ return [
         'versions' => ['v1', 'v2'],
     ],
 
+    'laravel-uptime-monitor' => [
+        'githubUrl' => 'https://github.com/spatie/laravel-uptime-monitor',
+        'siteSlogan' => 'A powerful and easy to configure uptime monitor',
+        'siteTitle' => 'Laravel Uptime Monitor',
+        'versions' => ['v1', 'v2', 'v3'],
+    ],
+
     'laravel-tags' => [
         'githubUrl' => 'https://github.com/spatie/laravel-tags',
         'siteSlogan' => 'A powerful tagging package. Batteries included.',
