@@ -7,7 +7,7 @@ The medialibrary will shave off some kilobyes of the converted images by running
 The optimization will only be applied on converted images, the package will not modify your original files. If you want to avoid optimization of a conversion just tack `nonOptimized` to the  conversion.
 
 ```php
-public function registerMediaConversions()
+public function registerMediaConversions(Media $media = null)
 {
    $this->addMediaConversion('thumb')
       ->width(368)
