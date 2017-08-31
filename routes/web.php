@@ -89,7 +89,7 @@ Route::prefix('laravel-slack-slash-command')->group(function () {
 Route::prefix('laravel-uptime-monitor')->group(function () {
 
     Route::get('/', function () {
-        return redirect('laravel-uptime-monitor/v2/introduction');
+        return redirect('laravel-uptime-monitor/v3/introduction');
     });
 
     Route::get('v1', function () {
@@ -97,6 +97,10 @@ Route::prefix('laravel-uptime-monitor')->group(function () {
     });
 
     Route::get('v2', function () {
+        return redirect('laravel-uptime-monitor/v2/introduction');
+    });
+
+    Route::get('v3', function () {
         return redirect('laravel-uptime-monitor/v2/introduction');
     });
 });
