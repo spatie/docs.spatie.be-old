@@ -70,7 +70,7 @@ Menu::new()->html('<span>Hi!</span>');
 </ul>
 ```
 
-It is also possible to add html directly into link display text, by calling `render` on the raw html and concatenating it with the rest of your desired output text or by writing the html directly into the display text.
+It is also possible to add html directly into link display text, by calling `render` on the raw html and concatenating it with the rest of your desired output text or by writing the html directly into the display text. Please note, that this does not parse Laravel Blade syntax.
 
 ```php
 Menu::new()->link('/hi',Html::raw('<b>Hello</b>')->render()." World")
