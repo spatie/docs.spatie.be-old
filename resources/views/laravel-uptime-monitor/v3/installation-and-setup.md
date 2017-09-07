@@ -12,16 +12,7 @@ Standing in the directory of an existing Laravel application you can install the
 composer require spatie/laravel-uptime-monitor
 ```
 
-You'll need to register the service provider:
-
-```php
-// config/app.php
-
-'providers' => [
-    // ...
-    Spatie\UptimeMonitor\UptimeMonitorServiceProvider::class,
-];
-```
+The package will automatically register itself.
 
 To publish the config file to `config/laravel-uptime-monitor.php` run:
 
@@ -151,9 +142,9 @@ return [
 ];
 ```
 
-and don't forget to run your migrations at the end to add the monitors table to your database:
+As a last step, run the migrations to create the `monitors` table.
 
-``` bash
+```bash
 php artisan migrate
 ```
 
