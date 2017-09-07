@@ -42,7 +42,7 @@ $tag->save();
 $tag = Tag::findOrCreate('tag 1', 'my type');
 
 //tags have slugs
-$tag = Tag::create('yet another tag');
+$tag = Tag::findOrCreate('yet another tag');
 $tag->slug; //returns "yet-another-tag"
 
 //tags are sortable
