@@ -2,7 +2,7 @@
 title: Retrieving converted images
 ---
 
-You can retrieve the url or path to a converted image by specifying the conversion name in the `getUrl`, `getTemporaryUrl` and `getPath` functions:
+You can retrieve the url or path to a converted image by specifying the conversion name in the `getUrl`, `getTemporaryUrl` (only available when using an S3 disk) and `getPath` functions:
 
 ```php
 $mediaItems = $newsItem->getMedia('images');
