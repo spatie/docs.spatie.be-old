@@ -10,11 +10,14 @@ $mediaItems = $newsItem->getMedia();
 
 The method returns a collection of `Media`-objects.
 
-You can retrieve the url and path to the file associated with the `Media`-object using  `getUrl` and `getPath`:
+You can retrieve the url and path to the file associated with the `Media`-object using  `getUrl`, `getTemporaryUrl` (for S3 only) and `getPath`:
 
 ```php
 $publicUrl = $mediaItems[0]->getUrl();
 $fullPathOnDisk = $mediaItems[0]->getPath();
+
+use \Carbon\Carbon;
+$temporaryS3Url = $mediaItems[0]->getTemporaryUrl(Carbon::now()->addMinutes(5));
 ```
 
 An instance of `Media` also has a name, by default its filename:
