@@ -22,7 +22,7 @@ class NewsItem extends Model
 }
 ```
 
-Let's see what gets logged when creating an instance of that model.
+If you want to log changes to all the `$fillable` attributes of the model, you can specify `protected static $logFillable = true;` on the model. Let's see what gets logged when creating an instance of that model.
 
 ```php
 $newsItem = NewsItem::create([
