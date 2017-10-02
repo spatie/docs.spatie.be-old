@@ -10,18 +10,7 @@ You can install this package via composer using:
 composer require spatie/laravel-backup
 ```
 
-You'll need to register the service provider:
-
-```php
-// config/app.php
-
-'providers' => [
-    // ...
-    Spatie\Backup\BackupServiceProvider::class,
-];
-```
-
-The package will automatically register it's service provider.
+The package will automatically register it's service provider in the `config/app.php` file.
 
 This is the default contents of the configuration:
 
@@ -36,7 +25,7 @@ return [
          * The name of this application. You can use this name to monitor
          * the backups.
          */
-        'name' => env('APP_URL'),
+        'name' => env('APP_NAME'),
 
         'source' => [
 
@@ -140,7 +129,7 @@ return [
      */
     'monitorBackups' => [
         [
-            'name' => env('APP_URL'),
+            'name' => env('APP_NAME'),
             'disks' => ['local'],
             'newestBackupsShouldNotBeOlderThanDays' => 1,
             'storageUsedMayNotBeHigherThanMegabytes' => 5000,
