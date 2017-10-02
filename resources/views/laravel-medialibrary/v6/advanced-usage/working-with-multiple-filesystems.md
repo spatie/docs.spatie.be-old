@@ -2,7 +2,7 @@
 title: Working with multiple filesystems
 ---
 
-By default all files are stored on the disk specified as the `defaultFilesystem` in the config file.
+By default all files are stored on the disk specified as the `default_filesystem` in the config file.
 
 Files can also be stored [on any filesystem that is configured in your Laravel app](http://laravel.com/docs/5.4/filesystem#configuration). When adding a file to the media library you can choose on which disk the file should be stored. This is useful when you have a combination of small files that should be stored locally and big files that you want to save on S3.
 
