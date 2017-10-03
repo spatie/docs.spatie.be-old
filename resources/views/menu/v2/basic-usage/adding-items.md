@@ -26,30 +26,6 @@ Menu::new()->link('/', 'Home');
 When using convenience methods to add items, you can't simultanuously add classes or attributes to the item since there isn't an instance variable.
 </div>
 
-Links also have a `prefix` method, or they can be prefixed in bulk per menu.
-
-```php
-Link::to('foo', 'Foo')->prefix('/items');
-```
-
-```html
-<a href="/users/sebastian">Sebastian</a>
-```
-
-```php
-Menu::new()
-    ->prefixLinks('/items')
-    ->link('foo', 'Foo')
-    ->link('bar', 'Bar');
-```
-
-```html
-<ul>
-    <li><a href="/items/foo">Foo</a></li>
-    <li><a href="/items/bar">Bar</a></li>
-</ul>
-```
-
 ## Raw Html
 
 `Spatie\Menu\Html`
