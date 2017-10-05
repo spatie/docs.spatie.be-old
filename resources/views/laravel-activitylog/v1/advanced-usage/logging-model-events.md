@@ -192,7 +192,7 @@ If you include it in the `User` model you can simply retrieve all the current us
 
 ## Disabling logging on demand
 
-You can also disable logging for a specific model at runtime. To do so, you can use the `disableLogging()` method:
+With `v1.16.0` and greater, you can also disable logging for a specific model at runtime. To do so, you can use the `disableLogging()` method:
 
 ```php
 $newsItem = NewsItem::create([
@@ -210,7 +210,7 @@ You can also chain `disableLogging()` with the `update()` method.
 
 ### Enable logging again
 
-You can use the `enableLogging()` method to re-enable logging.
+You can use the `enableLogging()` method with `v1.16.0` and greater to re-enable logging.
 
 ```php
 $newsItem = NewsItem::create([
