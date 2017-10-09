@@ -69,7 +69,7 @@ $tag->save();
 $tag = Tag::findFromString('another tag')
 
 //create a tag if it doesn't exist yet
-$tag = Tag::findFromString('yet another tag');
+$tag = Tag::findOrCreateFromString('yet another tag');
 
 //delete a tag
 $tag->delete();
