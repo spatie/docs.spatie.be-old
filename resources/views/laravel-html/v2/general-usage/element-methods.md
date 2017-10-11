@@ -7,12 +7,12 @@ All `Spatie\Html\Elements` have some a couple of methods that make working with 
 ## Available methods
 
 - [`attribute()`](#codeattributecode)
-- [`attributeIf()`](#codeattributeifcode)
 - [`attributes()`](#codeattributescode)
 - [`forgetAttribute()`](#codeforgetattributecode)
 - [`getAttribute()`](#codegetattributecode)
 - [`class()`](#codeclasscode)
 - [`id()`](#codeidcode)
+- [`data()`](#codedatacode)
 - [`child()` and `children()`](#codechildcode-and-codechildrencode)
 - [`prependChild()` and `prependChildren()`](#codeprependchildcode-or-codeprependchildrencode)
 - [`text()`](#codetextcode)
@@ -21,6 +21,17 @@ All `Spatie\Html\Elements` have some a couple of methods that make working with 
 - [`close()`](#codeclosecode)
 - [`render()`](#coderendercode)
 
+You can also call all those methods with the suffix `If` in order to execute the method only if the first parameter is `true`.
+
+```php
+echo Div::classIf(true, 'row');
+// "<div class="row"></div>"
+echo Div::classIf(false, 'row');
+// "<div></div>"
+echo Div::attributeIf(50 > 100, 'data-custom', 'Attribute value');
+// "<div></div>"
+```
+
 ## `attribute()`
 
 Sets an attribute on the element:
@@ -28,15 +39,6 @@ Sets an attribute on the element:
 ```php
 echo Div::attribute('data-custom', 'Attribute value');
 // "<div data-custom="Attribute value"></div>"
-```
-
-## `attributeIf()`
-
-Only sets an attribute on the element if a condition is met:
-
-```php
-echo Div::attributeIf(50 > 100, 'data-custom', 'Attribute value');
-// "<div></div>"
 ```
 
 ## `attributes()`
@@ -90,6 +92,14 @@ Sets the id of the element overwriting any previously set `id`s:
 ```php
 echo Div::id('btn-123');
 // "<div id="btn-123"></div>"
+```
+
+## `data()`
+
+Add a data- attribute:
+```php
+echo Div::data('btn', 123);
+// "<div data-btn="123"></div>"
 ```
 
 ## `child()` and `children()`
