@@ -63,7 +63,7 @@ Route::prefix('menu')->group(function () {
 Route::prefix('laravel-activitylog')->group(function () {
 
     Route::get('/', function () {
-        return redirect('laravel-activitylog/v1/introduction');
+        return redirect('laravel-activitylog/v2/introduction');
     });
 
     Route::get('v1', function () {
@@ -145,7 +145,7 @@ Route::prefix('laravel-server-monitor')->group(function () {
 Route::prefix('laravel-html')->group(function () {
 
     Route::get('/', function () {
-        return redirect('laravel-html/v1/introduction');
+        return redirect('laravel-html/v2/introduction');
     });
 
     Route::get('v1', function () {
