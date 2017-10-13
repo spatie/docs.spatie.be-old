@@ -101,7 +101,7 @@ Route::prefix('laravel-uptime-monitor')->group(function () {
     });
 
     Route::get('v3', function () {
-        return redirect('laravel-uptime-monitor/v2/introduction');
+        return redirect('laravel-uptime-monitor/v3/introduction');
     });
 });
 
