@@ -15,7 +15,7 @@ for more details.
 /**
  * Add a conversion.
  *
- * @param string $nam
+ * @param string $name
  *
  * @return \Spatie\MediaLibrary\Conversion\Conversion
  */
