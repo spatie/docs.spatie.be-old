@@ -7,11 +7,11 @@ title: Responding with media
 ```php
 use Spatie\MediaLibrary\Media;
 
-class MediaDownloadController
+class DownloadMediaController
 {
-   public function show($mediaId)
+   public function show(Media $mediaItem)
    {
-      return Media::findOrFail($mediaId);
+      return mediaItem;
    }
 }
 ```
