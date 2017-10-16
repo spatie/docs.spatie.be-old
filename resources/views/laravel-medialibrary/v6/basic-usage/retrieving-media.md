@@ -52,6 +52,17 @@ $newsItem
    ->toMediaCollection();
 ```
 
+You can sanitize the filename using a callable:
+
+```php
+$newsItem
+   ->addMedia($pathToFile)
+   ->sanitizingFileName(function($fileName) {
+      return strtolower(str_replace(['#', '/', '\\', ' '], '-', $fileName));
+   })
+   ->toMediaCollection();
+```
+
 You can also retrieve the size of the file via  `size` and `human_readable_size` :
 
 ```php
