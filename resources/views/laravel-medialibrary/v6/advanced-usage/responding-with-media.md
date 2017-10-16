@@ -2,14 +2,16 @@
 title: Responding with media
 ---
 
-The media class implements the `Responsable` interface. This means that you can return a media object as a response.
+`Media` implements the `Responsable` interface. This means that you can return a media object as a response.
 
 ```php
-class SomeController
+use Spatie\MediaLibrary\Media;
+
+class MediaDownloadController
 {
-   public function someAction($id)
+   public function show($mediaId)
    {
-      return Media::findOrFail($id);
+      return Media::findOrFail($mediaId);
    }
 }
 ```
