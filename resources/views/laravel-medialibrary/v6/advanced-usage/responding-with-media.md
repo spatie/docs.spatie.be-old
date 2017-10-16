@@ -11,7 +11,7 @@ class DownloadMediaController
 {
    public function show(Media $mediaItem)
    {
-      return mediaItem;
+      return $mediaItem;
    }
 }
 ```
