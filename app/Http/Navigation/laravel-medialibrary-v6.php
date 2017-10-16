@@ -27,7 +27,7 @@ return [
     ],
     'Advanced usage' => [
         'Working with multiple filesystems',
-        'Adding custom properties',
+        'Using custom properties',
         'Generating custom URLs',
         'Storing media specific manipulations',
         'Using your own model',
