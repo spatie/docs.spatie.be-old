@@ -13,7 +13,7 @@ Make sure `pg_dump` is installed on your system if you want to backup PostgreSQL
 
 Make sure `mongodump` is installed on your system if you want to backup Mongo databases.
 
-To send notifications to Slack you'll need to install `guzzlehtpp/guzzle` v6:
+To send notifications to Slack you'll need to install `guzzlehttp/guzzle` v6:
 
 ```bash
 composer require guzzlehttp/guzzle
