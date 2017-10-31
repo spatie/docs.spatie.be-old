@@ -37,7 +37,7 @@ php artisan migrate
 To publish the config file to `config/server-monitor.php` run:
 
 ``` bash
-php artisan vendor:publish --provider="Spatie\ServerMonitor\ServerMonitorServiceProvider"
+php artisan vendor:publish --provider="Spatie\ServerMonitor\ServerMonitorServiceProvider" --tag="config"
 ```
 
 By default, the configuration looks like this:
