@@ -151,6 +151,12 @@ return [
 ];
 ```
 
+As a last step, run the migrations to create the `monitors` table.
+
+```bash
+php artisan migrate
+```
+
 ## Scheduling
 
 After you have performed the basic installation you can check the uptime and ssl certificates of sites using the `monitor:check-uptime` and `monitor:check-certificate` commands. In most cases you'll want to schedule them. We recommend that you run the uptime check every minute and the ssl certificate check daily. 
