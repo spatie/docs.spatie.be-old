@@ -6,7 +6,7 @@ The package provides two scopes `withAnyTags` and `withAllTags` that can help yo
 
 ### withAnyTags
 
-The `withAnyTags` scope will return models that have on or more of the given tags attached to them.
+The `withAnyTags` scope will return models that have one or more of the given tags attached to them.
 
 ```php
 //returns models that have one or more of the given tags
@@ -18,7 +18,7 @@ YourModel::withAnyTags(['tag 1', 'tag 2'], 'myType')->get();
 
 ### withAllTags
 
-The `withAllTags` scope will return only the models that all of the given tags attached to them. So when passing a non-existing tag no models will be returned.
+The `withAllTags` scope will return only the models that have all of the given tags attached to them. So when passing a non-existing tag no models will be returned.
 
 ```
 //returns models that have all given tags
