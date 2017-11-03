@@ -11,9 +11,10 @@ $mediaItems[0]->getPath('thumb'); // Absolute path on its disk
 $mediaItems[0]->getTemporaryUrl(Carbon::now()->addMinutes(5), 'thumb'); // Temporary S3 url
 ```
 
-Because retrieving an url for the first media item in a collection is such a common scenario, the `getFirstMediaUrl` convenience-method is provided. The first parameter is the name of the collection, the second is the name of a conversion. There's also a `getFirstMediaPath`-variant that returns the absolute path on it's disk. 
+Because retrieving an url for the first media item in a collection is such a common scenario, the `getFirstMediaUrl` convenience-method is provided. The first parameter is the name of the collection, the second is the name of a conversion. There's also a `getFirstMediaPath`-variant that returns the absolute path on its disk and a `getFirstTemporaryURL`-variant which returns an temporary S3 url.
 
 ```php
 $urlToFirstListImage = $newsItem->getFirstMediaUrl('images', 'thumb');
+$urlToFirstTemporaryListImage = $newsItem->getFirstTemporaryUrl(Carbon::now()->addMinutes(5), 'images', 'thumb');
 $fullPathToFirstListImage = $newsItem->getFirstMediaPath('images', 'thumb');
 ```
