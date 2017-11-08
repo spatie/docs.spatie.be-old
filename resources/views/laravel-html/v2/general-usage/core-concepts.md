@@ -36,6 +36,18 @@ Since we're passing the input field's name `name` to the builder, it will try to
 
 Here, the builder creates a field, using `Sebastian` as its value. Afterwards, we chain a `value` call on the element object itself, which doesn't have any outside context, to overwrite the value, which was previously set, to `Alex`.
 
+## Checking radio and checkboxes
+
+To correctly check/uncheck radio and checkboxes use the `checked` method:
+
+```php
+{{ html()->model(new User(['title' => 'Mr'])) }}
+{{ html()->radio('title')->value('Mr')->checked(old('title', $user->title === 'Mr')) }}
+{{ html()->radio('title')->value('Ms')->checked(old('title', $user->title === 'Ms')) }}
+// <input type="radio" name="title" value="Mr" checked="checked" />
+// <input type="radio" name="title" value="Ms" />
+```
+
 ## Rendering elements
 
 Every `Element` instance can be rendered to an HTML string using the `render()` method or simply by using it in a string context.
