@@ -131,6 +131,6 @@ After performing the basic installation schedule the `server-monitor:run-checks`
 
 protected function schedule(Schedule $schedule)
 {
-   $schedule->command('server-monitor:run-checks')->everyMinute();
+   $schedule->command('server-monitor:run-checks')->withoutOverlapping()->everyMinute();
 }
 ```
