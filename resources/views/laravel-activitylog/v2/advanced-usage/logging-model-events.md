@@ -6,6 +6,8 @@ A neat feature of this package is that it can automatically log events such as w
 
 As a bonus the package will also log the changed attributes for all these events when setting `$logAttributes` property on the model.
 
+The attributes that need to be logged can be defined either by their name or you can put in a wildcard `'*'` to log any attribute that has changed.
+
 Here's an example:
 
 ```php
