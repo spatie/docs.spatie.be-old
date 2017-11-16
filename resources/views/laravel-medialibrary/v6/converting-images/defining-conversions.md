@@ -63,7 +63,7 @@ use Spatie\Image\Manipulations;
         $this->addMediaConversion('thumb')
               ->width(368)
               ->height(232)
-              ->sharpen;
+              ->sharpen(10);
 
         $this->addMediaConversion('old-picture')
               ->sepia()
