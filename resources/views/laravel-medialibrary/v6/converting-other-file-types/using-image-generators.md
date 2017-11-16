@@ -19,7 +19,7 @@ The medialibrary includes image generators for the following file types:
 
 ## PDF
 
-The only requirement to perform a conversion of a PDF file is [Imagick](http://php.net/manual/en/imagick.setresolution.php).
+The PDF generator requires [Imagick](http://php.net/manual/en/imagick.setresolution.php) and [Ghostscript](https://www.ghostscript.com/). If you're running into issues with Ghostscript have a look at [issues regarding Ghostscript](https://github.com/spatie/pdf-to-image/blob/master/README.md#issues-regarding-ghostscript).
 
 ## SVG
 
