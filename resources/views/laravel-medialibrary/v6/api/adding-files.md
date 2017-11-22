@@ -101,6 +101,23 @@ public function addAllMediaFromRequest(): Collection
 
 Please note the return type of `addAllMediaFromRequest` is a Collection of `FileAdder`s. This means you'll have to loop over every `FileAdder` to use any of the middle methods. See the `addMultipleMediaFromRequest` method above for an example.
 
+### addMediaFromBase64
+
+```php
+/**
+ * Add a base64 encoded file to the medialibrary.
+ *
+ * @param string $base64data
+ * @param string|array ...$allowedMimeTypes
+ *
+ * @throws InvalidBase64Data
+ * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
+ *
+ * @return \Spatie\MediaLibrary\FileAdder\FileAdder
+ */
+ public function addMediaFromBase64(string $base64data, ...$allowedMimeTypes): FileAdder
+```
+
 ### copyMedia
 
 
