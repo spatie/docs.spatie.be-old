@@ -101,20 +101,6 @@ public function addAllMediaFromRequest(): Collection
 
 Please note the return type of `addAllMediaFromRequest` is a Collection of `FileAdder`s. This means you'll have to loop over every `FileAdder` to use any of the middle methods. See the `addMultipleMediaFromRequest` method above for an example.
 
-### copyMedia
-
-
-```php
-/**
- * Copy a file to the medialibrary.
- *
- * @param string|\Symfony\Component\HttpFoundation\File\UploadedFile $file
- *
- * @return \Spatie\MediaLibrary\FileAdder\FileAdder
- */
-public function copyMedia($file)
-```
-
 ### addMediaFromBase64
 
 ```php
@@ -130,6 +116,20 @@ public function copyMedia($file)
  * @return \Spatie\MediaLibrary\FileAdder\FileAdder
  */
  public function addMediaFromBase64(string $base64data, ...$allowedMimeTypes): FileAdder
+```
+
+### copyMedia
+
+
+```php
+/**
+ * Copy a file to the medialibrary.
+ *
+ * @param string|\Symfony\Component\HttpFoundation\File\UploadedFile $file
+ *
+ * @return \Spatie\MediaLibrary\FileAdder\FileAdder
+ */
+public function copyMedia($file)
 ```
 
 ## Middle methods
