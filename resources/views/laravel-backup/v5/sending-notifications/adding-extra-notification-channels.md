@@ -47,7 +47,7 @@ class BackupHasFailed extends BaseNotification
 The last thing you need to do is register your custom notification in the config file.
 
 ```php
-// config/laravel-backup.php
+// config/backup.php
 use \NotificationChannels\PusherPushNotifications\Channel as PusherChannel
 
 ...

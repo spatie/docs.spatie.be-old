@@ -9,7 +9,7 @@ The package leverages Laravel 5.3's native notifications to let you know that yo
 This is the portion of the configuration that will determine when and how notifications will be sent.
 
 ```php
-//config/laravel-backup.php
+//config/backup.php
 
     /*
      * You can get notified when specific events occur. Out of the box you can use 'mail' and 'slack'.

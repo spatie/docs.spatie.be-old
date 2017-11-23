@@ -12,7 +12,7 @@ composer require spatie/laravel-backup
 
 The package will automatically register it's service provider.
 
-To publish the config file to `config/laravel-backup.php` run:
+To publish the config file to `config/backup.php` run:
 
 ``` bash
 php artisan vendor:publish --provider="Spatie\Backup\BackupServiceProvider"
