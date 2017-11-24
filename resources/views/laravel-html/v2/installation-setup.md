@@ -7,7 +7,7 @@ Before installing the package make sure you have (at least) PHP 7 installed. (No
 Laravel Html can be installed via composer:
 
 ```bash
-$ composer require spatie/laravel-html
+composer require spatie/laravel-html
 ```
 
 Next, you need to register the service provider:
