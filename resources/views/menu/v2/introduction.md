@@ -62,8 +62,8 @@ Menu::new()
     ->add(Link::to('/', 'Home'))
     ->submenu('More', Menu::new()
         ->addClass('submenu')
-        ->link('/about', 'About'))
-        ->link('/contact', 'Contact'))
+        ->link('/about', 'About')
+        ->link('/contact', 'Contact')
     );
 ```
 
