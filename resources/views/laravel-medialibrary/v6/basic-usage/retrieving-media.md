@@ -18,6 +18,12 @@ $fullPathOnDisk = $mediaItems[0]->getPath();
 $temporaryS3Url = $mediaItems[0]->getTemporaryUrl(Carbon::now()->addMinutes(5));
 ```
 
+Since retrieving an url for the first media item in a collection is such a common scenario, the `getFirstMediaUrl` convenience-method is also provided:
+
+```php
+$url = $mediaItems->getFirstMediaUrl();
+```
+
 An instance of `Media` also has a name, by default its filename:
 
 ```php
