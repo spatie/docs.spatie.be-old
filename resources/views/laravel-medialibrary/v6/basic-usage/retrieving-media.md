@@ -18,10 +18,11 @@ $fullPathOnDisk = $mediaItems[0]->getPath();
 $temporaryS3Url = $mediaItems[0]->getTemporaryUrl(Carbon::now()->addMinutes(5));
 ```
 
-Since retrieving an url for the first media item in a collection is such a common scenario, the `getFirstMediaUrl` convenience-method is also provided:
+Since retrieving the first media and the url for the first media for a object is such a common scenario, the `getFirstMedia` and `getFirstMediaUrl` convenience-methods are also provided:
 
 ```php
-$url = $mediaItems->getFirstMediaUrl();
+$media = $newsItem->getFirstMedia();
+$url = $newsItem->getFirstMediaUrl();
 ```
 
 An instance of `Media` also has a name, by default its filename:
@@ -96,8 +97,14 @@ Deleting a model with associated media, will also delete all associated files.
 $newsItem->delete(); // all associated files will be deleted as well
 ```
 
-If you want to remove all associated media in a specific collection you can use the `clearMediaCollection` method:
+If you want to remove all associated media in a specific collection you can use the `clearMediaCollection` method. It also accepts the collection name as an optional parameter:
 
 ```php
 $newsItem->clearMediaCollection(); // all media will be deleted
+```
+
+Also, there is a `clearMediaCollectionExcept` method which can be useful if you want to remove only few or some selected media in a collection. It accepts the collection name as the first argument and the media instance or collection of media instances which should not be removed as the second argument:
+
+```php
+$newsItem->clearMediaCollectionExcept('images', $newsItem->getFirstMedia()); // This will remove all associated media in the 'images' collection except the first media
 ```
