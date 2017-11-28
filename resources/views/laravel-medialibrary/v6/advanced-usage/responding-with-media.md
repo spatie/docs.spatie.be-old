@@ -2,7 +2,7 @@
 title: Responding with media
 ---
 
-`Media` implements the `Responsable` interface. This means that you can return a media object as a response.
+`Media` implements the `Responsable` interface. So you can just return a media object to download the associated file in your browser.
 
 ```php
 use Spatie\MediaLibrary\Media;
