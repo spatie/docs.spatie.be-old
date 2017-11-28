@@ -18,7 +18,7 @@ $fullPathOnDisk = $mediaItems[0]->getPath();
 $temporaryS3Url = $mediaItems[0]->getTemporaryUrl(Carbon::now()->addMinutes(5));
 ```
 
-Since retrieving the first media and the url for the first media for a object is such a common scenario, the `getFirstMedia` and `getFirstMediaUrl` convenience-methods are also provided:
+Since retrieving the first media and the url for the first media for an object is such a common scenario, the `getFirstMedia` and `getFirstMediaUrl` convenience-methods are also provided:
 
 ```php
 $media = $newsItem->getFirstMedia();
@@ -31,7 +31,7 @@ An instance of `Media` also has a name, by default its filename:
 echo $mediaItems[0]->name; // Display the name
 
 $mediaItems[0]->name = 'new name';
-$mediaItems[0]->save(); // The new name gets saved. Activerecord ftw!
+$mediaItems[0]->save(); // The new name gets saved.
 ```
 
 The name of a `Media` instance can be changed when it's added to the medialibrary:
@@ -101,6 +101,8 @@ If you want to remove all associated media in a specific collection you can use 
 
 ```php
 $newsItem->clearMediaCollection(); // all media will be deleted
+
+$newsItem->clearMediaCollection('images'); // all media in the images collection will be deleted
 ```
 
 Also, there is a `clearMediaCollectionExcept` method which can be useful if you want to remove only few or some selected media in a collection. It accepts the collection name as the first argument and the media instance or collection of media instances which should not be removed as the second argument:
