@@ -17,5 +17,3 @@ class News extends Model implements HasMedia
    ...
 }
 ```
-
-If you want to leverage [image conversions](https://docs.spatie.be/laravel-medialibrary/v6/converting-images/defining-conversions), implement the `HasMediaConversions` interface instead of `HasMedia`.

@@ -4,23 +4,21 @@ title: Defining conversions
 
 When adding files to the medialibrary it can automatically created derived versions such a thumbnails and banners.
 
-If you want to use this functionality your models should implement the `HasMediaConversions` interface instead of `HasMedia`. This interface expects an implementation of the `registerMediaConversions` method.
-
 Media conversions will be executed whenever  a `jpg`, `png`, `svg`, `pdf`, `mp4 `, `mov` or `webm` file is added to the medialibrary. By default, the conversions will be saved as a `jpg` files. This can be overwritten using the `format()` or `keepOriginalImageFormat()` methods.
 
 Internally, [spatie/image](https://docs.spatie.be/image/v1/) is used to manipulate the images. You can use [any manipulation function](https://docs.spatie.be/image) from that package. 
 
 ## A single conversion
 
-Here's an example of how a model can implement this.
+You should add a method called `registerMediaConversions` to your model. In that model you can define the media conversion. Here's an example:
 
 ```php
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\Media;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
-class NewsItem extends Model implements HasMediaConversions
+class NewsItem extends Model implements HasMedia
 {
     use HasMediaTrait;
 
