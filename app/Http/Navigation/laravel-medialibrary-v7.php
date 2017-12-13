@@ -24,11 +24,6 @@ return [
         'Optimizing converted images',
         'Regenerating images',
     ],
-    'Using media collections' => [
-        'Introduction',
-        'Single file collections',
-        'Single file collections',
-    ],
     'Downloading media' => [
         'Downloading a single file',
         'Downloading multiple files',
