@@ -1,9 +1,8 @@
 ---
-title: Working with collections
+title: Basic usage
 ---
 
-If you have different types of files that you want to associate,
-you can put them in their own collection.
+If you have different types of files that you want to associate, you can put them in their own collection.
 
 ```php
 $newsItem = News::find(1);

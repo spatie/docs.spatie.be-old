@@ -13,13 +13,21 @@ return [
         'Preparing your model',
         'Associating files',
         'Retrieving media',
-        'Working with collections',
     ],
+    'Working with media collections' => [
+        'Basic usage',
+        'Advanced usage',
+    ]
     'Converting images' => [
         'Defining conversions',
         'Retrieving converted images',
         'Optimizing converted images',
         'Regenerating images',
+    ],
+    'Using media collections' => [
+        'Introduction',
+        'Single file collections',
+        'Single file collections',
     ],
     'Downloading media' => [
         'Downloading a single file',
