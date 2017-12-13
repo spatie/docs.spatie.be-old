@@ -1,10 +1,10 @@
 ---
-title: Simple media collections
+title: Defining media collections
 ---
 
 A collection can be more than [just a name to group files](TODO: add to basic usage). By defining a media collection in your model you can add certain behaviour collections.
 
-To get started with media collections add a function called `registerMediaCollections` to [your prepared model](TODO: add link). Inside that function you can use `addMediaCollection` to start  a media collection.
+To get started with media collections add a function called `registerMediaCollections` to [your prepared model](/laravel-medialibrary/v7/basic-usage/preparing-your-model). Inside that function you can use `addMediaCollection` to start  a media collection.
 
 ```php
 // in your model
@@ -114,7 +114,7 @@ $yourModel->getFirstUrl('avatar') // will return an url to the `$anotherPathToIm
 
 ## Registering media conversions
 
-It's recommended that your first read the section on [converting images](TODO: add link) before reading this section.
+It's recommended that your first read the section on [converting images](/laravel-medialibrary/v7/converting-images/defining-conversions) before reading this section.
 
 Normally image conversions are registered inside the `registerMediaConversions` function on your model. However, images conversions can also be registered inside media collections.
 
@@ -140,4 +140,4 @@ $yourModel->add($pathToImage)->toMediaCollection('my-collection');
 $yourModel->getFirstMediaUrl('thumb') // returns an url to a 100x100 version of the added image.
 ```
 
-Take a look at the [defining conversions section](TODO: add link) to learn all the function you can tack on to `addMediaConversion`.
+Take a look at the [defining conversions section](/laravel-medialibrary/v7/converting-images/defining-conversions) to learn all the function you can tack on to `addMediaConversion`.

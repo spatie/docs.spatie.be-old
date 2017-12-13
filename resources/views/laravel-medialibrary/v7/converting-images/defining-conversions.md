@@ -6,7 +6,7 @@ When adding files to the medialibrary it can automatically created derived versi
 
 Media conversions will be executed whenever  a `jpg`, `png`, `svg`, `pdf`, `mp4 `, `mov` or `webm` file is added to the medialibrary. By default, the conversions will be saved as a `jpg` files. This can be overwritten using the `format()` or `keepOriginalImageFormat()` methods.
 
-Internally, [spatie/image](https://docs.spatie.be/image/v1/) is used to manipulate the images. You can use [any manipulation function](https://docs.spatie.be/image) from that package. 
+Internally, [spatie/image](https://docs.spatie.be/image/v1/) is used to manipulate the images. You can use [any manipulation function](https://docs.spatie.be/image) from that package.
 
 ## A single conversion
 
@@ -110,13 +110,13 @@ By default, a conversion will be added to the queue that you've [specified in th
 
 ```php
 // in your model
-    public function registerMediaConversions(Media $media = null)
-    {
-        $this->addMediaConversion('thumb')
-              ->width(368)
-              ->height(232)
-              ->nonQueued();
-    }
+public function registerMediaConversions(Media $media = null)
+{
+    $this->addMediaConversion('thumb')
+            ->width(368)
+            ->height(232)
+            ->nonQueued();
+}
 ```
 
 
