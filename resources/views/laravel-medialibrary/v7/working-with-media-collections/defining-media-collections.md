@@ -24,7 +24,7 @@ public function registerMediaCollections()
 
 ## Only allow certain files in a collection
 
-You can pass a callback to `acceptsFile` that will check if files are allowed into the collection. In this example we only accept `jpeg` files.
+You can pass a callback to `acceptsFile` that will check if a file is allowed into the collection. In this example we only accept `jpeg` files.
 
 ```php
 use Spatie\MediaLibrary\File;
