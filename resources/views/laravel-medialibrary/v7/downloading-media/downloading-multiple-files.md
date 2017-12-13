@@ -17,10 +17,11 @@ class DownloadMediaController
 {
    public function download(Media $mediaItem)
    {
-        // let's first get some media
+        // Let's get some media.
         $media = $yourModel->getMedia('downloads');
 
-        // download them in a streamed way, so no prob if your files are very large
+        // Download the files associated with the media in a streamed way.
+        // No prob if your files are very large.
         return ZipStreamResponse::create('my-files.zip')->addMedia($allMedia);
    }
 }
