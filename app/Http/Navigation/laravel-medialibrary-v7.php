@@ -21,6 +21,10 @@ return [
         'Optimizing converted images',
         'Regenerating images',
     ],
+    'Downloading media' => [
+        'Downloading a single file',
+        'Downloading multiple files',
+    ],
     'Converting other file types' => [
         'Using image generators',
         'Creating a custom image generator',
