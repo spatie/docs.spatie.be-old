@@ -2,9 +2,9 @@
 title: Advanced usage
 ---
 
-A collection can be more than [just a name to group files](TODO: add to basic usage). By defing a media collection in your model you can add certain behaviour to a collection as well.
+A collection can be more than [just a name to group files](TODO: add to basic usage). By defining a media collection in your model you can add certain behaviour collections.
 
-To define media collection to [your prepared model](TODO: add link) you must add a function `registerMediaCollections`. Inside that function you can use `addMediaCollection` to define a media collection.
+To get started with media collections add a function called `registerMediaCollections` to [your prepared model](TODO: add link). Inside that function you can use `addMediaCollection` to start  a media collection.
 
 ```php
 // in your model
@@ -112,4 +112,32 @@ $yourModel->getMedia('avatar')->count() // returns 1
 $yourModel->getFirstUrl('avatar') // will return an url to the `$anotherPathToImage` file
 ```
 
-## Registering media conversion
+## Registering media conversions
+
+It's recommended that your first read the section on [converting images](TODO: add link) before reading this section.
+
+Normally image conversions are registered inside the `registerMediaConversions` function on your model. However, images conversions can also be registered inside media collections.
+
+```php
+public function registerMediaCollections()
+{
+    $this
+        ->addMediaCollection('my-collection')
+        ->registerMediaConversions(function (Media $media) {
+            $this
+                ->addMediaConversion('thumb')
+                ->width(100)
+                ->height(100);
+        });
+}
+```
+
+When adding an image to `my-collection` a thumbnail that fits inside 100x100 will be created
+
+```php
+$yourModel->add($pathToImage)->toMediaCollection('my-collection');
+
+$yourModel->getFirstMediaUrl('thumb') // returns an url to a 100x100 version of the added image.
+```
+
+Take a look at the [defining conversions section](TODO: add link) to learn all the function you can tack on to `addMediaConversion`.

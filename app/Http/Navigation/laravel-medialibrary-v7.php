@@ -17,7 +17,7 @@ return [
     'Working with media collections' => [
         'Basic usage',
         'Advanced usage',
-    ]
+    ],
     'Converting images' => [
         'Defining conversions',
         'Retrieving converted images',
