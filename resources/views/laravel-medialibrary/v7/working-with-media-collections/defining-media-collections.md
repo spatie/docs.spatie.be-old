@@ -2,7 +2,7 @@
 title: Defining media collections
 ---
 
-A collection can be more than [just a name to group files](/laravel-medialibrary/v7/working-with-media-collections/simple-media-collections). By defining a media collection in your model you can add certain behaviour collections.
+A media collection can be more than [just a name to group files](/laravel-medialibrary/v7/working-with-media-collections/simple-media-collections). By defining a media collection in your model you can add certain behaviour collections.
 
 To get started with media collections add a function called `registerMediaCollections` to [your prepared model](/laravel-medialibrary/v7/basic-usage/preparing-your-model). Inside that function you can use `addMediaCollection` to start  a media collection.
 
