@@ -1,5 +1,5 @@
 ---
-title: Basic usage
+title: Defining media collections
 ---
 
 If you have different types of files that you want to associate, you can put them in their own collection.

@@ -1,5 +1,5 @@
 ---
-title: Advanced usage
+title: Simple media collections
 ---
 
 A collection can be more than [just a name to group files](TODO: add to basic usage). By defining a media collection in your model you can add certain behaviour collections.
