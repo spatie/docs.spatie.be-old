@@ -1,143 +1,37 @@
 ---
-title: Simple media collections
+title: Defining media collections
 ---
 
-A collection can be more than [just a name to group files](TODO: add to basic usage). By defining a media collection in your model you can add certain behaviour collections.
-
-To get started with media collections add a function called `registerMediaCollections` to [your prepared model](TODO: add link). Inside that function you can use `addMediaCollection` to start  a media collection.
+If you have different types of files that you want to associate, you can put them in their own collection.
 
 ```php
-// in your model
-
-public function registerMediaCollections()
-{
-    $this->addMediaCollection('my-collection')
-        //add options
-        ...
-
-    // you can define as much collections as needed
-    $this->addMediaCollection('my-other-collection')
-        //add options
-        ...
-}
+$newsItem = News::find(1);
+$newsItem->addMedia($pathToImage)->toMediaCollection('images');
+$newsItem->addMedia($pathToAnotherImage)->toMediaCollection('images');
+$newsItem->addMedia($pathToPdfFile)->toMediaCollection('downloads');
+$newsItem->addMedia($pathToAnExcelFile)->toMediaCollection('downloads');
 ```
 
-## Only allow certain files in a collection
-
-You can pass a callback to `acceptsFile` that will check if files are allowed into the collection. In this example we only accept `jpeg` files.
+All media in a specific collection can be retrieved like this:
 
 ```php
-use Spatie\MediaLibrary\File;
-...
-public function registerMediaCollections()
-{
-    $this
-        ->addMediaCollection('only-jpegs-please')
-        ->acceptsFile(function (File $file) {
-            return $file->mimeType === 'image/jpeg';
-        });
-}
+// will return media instances for all files in the images collection
+$newsItem->getMedia('images');
+
+// will returns media instance for all files in the downloads collection
+$newsItem->getMedia('downloads');
 ```
 
-This will succeed:
+A collection can have any name you want. If you don't specify a name, the file will be added to a collection named `default`.
+
+You can clear out a specific collection by passing the name to `clearMediaCollection`:
 
 ```php
-$yourModel->addMedia('beautiful.jpg')->toMediaCollection('only-jpegs-please');
+$newsItem->clearMediaCollection('images');
 ```
 
-This will throw a `Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileUnacceptableForCollection` exception.
+Also, there is a `clearMediaCollectionExcept` method which can be useful if you want to remove only few or some selected media in a collection. It accepts the collection name as the first argument and the media instance or collection of media instances which should not be removed as the second argument:
 
 ```php
-$yourModel->addMedia('ugly.ppt')->toMediaCollection('only-jpegs-please');
+$newsItem->clearMediaCollectionExcept('images', $newsItem->getFirstMedia()); // This will remove all associated media in the 'images' collection except the first media
 ```
-
-## Using a specific disk
-
-You can ensure that files added to a collection automatically get added to a certain disk.
-
-This is how you'd define the media collection.
-
-```php
-// in your model
-
-public function registerMediaCollections()
-{
-    $this
-       ->addMediaCollection('big-files')
-       ->useDisk('s3');
-}
-```
-
-When adding a file to `my-collection` it will be stored on the `s3` disk.
-
-```php
-$yourModel->addMedia($pathToFile)->toMediaCollection('big-files');
-```
-
-You can still specify the disk name manually when adding media. In this example the file will be stored on `alternative-disk` instead of `s3`.
-
-```php
-$yourModel->addMedia($pathToFile)->toMediaCollection('big-files', 'alternative-disk');
-```
-
-## Single file collections
-
-If you want a collection to hold only one file you can use `singleFile` on the collection. A good use case for this would be an avatar collection on a `User` model. In most cases you'd want to have a user to only have one `avatar`.
-
-```php
-// in your model
-
-public function registerMediaCollections()
-{
-    $this
-        ->addMediaCollection('avatar')
-        ->singleFile();
-}
-```
-
-The first time you add a file to the collection it will be stored as usual.
-
-```php
-$yourModel->add($pathToImage)->toMediaCollection('avatar');
-$yourModel->getMedia('avatar')->count() // returns 1
-$yourModel->getFirstUrl('avatar') // will return an url to the `$pathToImage` file
-```
-
-When adding another file to a single file collection the first one will be deleted.
-
-```php
-// this will remove other files in the collection
-$yourModel->add($anotherPathToImage)->toMediaCollection('avatar');
-$yourModel->getMedia('avatar')->count() // returns 1
-$yourModel->getFirstUrl('avatar') // will return an url to the `$anotherPathToImage` file
-```
-
-## Registering media conversions
-
-It's recommended that your first read the section on [converting images](TODO: add link) before reading this section.
-
-Normally image conversions are registered inside the `registerMediaConversions` function on your model. However, images conversions can also be registered inside media collections.
-
-```php
-public function registerMediaCollections()
-{
-    $this
-        ->addMediaCollection('my-collection')
-        ->registerMediaConversions(function (Media $media) {
-            $this
-                ->addMediaConversion('thumb')
-                ->width(100)
-                ->height(100);
-        });
-}
-```
-
-When adding an image to `my-collection` a thumbnail that fits inside 100x100 will be created
-
-```php
-$yourModel->add($pathToImage)->toMediaCollection('my-collection');
-
-$yourModel->getFirstMediaUrl('thumb') // returns an url to a 100x100 version of the added image.
-```
-
-Take a look at the [defining conversions section](TODO: add link) to learn all the function you can tack on to `addMediaConversion`.
