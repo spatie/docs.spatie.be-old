@@ -2,7 +2,7 @@
 title: Introduction
 ---
 
-**V7 of the medialibrary is currenlty in development. It's not stable yet and should not be used in production environments**
+**V7 of the medialibrary is currently in development. It's not stable yet and should not be used in a production environment**
 
 Medialibrary is a Laravel (5.6 and up) package that can associate all sorts of files with Eloquent models. It provides a simple, fluent API to work with.
 
