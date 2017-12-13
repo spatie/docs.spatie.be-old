@@ -24,6 +24,12 @@ return [
         'Optimizing converted images',
         'Regenerating images',
     ],
+    'Responsive images' => [
+        'Introduction',
+        'Displaying responsive images',
+        'Using your own width calculator',
+        'Generating your own tiny placeholder',
+    ],
     'Downloading media' => [
         'Downloading a single file',
         'Downloading multiple files',
