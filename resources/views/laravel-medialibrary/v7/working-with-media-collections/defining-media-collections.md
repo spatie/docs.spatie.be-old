@@ -45,7 +45,7 @@ This will succeed:
 $yourModel->addMedia('beautiful.jpg')->toMediaCollection('only-jpegs-please');
 ```
 
-This will throw a `Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileUnacceptableForCollection` exception.
+This will throw a `Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileUnacceptableForCollection` exception:
 
 ```php
 $yourModel->addMedia('ugly.ppt')->toMediaCollection('only-jpegs-please');
@@ -53,9 +53,7 @@ $yourModel->addMedia('ugly.ppt')->toMediaCollection('only-jpegs-please');
 
 ## Using a specific disk
 
-You can ensure that files added to a collection automatically get added to a certain disk.
-
-This is how you'd define the media collection.
+You can ensure that files added to a collection are automatically added to a certain disk.
 
 ```php
 // in your model
@@ -99,8 +97,8 @@ The first time you add a file to the collection it will be stored as usual.
 
 ```php
 $yourModel->add($pathToImage)->toMediaCollection('avatar');
-$yourModel->getMedia('avatar')->count() // returns 1
-$yourModel->getFirstUrl('avatar') // will return an url to the `$pathToImage` file
+$yourModel->getMedia('avatar')->count(); // returns 1
+$yourModel->getFirstUrl('avatar'); // will return an url to the `$pathToImage` file
 ```
 
 When adding another file to a single file collection the first one will be deleted.
@@ -108,13 +106,13 @@ When adding another file to a single file collection the first one will be delet
 ```php
 // this will remove other files in the collection
 $yourModel->add($anotherPathToImage)->toMediaCollection('avatar');
-$yourModel->getMedia('avatar')->count() // returns 1
-$yourModel->getFirstUrl('avatar') // will return an url to the `$anotherPathToImage` file
+$yourModel->getMedia('avatar')->count(); // returns 1
+$yourModel->getFirstUrl('avatar'); // will return an url to the `$anotherPathToImage` file
 ```
 
 ## Registering media conversions
 
-It's recommended that your first read the section on [converting images](/laravel-medialibrary/v7/converting-images/defining-conversions) before reading this section.
+It's recommended that your first read the section on [converting images](/laravel-medialibrary/v7/converting-images/defining-conversions) before reading the following paragraphs.
 
 Normally image conversions are registered inside the `registerMediaConversions` function on your model. However, images conversions can also be registered inside media collections.
 
@@ -132,7 +130,7 @@ public function registerMediaCollections()
 }
 ```
 
-When adding an image to `my-collection` a thumbnail that fits inside 100x100 will be created
+When adding an image to `my-collection` a thumbnail that fits inside 100x100 will be created.
 
 ```php
 $yourModel->add($pathToImage)->toMediaCollection('my-collection');
@@ -140,4 +138,4 @@ $yourModel->add($pathToImage)->toMediaCollection('my-collection');
 $yourModel->getFirstMediaUrl('thumb') // returns an url to a 100x100 version of the added image.
 ```
 
-Take a look at the [defining conversions section](/laravel-medialibrary/v7/converting-images/defining-conversions) to learn all the function you can tack on to `addMediaConversion`.
+Take a look at the [defining conversions section](/laravel-medialibrary/v7/converting-images/defining-conversions) to learn all the functions you can tack on to `addMediaConversion`.
