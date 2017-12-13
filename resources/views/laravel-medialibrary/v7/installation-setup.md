@@ -2,6 +2,8 @@
 title: Installation & setup
 ---
 
+**V7 of the medialibrary is currenlty in development. It's not stable yet and should not be used in production environments**
+
 Medialibrary can be installed via composer:
 
 ```bash
@@ -158,7 +160,7 @@ By default medialibrary will store it's files on Laravel's `public` disk. If you
 
 Don't forget to ignore the directory of your configured disk so the files won't end up in your git repo.
 
-If you are planning on working with image manipulations it's recommended to configure a queue on your server and specify it in the config file. 
+If you are planning on working with image manipulations it's recommended to configure a queue on your server and specify it in the config file.
 
 Want to use S3? Then follow Laravel's instructions on [how to add the S3 Flysystem driver](https://laravel.com/docs/5.5/filesystem#configuration).
 
