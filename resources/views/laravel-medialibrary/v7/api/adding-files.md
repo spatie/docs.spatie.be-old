@@ -36,7 +36,7 @@ public function addMedia($file)
 ```php
 /**
  * Add a remote file to the medialibrary.
- * 
+ *
  * @param string $url
  *
  * @return mixed
@@ -51,7 +51,7 @@ public function addMediaFromUrl(string $url)
 ```php
 /**
  * Add file from the current request to the medialibrary.
- * 
+ *
  * @param string $keyName
  *
  * @return \Spatie\MediaLibrary\FileAdder\FileAdder
@@ -66,7 +66,7 @@ public function addMediaFromRequest(string $keyName): FileAdder
 ```php
 /**
  * Add multiple files from the current request to the medialibrary.
- * 
+ *
  * @param string[] $keys
  *
  * @return Collection
@@ -220,7 +220,7 @@ This function does almost the same as `toMediaCollection`. It'll store all media
  /**
   * @param string $collectionName
   *
-  * @return \Spatie\MediaLibrary\Media
+  * @return \Spatie\MediaLibrary\Models\Media
   *
   * @throws FileCannotBeAdded
   * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded

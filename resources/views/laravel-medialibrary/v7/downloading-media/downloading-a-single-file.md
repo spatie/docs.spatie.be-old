@@ -5,7 +5,7 @@ title: Downloading a single file
 `Media` implements the `Responsable` interface. This means that you can just return a media object to download the associated file in your browser.
 
 ```php
-use Spatie\MediaLibrary\Media;
+use Spatie\MediaLibrary\Models\Media;
 
 class DownloadMediaController
 {
@@ -19,7 +19,7 @@ class DownloadMediaController
 If you need more control you could also do the above more verbose:
 
 ```php
-use Spatie\MediaLibrary\Media;
+use Spatie\MediaLibrary\Models\Media;
 
 class DownloadMediaController
 {
