@@ -39,17 +39,18 @@ return [
         'Creating a custom image generator',
     ],
     'Advanced usage' => [
+        'Responding with media',
         'Working with multiple filesystems',
         'Using custom properties',
-        'Generating custom URLs',
         'Storing media specific manipulations',
         'Using your own model',
         'Using a custom directory structure',
         'Ordering media',
+        'Moving media',
         'Consuming events',
+        'Generating custom URLs',
         'Overriding the default filesystem behaviour',
         'Soft deletes',
-        'Responding with media'
     ],
     'API' => [
         'Adding files',
