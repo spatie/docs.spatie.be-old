@@ -30,14 +30,14 @@ Let's take a look at the interface:
 ```php
 namespace Spatie\MediaLibrary\PathGenerator;
 
-use Spatie\MediaLibrary\Media;
+use Spatie\MediaLibrary\Models\Media;
 
 interface PathGenerator
 {
     /**
      * Get the path for the given media, relative to the root storage path.
      *
-     * @param \Spatie\MediaLibrary\Media $media
+     * @param \Spatie\MediaLibrary\Models\Media $media
      *
      * @return string
      */
@@ -46,7 +46,7 @@ interface PathGenerator
     /**
      * Get the path for conversions of the given media, relative to the root storage path.
      *
-     * @param \Spatie\MediaLibrary\Media $media
+     * @param \Spatie\MediaLibrary\Models\Media $media
      *
      * @return string
      */

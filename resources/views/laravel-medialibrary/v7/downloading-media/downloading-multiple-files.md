@@ -11,7 +11,7 @@ The provided `ZipStreamResponse` class that allows you to respond with a stream.
 Here's an example on how it can be used:
 
 ```php
-use Spatie\MediaLibrary\Media;
+use Spatie\MediaLibrary\Models\Media;
 
 class DownloadMediaController
 {
