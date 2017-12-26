@@ -25,10 +25,11 @@ return [
         'Regenerating images',
     ],
     'Responsive images' => [
-        'Introduction',
-        'Displaying responsive images',
+        'Getting started',
+        'Customizing the rendered output',
         'Using your own width calculator',
         'Generating your own tiny placeholder',
+        'Customizing the rendered output',
     ],
     'Downloading media' => [
         'Downloading a single file',

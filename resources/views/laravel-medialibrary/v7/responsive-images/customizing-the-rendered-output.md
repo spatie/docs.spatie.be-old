@@ -1,5 +1,4 @@
 ---
-title: Displaying responsive images
+title: Customizing the rendered output
 ---
 
-Coming soon...
