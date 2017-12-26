@@ -27,8 +27,8 @@ return [
     'Responsive images' => [
         'Getting started with responsive images',
         'Using your own width calculator',
+        'Customizing the rendered html',
         'Generating your own tiny placeholder',
-        'Customizing the rendered output',
     ],
     'Downloading media' => [
         'Downloading a single file',

@@ -57,7 +57,7 @@ To display a reponsive image simply output a `Media` object in a blade view.
 ```html
 {{-- in a Blade view --}}
 <h1>My responsive images</h1>
-{{ $media->getFirstMedia() }}
+{{ $yourModel->getFirstMedia() }}
 ```
 
 Per image attached to your model the resulting html will look more or less like this:

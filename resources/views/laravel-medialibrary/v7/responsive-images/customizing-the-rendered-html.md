@@ -1,5 +1,5 @@
 ---
-title: Customizing the rendered output
+title: Customizing the rendered html
 ---
 
 Whenever you use a `$media` instance as output in a Blade view the medialibrary will generate a `img` tag with the necessary `src`, `srcset` and `alt` attributes. You can customize the rendered ouput by publishing the `views` with:
