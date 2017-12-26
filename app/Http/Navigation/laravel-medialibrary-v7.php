@@ -25,7 +25,7 @@ return [
         'Regenerating images',
     ],
     'Responsive images' => [
-        'Getting started',
+        'Getting started with responsive images',
         'Using your own width calculator',
         'Generating your own tiny placeholder',
         'Customizing the rendered output',

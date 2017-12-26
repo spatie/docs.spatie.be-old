@@ -1,5 +1,5 @@
 ---
-title: Getting started
+title: Getting started with responsive images
 ---
 
 Websites are viewed on various devices with widely differing screen sizes and connection speeds. When serving images it's best not to use the same images for all devices. A large image might be fine on a desktop computer with a fast internet connection, but on a small mobile device with limited bandwith, the download might take a long time.
