@@ -2,7 +2,7 @@
 title: Getting started with responsive images
 ---
 
-Websites are viewed on various devices with widely differing screen sizes and connection speeds. When serving images it's best not to use the same images for all devices. A large image might be fine on a desktop computer with a fast internet connection, but on a small mobile device with limited bandwith, the download might take a long time.
+Websites are viewed on various devices with widely differing screen sizes and connection speeds. When serving images it's best not to use the same image for all devices. A large image might be fine on a desktop computer with a fast internet connection, but on a small mobile device with limited bandwith, the download might take a long time.
 
 The medialibrary has support for generating the necessary files and html markup for responsive images. In addition the medialibrary also has support for progressive image loading.
 
