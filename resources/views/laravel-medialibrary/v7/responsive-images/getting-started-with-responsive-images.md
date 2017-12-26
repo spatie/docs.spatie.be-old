@@ -26,7 +26,7 @@ As described in the [HTML specification](https://html.spec.whatwg.org/multipage/
 
 ### Progressive image loading
 
-When visiting a [Medium](https://medium.com/) blog you might have noticed (on a slower connection) that before a full image is displayed a blurred version of the image is shown. The blurred images is replace by a high res one as soon as that big version has been downloaded. The blurred image is actually a very tiny image that's being sized up.
+When visiting a [Medium](https://medium.com/) blog you might have noticed (on a slower connection) that before a full image is displayed a blurred version of the image is shown. The blurred image is replace by a high res one as soon as that big version has been downloaded. The blurred image is actually a very tiny image that's being sized up.
 
 The advantage of displaying a blurred version is that a visitor has a hint of what is going to be displayed very early on and that there won't be any distracting flickering due to relayouting when the big image has been downloaded.
 
