@@ -47,7 +47,7 @@ $yourModel
    ->toMediaCollection();
 ```
 
-Behind the scenes the medialibrary will generate multiple size variations of your image. To learn which variations are generated and how to customize head over [here](TODO: add link).
+Behind the scenes the medialibrary will generate multiple size variations of your image. To learn which variations are generated and how to customize head over [here](/laravel-medialibrary/v7/responsive-images/using-your-own-width-calculator).
 
 
 ### Displaying responsive images
