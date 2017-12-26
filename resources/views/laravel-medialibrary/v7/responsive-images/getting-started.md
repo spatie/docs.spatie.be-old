@@ -32,6 +32,7 @@ The advantage of displaying a blurred version is that a visitor has a hint of wh
 
 The medialibrary comes with support for progressive image loading out of the box. The tiny blurred image will automatically be generated whenever you leverage responsive images. A tiny piece of JavaScript will also be injected to swap the tiny placeholder with the bigger version as soon as it is downloaded.
 
+If you want to leverage responsive images but don't want the progressive image loading, you can set the `responsive_images.use_tiny_placeholders` key in the `medialibrary` config file to `false`.
 
 ### Generating the necessary images
 
