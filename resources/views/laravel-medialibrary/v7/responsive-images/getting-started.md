@@ -54,7 +54,7 @@ Behind the scenes the medialibrary will generate multiple size variations of you
 To display a reponsive image simply output a `Media` object in a blade view.
 
 ```html
-// in a blade view
+{{-- in a Blade view --}}
 <h1>My responsive images</h1>
 {{ $media->getFirstMedia() }}
 ```
