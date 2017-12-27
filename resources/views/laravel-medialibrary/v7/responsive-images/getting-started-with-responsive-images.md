@@ -52,7 +52,7 @@ Behind the scenes the medialibrary will generate multiple size variations of you
 
 ### Displaying responsive images
 
-To display a reponsive image simply output a `Media` object in a blade view.
+To display a responsive image simply output a `Media` object in a blade view.
 
 ```html
 {{-- in a Blade view --}}
@@ -67,7 +67,7 @@ Per image attached to your model the resulting html will look more or less like 
 
 ### Generating responsive images for conversions
 
-You can also generate responsive images for any [image conversions](https://docs.spatie.be/laravel-medialibrary/v6/converting-images/defining-conversions) you define. Simply use `withResponsiveImages` when defining a conversion.
+You can also generate responsive images for any [image conversions](https://docs.spatie.be/laravel-medialibrary/v7/converting-images/defining-conversions) you define. Simply use `withResponsiveImages` when defining a conversion.
 
 Here's an example where we define a conversion to make a greyscale version and generate responsive, greyscaled images.
 
