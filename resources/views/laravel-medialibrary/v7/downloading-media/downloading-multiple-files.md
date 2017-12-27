@@ -11,18 +11,16 @@ The provided `ZipStreamResponse` class that allows you to respond with a stream.
 Here's an example on how it can be used:
 
 ```php
-use Spatie\MediaLibrary\Models\Media;
-
 class DownloadMediaController
 {
-   public function download(Media $mediaItem)
+   public function download(YourModel $yourModel)
    {
         // Let's get some media.
-        $media = $yourModel->getMedia('downloads');
+        $downloads = $yourModel->getMedia('downloads');
 
         // Download the files associated with the media in a streamed way.
         // No prob if your files are very large.
-        return ZipStreamResponse::create('my-files.zip')->addMedia($allMedia);
+        return ZipStreamResponse::create('my-files.zip')->addMedia($downloads);
    }
 }
 ```
