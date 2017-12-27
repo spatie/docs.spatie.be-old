@@ -66,7 +66,7 @@ public function registerMediaCollections()
 }
 ```
 
-When adding a file to `my-collection` it will be stored on the `s3` disk.
+When adding a file to `big-files` it will be stored on the `s3` disk.
 
 ```php
 $yourModel->addMedia($pathToFile)->toMediaCollection('big-files');
