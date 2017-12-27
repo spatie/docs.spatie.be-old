@@ -52,7 +52,7 @@ Behind the scenes the medialibrary will generate multiple size variations of you
 
 ### Displaying responsive images
 
-To display a reponsive image simply output a `Media` object in a blade view.
+To display a responsive image simply output a `Media` object in a blade view.
 
 ```html
 {{-- in a Blade view --}}
