@@ -20,8 +20,7 @@ As described in the [HTML specification](https://html.spec.whatwg.org/multipage/
 
 ```html
 <img src="large.jpg"
-     srcset="large.jpg 2400w, medium.jpg 1200w, small.jpg 600w"
-     alt="My image">
+     srcset="large.jpg 2400w, medium.jpg 1200w, small.jpg 600w">
 ```
 
 ### A pragmatic sizes approach
@@ -32,12 +31,11 @@ The `srcset` attribute is commonly accompanied by the `sizes` attribute to tell 
 <img src="large.jpg"
      srcset="large.jpg 2400w, medium.jpg 1200w, small.jpg 600w"
      sizes="(min-width: 1200px) 50vw,
-            100vw"
-     alt="My image">
+            100vw">
 ```
 When using `srcset` and `sizes`, the browser will automatically figure out which image is best to use. 
 
-Say your browser is 1200 pixels wide, the `sizes` attribute demands for an image half the size (50vw = 600px). You'll end up with the `small.jpg` version. But presume furthermore you have a (retina) screen with pixel density 2, the browser knows we'd need the `medium.jpg` to render the image crisply.
+Say your browser is 1200 pixels wide, the `sizes` attribute demands for an image half the size (50vw = 600px). You'll end up with the `small.jpg` version. But presume you have a retina screen with pixel density 2, the browser knows we'd need the `medium.jpg` to render the image crisply.
 
 The `sizes` attribute requires a lot of work though: you'd need to co-ordinate between your responsive CSS and the output HTML to set the right `sizes` for every image and every layout scenario.
 If you leave out the `sizes` attribute, the browser will presume that the image will be rendered full width, which is also not optimal in many cases — eg. thumbnails.
