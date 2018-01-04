@@ -40,7 +40,8 @@ Say your browser is 1200 pixels wide, the `sizes` attribute demands for an image
 The `sizes` attribute requires a lot of work though: you'd need to co-ordinate between your responsive CSS and the output HTML to set the right `sizes` for every image and every layout scenario.
 If you leave out the `sizes` attribute, the browser will presume that the image will be rendered full width, which is also not optimal in many cases — eg. thumbnails.
 
-Now the medialibrary takes a pragmatic approach in this, so you don't ever have to think about the `sizes` attribute and can experiment freely with different page layouts: we set the `sizes` intially to `1px` to load the smallest picture first, and after load adjust `sizes` to the exact rendered width of the image with JavaScript. 
+Now the medialibrary takes a pragmatic approach in this, so you don't ever have to think about the `sizes` attribute and can experiment freely with different page layouts: we set the `sizes` intially to `1px` to load the smallest picture first, and after load adjust `sizes` to the rendered width of the image with JavaScript. 
+We set this width in a `vw` value: if you make your browser wider, an even better version will be loaded. 
 
 At the same time we can use this technique to use this smallest picture as the placeholder.
 
