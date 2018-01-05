@@ -6,6 +6,8 @@ Websites are viewed on various devices with widely differing screen sizes and co
 
 The medialibrary has support for generating the necessary files and html markup for responsive images. In addition the medialibrary also has support for progressive image loading.
 
+Try a [demo of the concept](https://docs.spatie.be.test/laravel-medialibrary/demo/responsive-images) here.
+
 ### Introducing the srcset attribute
 
 The most common way to display a picture is by using an `img` element with a `src` attribute.
