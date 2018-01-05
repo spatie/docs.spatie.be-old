@@ -47,7 +47,7 @@
                 sizes="1px" 
                 width="2400"        
                 src="/images/medialibrary/demo/responsive-images/2400.jpg"
-                onload="if(this.dataset.sized===undefined){this.sizes=Math.ceil(this.getBoundingClientRect().width/window.innerWidth*100)+'vw';this.dataset.sized=''}"
+                onload="this.onload=null;this.sizes=Math.ceil(this.getBoundingClientRect().width/window.innerWidth*100)+'vw';"
             >
             <article class="article">
                 <p>
