@@ -33,5 +33,6 @@ return [
         'Disabling monitors',
         'Using your own model',
         'Monitoring from multiple locations',
+        'Sending and verifying a payload',
     ],
 ];
