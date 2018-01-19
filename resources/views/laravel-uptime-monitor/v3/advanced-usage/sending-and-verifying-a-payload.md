@@ -9,8 +9,8 @@ To achieve this you will need to manually update a few fields in the database an
 In this example, you will need to set the following fields in the database:
 
 - `uptime_check_get_method`: `POST`
- - `uptime_check_payload`: `{"foo":"bar","baz":true}`
- - `uptime_check_additional_headers`: `{"Content-Type":"application\/json","Authorization":"Bearer NbMXe2NkzNex0Om9ERD89gXQRq6YZLMrpLQ6tX58uajEkHLEe2EbkY1oB9VJXYwZ"}`
+ - `uptime_check_payload`: `{"foo":"bar"}`
+ - `uptime_check_additional_headers`: `{"Content-Type":"application/json"}`
  - `uptime_check_response_checker`: `App\ResponseCheckers\ExampleChecker`
 
  _More details on these fields can be found in the section "[Manually Modifying Monitors](/laravel-uptime-monitor/v3/advanced-usage/manually-modifying-monitors)"_
@@ -31,17 +31,17 @@ use Spatie\UptimeMonitor\Helpers\UptimeResponseCheckers\UptimeResponseChecker;
 
 class ExampleChecker implements UptimeResponseChecker
 {
-    public function isValidResponse(ResponseInterface $response, Mon
+    public function isValidResponse(ResponseInterface $response, Monitor $monitor) : bool
     {
         return $response->getStatusCode() === Response::HTTP_OK
-            && (json_decode($body, true))['foo'] === 'bar'
+            && (json_decode((string) $response->getBody(), true))['foo'] === 'bar';
     }
 
     public function getFailureReason(ResponseInterface $response, Monitor $monitor) : string
     {
         return vsprintf('Foo returned %s instead of bar with a status code of %s', [
-            json_decode($response->getBody(), true)['foo'],
-            $response->getStatusCode(),
+            json_decode((string) $response->getBody(), true)['foo'],
+            $response->getStatusCode()
         ]);
     }
 }
