@@ -6,7 +6,7 @@ You might want to let users be able to download multiple files at once. Traditio
 
 The medialibrary is able to zip stream multiple files on the fly. So you don't need to create a zip archive on your server.
 
-The provided `ZipStreamResponse` class that allows you to respond with a stream. Files will be zipped on the fly and you can even include files from multiple filesystems.
+The provided `MediaStream` class that allows you to respond with a stream. Files will be zipped on the fly and you can even include files from multiple filesystems.
 
 Here's an example on how it can be used:
 
@@ -20,7 +20,7 @@ class DownloadMediaController
 
         // Download the files associated with the media in a streamed way.
         // No prob if your files are very large.
-        return ZipStreamResponse::create('my-files.zip')->addMedia($downloads);
+        return MediaStream::create('my-files.zip')->addMedia($downloads);
    }
 }
 ```
