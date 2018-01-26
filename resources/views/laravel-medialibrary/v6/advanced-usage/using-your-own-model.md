@@ -11,7 +11,7 @@ default `Spatie\MediaLibrary\Media`-class. Here's an example:
 namespace App\Models;
 use Spatie\MediaLibrary\Media as BaseMedia;
 
-class Media extends BaseMedia 
+class CustomMedia extends BaseMedia 
 {
 ...
 ```
