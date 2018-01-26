@@ -45,6 +45,10 @@ Route::prefix('laravel-medialibrary')->group(function () {
     Route::get('v7', function () {
         return redirect('laravel-medialibrary/v7/introduction');
     });
+
+    Route::get('/demo/responsive-images', function () {
+        return view('laravel-medialibrary/demo/responsive-images');
+    });
 });
 
 Route::prefix('menu')->group(function () {

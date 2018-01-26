@@ -21,6 +21,6 @@ In the config file of the package you must specify the name of your custom class
 ```php
 // config/medialibrary.php
 ...
-   'media_model' => App\Models\CustomMedia::class
+   'media_model' => App\Models\Media::class
 ...
 ```
