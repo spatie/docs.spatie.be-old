@@ -14,7 +14,6 @@ Route::prefix('laravel-backup')->group(function () {
     Route::get('v4', function () {
         return redirect('laravel-backup/v4/introduction');
     });
-    
 
     Route::get('v5', function () {
         return redirect('laravel-backup/v5/introduction');

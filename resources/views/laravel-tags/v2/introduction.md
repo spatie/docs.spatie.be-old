@@ -59,7 +59,7 @@ $tag->swapOrder($anotherTag);
 
 <section class="article_badges">
     <a href="https://packagist.org/packages/spatie/laravel-tags"><img src="https://img.shields.io/packagist/v/spatie/laravel-tags.svg?style=flat-square" alt="Latest Version on Packagist"></a>
-    <a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></a>
+    <a href="https://github.com/spatie/laravel-tags/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></a>
     <a href="https://travis-ci.org/spatie/laravel-tags"><img src="https://img.shields.io/travis/spatie/laravel-tags/master.svg?style=flat-square" alt="Build Status"></a>
     <a href="https://insight.sensiolabs.com/projects/b9e28680-fffe-4e6f-90fa-8c83417f6a86"><img src="https://img.shields.io/sensiolabs/i/b9e28680-fffe-4e6f-90fa-8c83417f6a86.svg?style=flat-square" alt="SensioLabsInsight"></a>
     <a href="https://scrutinizer-ci.com/g/spatie/laravel-tags"><img src="https://img.shields.io/scrutinizer/g/spatie/laravel-tags.svg?style=flat-square" alt="Quality Score"></a>

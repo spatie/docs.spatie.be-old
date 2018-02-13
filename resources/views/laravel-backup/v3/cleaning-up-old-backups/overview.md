@@ -100,4 +100,4 @@ Don't forget to specify the full classname of your custom strategy in the `clean
 
 ## Getting notified when a cleanup goes wrong
 
-You can receive a notification when a cleanup goes wrong. Read the section on  [notifications]('/laravel-backup/v3/sending-notifications/overview) to know more.
+You can receive a notification when a cleanup goes wrong. Read the section on  [notifications](/laravel-backup/v3/sending-notifications/overview) to know more.
