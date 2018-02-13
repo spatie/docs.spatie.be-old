@@ -16,7 +16,7 @@ Behind the scenes [Laravel's native notification system](https://laravel.com/doc
 
 <section class="article_badges">
     <a href="https://github.com/spatie/laravel-server-monitor/releases"><img src="https://img.shields.io/github/release/spatie/laravel-server-monitor.svg?style=flat-square" alt="Latest Version"></a>
-    <a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></a>
+    <a href="https://github.com/spatie/laravel-server-monitor/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></a>
     <a href="https://travis-ci.org/spatie/laravel-server-monitor"><img src="https://img.shields.io/travis/spatie/laravel-server-monitor/master.svg?style=flat-square" alt="Build Status"></a>
     <a href="https://scrutinizer-ci.com/g/spatie/laravel-server-monitor"><img src="https://img.shields.io/scrutinizer/g/spatie/laravel-server-monitor.svg?style=flat-square" alt="Quality Score"></a>
     <a href="https://styleci.io/repos/67774357"><img src="https://styleci.io/repos/67774357/shield?branch=master" alt="StyleCI"></a>

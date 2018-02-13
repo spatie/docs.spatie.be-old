@@ -14,7 +14,7 @@ If you' not familiar with Laravel, but still want to use this uptime monitor, ta
 
 <section class="article_badges">
     <a href="https://github.com/spatie/laravel-uptime-monitor/releases"><img src="https://img.shields.io/github/release/spatie/laravel-uptime-monitor.svg?style=flat-square" alt="Latest Version"></a>
-    <a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></a>
+    <a href="https://github.com/spatie/laravel-uptime-monitor/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></a>
     <a href="https://travis-ci.org/spatie/laravel-uptime-monitor"><img src="https://img.shields.io/travis/spatie/laravel-uptime-monitor/master.svg?style=flat-square" alt="Build Status"></a>
     <a href="https://scrutinizer-ci.com/g/spatie/laravel-uptime-monitor"><img src="https://img.shields.io/scrutinizer/g/spatie/laravel-uptime-monitor.svg?style=flat-square" alt="Quality Score"></a>
     <a href="https://styleci.io/repos/67774357"><img src="https://styleci.io/repos/67774357/shield?branch=master" alt="StyleCI"></a>
