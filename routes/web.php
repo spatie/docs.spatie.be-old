@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/LICENSE.md', 'PageController@license');
 
 Route::prefix('laravel-backup')->group(function () {
     Route::get('/', function () {
@@ -14,7 +15,6 @@ Route::prefix('laravel-backup')->group(function () {
     Route::get('v4', function () {
         return redirect('laravel-backup/v4/introduction');
     });
-    
 
     Route::get('v5', function () {
         return redirect('laravel-backup/v5/introduction');
@@ -155,5 +155,6 @@ Route::prefix('laravel-html')->group(function () {
     });
 });
 
+Route::get('{slug}/LICENSE.md', 'PageController@license')->where('slug', '(.*)');
 Route::get('{slug}/edit', 'PageController@edit')->where('slug', '(.*)');
 Route::get('{slug}', 'PageController@page')->where('slug', '(.*)');

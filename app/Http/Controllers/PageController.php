@@ -23,6 +23,17 @@ class PageController extends Controller
         return redirect("https://github.com/spatie/docs.spatie.be/edit/master/resources/views/{$slug}.md");
     }
 
+    public function license()
+    {
+        $slug = preg_replace('/\/?v?[0-9]?\/?LICENSE.md/', '', request()->path());
+
+        if(empty($slug)){
+            $slug = preg_replace('/https?:\/\//', '', config('app.url'));
+        }
+
+        return redirect("https://github.com/spatie/{$slug}/blob/master/LICENSE.md");
+    }
+
     public function getPageProperties() : array
     {
         try {
