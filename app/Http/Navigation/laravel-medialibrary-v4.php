@@ -34,7 +34,7 @@ return [
         'Using a custom directory structure',
         'Ordering media',
         'Consuming events',
-        'Overriding default filesystem behaviour',
+        'Overriding default filesystem behavior',
     ],
     'API' => [
         'Adding files',

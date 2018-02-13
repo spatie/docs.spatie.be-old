@@ -2,7 +2,7 @@
 title: Customizing notifications
 ---
 
-This package leverages [Laravel's native notification capabilites](https://laravel.com/docs/5.4/notifications) to send out [notifications](https://docs.spatie.be/laravel-server-monitor/v1/monitoring-basics/configuring-notifications). 
+This package leverages [Laravel's native notification capabilites](https://laravel.com/docs/5.4/notifications) to send out [notifications](https://docs.spatie.be/laravel-server-monitor/v1/monitoring-basics/notifications-and-events). 
 
 ```php
 'notifications' => [
