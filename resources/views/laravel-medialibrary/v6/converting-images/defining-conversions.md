@@ -2,7 +2,7 @@
 title: Defining conversions
 ---
 
-When adding files to the medialibrary it can automatically created derived versions such a thumbnails and banners.
+When adding files to the medialibrary it can automatically create derived versions such as thumbnails and banners.
 
 If you want to use this functionality your models should implement the `HasMediaConversions` interface instead of `HasMedia`. This interface expects an implementation of the `registerMediaConversions` method.
 
