@@ -13,7 +13,7 @@ $newsItem
 
 The file will now be associated with the `NewsItem` instance and will be moved to the disk you've configured.
 
-If you want to not move, but copy, the original file you can call `preservingOriginal`:
+If you want copy, rather than move the original file call `preservingOriginal`:
 
 ```php
 $newsItem
