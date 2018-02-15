@@ -7,7 +7,7 @@ title: Installation and setup
 You can install this package via composer using:
 
 ``` bash
-composer require spatie/laravel-backup
+composer require "spatie/laravel-backup:^4.0.0"
 ```
 
 You'll need to register the service provider:
