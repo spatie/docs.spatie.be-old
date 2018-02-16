@@ -134,6 +134,22 @@ $activity = Activity::all()->last();
 $activity->description; //returns 'This model has been created'
 ```
 
+## Customizing the log name
+
+Specify `$logName` to make the model use another name than the default.
+
+```php
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
+
+class NewsItem extends Model
+{
+    use LogsActivity;
+
+    protected $logName = 'system';
+}
+```
+
 ## Ignoring changes to certain attributes
 
 If your model contains attributes whose change don't need to trigger an activity being logged you can use `$ignoreChangedAttributes`
