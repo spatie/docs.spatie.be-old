@@ -30,6 +30,6 @@ If you use Laravel version lower than 5.5 and you want to use a facade, you'll n
 
 'aliases' => [
     // ...
-    'Menu' => Spatie\Menu\Laravel\MenuFacade::class,
+    'Menu' => Spatie\Menu\Laravel\Facades\Menu::class,
 ],
 ```
