@@ -116,7 +116,6 @@ class NavigationTest extends PHPUnit_Framework_TestCase
     {
         return collect($this->array)
             ->flatMap(function (array $block, string $title) : array {
-
                 if (empty($title)) {
                     return collect($block)->map(function (string $page) {
                         return str_slug($page);
