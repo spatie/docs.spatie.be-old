@@ -146,7 +146,7 @@ class NewsItem extends Model
 {
     use LogsActivity;
 
-    protected $logName = 'system';
+    protected static $logName = 'system';
 }
 ```
 
