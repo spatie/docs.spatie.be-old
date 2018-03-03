@@ -2,7 +2,6 @@
 title: Storing media specific manipulations
 ---
 
-
 Imagine you need to apply a 90 degree rotation to a single image. Sp the rotation should be applied to one specific `Media` and not to all media linked to the given `$newsItem`.
 
 When adding an image to the medialibrary, you can use `withManipulations` to set any media specific manipulations.
@@ -10,10 +9,11 @@ When adding an image to the medialibrary, you can use `withManipulations` to set
 Here's a quick axample
 
 ```php
-$mediaItem = $newsItem->addMedia($pathToFile)
-                      ->withManipulations([
-                           'thumb' => ['orientation' => '90'],
-                      );
+$newsItem
+   ->addMedia($pathToFile)
+   ->withManipulations([
+      'thumb' => ['orientation' => '90'],
+   );
 ```
 
 The package will regenerate all files using the saved manipulation as the first manipulation when creating a derived image.
@@ -32,4 +32,12 @@ $mediaItems[0]->save();
 
 First the rotation will be applied for this specific `$mediaItem`, then the the other manipulations you specific in the `thumb` conversion.
 
+Of course you can also set media specific manipulations for multiple conversions in one go:
 
+```php
+$newsItem
+   ->addMedia($pathToFile)
+   ->withManipulations([
+      'thumb' => ['orientation' => '90'],
+      'otherConversion' => ['orientation' => '180'],
+   );
