@@ -7,7 +7,7 @@ title: Installation and setup
 You can install this package via composer using:
 
 ``` bash
-composer require spatie/laravel-backup
+composer require "spatie/laravel-backup:^3.0.0"
 ```
 
 You'll need to register the serviceprovider:
@@ -21,7 +21,7 @@ You'll need to register the serviceprovider:
 ];
 ```
 
-To publish the config file to `app/config/laravel-backup.php` run:
+To publish the config file to `config/laravel-backup.php` run:
 
 ``` bash
 php artisan vendor:publish --provider="Spatie\Backup\BackupServiceProvider"
@@ -30,6 +30,8 @@ php artisan vendor:publish --provider="Spatie\Backup\BackupServiceProvider"
 This is the default contents of the configuration:
 
 ```php
+//config/laravel-backup.php
+
 return [
 
     'backup' => [
@@ -64,7 +66,7 @@ return [
 
             /*
              * The names of the connections to the databases that should be part of the backup.
-             * Currently only MySQL-and PostgreSQL-databases are supported.
+             * Currently only MySQL- and PostgreSQL-databases are supported.
              */
             'databases' => [
                 'mysql'
@@ -84,8 +86,8 @@ return [
 
     'cleanup' => [
         /*
-         * The strategy that will be used to cleanup old backups.
-         * The youngest backup wil never be deleted.
+         * The strategy that will be used to clean up old backups.
+         * The youngest backup will never be deleted.
          */
         'strategy' => \Spatie\Backup\Tasks\Cleanup\Strategies\DefaultStrategy::class,
 
@@ -157,9 +159,10 @@ return [
 
         /*
          * Here you can specify the ways you want to be notified when certain
-         * events take place. Possible values are "log", "mail", "slack" and "pushover".
+         * events take place. Possible values are "log", "mail", "slack", "pushover" and "telegram".
          * 
          * Slack requires the installation of the maknz/slack package.
+         * Telegram requires the installation of the irazasyed/telegram-bot-sdk package.
          */
         'events' => [
             'whenBackupWasSuccessful'     => ['log'],
@@ -184,15 +187,29 @@ return [
         'slack' => [
             'channel'  => '#backups',
             'username' => 'Backup bot',
-            'icon'     => ':robot:',
+            'icon'     => 'robot',
         ],
         
         /*
          * Here you can specify how messages should be sent to Pushover.
          */
         'pushover' => [
-            'token' => env('PUSHOVER_APP_TOKEN'),
-            'user'  => env('PUSHOVER_USER_KEY'),
+            'token'  => env('PUSHOVER_APP_TOKEN'),
+            'user'   => env('PUSHOVER_USER_KEY'),
+            'sounds' => [
+                'success' => env('PUSHOVER_SOUND_SUCCESS','pushover'),
+                'error'   => env('PUSHOVER_SOUND_ERROR','siren'),
+            ],
+        ],
+        
+        /*
+         * Here you can specify how messages should be sent to Telegram Bot API.
+         */
+        'telegram' => [
+            'bot_token' => env('TELEGRAM_BOT_TOKEN'),
+            'chat_id'   => env('TELEGRAM_CHAT_ID'),
+            'async_requests' => env('TELEGRAM_ASYNC_REQUESTS', false),
+            'disable_web_page_preview' => env('TELEGRAM_DISABLE_WEB_PAGE_PREVIEW', true),
         ],
     ]
 ];
@@ -218,7 +235,7 @@ Of course, the hours used in the code above are just examples. Adjust them to yo
 
 ## Monitoring
 
-When your application is broken the scheduled jobs will obviously not run anymore. You could also simply forget to add a cron job needed to trigger Laravel's scheduling. You're thinking backups are being made but in fact
+When your application is broken the scheduled jobs will obviously not run anymore. You could also simply forget to add a cron job needed to trigger Laravel's scheduling. You think backups are being made but in fact
 nothing gets backed up.
 
 To notify you of such events the package contains monitoring functionality. It will inform you when backups become too old or when they take up too much storage.
@@ -226,9 +243,9 @@ To notify you of such events the package contains monitoring functionality. It w
 Learn how to [set up monitoring](/laravel-backup/v3/monitoring-the-health-of-all-backups/overview).
 
 ## Dumping the database
-`mysqldump` and `pg_dump` are used to dump the database. If they are not installed in a default location, you can add a key named `dump_command_path` in Laravel's own `database.php` config file. Be sure to only filled in the path to the binary without the name of the binary itself.
+`mysqldump` and `pg_dump` are used to dump the database. If they are not installed in a default location, you can add a key named `dump_command_path` in Laravel's own `database.php` config file. Be sure to only fill in the path to the binary without the name of the binary itself.
 
-If your database dump takes a long time you might hit the default timeout of 60 seconds. You can set a higher (or lower) limit by providing a `dump_command_timeout` config key containing how long the command may run in seconds.
+If your database dump takes a long time you might hit the default timeout of 60 seconds. You can set a higher (or lower) limit by providing a `dump_command_timeout` config key which sets how long the command may run in seconds.
 
 Here's an example for MySQL:
 ```php
@@ -236,8 +253,13 @@ Here's an example for MySQL:
 'connections' => [
 	'mysql' => [
 		'dump_command_path' => '/path/to/the/binary', // only the path, so without 'mysqldump' or 'pg_dump'
-		'dump_command_timeout' => 60 * 5, //5 minute timeout
+		'dump_command_timeout' => 60 * 5, // 5 minute timeout
+		'dump_using_single_transaction' => true, // perform dump using a single transaction
 		'driver'    => 'mysql',
 		...
 	],
 ```
+
+For PostgreSQL db's you can also set a config key named `dump_use_inserts` to use `inserts` instead of `copy` in the database dump file.
+
+If `mysqldump` fails with a `1045: Access denied for user` error please make sure your MySql credentials are correct and do not contain any PHP [escape sequences](http://php.net/manual/en/language.types.string.php#language.types.string.syntax.double) (for example `\n` or `\r`).

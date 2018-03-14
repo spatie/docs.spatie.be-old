@@ -1,0 +1,31 @@
+@import '../_base/base';
+
+.header {
+  background-color: color($blue, darkest);
+}
+
+.header_background {
+  background: url('/images/image/header.jpg') center no-repeat;
+  background-size: cover;
+  opacity: .5;
+}
+
+.header_caption_title,
+.header_caption_slogan {
+  background-color: rgba(color($blue, darkest), .8);
+  color: $white;
+}
+
+.header_caption_title {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.header_caption_slogan {
+  border-top-right-radius: border-radius(s);
+
+  @include mq(s){
+    border-top-right-radius: border-radius(s);
+    border-top-left-radius: border-radius(s);
+  }
+}

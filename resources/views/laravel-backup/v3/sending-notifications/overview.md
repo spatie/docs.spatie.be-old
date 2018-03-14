@@ -11,6 +11,8 @@ This is the portion of the configuration that will determine when and how notifi
 Most options should be self-explanatory.
 
 ```php
+//config/laravel-backup.php
+
     'notifications' => [
 
         /*
@@ -20,9 +22,10 @@ Most options should be self-explanatory.
 
         /*
          * Here you can specify the ways you want to be notified when certain
-         * events take place. Possible values are "log", "mail", "slack" and "pushover".
+         * events take place. Possible values are "log", "mail", "slack", "pushover" and "telegram".
          *
-         * Slack requires the installation of the maknz/slack package
+         * Slack requires the installation of the maknz/slack package.
+         * Telegram requires the installation of the irazasyed/telegram-bot-sdk package.
          */
         'events' => [
             'whenBackupWasSuccessful'     => ['log'],
@@ -54,8 +57,22 @@ Most options should be self-explanatory.
          * Here you can specify how messages should be sent to Pushover.
          */
         'pushover' => [
-            'token' => env('PUSHOVER_APP_TOKEN'),
-            'user'  => env('PUSHOVER_USER_KEY'),
+            'token'  => env('PUSHOVER_APP_TOKEN'),
+            'user'   => env('PUSHOVER_USER_KEY'),
+            'sounds' => [
+                'success' => env('PUSHOVER_SOUND_SUCCESS','pushover'),
+                'error'   => env('PUSHOVER_SOUND_ERROR','siren'),
+            ],
+        ],
+        
+        /*
+         * Here you can specify how messages should be sent to Telegram Bot API.
+         */
+        'telegram' => [
+            'bot_token' => env('TELEGRAM_BOT_TOKEN'),
+            'chat_id'   => env('TELEGRAM_CHAT_ID'),
+            'async_requests' => env('TELEGRAM_ASYNC_REQUESTS', false),
+            'disable_web_page_preview' => env('TELEGRAM_DISABLE_WEB_PAGE_PREVIEW', true),
         ],
     ]
 ```

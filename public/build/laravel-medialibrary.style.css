@@ -345,7 +345,7 @@ table {
 .aa-dropdown-menu {
   -webkit-backdrop-filter: blur(5px);
   background-color: rgba(255, 255, 255, 0.95);
-  border: solid 2px #f8f0df;
+  border: solid 2px #f5f2ea;
   border-radius: 4px;
   box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
   font-size: 16px;
@@ -354,7 +354,7 @@ table {
   text-align: left; }
 
 .algolia-docsearch-suggestion {
-  border-bottom: solid 2px #f8f0df;
+  border-bottom: solid 2px #f5f2ea;
   color: #1a1e25;
   cursor: pointer;
   overflow: hidden; }
@@ -461,12 +461,23 @@ table {
     border-color: #f76b6e;
     color: #a32324; }
 
-.badge {
-  background-color: rgba(206, 235, 242, 0.75);
-  border-radius: 1em;
-  color: #e14a0c;
-  display: inline-block;
-  padding: 0 .35em; }
+.anchor-link {
+  border: none !important;
+  color: #d4cab4 !important;
+  display: block;
+  font-size: .75em;
+  font-weight: normal;
+  height: 1em;
+  position: absolute;
+  right: 100%;
+  top: .3em;
+  width: 1em;
+  text-align: right;
+  padding-right: .5rem; }
+  .anchor-link:hover {
+    color: #8d7e5f !important; }
+  .anchor-link:before {
+    content: '#'; }
 
 .article h1 {
   color: #1b3747;
@@ -524,6 +535,13 @@ table {
   transition: all .1s; }
   .article_badges a {
     border: 0; }
+
+.badge {
+  background-color: rgba(206, 235, 242, 0.75);
+  border-radius: 1em;
+  color: #e14a0c;
+  display: inline-block;
+  padding: 0 .35em; }
 
 html {
   height: 100%; }
@@ -804,22 +822,14 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     float: right;
     margin-right: 0; }
 
-.\$introduction .header {
-  height: 90vh; }
-
-.\$introduction .header_logos {
-  opacity: 0; }
-
 .header {
   height: 30vh;
-  min-height: 8em;
-  transition: height .5s ease-out; }
+  min-height: 10em;
+  position: relative; }
   @media (max-width: 900px) {
     .header {
       height: auto !important;
       padding: 2.25em 0; } }
-  .\$header-clear-animation .header {
-    transition: none !important; }
 
 .header_background {
   height: 100%;
@@ -828,27 +838,6 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   top: 0;
   width: 100%;
   z-index: 2; }
-  @media (max-width: 900px) {
-    .header_background video {
-      display: none; } }
-  .header_background:after {
-    position: absolute;
-    display: block;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    content: ' ';
-    transition: opacity 3s ease-out;
-    z-index: 2; }
-
-.header_arrow {
-  transition: all .3s linear; }
-  @media (max-width: 900px) {
-    .header_arrow {
-      display: none !important; } }
-  .\$header-clear-animation .header_arrow {
-    transition: none !important; }
 
 .header_content {
   bottom: 3em;
@@ -862,27 +851,81 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       position: relative;
       text-align: center; } }
 
-.header_title {
-  border-bottom-right-radius: 3px;
+.header_caption {
+  display: inline-block; }
+
+.header_caption_title {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   color: #fff;
   display: inline-block;
-  margin: 0 -10px;
-  padding: 0 10px; }
+  margin: 0 -10px; }
   @media (max-width: 900px) {
-    .header_title {
-      font-size: 1.65em; } }
+    .header_caption_title {
+      font-size: 1.65em;
+      border-radius: 3px;
+      display: block;
+      padding: 3px 10px; } }
+  .header_caption_title a {
+    color: inherit; }
 
-.header_title_version {
+.header_caption_title_link {
+  display: inline-block;
+  padding: .2em 10px .2em 10px;
+  vertical-align: middle; }
+
+.header_version {
   color: #e14a0c;
+  display: inline-block;
   font-size: 0.85em;
-  font-weight: 300; }
+  font-weight: 600;
+  margin: 0 10px 0 0;
+  vertical-align: middle; }
   @media (max-width: 900px) {
-    .header_title_version {
+    .header_version {
       font-size: 0.75em; } }
+  .header_version.-selectable {
+    background-color: #fff;
+    border-radius: 3px;
+    color: #e14a0c;
+    padding: 0 .45em 0 .25em; }
 
-.header_slogan {
+.header_version_caret {
+  border-left: .15em solid transparent;
+  border-right: .15em solid transparent;
+  border-top: 0.2em solid #f5b180;
+  display: inline-block;
+  height: 0;
+  vertical-align: middle;
+  width: 0; }
+
+.header_version_dropdown {
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
+  font-size: 2.38em;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 0;
+  position: absolute;
+  right: .1em;
+  top: .2em;
+  z-index: 10; }
+  @media (max-width: 900px) {
+    .header_version_dropdown {
+      font-size: 1.40em; } }
+  .header_version_dropdown li {
+    text-align: center; }
+    .header_version_dropdown li.-current {
+      font-weight: 600; }
+    .header_version_dropdown li:hover {
+      background: #fff2de; }
+  .header_version_dropdown a {
+    color: #e14a0c;
+    padding: 0 1em 0 .25em;
+    display: block; }
+
+.header_caption_slogan {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   color: #fff;
@@ -890,8 +933,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   margin: 0 -10px;
   padding: .5em 10px; }
   @media (max-width: 900px) {
-    .header_slogan {
-      font-size: 0.85em; } }
+    .header_caption_slogan {
+      display: none; } }
 
 .header_logos {
   bottom: 0;
@@ -905,14 +948,16 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       margin-top: 1em;
       opacity: 1 !important;
       position: relative;
-      text-align: center; } }
+      text-align: center;
+      right: 0; } }
   .header_logos a {
     display: inline-block;
     vertical-align: middle; }
+    .header_logos a + .header_logos a {
+      margin-left: 1em; }
   .header_logos svg {
     display: block;
     height: 2em;
-    margin-left: 1em;
     width: auto; }
   .header_logos .spatie:hover,
   .header_logos .github:hover {
@@ -926,7 +971,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   box-sizing: border-box;
   position: relative; }
   *:after, *:before {
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    position: relative; }
 
 html {
   height: 100%; }
@@ -937,7 +983,15 @@ body {
   font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", -apple-system, "Segoe UI", sans-serif;
   font-weight: 300;
   color: #1a1e25;
-  line-height: 1.5; }
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; }
+  body .header,
+  body .footer {
+    flex-grow: 0; }
+  body .main {
+    flex-grow: 1; }
 
 h1,
 h2,
@@ -1027,7 +1081,7 @@ address {
   padding: 1em; }
 
 blockquote {
-  background: #f8f0df;
+  background: #f5f2ea;
   border-left: 3px solid #e6decd;
   color: #5d4e36;
   display: block;
@@ -1055,7 +1109,7 @@ var {
   border-radius: 3px;
   box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.05);
   color: #333b46;
-  font-size: 0.75em; }
+  font-size: 0.85em; }
   p code, p
   kbd, p
   samp, p
@@ -1095,10 +1149,15 @@ mark {
   border-radius: 3px;
   color: #422c00;
   display: inline-block;
-  margin-left: -.35em;
-  margin-right: -.35em;
   padding: 0 .35em;
   text-decoration: none; }
+
+hr {
+  border: none;
+  height: 3px;
+  background: #f5f2ea;
+  width: 100%;
+  margin: 10vh 0 4vh; }
 
 pre {
   margin: 1.5em 0;
@@ -1120,7 +1179,7 @@ sup {
 
 @media (max-width: 900px) {
   .nav {
-    background: #f8f0df;
+    background: #f5f2ea;
     height: 100%;
     left: 100%;
     overflow-y: auto;
@@ -1144,7 +1203,7 @@ sup {
     margin: 0;
     padding-left: 0; }
     .nav_menu ul ul {
-      border-left: solid 3px rgba(212, 202, 180, 0.5);
+      border-left: solid 3px #f5f2ea;
       padding-left: 1em; }
   .nav_menu li {
     line-height: 1.35;
@@ -1160,8 +1219,6 @@ sup {
     border-radius: 3px;
     color: #e14a0c;
     display: inline-block;
-    margin-left: -.35em;
-    margin-right: -.35em;
     padding: 0 .35em; }
     .nav_menu a:hover {
       background-color: #fff2de; }
@@ -1170,12 +1227,10 @@ sup {
     border-radius: 3px;
     color: #fff;
     display: inline-block;
-    margin-left: -.35em;
-    margin-right: -.35em;
     padding: 0 .35em; }
 
 .nav_search {
-  border: solid 3px rgba(212, 202, 180, 0.5);
+  border: solid 3px #f5f2ea;
   border-radius: 3px;
   margin-top: .5em;
   padding: .5em;
@@ -1187,35 +1242,31 @@ sup {
 
 ::-webkit-input-placeholder {
   color: #d4cab4;
-  transition: color .3s ease-out, transform .3s ease-out; }
+  transition: opacity .3s ease-out; }
 
 :-moz-placeholder {
   color: #d4cab4;
-  transition: color .3s ease-out, transform .3s ease-out; }
+  transition: opacity .3s ease-out; }
 
 ::-moz-placeholder {
   color: #d4cab4;
-  transition: color .3s ease-out, transform .3s ease-out; }
+  transition: opacity .3s ease-out; }
 
 :-ms-input-placeholder {
   color: #d4cab4;
-  transition: color .3s ease-out, transform .3s ease-out; }
+  transition: opacity .3s ease-out; }
 
 :focus::-webkit-input-placeholder {
-  color: rgba(212, 202, 180, 0);
-  transform: translateX(50%); }
+  color: #f5f2ea; }
 
 :focus:-moz-placeholder {
-  color: rgba(212, 202, 180, 0);
-  transform: translateX(50%); }
+  color: #f5f2ea; }
 
 :focus::-moz-placeholder {
-  color: rgba(212, 202, 180, 0);
-  transform: translateX(50%); }
+  color: #f5f2ea; }
 
 :focus:-ms-input-placeholder {
-  color: rgba(212, 202, 180, 0);
-  transform: translateX(50%); }
+  color: #f5f2ea; }
 
 .nav_button {
   font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", -apple-system, "Segoe UI", sans-serif;
@@ -1260,6 +1311,81 @@ sup {
     .\$viewport-ended .nav_button.-bottom {
       transform: translateX(-50%) translateY(10%); }
 
+.\$nav-small body {
+  overflow: hidden; }
+
+.pagination {
+  margin: 10vh 0 4vh;
+  text-align: center; }
+  .pagination:after {
+    border-top: solid 3px #f5f2ea;
+    content: ' ';
+    height: 0;
+    left: 0;
+    position: absolute;
+    top: .7em;
+    width: 100%; }
+
+.pagination_buttons {
+  background: #fff;
+  display: inline-block;
+  z-index: 10; }
+
+.pagination_button {
+  border: 0 !important;
+  display: inline-block;
+  font-size: 0.75em;
+  line-height: 2;
+  margin: 0 .25em;
+  overflow: hidden; }
+  .pagination_button:after {
+    background-color: #f5f2ea;
+    border-radius: 3px;
+    color: #baab8c;
+    display: inline-block;
+    padding: 0 .35em;
+    display: inline-block;
+    min-width: 8em;
+    z-index: 10; }
+  .pagination_button:before {
+    background-color: #f5f2ea;
+    border-radius: 3px;
+    content: ' ';
+    height: 2em;
+    position: absolute;
+    top: 0;
+    transform: rotate(45deg);
+    width: 2em; }
+  .pagination_button:hover:after {
+    background-color: #e6decd;
+    border-radius: 3px;
+    color: #8d7e5f;
+    display: inline-block;
+    padding: 0 .35em; }
+  .pagination_button:hover:before {
+    background-color: #e6decd; }
+  .pagination_button.-previous {
+    padding-left: 1em; }
+    .pagination_button.-previous:before {
+      left: .5em; }
+    .pagination_button.-previous:after {
+      content: 'previous topic';
+      padding-right: 1em; }
+  .pagination_button.-next {
+    padding-right: 1em; }
+    .pagination_button.-next:before {
+      right: .5em; }
+    .pagination_button.-next:after {
+      content: 'next topic';
+      padding-left: 1em; }
+
+.screenshot {
+  margin: 2em 0; }
+  .screenshot.-slack {
+    max-width: 400px; }
+  .screenshot.-cli {
+    max-width: 500px; }
+
 .toolbar {
   font-size: 0.75em;
   position: absolute;
@@ -1272,12 +1398,10 @@ sup {
       display: none; } }
 
 .toolbar_item {
-  background-color: rgba(230, 222, 205, 0.2);
+  background-color: #f5f2ea;
   border-radius: 3px;
   color: #baab8c;
   display: inline-block;
-  margin-left: -.35em;
-  margin-right: -.35em;
   padding: 0 .35em;
   line-height: 2; }
   .toolbar_item .github {
@@ -1288,12 +1412,10 @@ sup {
   .toolbar_item .github_back {
     fill: #d4cab4; }
   .toolbar_item:hover {
-    background-color: rgba(230, 222, 205, 0.5);
+    background-color: #e6decd;
     border-radius: 3px;
     color: #8d7e5f;
     display: inline-block;
-    margin-left: -.35em;
-    margin-right: -.35em;
     padding: 0 .35em; }
     .toolbar_item:hover .github_back {
       fill: rgba(141, 126, 95, 0.8); }
@@ -1528,55 +1650,9 @@ sup {
   text-decoration: none;
   text-transform: none; }
 
-.header {
-  background-color: #a7dceb;
-  overflow: hidden; }
-
 .header_background {
-  -webkit-animation: kenburns 30s infinite;
-  animation: kenburns 30s infinite;
-  -webkit-animation-direction: alternate;
-  animation-direction: alternate;
-  -webkit-animation-timing-function: ease-in-out;
-  animation-timing-function: ease-in-out;
-  background-color: #a7dceb;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  -webkit-transform-origin: 40% 30%;
-  transform-origin: 40% 30%; }
-  @media (max-width: 900px) {
-    .header_background {
-      display: none; } }
-  .header_background:after {
-    background-color: #a7dceb;
-    opacity: 1; }
-    .\$introduction .header_background:after {
-      opacity: .6; }
+  background-color: #a7dceb; }
 
-.header_title,
-.header_slogan {
+.header_caption_title,
+.header_caption_slogan {
   background: rgba(0, 73, 102, 0.2); }
-
-.header_arrow {
-  border-radius: 100%;
-  display: inline-block;
-  height: 50px;
-  line-height: 50px;
-  overflow: hidden;
-  text-align: center;
-  width: 50px;
-  background-color: #e14a0c;
-  bottom: 1em;
-  font-size: 30px;
-  left: 50%;
-  position: absolute;
-  -webkit-transform: translateX(-50%) scale(0);
-  transform: translateX(-50%) scale(0);
-  z-index: 4; }
-  .header_arrow:after {
-    color: #fff;
-    content: '\21A7'; }
-  .\$introduction .header_arrow {
-    -webkit-transform: translateX(-50%) scale(1);
-    transform: translateX(-50%) scale(1); }

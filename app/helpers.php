@@ -1,12 +1,12 @@
 <?php
 
 use App\Http\Navigation\Navigation;
-use League\CommonMark\CommonMarkConverter;
+use App\Markdown\Converter as MarkdownConverter;
 use Spatie\Menu\Laravel\Menu;
 
 function markdown(string $markdown) : string
 {
-    return (new CommonMarkConverter())->convertToHtml($markdown);
+    return MarkdownConverter::convert($markdown);
 }
 
 function menu() : Menu

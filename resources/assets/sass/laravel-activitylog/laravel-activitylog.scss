@@ -1,0 +1,16 @@
+@import '../_base/base';
+
+.header {
+  background-color: color($gold, darker);
+}
+
+.header_background {
+  background: url('/images/activitylog/header.jpg') center no-repeat;
+  background-size: cover;
+  opacity: .75;
+}
+
+.header_caption_title,
+.header_caption_slogan {
+  background: color($blue, darkest, .25);
+}

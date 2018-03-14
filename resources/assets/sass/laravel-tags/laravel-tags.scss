@@ -1,0 +1,29 @@
+@import '../_base/base';
+
+.header {
+  background-color: color($green, darker, .85);
+}
+
+.header_background {
+  background: url('/images/tags/header.jpg') center no-repeat;
+  background-size: cover;
+  opacity: .2;
+}
+
+.header_caption_title,
+.header_caption_slogan {
+  color: $white;
+}
+
+.header_caption_title {
+  // Becasue title is smaller than slogan
+  border-radius: border-radius(s);
+  transform: rotate(2deg);
+  background: color($green, darkest);
+}
+
+.header_caption_slogan {
+  border-radius: border-radius(s);
+  transform: rotate(-3deg);
+  background: color($green, darkest, .85);
+}

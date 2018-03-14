@@ -22,7 +22,7 @@ $yourModel
 ```php
 /**
  * Add a file to the medialibrary. The file will be removed from
- * it's original location.
+ * its original location.
  *
  * @param string|\Symfony\Component\HttpFoundation\File\UploadedFile $file
  *
@@ -122,7 +122,7 @@ This is an alias for `usingFileName`
 public function withCustomProperties(array $customProperties)
 ```
 
-##Finishing methods
+## Finishing methods
 
 ### toMediaLibrary
 

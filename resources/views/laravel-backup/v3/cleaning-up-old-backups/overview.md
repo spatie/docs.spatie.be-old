@@ -17,6 +17,8 @@ We'll tell you right off the bat that the package by default will never delete t
 This is the portion of the configuration that will determine which backups should be deleted.
 
 ```php
+//config/laravel-backup.php
+
     'cleanup' => [
         /*
          * The strategy that will be used to cleanup old backups.
@@ -74,7 +76,7 @@ Of course the numbers used in the default configuration can be adjusted to your 
 
 ## Creating your own strategy
 
-If you are not happy with the `DefaultStrategy`, you can create your own custom strategy. You can do so by extending the abstract class `Spatie\Backup\Tasks\CleanupCleanup\Strategy`. You only need to implement this method:
+If you are not happy with the `DefaultStrategy`, you can create your own custom strategy. You can do so by extending the abstract class `Spatie\Backup\Tasks\Cleanup\CleanupStrategy`. You only need to implement this method:
 
 ```php
 use Spatie\Backup\BackupDestination\BackupCollection;
@@ -98,4 +100,4 @@ Don't forget to specify the full classname of your custom strategy in the `clean
 
 ## Getting notified when a cleanup goes wrong
 
-You can receive a notification when a cleanup goes wrong. Read the section on  [notifications]('/laravel-backup/v3/sending-notifications/overview) to know more.
+You can receive a notification when a cleanup goes wrong. Read the section on  [notifications](/laravel-backup/v3/sending-notifications/overview) to know more.

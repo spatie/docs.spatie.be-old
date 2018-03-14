@@ -3,24 +3,35 @@
 return [
     [
         'Introduction',
+        'Postcardware',
         'Requirements',
         'Installation and Setup',
         'Questions and Issues',
         'Changelog',
     ],
-    'Usage' => [
+    'Basic Usage' => [
         'Your First Menu',
         'Adding Items',
-        'Active Items',
-        'Html Attributes',
-        'Content Outside of the Menu',
-        'Manipulating Items',
     ],
-    'Laravel Menu' => [
+    'Items in Depth' => [
+        'Active Items',
+        'Manipulating Items',
+        'Conditionally Adding Items',
+    ],
+    'Controlling the Html Output' => [
+        'Item Attributes',
+        'Parent Attributes',
+        'Appending and Prepending Html',
+    ],
+    'Menus in Your Laravel App' => [
         'Convenience Methods',
+        'Conditional Items Based on Permissions',
         'Using Macros',
     ],
-    'API' => [
+    'Examples' => [
+        'Bootstrap Menu',
+    ],
+    'Api' => [
         'Menu',
         'Link',
         'Html',

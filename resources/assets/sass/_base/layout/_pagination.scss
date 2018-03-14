@@ -1,0 +1,84 @@
+.pagination {
+  margin: 10vh 0 4vh;
+  text-align: center;
+
+  &:after {
+    border-top: solid 3px color($gold, lightest);
+    content: ' ';
+    height: 0;
+    left: 0;
+    position: absolute;
+    top: .7em;
+    width: 100%;
+  }
+}
+
+.pagination_buttons {
+  background: $white;
+  display: inline-block;
+  z-index: z-index(above);
+}
+
+.pagination_button {
+  border: 0 !important;
+  display: inline-block;
+  font-size: font-size(xs);
+  line-height: 2;
+  margin: 0 .25em;
+  overflow: hidden;
+
+  &:after {
+    @include tag(color($gold), color($gold, lightest));
+
+    display: inline-block;
+    min-width: 8em;
+    z-index: z-index(above);
+  }
+
+  &:before {
+    background-color: color($gold, lightest);
+    border-radius: border-radius(s);
+    content: ' ';
+    height: 2em;
+    position: absolute;
+    top: 0;
+    transform: rotate(45deg);
+    width: 2em;
+  }
+
+  &:hover {
+    &:after {
+      @include tag(color($gold, dark), color($gold, lighter));
+    }
+
+    &:before {
+      background-color: color($gold, lighter);
+    }
+  }
+
+  &.-previous {
+    padding-left: 1em;
+
+    &:before {
+      left: .5em;
+    }
+
+    &:after {
+      content: 'previous topic';
+      padding-right: 1em;
+    }
+  }
+
+  &.-next {
+    padding-right: 1em;
+
+    &:before {
+      right: .5em;
+    }
+
+    &:after {
+      content: 'next topic';
+      padding-left: 1em;
+    }
+  }
+}

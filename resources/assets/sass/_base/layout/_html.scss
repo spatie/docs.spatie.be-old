@@ -5,6 +5,7 @@
   &:after,
   &:before {
     box-sizing: border-box;
+    position: relative;
   }
 }
 
@@ -18,6 +19,19 @@ body {
 
   color: $text-color;
   line-height: $line-height;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .header,
+  .footer {
+    flex-grow: 0;
+  }
+
+  .main {
+    flex-grow: 1;
+  }
 }
 
 h1,
@@ -154,7 +168,7 @@ var {
   border-radius: border-radius(s);
   box-shadow: inset 1px 1px 0 rgba($black, .05);
   color: color($hl, text);
-  font-size: font-size(xs);
+  font-size: font-size(s);
 
   p & {
     display: inline-block;
@@ -196,6 +210,14 @@ mark {
   @include tag(color($yellow, darkest), color($yellow, lightest));
 
   text-decoration: none;
+}
+
+hr {
+  border: none;
+  height: 3px;
+  background: color($gold, lightest);
+  width: 100%;
+  margin: 10vh 0 4vh;
 }
 
 pre {

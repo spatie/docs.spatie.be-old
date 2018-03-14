@@ -1,38 +1,10 @@
 @import '../_base/base';
 
-
 .header_background {
-  background: color($blue, darkest);
-
-
-  &:after {
-    background-color: color($blue, darkest);
-    opacity: 1;
-
-    .\$introduction & {
-      opacity: .35;
-    }
-  }
+  background-color: color($gold, light);
 }
 
-.header_title,
-.header_slogan {
-  background: rgba($black, .1);
-}
-
-.header_arrow {
-  background: color($blue, darkest);
-  border-radius: 5px;
-  bottom: 0;
-  display: block;
-  height: 60px;
-  left: 50%;
-  position: absolute;
-  transform: translateX(-50%) translateY(20%) rotate(-45deg) scale(0) ;
-  width: 60px;
-  z-index: 1;
-
-  .\$introduction & {
-    transform: translateX(-50%) translateY(25%) rotate(-45deg);
-  }
+.header_caption_title,
+.header_caption_slogan {
+  background: color($gold, darker, .2);
 }

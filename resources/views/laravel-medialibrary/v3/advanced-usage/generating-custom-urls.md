@@ -2,7 +2,7 @@
 title: Generating custom urls
 ---
 
-When `getUrl` is called the task of generating that URL is passed to an implementation of `Spatie\MediaLibraryUrlGenerator`.
+When `getUrl` is called, the task of generating that URL is passed to an implementation of `Spatie\MediaLibraryUrlGenerator`.
 
 The package contains a `LocalUrlGenerator` that can generate URLs for a media library that is stored inside the public path. An `S3UrlGenerator` is also included for when you're using S3 to store your files. 
 

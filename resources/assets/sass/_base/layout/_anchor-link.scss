@@ -1,0 +1,22 @@
+.anchor-link {
+  border: none !important;
+  color: color($gold, light) !important;
+  display: block;
+  font-size: .75em;
+  font-weight: normal;
+  height: 1em;
+  position: absolute;
+  right: 100%;
+  top: .3em;
+  width: 1em;
+  text-align: right;
+  padding-right: .5rem;
+
+  &:hover {
+    color: color($gold, dark) !important;
+  }
+
+  &:before {
+    content: '#';
+  }
+}

@@ -1,0 +1,13 @@
+.screenshot{
+  margin: 2em 0;
+
+  &.-slack {
+    max-width: 400px;
+  }
+
+  &.-cli {
+    max-width: 500px;
+  }
+
+}
+

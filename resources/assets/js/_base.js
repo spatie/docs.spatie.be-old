@@ -18,41 +18,34 @@ viewport.init({
 
 })();
 
-(function introductionScroll() {
-
-    if (window.location.hash == '#clean') {
-        makeHeaderSmall().addClass('$header-clear-animation');
-    }
-
-    $(window).on('scroll.introduction', function () {
-        if (viewport.state.started) {
-            makeHeaderSmall();
-            $(window).off('scroll.introduction');
-        }
-    });
-
-    $('[data-home-link]').on('click', function (e) {
-
-        e.preventDefault();
-
-        if ($('html').hasClass('$introduction')) {
-            makeHeaderSmall();
-            return;
-        }
-
-        window.location = $(this).attr('href');
-    });
-
-    function makeHeaderSmall() {
-        return $('html').removeClass('$introduction');
-    }
-
-})();
-
 (function smallNav() {
 
     $('[data-nav-switch]').on('click', function () {
-        $('html').toggleClass('$nav-small');
+        viewport.root.toggleClass('$nav-small');
     });
 
+    $(window).on('resize scroll', function() {
+        if(viewport.state.large){
+            viewport.root.removeClass('$nav-small');
+        }
+    });
 })();
+
+(function focusSearch() {
+    $('#algolia-search').focus();
+})();
+
+
+(function versionSelection() {
+
+    $('[data-version]').on('click', function(e){
+
+        e.stopPropagation();
+        $('[data-versions]').show();
+    });
+
+    $('body').on('click', function(){
+        $('[data-versions]').hide();
+    });
+})();
+

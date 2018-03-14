@@ -2,11 +2,11 @@
 title: Monitoring the health of all backups
 ---
 
-The package can check the health of every application it is installed into. A backup is considered unhealty if the date of the last backup is too far in the past or if the storage needed for all backups too large.
+The package can check the health of every application it is installed into. A backup is considered unhealthy if the date of the last backup is too far in the past or if the storage needed for all backups too large.
 
 ## Installation
 
-We recommend setting up a separate Laravel installation preferably on a separate server. Doing it this way will ensure you will still get notified of unhealty backups even if one of the applications you are monitoring is broken.
+We recommend setting up a separate Laravel installation, preferably on a separate server. Doing it this way will ensure you will still get notified of unhealthy backups even if one of the applications you are monitoring is broken.
 
 To install the monitor follow the regular [installation instructions](/laravel-backup/v3/installation-and-setup).
 Instead of scheduling the `backup:run` and `backup:clean` commands, you should schedule the monitor command.
@@ -27,6 +27,8 @@ You can of course still schedule `backup:run` and `backup:clean` to backup the m
 This is the part of the configuration where you can specify which applications should be monitored and when the monitor should consider the backups of a certain application unhealthy.
 
 ```php
+//config/laravel-backup.php
+
     /*
      *  In this array you can specify which backups should be monitored.
      *  If a backup does not meet the specified requirements the

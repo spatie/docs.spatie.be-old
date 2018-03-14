@@ -1,0 +1,17 @@
+@import '../_base/base';
+
+.header {
+  background-color: color($blue, darkest);
+}
+
+.header_background {
+  background: url('/images/home/header.jpg') no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+  opacity: .2;
+}
+
+.header_caption_title,
+.header_caption_slogan {
+  background: color($blue, darkest, .5);
+}

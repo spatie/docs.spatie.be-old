@@ -25,7 +25,7 @@ This event will be fired after a collection has been cleared.
 
 The event has two public properties:
 
-- `model`:  the object that conforms `\Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia` of which a collection has just been cleared.
+- `model`:  the object that conforms to `\Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia` of which a collection has just been cleared.
 - `collectionName`: the name of the collection that has just been cleared
 
 ## Sample usage
@@ -37,16 +37,16 @@ of added media.
 namespace App\Listeners;
 
 use Log;
-use Spatie\MediaLibrary\Events\MediaAddedEvent;
+use Spatie\MediaLibrary\Events\MediaHasBeenAdded;
 
 class MediaLogger
 {
     /**
-     * @param \Spatie\MediaLibrary\Events\MediaAddedEvent $event
+     * @param \Spatie\MediaLibrary\Events\MediaHasBeenAdded $event
      */
-    public function handle(MediaAddedEvent $event)
+    public function handle(MediaHasBeenAdded $event)
     {
-        $media = $event->getMedia();
+        $media = $event->media;
         $path = $media->getPath();
         Log::info("file {$path} has been saved for media {$media->id}");
     }
@@ -58,7 +58,7 @@ be called when the event is fired:
 
 ```php
 protected $listen = [
-    'Spatie\MediaLibrary\Events\MediaAddedEvent' => [
+    'Spatie\MediaLibrary\Events\MediaHasBeenAdded' => [
         'App\Listeners\MediaLogger'
     ],
 ];
