@@ -14,7 +14,7 @@ composer require spatie/laravel-uptime-monitor
 
 The package will automatically register itself.
 
-To publish the config file to `config/laravel-uptime-monitor.php` run:
+To publish the config file to `config/uptime-monitor.php` run:
 
 ``` bash
 php artisan vendor:publish --provider="Spatie\UptimeMonitor\UptimeMonitorServiceProvider"
