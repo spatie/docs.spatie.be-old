@@ -2,8 +2,6 @@
 title: Installation & setup
 ---
 
-**V7 of the medialibrary is currently in development. It's not stable yet and should not be used in a production environment**
-
 Medialibrary can be installed via composer:
 
 ```bash

@@ -2,7 +2,7 @@
 title: Requirements
 ---
 
-The Medialibrary package requires **PHP 7.0+** and **Laravel 5.6.0+**. 
+The Medialibrary package requires **PHP 7.1+** and **Laravel 5.6.0+**. 
 
 This package uses `json` columns. MySQL 5.7 or higher is required.
 
@@ -12,6 +12,12 @@ If you want to create PDF or SVG thumbnails **[Imagick](http://php.net/manual/en
 For the creation of thumbnails of video files `ffmpeg` should be installed on your system.
 
 If you're running into problems with Ghostscript and/or PDF to image generation have a look at [issues regarding Ghostscript](https://github.com/spatie/pdf-to-image/blob/master/README.md#issues-regarding-ghostscript).
+
+## Older versions
+
+We only support the latest version. If you do not meet the requirements, you can opt to use an older version of the package.
+
+Laravel 5.5 and PHP 7.0 users can use [V6 of this package](https://docs.spatie.be/laravel-medialibrary/v5/introduction).
 
 Laravel 5.4 users can use [V5 of this package](https://docs.spatie.be/laravel-medialibrary/v5/introduction).
 
