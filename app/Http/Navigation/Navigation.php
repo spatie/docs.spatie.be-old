@@ -17,21 +17,20 @@ class Navigation
         $this->version = current_version();
     }
 
-    public function menu() : Menu
+    public function menu(): Menu
     {
         return $this->generateMenu(
             "{$this->package}/{$this->version}",
-            require(__DIR__ . "/{$this->package}-{$this->version}.php")
+            require(__DIR__."/{$this->package}-{$this->version}.php")
         );
     }
 
-    protected function getFlattenedNavigation() : Collection
+    protected function getFlattenedNavigation(): Collection
     {
-        $navigation = require(__DIR__ . "/{$this->package}-{$this->version}.php");
+        $navigation = require(__DIR__."/{$this->package}-{$this->version}.php");
 
         return collect($navigation)
-            ->flatMap(function (array $block, string $title) : array {
-
+            ->flatMap(function (array $block, string $title): array {
                 if (empty($title)) {
                     return collect($block)->map(function (string $page) {
                         return str_slug($page);
@@ -46,17 +45,17 @@ class Navigation
             });
     }
 
-    public function getNextPage() : string
+    public function getNextPage(): string
     {
         return $this->getPreviousOrNextPage(1);
     }
 
-    public function getPreviousPage() : string
+    public function getPreviousPage(): string
     {
         return $this->getPreviousOrNextPage(-1);
     }
 
-    protected function getPreviousOrNextPage(int $addition) : string
+    protected function getPreviousOrNextPage(int $addition): string
     {
         $basePath = "{$this->package}/{$this->version}";
 
@@ -66,30 +65,28 @@ class Navigation
 
         $currentIndex = $flattenedNavigation->search($slug);
 
-        $page = $flattenedNavigation->get($currentIndex+$addition, '');
+        $page = $flattenedNavigation->get($currentIndex + $addition, '');
 
-        return !empty($page) ? "{$basePath}/{$page}" : '';
+        return ! empty($page) ? "{$basePath}/{$page}" : '';
     }
 
-    protected function generateMenu(string $prefix, array $items) : Menu
+    protected function generateMenu(string $prefix, array $items): Menu
     {
         $contents = collect($items)->map(function (array $items, $title) use ($prefix) : Menu {
-
             $title = is_int($title) ? null : $title;
 
             $subMenuContents = collect($items)->map(function (string $item) use ($prefix, $title) : Link {
-
                 $url = str_slug($item);
 
-                if (!is_null($title)) {
-                    $url = str_slug($title) . '/' . $url;
+                if (! is_null($title)) {
+                    $url = str_slug($title).'/'.$url;
                 }
 
                 return Link::toUrl("{$prefix}/{$url}", $item);
             });
 
             return Menu::new($subMenuContents->toArray())
-                ->prependIf(!is_null($title), "<h2>{$title}</h2>");
+                ->prependIf(! is_null($title), "<h2>{$title}</h2>");
         });
 
         return Menu::new($contents->toArray())->setActiveFromRequest();

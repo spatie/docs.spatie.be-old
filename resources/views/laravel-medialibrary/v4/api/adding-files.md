@@ -41,7 +41,7 @@ public function addMedia($file)
  *
  * @return mixed
  *
-     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
+ * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
  */
 public function addMediaFromUrl(string $url)
 ```
@@ -56,7 +56,7 @@ public function addMediaFromUrl(string $url)
  *
  * @return mixed
  *
-     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
+ * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
  */
 public function addMediaFromRequest($keyNAme)
 ```
