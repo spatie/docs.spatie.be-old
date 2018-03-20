@@ -2,7 +2,7 @@
 title: Requirements
 ---
 
-The Medialibrary package requires **PHP 7.1+** and **Laravel 5.6.0+**. 
+The Medialibrary package requires **PHP 7.1+** and **Laravel 5.5.0+**. 
 
 This package uses `json` columns. MySQL 5.7 or higher is required.
 
