@@ -48,7 +48,7 @@ Route::prefix('laravel-medialibrary')->group(function () {
     Route::get('test-image', function () {
         header('Content-Type: image/jpeg');
 
-        $imageToDisplay = 'images/medialibrary/demo/responsive-images/150.jpg';
+        $imageToDisplay = 'images/medialibrary/test-image.jpg';
 
         return readfile($imageToDisplay, true);
     });
