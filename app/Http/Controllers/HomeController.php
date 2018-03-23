@@ -15,7 +15,7 @@ class HomeController extends Controller
         return view('home.index');
     }
 
-    protected function showTestFile()
+    public function showTestFile()
     {
         $imageToDisplay = 'images/medialibrary/test-image.jpg';
 
