@@ -6,8 +6,6 @@ class TestFileController extends Controller
 {
     public function show()
     {
-        $imageToDisplay = 'images/medialibrary/test-image.jpg';
-
-        return response()->file($imageToDisplay);
+        return response()->file('images/medialibrary/test-image.jpg');
     }
 }
