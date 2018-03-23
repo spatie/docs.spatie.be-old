@@ -45,13 +45,7 @@ Route::prefix('laravel-medialibrary')->group(function () {
         return redirect('laravel-medialibrary/v7/introduction');
     });
 
-    Route::get('test-image', function () {
-        header('Content-Type: image/jpeg');
-
-        $imageToDisplay = 'images/medialibrary/test-image.jpg';
-
-        return readfile($imageToDisplay, true);
-    });
+    Route::get('test-image', 'HomeController@showTestFile');
 
     Route::get('/demo/responsive-images', function () {
         return view('laravel-medialibrary/demo/responsive-images');

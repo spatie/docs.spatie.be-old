@@ -9,18 +9,16 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         if ($request->query('test-image')) {
-            $this->handleTestFile();
+            return $this->showTestFile();
         }
 
         return view('home.index');
     }
 
-    protected function handleTestFile()
+    protected function showTestFile()
     {
-        header('Content-Type: image/jpeg');
-
         $imageToDisplay = 'images/medialibrary/test-image.jpg';
 
-        return readfile($imageToDisplay, true);
+        return response()->file($imageToDisplay);
     }
 }
