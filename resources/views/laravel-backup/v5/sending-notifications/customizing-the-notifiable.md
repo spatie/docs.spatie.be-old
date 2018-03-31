@@ -28,7 +28,7 @@ class BackupNotifiable extends Notifiable
 Don't forget to register the notifiable in the config file:
 
 ```php
-// config/laravel-backup
+// config/backup.php
     'notifications' => [
     ...
 
