@@ -18,7 +18,7 @@ Menu::new()
 // Or just...
 Menu::new()
     ->link('/', 'Home')
-    ->link('/about', 'About');
+    ->link('/about', 'About')
     ->link('/contact', 'Contact');
 ```
 
