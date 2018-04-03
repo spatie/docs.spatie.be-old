@@ -27,7 +27,7 @@ If you want, you can still schedule `backup:run` and `backup:clean` to backup th
 This is the part of the configuration where you can specify which applications should be monitored and when the monitor should consider the backups of a particular application unhealthy.
 
 ```php
-//config/laravel-backup.php
+//config/backup.php
 
     /*
      *  In this array you can specify which backups should be monitored.
