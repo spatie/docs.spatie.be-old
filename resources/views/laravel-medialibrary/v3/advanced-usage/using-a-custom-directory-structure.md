@@ -8,7 +8,7 @@ By default files will be stored inside a directory that uses
 the `id` of it's `Media`-object as a name. Converted images will be stored inside a directory
 names conversions.
 
-```php
+```
 media
 --- 1
 ------ file.jpg
