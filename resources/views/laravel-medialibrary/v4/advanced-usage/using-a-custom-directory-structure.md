@@ -8,13 +8,13 @@ named conversions.
 
 ```
 media
---- 1
+---- 1
 ------ file.jpg
 ------ conversions
 --------- small.jpg
 --------- medium.jpg
 --------- big.jpg
---- 2
+---- 2
 ------ file.jpg
 ------ conversions
 --------- small.jpg

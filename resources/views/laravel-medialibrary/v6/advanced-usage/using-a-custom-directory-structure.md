@@ -6,13 +6,13 @@ By default, files will be stored inside a directory that uses the `id` of its `M
 
 ```
 media
---- 1
+---- 1
 ------ file.jpg
 ------ conversions
 --------- small.jpg
 --------- medium.jpg
 --------- big.jpg
---- 2
+---- 2
 ------ file.jpg
 ------ conversions
 --------- small.jpg
