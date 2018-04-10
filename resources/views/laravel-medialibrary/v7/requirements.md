@@ -17,7 +17,7 @@ If you're running into problems with Ghostscript and/or PDF to image generation 
 
 We only support the latest version. If you do not meet the requirements, you can opt to use an older version of the package.
 
-Laravel 5.5 and PHP 7.0 users can use [V6 of this package](https://docs.spatie.be/laravel-medialibrary/v5/introduction).
+Laravel 5.5 and PHP 7.0 users can use [V6 of this package](https://docs.spatie.be/laravel-medialibrary/v6/introduction).
 
 Laravel 5.4 users can use [V5 of this package](https://docs.spatie.be/laravel-medialibrary/v5/introduction).
 
