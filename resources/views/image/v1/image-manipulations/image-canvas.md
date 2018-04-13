@@ -54,3 +54,19 @@ The accepted values are available as the following constants on the `Manipulatio
 - `Manipulations::ORIENTATION_90`
 - `Manipulations::ORIENTATION_180`
 - `Manipulations::ORIENTATION_270`
+
+## Flip
+
+Flip/mirror an image 'horizontally', 'vertically' or 'both'.
+
+```php
+$image->orientation(Manipulations::FLIP_HORIZONTALLY);
+```
+
+![Border](https://docs.spatie.be/images/image/example-flip-horizontally.jpg)
+
+The accepted values are available as the following constants on the `Manipulations` class:
+
+- `Manipulations::FLIP_HORIZONTALLY`
+- `Manipulations::FLIP_VERTICALLY`
+- `Manipulations::FLIP_BOTH`
