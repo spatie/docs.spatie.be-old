@@ -23,6 +23,7 @@ title: Overview
 - [Background](/image/v1/image-manipulations/image-canvas#background)
 - [Border](/image/v1/image-manipulations/image-canvas#border)
 - [Orientation](/image/v1/image-manipulations/image-canvas#orientation)
+- [Flip](/image/v1/image-manipulations/image-canvas#flip)
 
 ## Effects
 - [Blur](/image/v1/image-manipulations/effects#blur)
