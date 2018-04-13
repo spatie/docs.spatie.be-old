@@ -14,6 +14,12 @@ If you only want to regenerate the images for a single model, you can specify it
 $ php artisan medialibrary:regenerate "App\Post"
 ```
 
+If you only want to regenerate images for a few specific model instances, you can pass their IDs using the `--ids` option:
+
+```bash
+$ php artisan medialibrary:regenerate "App\Post" --ids=1 --ids=2 --ids=3
+```
+
 If you only want to regenerate images for one or many specific conversions, you can use the `--only` option:
 
 ```bash
