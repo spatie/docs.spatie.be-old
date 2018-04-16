@@ -8,7 +8,7 @@ To achieve this you will need to manually update a few fields in the database an
 
 In this example, you will need to set the following fields in the database:
 
-- `uptime_check_get_method`: `POST`
+- `uptime_check_method`: `POST`
  - `uptime_check_payload`: `{"foo":"bar"}`
  - `uptime_check_additional_headers`: `{"Content-Type":"application/json"}`
  - `uptime_check_response_checker`: `App\ResponseCheckers\ExampleChecker`
