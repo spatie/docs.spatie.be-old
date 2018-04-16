@@ -2,7 +2,7 @@
 title: Generating your own tiny placeholder
 ---
 
-When generating responsive images the medialibrary will generate a tiny version of your image which will be used for [progressive image loading](/laravel-medialibrary/v7/responsive-images/getting-started#progressive-image-loading). By default this tiny version will be blurred version of the original.
+When generating responsive images the medialibrary will generate a tiny version of your image which will be used for [progressive image loading](/laravel-medialibrary/v7/responsive-images/getting-started-with-responsive-images#progressive-image-loading). By default this tiny version will be blurred version of the original.
 
 You can customize how the tiny version of the image should be generated. Maybe you want a to just use the dominant color instead of blur. In the  `responsive_images.tiny_placeholder_generator` of the `medialibrary` config file you can specify a class that implements `Spatie\MediaLibrary\ResponsiveImages\TinyPlaceholderGenerator`. This interface only requires you to implement one function:
 

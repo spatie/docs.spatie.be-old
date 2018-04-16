@@ -6,15 +6,15 @@ By default files will be stored inside a directory that uses
 the `id` of its `Media`-object as a name. Converted images will be stored inside a directory
 named conversions.
 
-```php
+```
 media
---- 1
+---- 1
 ------ file.jpg
 ------ conversions
 --------- small.jpg
 --------- medium.jpg
 --------- big.jpg
---- 2
+---- 2
 ------ file.jpg
 ------ conversions
 --------- small.jpg

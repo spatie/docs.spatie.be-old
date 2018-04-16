@@ -45,6 +45,8 @@ Route::prefix('laravel-medialibrary')->group(function () {
         return redirect('laravel-medialibrary/v7/introduction');
     });
 
+    Route::get('test-image', 'TestFileController@show');
+
     Route::get('/demo/responsive-images', function () {
         return view('laravel-medialibrary/demo/responsive-images');
     });

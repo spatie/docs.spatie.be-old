@@ -18,7 +18,7 @@ Menu::new()
 // Or just...
 Menu::new()
     ->link('/', 'Home')
-    ->link('/about', 'About');
+    ->link('/about', 'About')
     ->link('/contact', 'Contact');
 ```
 
@@ -40,7 +40,7 @@ Menu::new()
     ->add(Link::to('/', 'Home')->addClass('home-link'))
     ->add(Link::to('/about', 'About'))
     ->add(Link::to('/contact', 'Contact')->addParentClass('float-right'))
-    ->wrap('div.wrapper')
+    ->wrap('div', ['class' => 'wrapper'])
 ```
 
 ```html
