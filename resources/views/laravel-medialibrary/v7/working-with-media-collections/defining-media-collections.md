@@ -96,7 +96,7 @@ public function registerMediaCollections()
 The first time you add a file to the collection it will be stored as usual.
 
 ```php
-$yourModel->add($pathToImage)->toMediaCollection('avatar');
+$yourModel->addMedia($pathToImage)->toMediaCollection('avatar');
 $yourModel->getMedia('avatar')->count(); // returns 1
 $yourModel->getFirstMediaUrl('avatar'); // will return an url to the `$pathToImage` file
 ```
@@ -105,7 +105,7 @@ When adding another file to a single file collection the first one will be delet
 
 ```php
 // this will remove other files in the collection
-$yourModel->add($anotherPathToImage)->toMediaCollection('avatar');
+$yourModel->addMedia($anotherPathToImage)->toMediaCollection('avatar');
 $yourModel->getMedia('avatar')->count(); // returns 1
 $yourModel->getFirstMediaUrl('avatar'); // will return an url to the `$anotherPathToImage` file
 ```
