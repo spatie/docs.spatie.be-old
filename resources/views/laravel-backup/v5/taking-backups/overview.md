@@ -81,16 +81,16 @@ This section of the configuration determines which files and databases will be b
          ],
      ],
 
-        'destination' => [
+     'destination' => [
 
-            /*
-             * The disk names on which the backups will be stored.
-             */
-            'disks' => [
-                'local',
-            ],
-        ],
-    ]
+         /*
+          * The disk names on which the backups will be stored.
+          */
+         'disks' => [
+             'local',
+         ],
+     ],
+]
 ```
 
 The specified databases will be dumped and, together with the selected files, zipped. The zip file will be named`<specified name in configuration>/<Y-m-d-H-i-s>.zip`.
