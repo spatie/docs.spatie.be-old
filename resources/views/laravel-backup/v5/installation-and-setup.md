@@ -10,7 +10,7 @@ You can install this package via composer using:
 composer require spatie/laravel-backup
 ```
 
-The package will automatically register it's service provider.
+The package will automatically register its service provider.
 
 To publish the config file to `config/backup.php` run:
 
