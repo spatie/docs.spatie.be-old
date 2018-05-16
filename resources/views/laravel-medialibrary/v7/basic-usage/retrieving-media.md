@@ -14,6 +14,7 @@ You can retrieve the url and path to the file associated with the `Media`-object
 
 ```php
 $publicUrl = $mediaItems[0]->getUrl();
+$publicFullUrl = $mediaItems[0]->getFullUrl(); //url including domain
 $fullPathOnDisk = $mediaItems[0]->getPath();
 $temporaryS3Url = $mediaItems[0]->getTemporaryUrl(Carbon::now()->addMinutes(5));
 ```
