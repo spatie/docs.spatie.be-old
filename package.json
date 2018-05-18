@@ -6,7 +6,7 @@
     "file-loader": "^0.8.5",
     "highlight.js": "^9.1.0",
     "jquery": "^2.2.1",
-    "node-sass": "^3.4.2",
+    "node-sass": "^4.9.0",
     "normalize-css": "^2.3.1",
     "postcss": "^5.0.19",
     "postcss-loader": "^0.8.0",
@@ -19,7 +19,7 @@
     "webpack": "^1.12.12"
   },
   "scripts": {
-    "cs" : "npm run cs:sass;npm run cs:js",
+    "cs": "npm run cs:sass;npm run cs:js",
     "cs:sass": "csscomb resources/assets/sass/",
     "cs:js": "eslint resources/assets/js/** --fix"
   }
