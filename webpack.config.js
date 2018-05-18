@@ -10,6 +10,8 @@ module.exports = {
         'laravel-backup': './resources/assets/js/laravel-backup.js',
         'laravel-medialibrary': './resources/assets/js/laravel-medialibrary.js',
         'laravel-medialibrary.style': './resources/assets/sass/laravel-medialibrary/laravel-medialibrary.scss',
+        'laravel-event-projector': './resources/assets/js/laravel-event-projector.js',
+        'laravel-event-projector.style': './resources/assets/sass/laravel-event-projector/laravel-event-projector.scss',
         'menu': './resources/assets/js/menu.js',
         'menu.style': './resources/assets/sass/menu/menu.scss',
         'laravel-activitylog': './resources/assets/js/laravel-activitylog.js',

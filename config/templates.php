@@ -77,4 +77,11 @@ return [
         'siteTitle' => 'Laravel Html',
         'versions' => ['v1', 'v2'],
     ],
+
+    'laravel-event-projector' => [
+        'githubUrl' => 'https://github.com/spatie/laravel-event-projector',
+        'siteSlogan' => 'Simple event sourcing in Laravel',
+        'siteTitle' => 'Laravel Event Projector',
+        'versions' => ['v1'],
+    ],
 ];
