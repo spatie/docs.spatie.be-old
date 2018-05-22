@@ -69,7 +69,7 @@ class Account extends Model
 }
 ```
 
-## Defening events
+## Defining events
 
 Instead of calculating the balance we're simply firing off events. All these events should implement `\Spatie\EventProjector\ShouldBeStored`. This is an empy interface that signifies to our package that the event should be stored.
 
@@ -210,17 +210,12 @@ class AccountBalanceProjector implements Projector
     {
         Account::find($event->accountId)->delete();
     }
-
-    public function onStartingEventReplay()
-    {
-        Account::truncate();
-    }
 }
 ```
 
 ## Registering your projector
 
-You can see that this projector will handle all the work that needs to be done for the given events. For the package to be able to locate this projector you should register it. The easiest way to register a projector is by calling `addProjector` on the `EventProjectionist` facade. Typically you would put this in a service provider of your own.
+The projector code up above will handle all the work that needs to be done for the given events. For the package to be able to locate this projector you should register it. The easiest way to register a projector is by calling `addProjector` on the `EventProjectionist` facade. Typically you would put this in a service provider of your own.
 
 ```php
 use \Spatie\EventProjector\Facades\EventProjectionist;
@@ -281,7 +276,6 @@ class CreateTransactionCountsTable extends Migration
         });
     }
 }
-
 ```
 
 ```php
