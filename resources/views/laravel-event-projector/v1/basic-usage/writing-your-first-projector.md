@@ -27,7 +27,6 @@ class CreateAccountsTable extends Migration
         });
     }
 }
-
 ```
 
 The `Account` model itself could look like this;
