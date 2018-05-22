@@ -10,6 +10,6 @@ return [
         'Changelog',
     ],
     'Basic usage' => [
-        'Preparing your event',
+        'Writing your first projector',
     ],
 ];
