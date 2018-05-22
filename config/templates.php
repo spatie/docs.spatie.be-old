@@ -80,7 +80,7 @@ return [
 
     'laravel-event-projector' => [
         'githubUrl' => 'https://github.com/spatie/laravel-event-projector',
-        'siteSlogan' => 'Simple event sourcing in Laravel',
+        'siteSlogan' => 'Event Sourcing for Artisans',
         'siteTitle' => 'Laravel Event Projector',
         'versions' => ['v1'],
     ],
