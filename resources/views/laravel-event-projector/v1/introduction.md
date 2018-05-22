@@ -2,6 +2,8 @@
 title: Introduction
 ---
 
+**THIS PACKAGE IS STILL IN DEVELOPMENT, DO NOT USE YET**
+
 Event sourcing is to data what Git is to code. Most applications have their current state stored in a database. By storing only the current state a lot of information is lost. You don't know how the application got in this state.
 
 Event sourcing tries to solve that problem by saving all events that happen in your app. The state of your application is built by listening to those events. 
