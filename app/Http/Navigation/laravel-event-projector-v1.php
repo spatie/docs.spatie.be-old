@@ -11,5 +11,6 @@ return [
     ],
     'Basic usage' => [
         'Writing your first projector',
+        'Handling side effects using reactors',
     ],
 ];

@@ -173,7 +173,7 @@ class AccountBalanceProjector implements Projector
     use ProjectsEvents;
     
     /*
-     * Here you can specify which event should trigger which method
+     * Here you can specify which event should trigger which method.
      */
     public $handlesEvents = [
         AccountCreated::class => 'onAccountCreated',
