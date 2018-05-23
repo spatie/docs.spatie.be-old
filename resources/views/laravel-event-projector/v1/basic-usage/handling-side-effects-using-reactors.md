@@ -51,6 +51,7 @@ use \Spatie\EventProjector\Facades\EventProjectionist;
 use \App\Reactor\BigAmountAddedReactor;
 
 ...
+
 EventProjectionist::addReactor(BigAmountAddedReactor::class)
 ```
 
