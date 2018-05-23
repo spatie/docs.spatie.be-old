@@ -2,7 +2,7 @@
 title: Installation & setup
 ---
 
-Medialibrary can be installed via composer:
+laravel-event-projector can be installed via composer:
 
 ```bash
 composer require spatie/laravel-event-projector:^1.0.0
