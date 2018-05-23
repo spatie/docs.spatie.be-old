@@ -1,4 +1,4 @@
-&.\:responsive-mobile-only {
+.\:responsive-mobile-only {
   @include mq(s) {
     display: block !important;
   }
@@ -6,7 +6,7 @@
   display: none !important;
 }
 
-&.\:responsive-desktop-only {
+.\:responsive-desktop-only {
   @include mq(s) {
     display: none !important;
   }

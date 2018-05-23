@@ -1,10 +1,20 @@
 @import '../_base/base';
 
+.header {
+  background-color: color($blue, darkest);
+}
+
 .header_background {
-  background-color: color($blue, lighter);
+  background: url('/images/event-projector/header.jpg') center no-repeat;
+  background-size: cover;
+  opacity: .8;
 }
 
 .header_caption_title,
 .header_caption_slogan {
   background: color($blue, darker, .2);
 }
+
+
+
+

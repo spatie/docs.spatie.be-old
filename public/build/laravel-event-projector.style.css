@@ -1650,9 +1650,14 @@ sup {
   text-decoration: none;
   text-transform: none; }
 
+.header {
+  background-color: #1b3747; }
+
 .header_background {
-  background: #1b3747; }
+  background: url("/images/event-projector/header.jpg") center no-repeat;
+  background-size: cover;
+  opacity: .8; }
 
 .header_caption_title,
 .header_caption_slogan {
-  background: rgba(0, 0, 0, 0.1); }
+  background: rgba(0, 73, 102, 0.2); }
