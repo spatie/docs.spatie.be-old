@@ -79,7 +79,7 @@ namespace App\Events;
 
 class AccountCreated implements ShouldBeStored
 {
-    /** array */
+    /** @var array */
     public $accountAttributes;
 
     public function __construct(array $accountAttributes)
