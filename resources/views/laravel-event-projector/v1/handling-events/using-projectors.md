@@ -104,7 +104,32 @@ class AccountBalanceProjector implements Projector
 
 This projector will be created using the container so you may inject any depedency you'd like. In fact all methods present in `$handlesEvent` can make use of method injection, so you can resolve any depencies you need in those methods as well. Any variable in the method signature with the name `$event` will receive the event you're listening for.
 
- 
+## Performing some work before and after replaying events
 
+When [replaying events](/laravel-event-projector/v1/replaying-events/replaying-events) projectors will get called to.
 
+If your projector has a `onStartingEventReplay` method it will get called right before the first event will be replayed. This can be handy to clean up any data your projector writes to. Here's an example were we truncate the `accounts` table before replaying events.
 
+```php
+<?php
+
+namespace App\Projectors;
+
+use App\Account;
+
+// ...
+
+class AccountBalanceProjector implements Projector
+{
+    use ProjectsEvents;
+
+    // ...
+
+    public function onStartingEventReplay()
+    {
+        Account::truncate();
+    }
+}
+```
+
+After all events are replayed, the `onFinishedEventReplay` mehtod will be called, should your projector have one.
