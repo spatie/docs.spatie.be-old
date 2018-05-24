@@ -252,7 +252,7 @@ If you take a look at the contents of the `accounts` table you should see some a
 
 ## Your second projector
 
-Image that after a while someone at the bank wants to know which accounts have processed the most transactions. Because we stored all changes to the accounts in the events table we can easily get that info by creating another projector. 
+Imagine that after a while someone at the bank wants to know which accounts have processed the most transactions. Because we stored all changes to the accounts in the events table we can easily get that info by creating another projector. 
 
 We are going to create another projector that stores the transaction count per account in a model. Bare in mind that you can easily use any other storage mechanism instead of a model. The projector doesn't care what you use.
 
