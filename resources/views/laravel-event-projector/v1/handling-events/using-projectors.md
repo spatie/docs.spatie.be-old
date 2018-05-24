@@ -6,7 +6,7 @@ A projector is a class that listens for events that were stored. When it hears a
 
 ## Creating projectors
 
-Let's create your a projector. You can perform this artisan coomand to create a projector in `app\Projectors`.
+Let's create a projector. You can perform this artisan command to create a projector in `app\Projectors`.
 
 ```php
 php artisan make:projector AccountBalanceProjector
@@ -71,14 +71,12 @@ class AccountBalanceProjector implements Projector
 
 The `$handlesEvents` property is an array which has event class names as keys and method names as values. Whenever an event is fired that matches one of the keys in `$handlesEvents` the corresponding method will be fired. You can name your methods however you like.
 
-Here's an example where we listen for a `MoneyAddedEvent`
+Here's an example where we listen for a `MoneyAdded`
 
 ```php
 namespace App\Projectors;
 
 use App\Account;
-use App\Events\AccountCreated;
-use App\Events\AccountDeleted;
 use App\Events\MoneyAdded;
 use Spatie\EventProjector\Projectors\Projector;
 use Spatie\EventProjector\Projectors\ProjectsEvents;
@@ -91,11 +89,11 @@ class AccountBalanceProjector implements Projector
      * Here you can specify which event should trigger which method.
      */
     public $handlesEvents = [
-        AccountCreated::class => 'onAccountCreated',
+        MoneyAdded::class => 'onMoneyAdded',
       
     ];
 
-    public function onAccountCreated(AccountCreated $event)
+    public function onMoneyAdded(MoneyAdded $event)
     {
         // do some work
     }
