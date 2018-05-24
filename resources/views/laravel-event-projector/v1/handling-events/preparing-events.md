@@ -10,7 +10,7 @@ You can quickly create an event that implements `ShouldBeStored` by running this
 php artisan make:storable-event NameOfYourEvent
 ```
 
-Here's an example of such event
+Here's an example of such event:
 
 ```php
 namespace App\Events;
@@ -33,5 +33,7 @@ class MoneyAdded implements ShouldBeStored
     }
 }
 ```
+
+Whenever an event that implements `ShouldBeStored` is fired it will be serialized and written in the `stored_events` table. Immediately after that the event will be passed to all projectors and reactors.
 
 If your event has an eloquent model it should also use the `Illuminate\Queue\SerializesModels` trait so we are able to serialize these models correctly.
