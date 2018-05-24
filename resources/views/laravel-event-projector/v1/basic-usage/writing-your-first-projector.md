@@ -29,7 +29,7 @@ class CreateAccountsTable extends Migration
 }
 ```
 
-The `Account` model itself could look like this;
+The `Account` model itself could look like this:
 
 ```php
 use App\Events\AccountCreated;
@@ -70,7 +70,7 @@ class Account extends Model
 
 ## Defining events
 
-Instead of calculating the balance we're simply firing off events. All these events should implement `\Spatie\EventProjector\ShouldBeStored`. This is an empy interface that signifies to our package that the event should be stored.
+Instead of calculating the balance we're simply firing off events. All these events should implement `\Spatie\EventProjector\ShouldBeStored`. This is an empty interface that signifies to our package that the event should be stored.
 
 Let's take a look at all events used in the `Account` model.
 
@@ -79,7 +79,7 @@ namespace App\Events;
 
 class AccountCreated implements ShouldBeStored
 {
-    /** array */
+    /** @var array */
     public $accountAttributes;
 
     public function __construct(array $accountAttributes)
@@ -152,7 +152,7 @@ class AccountDeleted implements ShouldBeStored
 
 ## Creating your first projector
 
-A projector is a class that listens for events that were stored. When it hears event that it is interested in, it can perform some work.
+A projector is a class that listens for events that were stored. When it hears an event that it is interested in, it can perform some work.
 
 Let's create your first projector. You can perform `php artisan make:projector AccountBalanceProjector` to create a projector in `app\Projectors`.
 
@@ -173,7 +173,7 @@ class AccountBalanceProjector implements Projector
     use ProjectsEvents;
     
     /*
-     * Here you can specify which event should trigger which method
+     * Here you can specify which event should trigger which method.
      */
     public $handlesEvents = [
         AccountCreated::class => 'onAccountCreated',
@@ -248,13 +248,13 @@ $account->subtractMoney(50);
 ...
 ```
 
-If you take a look at the contents of the `accounts` table you should see some accounts together with the calculated balance. Sweet! In the `stored_events` you should see an entry per event that we fired. 
+If you take a look at the contents of the `accounts` table you should see some accounts together with their calculated balance. Sweet! In the `stored_events` you should see an entry per event that we fired. 
 
 ## Your second projector
 
-Image that after a while someone at the bank wants to know which accounts have processed the most transactions. Because we stored all changes to the accounts in an events table we can easily get that info by creating another projector. 
+Image that after a while someone at the bank wants to know which accounts have processed the most transactions. Because we stored all changes to the accounts in the events table we can easily get that info by creating another projector. 
 
-We are going another projector that stores the transaction counts in a model. Bear in mind that you can easily use any storage mechansim instead of a model. The projector doesn't care what you'll use.
+We are going to create another projector that stores the transaction count per account in a model. Bear in mind that you can easily use any other storage mechansim instead of a model. The projector doesn't care what you use.
 
 Here's the migration and the model class that the projector is going to use:
 
@@ -335,7 +335,7 @@ Let's not forget to register this projector:
 EventProjectionist::addProjector(TransactionCountProjector::class)
 ```
 
-If you've followed along you already have created some accounts and some events. How are we going to feed those past events to the projector. Well, we can simply perform this artisan command:
+If you've followed along you've already created some accounts and some events. To feed those past events to the projector we can simply perform this artisan command:
 
 ```php
 php artisan event-projector:replay-events
@@ -351,7 +351,7 @@ Now that both of your projections have handled all events, try firing off some n
 $yetAnotherAccount = Account::createWithAttributes(['name' => 'Yoda']);
 ```
 
-And let's make some transactions on that account:
+And let's add some transactions to that account:
 
 ```php
 // do stuff like this
@@ -360,11 +360,11 @@ $yetAnotherAccount->addMoney(1000);
 $yetAnotherAccount->subtractMoney(50);
 ```
 
-You'll notice that the both your projectors are doing there jobs. The balance of the `Account` model is up to date and the data in the `transaction_counts` gets updated.
+You'll notice that both projectors are doing their jobs. The balance of the `Account` model is up to date and the data in the `transaction_counts` table gets updated.
 
 ## Benefits of projectors and projections
 
-The cool thing of projectors is that you can write them after events have happened. Image that someone at the bank wants to have a report of the average balance of each account. You would be able to write a new projector, replay all events and have that date.
+The cool thing of projectors is that you can write them after events have happened. Image that someone at the bank wants to have a report of the average balance of each account. You would be able to write a new projector, replay all events and have that data.
 
 Projections are very fast to query. Image that our application has processed millions of events. If you want to create a screen where you display the accounts with the most transactions you can easily query the `transaction_counts` table. This way you don't need to fire off some expensive query. The projector will keep the projections (the `transaction_counts` table) up to date.
 
