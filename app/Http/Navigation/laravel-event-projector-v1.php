@@ -25,7 +25,7 @@ return [
     ],
     'Advanced usage' => [
         'Storing metadata',
-        'Using your own model',
+        'Using your own event storage model',
         'Using your own event serializer',
     ],
 ];
