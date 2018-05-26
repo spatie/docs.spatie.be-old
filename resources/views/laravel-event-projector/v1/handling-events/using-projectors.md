@@ -109,8 +109,6 @@ When [replaying events](/laravel-event-projector/v1/replaying-events/replaying-e
 If your projector has a `onStartingEventReplay` method it will get called right before the first event will be replayed. This can be handy to clean up any data your projector writes to. Here's an example were we truncate the `accounts` table before replaying events.
 
 ```php
-<?php
-
 namespace App\Projectors;
 
 use App\Account;
@@ -131,3 +129,26 @@ class AccountBalanceProjector implements Projector
 ```
 
 After all events are replayed, the `onFinishedEventReplay` mehtod will be called, should your projector have one.
+
+## Naming projectors
+
+When tracking [the handled events of a projector](/laravel-event-projector/v1/replaying-events/tracking-handled-events) the package will by default use the fully qualified name of your projector. You can customize that name by putting a `$name` property on your projector.
+
+Here's an example:
+
+```php
+namespace App\Projectors;
+
+use App\Account;
+
+// ...
+
+class AccountBalanceProjector implements Projector
+{
+    use ProjectsEvents;
+
+    public $name = 'accountBalanceProjector';
+
+    // ...
+}
+```
