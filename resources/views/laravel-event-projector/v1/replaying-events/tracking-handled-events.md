@@ -14,7 +14,7 @@ The `projector_statuses` table contains info on what is the status of each proje
 You can list all projectors and their status with this artisan command:
 
 ```bash
-php artisan event-projector:list
+php artisan event-projector:list-projectors
 ```
 
 Here's some example output:
