@@ -18,8 +18,7 @@ php artisan event-projector:list
 ```
 
 Here's some example output:
-
-TODO: add image
+![output of list command](/images/event-projector/list-command.jpg)
 
 The `Up to date` column will contain a green checkmark if the last processed it of that projector is equal the latest (and greatest) id in the `stored_events` table.
 
