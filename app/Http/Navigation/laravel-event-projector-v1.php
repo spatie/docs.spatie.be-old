@@ -8,6 +8,7 @@ return [
         'Installation & setup',
         'Questions & issues',
         'Changelog',
+        'Resources and alternatives'
     ],
     'Basic usage' => [
         'Writing your first projector',
