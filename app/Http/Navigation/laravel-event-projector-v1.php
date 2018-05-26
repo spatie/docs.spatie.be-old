@@ -20,7 +20,7 @@ return [
     ],
     'Replaying events' => [
         'Replaying events',
-        'Listing projector statuses',
+        'Keeping track of handled events',
     ],
     'Advanced usage' => [
         'Storing metadata',

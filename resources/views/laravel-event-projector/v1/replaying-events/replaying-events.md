@@ -26,11 +26,13 @@ The package [keeps track of which events were already passed to a projector](htt
    php artisan event-projector:replay-events --projector=App\\Projectors\\AccountBalanceProjector --projector=App\\Projectors\\AnotherProjector
   ```
   
-## Detecting replays from projectors
+## Detecting event replays
 
 If your projector contains a `onStartingEventReplay` method, we'll call it right before the first event is replayed.
 
 If it contains a `onFinishedEventReplay` we'll call it right after all events have been replayed.
+
+You can also detect the start and end of event replay by listening for the `Spatie\EventProjector\Events\StartingEventReplay` and `Spatie\EventProjector\Events\FinishedEventReplay` events.
 
 Though under normal cicurmstance you don't need to know this, you can detect if events are currently being replayed like this:
 
