@@ -20,7 +20,7 @@ return [
     ],
     'Replaying events' => [
         'Replaying events',
-        'Keeping track of handled events',
+        'Tracking handled events',
     ],
     'Advanced usage' => [
         'Storing metadata',
