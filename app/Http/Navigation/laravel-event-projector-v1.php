@@ -24,6 +24,7 @@ return [
         'Tracking handled events',
     ],
     'Advanced usage' => [
+        'Working with snapshots',
         'Storing metadata',
         'Using your own event storage model',
         'Using your own event serializer',
