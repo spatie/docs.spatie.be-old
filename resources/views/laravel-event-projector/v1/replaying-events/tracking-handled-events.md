@@ -9,6 +9,12 @@ The `projector_statuses` table contains info on what is the status of each proje
 - `name`: The fully qualified class name of your projector
 - `last_processed_event_id`: The id of the last event that was handled by this projector
 
+## Naming projectors
+
+By default the fully qualified class name of the projector will get used in the `name` column of the `projector_statuses` table. You can customize that name by putting a `$name` property on your projector. 
+
+If you haven't set a `$name` on your projector, and if you'd change the fully qualified class name of your projector, you should manually update the `name` of the corresponding record in the `projector_statuses` table.
+
 ## Listing projector statuses
 
 You can list all projectors and their status with this artisan command:
