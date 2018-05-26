@@ -20,6 +20,8 @@ php artisan event-projector:list
 Here's some example output:
 ![output of list command](/images/event-projector/list-command.png)
 
+*It pains us too that the right side of the table isn't placed correctly. This is probably caused by the usage of an emoji character in the table. We have that this little bug will get solved soon in Symfony*
+
 The `Up to date` column will contain a green checkmark if the last processed it of that projector is equal the latest (and greatest) id in the `stored_events` table.
 
 ## When to replay events
@@ -30,6 +32,3 @@ We'll only pass an event to a projector if its `id` is equal to the `last_proces
 - `$storedEvent`: an instance of `\Spatie\EventProjector\Models\StoredEvent`. You can get to the event that was fired like this `$storedEvent->event`
  
  To get a projector back up to date you should [replay events](/laravel-event-projector/v1/replaying-events/replaying-events).
-
-
-
