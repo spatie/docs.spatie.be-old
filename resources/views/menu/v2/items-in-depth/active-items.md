@@ -113,7 +113,7 @@ By default, the parent element of active items will receive an `active` class. I
 
 ```php
 Menu::new()
-    ->setActiveClass('-is-active')
+    ->setActiveClass('is-active')
     ->add(Link::to('/', 'Home')->setActive());
 ```
 
@@ -121,6 +121,23 @@ Menu::new()
 <ul>
     <li class="is-active">
         <a href="/">Home</a>
+    </li>
+</ul>
+```
+
+If you want to apply the active class on the `a` instead of the `ul`, call the `setActiveClassOnLink` method when building your menu.
+
+```php
+Menu::new()
+    ->setActiveClass('is-active')
+    ->setActiveClassOnLink()
+    ->add(Link::to('/', 'Home')->setActive());
+```
+
+```html
+<ul>
+    <li>
+        <a href="/" class="is-active">Home</a>
     </li>
 </ul>
 ```

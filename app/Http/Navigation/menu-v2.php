@@ -23,6 +23,7 @@ return [
         'Item Attributes',
         'Parent Attributes',
         'Appending and Prepending Html',
+        'Non-list Menus',
     ],
     'Menus in Your Laravel App' => [
         'Convenience Methods',
