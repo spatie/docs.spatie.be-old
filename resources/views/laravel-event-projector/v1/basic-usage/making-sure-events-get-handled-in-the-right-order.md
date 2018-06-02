@@ -2,4 +2,4 @@
 title: Making sure events get handled in the right order
 ---
 
-Coming soon...
+In a production environment multiple events will start to come in concurrently. 

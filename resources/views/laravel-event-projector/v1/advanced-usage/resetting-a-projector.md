@@ -2,7 +2,7 @@
 title: Resetting a projector
 ---
 
-When replaying events a projector will only receive events is has not handled yet. If you want to build up the state of a projector again from scratch, you must reset the projector before replaying events. Resetting a projector will remove all state the projector has built up. It's entry in the [`projector_statuses`](TODO: add link) table will be removed.
+When replaying events a projector will only receive events is has not handled yet. If you want to build up the state of a projector again from scratch, you must reset the projector before replaying events. Resetting a projector will remove all state the projector has built up. It's entry in the [`projector_statuses`](https://docs.spatie.be/laravel-event-projector/v1/replaying-events/tracking-handled-events) table will be removed.
 
 ## Preparing your projector
 
@@ -33,7 +33,7 @@ You can reset a projector by using this artisan command. In this example we are 
 php artisan event-projector:reset-projector --projector=App\\Projectors\\AccountBalanceProjector
 ```
 
-If you have [named your projector](TODO: add link) you can use the projector name instead of the fully qualified class name.
+If you have [named your projector](https://docs.spatie.be/laravel-event-projector/v1/handling-events/using-projectors#naming-projectors) you can use the projector name instead of the fully qualified class name.
 
 ## Resetting your projector via code
 
