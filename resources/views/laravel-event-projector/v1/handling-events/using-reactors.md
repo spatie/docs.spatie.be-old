@@ -14,7 +14,9 @@ php artisan make:projector BigAmountAddedReactor
 
 ## Registering reactors
 
-Reactors must be added to the `EventProjectionist`. This can be done anywhere, but typically you would do this in an ServiceProvider of your own.
+Projectors can be registered in the `reactors` key of the `event-projectors` config file.
+
+Alternatively they can be added to the `EventProjectionist`. This can be done anywhere, but typically you would do this in an ServiceProvider of your own.
 
 ```php
 namespace App\Providers;

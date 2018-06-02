@@ -29,7 +29,21 @@ This is the default content of the config file that will be published at `config
 return [
 
     /*
-     * A queue is need to guarantee that all events get passed to the projectors in
+     * Projectors are classes that build up projections. You can create them by
+     * performing `php artisan event-projector:create-projector`. Projectors
+     * can be registered in this array or a service provider.
+     */
+    'projectors' => [],
+
+    /*
+     * Reactors are classes that handle side effects. You can create them by
+     * performing `php artisan event-projector:create-reactor`. Reactors
+     * can be registered in this array or a service provider.
+     */
+    'reactors' => [],
+
+    /*
+     * A queue is used to guarantee that all events get passed to the projectors in
      * the right order. Here you can set of the name of the queue. In production
      * environments you must use a real queue and not the sync driver.
      */

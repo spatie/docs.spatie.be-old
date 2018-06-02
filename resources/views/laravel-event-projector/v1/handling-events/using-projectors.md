@@ -14,7 +14,9 @@ php artisan make:projector AccountBalanceProjector
 
 ## Registering projectors
 
-Projectors must be added to the `EventProjectionist`. This can be done anywhere, but typically you would do this in an ServiceProvider of your own.
+Projectors can be registered in the `projectors` key of the `event-projectors` config file.
+
+Alternatively you can add them to the `EventProjectionist`. This can be done anywhere, but typically you would do this in an ServiceProvider of your own.
 
 ```php
 namespace App\Providers;
