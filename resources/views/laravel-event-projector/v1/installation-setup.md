@@ -17,21 +17,21 @@ php artisan vendor:publish --provider="Spatie\EventProjector\EventProjectorServi
 php artisan migrate
 ```
 
-Publishing the config file is optional:
+You must publish the config file with this command:
 
 ```bash
 php artisan vendor:publish --provider="Spatie\EventProjector\EventProjectorServiceProvider" --tag="config"
 ```
 
-This is the default content of the config file:
+This is the default content of the config file that will be published at `config/event-projector.php`:
 
 ```php
 return [
 
     /*
-     * A queue is used to guarantee that all events get passed to the projectors in the
-     * right order. Here you can set of the name of the queue. Make sure it will
-     * only perform one job at a time.
+     * A queue is need to guarantee that all events get passed to the projectors in
+     * the right order. Here you can set of the name of the queue. In production
+     * environments you must use a real queue and not the sync driver.
      */
     'queue' => env('EVENT_PROJECTOR_QUEUE_DRIVER', 'sync'),
 
@@ -70,4 +70,7 @@ return [
     'snapshots_disk' => 'local',
 ];
 ```
+
+Finally you should set up a queue. Specify the connection name in `queue` key of the `event-projector` config file. This queue will be used to guarantee that the events will be processed by all projectors in the right order. You should make sure that the queue will process only one job at a time. In a local environment, where events have a very low change of getting fired concurrently, it's probably ok to just use the `sync` driver.
+
 

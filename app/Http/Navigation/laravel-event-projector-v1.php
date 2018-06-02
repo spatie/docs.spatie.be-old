@@ -13,11 +13,13 @@ return [
     'Basic usage' => [
         'Writing your first projector',
         'Handling side effects using reactors',
+        'Making sure events get handled in the right order',
     ],
     'Handling events' => [
         'Preparing events',
         'Using projectors',
         'Using reactors',
+        'Handling exceptions',
     ],
     'Replaying events' => [
         'Replaying events',
