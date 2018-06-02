@@ -12,7 +12,7 @@ All [events](/laravel-event-projector/v1/handling-events/preparing-events) thats
  php artisan event-projector:replay-events
  ```
  
-The package [keeps track of which events were already passed to a projector](https://docs.spatie.be/laravel-event-projector/v1/replaying-events/tracking-handled-events). It will never pass an event that a projector already handled. So it's generally save to replay events. Only new projector that didn't handle all events yet will get called. Projectors that already handled all past events will not be called.
+The package [keeps track of which events were already passed to a projector](https://docs.spatie.be/laravel-event-projector/v1/replaying-events/tracking-handled-events). It will never pass an event that a projector already handled. So it's generally save to replay events. Only projectors that didn't handle all events yet will get called. Projectors that already handled all past events will not be called.
  
  You can also handpick a projectors by using the `--projector` option. All stored events will be passed only to that projector.
  
