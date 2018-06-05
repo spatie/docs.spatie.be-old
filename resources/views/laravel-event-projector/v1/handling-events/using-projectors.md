@@ -104,6 +104,8 @@ class AccountBalanceProjector implements Projector
 
 This projector will be created using the container so you may inject any depedency you'd like. In fact all methods present in `$handlesEvent` can make use of method injection, so you can resolve any depencies you need in those methods as well. Any variable in the method signature with the name `$event` will receive the event you're listening for.
 
+You can also use `*` as the key in the `$handlesEvents` event array. This will pass all events to the corresponding method.
+
 ## Performing some work before and after replaying events
 
 When [replaying events](/laravel-event-projector/v1/replaying-events/replaying-events) projectors will get called to.
