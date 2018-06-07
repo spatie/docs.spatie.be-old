@@ -364,7 +364,7 @@ You'll notice that both projectors are doing their jobs. The balance of the `Acc
 
 ## Benefits of projectors and projections
 
-The cool thing of projectors is that you can write them after events have happened. Image that someone at the bank wants to have a report of the average balance of each account. You would be able to write a new projector, replay all events and have that data.
+The cool thing of projectors is that you can write them after events have happened. Imagine that someone at the bank wants to have a report of the average balance of each account. You would be able to write a new projector, replay all events and have that data.
 
 Projections are very fast to query. Image that our application has processed millions of events. If you want to create a screen where you display the accounts with the most transactions you can easily query the `transaction_counts` table. This way you don't need to fire off some expensive query. The projector will keep the projections (the `transaction_counts` table) up to date.
 
