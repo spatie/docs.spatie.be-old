@@ -9,12 +9,12 @@ A reactor is a class, that much like a projector, listens for incoming events. U
 Let's create a reactor. You can perform this artisan command to create a projector in `app\Reactors`.
 
 ```php
-php artisan make:projector BigAmountAddedReactor
+php artisan make:reactor BigAmountAddedReactor
 ```
 
 ## Registering reactors
 
-Projectors can be registered in the `reactors` key of the `event-projectors` config file.
+Reactors can be registered in the `reactors` key of the `event-projectors` config file.
 
 Alternatively they can be added to the `EventProjectionist`. This can be done anywhere, but typically you would do this in an ServiceProvider of your own.
 
