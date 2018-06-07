@@ -9,7 +9,7 @@ All [events](/laravel-event-projector/v1/handling-events/preparing-events) thats
  Events can be replayed to [all projectors that were added to the projectionist](/laravel-event-projector/v1/handling-events/using-reactors) with this artisan command:
  
  ```bash
- php artisan event-projector:replay-events
+ php artisan event-projector:replay
  ```
  
 The package [keeps track of which events were already passed to a projector](https://docs.spatie.be/laravel-event-projector/v1/replaying-events/tracking-handled-events). It will never pass an event that a projector already handled. So it's generally save to replay events. Only projectors that didn't handle all events yet will get called. Projectors that already handled all past events will not be called.
@@ -17,13 +17,13 @@ The package [keeps track of which events were already passed to a projector](htt
  You can also handpick a projectors by using the `--projector` option. All stored events will be passed only to that projector.
  
  ```bash
-  php artisan event-projector:replay-events --projector=App\\Projectors\\AccountBalanceProjector
+  php artisan event-projector:replay --projector=App\\Projectors\\AccountBalanceProjector
  ```
  
  You can use the projector option multiple times:
  
   ```bash
-   php artisan event-projector:replay-events --projector=App\\Projectors\\AccountBalanceProjector --projector=App\\Projectors\\AnotherProjector
+   php artisan event-projector:replay --projector=App\\Projectors\\AccountBalanceProjector --projector=App\\Projectors\\AnotherProjector
   ```
   
 ## Detecting event replays

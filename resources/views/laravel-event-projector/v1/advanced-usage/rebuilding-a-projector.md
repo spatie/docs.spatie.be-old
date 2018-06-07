@@ -30,7 +30,7 @@ class ResettableProjector implements Projector
 You can rebuild a projector by using this artisan command. In this example we are going to rebuild the `AccountBalanceProjector`:
 
 ```bash
-php artisan event-projector:reset-projector App\\Projectors\\AccountBalanceProjector
+php artisan event-projector:rebuild App\\Projectors\\AccountBalanceProjector
 ```
 
 This will call the `resetState` method on the projector and replay all events.
@@ -38,7 +38,7 @@ This will call the `resetState` method on the projector and replay all events.
 You can also rebuild multipe projectors in one go:
 
 ```bash
-php artisan event-projector:reset-projector App\\Projectors\\AccountBalanceProjector App\Projectors\AnotherProjector
+php artisan event-projector:rebuild App\\Projectors\\AccountBalanceProjector App\Projectors\AnotherProjector
 ```
 
 If you have [named your projector](https://docs.spatie.be/laravel-event-projector/v1/handling-events/using-projectors#naming-projectors) you can use the projector name instead of the fully qualified class name.
@@ -48,13 +48,13 @@ If you have [named your projector](https://docs.spatie.be/laravel-event-projecto
 You can also remove all state from a projector but not replay events with this command:
 
 ```bash
-php artisan event-projector:reset-projector App\\Projectors\\AccountBalanceProjector
+php artisan event-projector:reset App\\Projectors\\AccountBalanceProjector
 ```
 
 You can also reset multipe projectors in one go:
 
 ```bash
-php artisan event-projector:reset-projector App\\Projectors\\AccountBalanceProjector App\Projectors\AnotherProjector
+php artisan event-projector:reset App\\Projectors\\AccountBalanceProjector App\Projectors\AnotherProjector
 ```
 
 ## Resetting your projector via code

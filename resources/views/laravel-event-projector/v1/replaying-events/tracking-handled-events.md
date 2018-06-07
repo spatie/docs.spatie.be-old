@@ -20,7 +20,7 @@ If you haven't set a `$name` on your projector, and if you'd change the fully qu
 You can list all projectors and their status with this artisan command:
 
 ```bash
-php artisan event-projector:list-projectors
+php artisan event-projector:list
 ```
 
 Here's some example output:
