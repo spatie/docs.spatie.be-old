@@ -43,6 +43,12 @@ php artisan event-projector:rebuild App\\Projectors\\AccountBalanceProjector App
 
 If you have [named your projector](https://docs.spatie.be/laravel-event-projector/v1/handling-events/using-projectors#naming-projectors) you can use the projector name instead of the fully qualified class name.
 
+If you want to rebuild all projectors simply don't pass a projector name. You'll need to confirm before all projectors will actually be rebuild.
+
+```bash
+php artisan event-projector:rebuild 
+```
+
 ## Resetting your projector
 
 You can also remove all state from a projector but not replay events with this command:
