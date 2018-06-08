@@ -2,11 +2,11 @@
 title: Rebuilding a projector
 ---
 
-When replaying events a projector will only receive events is has not handled yet. If you want to build up the state of a projector again from scratch, you can rebuild it.
+When replaying events, a projector will only receive events it has not handled yet. If you want to build up the state of a projector again from scratch, you can rebuild it.
 
 ## Preparing your projector
 
-In order to make your projector rebuildable you have to add a `resetState` to it. In this method you'll have to perform the work necessary to clean up the state of your projector. When rebuilding the projector we will call this method. If for instance, your projector is backed by an Eloquent model, you can truncate that model.
+In order to make your projector rebuildable, you have to add a `resetState` to it. In this method you'll have to perform the work necessary to clean up the state of your projector. When rebuilding the projector, we will call this method. If for instance, your projector is backed by an Eloquent model, you can truncate that model.
 
 ```php
 namespace App\Projectors;
@@ -35,7 +35,7 @@ php artisan event-projector:rebuild App\\Projectors\\AccountBalanceProjector
 
 This will call the `resetState` method on the projector and replay all events.
 
-You can also rebuild multipe projectors in one go:
+You can also rebuild multiple projectors in one go:
 
 ```bash
 php artisan event-projector:rebuild App\\Projectors\\AccountBalanceProjector App\Projectors\AnotherProjector
@@ -51,7 +51,7 @@ You can also remove all state from a projector but not replay events with this c
 php artisan event-projector:reset App\\Projectors\\AccountBalanceProjector
 ```
 
-You can also reset multipe projectors in one go:
+You can also reset multiple projectors in one go:
 
 ```bash
 php artisan event-projector:reset App\\Projectors\\AccountBalanceProjector App\Projectors\AnotherProjector
@@ -59,7 +59,7 @@ php artisan event-projector:reset App\\Projectors\\AccountBalanceProjector App\P
 
 ## Resetting your projector via code
 
-You can also reset a projector with code.
+You can also reset a projector with code:
 
 ```php
 use Spatie\EventProjector\Facades\EventProjectionist;

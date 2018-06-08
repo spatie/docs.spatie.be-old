@@ -6,7 +6,7 @@ A projector is a class that listens for events that were stored. When it hears a
 
 ## Creating projectors
 
-Let's create a projector. You can perform this artisan command to create a projector in `app\Projectors`.
+Let's create a projector. You can perform this artisan command to create a projector in `app\Projectors`:
 
 ```php
 php artisan make:projector AccountBalanceProjector
@@ -16,7 +16,7 @@ php artisan make:projector AccountBalanceProjector
 
 Projectors can be registered in the `projectors` key of the `event-projectors` config file.
 
-Alternatively you can add them to the `EventProjectionist`. This can be done anywhere, but typically you would do this in an ServiceProvider of your own.
+Alternatively, you can add them to the `EventProjectionist`. This can be done anywhere, but typically you would do this in a ServiceProvider of your own.
 
 ```php
 namespace App\Providers;
@@ -31,7 +31,7 @@ class EventProjectorServiceProvider extends ServiceProvider
     {
         // adding a single projector
         EventProjectionist::addProjector(AccountBalanceProjector::class);
-        
+
         // you can also add multiple projectors in one go
         EventProjectionist::addProjectors([
             AnotherProjector::class,
@@ -43,7 +43,7 @@ class EventProjectorServiceProvider extends ServiceProvider
 
 ## Using projectors
 
-This is the contents of class created by the artisan command mentioned in the section above.
+This is the contents of a class created by the artisan command mentioned in the section above.
 
 ```php
 namespace App\Projectors;
@@ -73,7 +73,7 @@ class AccountBalanceProjector implements Projector
 
 The `$handlesEvents` property is an array which has event class names as keys and method names as values. Whenever an event is fired that matches one of the keys in `$handlesEvents` the corresponding method will be fired. You can name your methods however you like.
 
-Here's an example where we listen for a `MoneyAdded`
+Here's an example where we listen for a `MoneyAdded` event:
 
 ```php
 namespace App\Projectors;
@@ -86,13 +86,13 @@ use Spatie\EventProjector\Projectors\ProjectsEvents;
 class AccountBalanceProjector implements Projector
 {
     use ProjectsEvents;
-    
+
     /*
      * Here you can specify which event should trigger which method.
      */
     protected $handlesEvents = [
         MoneyAdded::class => 'onMoneyAdded',
-      
+
     ];
 
     public function onMoneyAdded(MoneyAdded $event)
@@ -102,15 +102,15 @@ class AccountBalanceProjector implements Projector
 }
 ```
 
-This projector will be created using the container so you may inject any depedency you'd like. In fact all methods present in `$handlesEvent` can make use of method injection, so you can resolve any depencies you need in those methods as well. Any variable in the method signature with the name `$event` will receive the event you're listening for.
+This projector will be created using the container so you may inject any dependency you'd like. In fact, all methods present in `$handlesEvent` can make use of method injection, so you can resolve any dependencies you need in those methods as well. Any variable in the method signature with the name `$event` will receive the event you're listening for.
 
 You can also use `*` as the key in the `$handlesEvents` event array. This will pass all events to the corresponding method.
 
 ## Performing some work before and after replaying events
 
-When [replaying events](/laravel-event-projector/v1/replaying-events/replaying-events) projectors will get called to.
+When [replaying events](/laravel-event-projector/v1/replaying-events/replaying-events) projectors will get called, too.
 
-If your projector has a `onStartingEventReplay` method it will get called right before the first event will be replayed. This can be handy to clean up any data your projector writes to. Here's an example were we truncate the `accounts` table before replaying events.
+If your projector has a `onStartingEventReplay` method, it will get called right before the first event will be replayed. This can be handy to clean up any data your projector writes to. Here's an example where we truncate the `accounts` table before replaying events:
 
 ```php
 namespace App\Projectors;
@@ -132,7 +132,7 @@ class AccountBalanceProjector implements Projector
 }
 ```
 
-After all events are replayed, the `onFinishedEventReplay` mehtod will be called, should your projector have one.
+After all events are replayed, the `onFinishedEventReplay` method will be called, should your projector have one.
 
 ## Naming projectors
 

@@ -2,7 +2,7 @@
 title: Storing metadata
 ---
 
-You can add meta data, such as the id of the logged in user, to a stored event. The `StoredEvent` instance will be passed on the any projector method that has a variable named `$storedEvent`. On that `StoredEvent` instance there a property `meta_data` that returns an instance of `Spatie\SchemalessAttributes\SchemalessAttributes`. 
+You can add metadata, such as the id of the logged-in user, to a stored event. The `StoredEvent` instance will be passed on to any projector method that has a variable named `$storedEvent`. On that `StoredEvent` instance there is a property, `meta_data`, that returns an instance of `Spatie\SchemalessAttributes\SchemalessAttributes`.
 
 Here's an example:
 
@@ -15,7 +15,7 @@ use Spatie\EventProjector\Projectors\ProjectsEvents;
 class MetaDataProjector implements Projector
 {
     use ProjectsEvents;
-    
+
     /*
      * Here you can specify which event should trigger which method.
      */
@@ -26,7 +26,7 @@ class MetaDataProjector implements Projector
     public function onAnyEvent(StoredEvent $storedEvent)
     {
         $storedEvent->meta_data->user_id = auth()->user()->id;
-        
+
         $storedEvent->save();
     }
 }
