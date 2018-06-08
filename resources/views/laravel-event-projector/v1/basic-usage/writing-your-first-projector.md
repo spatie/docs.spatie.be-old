@@ -4,7 +4,7 @@ title: Writing your first projector
 
 In this section you'll learn how to write a projector. A projector is simply a class that does some work when it hears some events come in. Typically it writes data (to the database or to a file on disk). We call that written data a projection.
 
-Imagine you are a bank with customers that have accounts. All these accounts have a balance. When money gets added or subtracted we could modify the balance. If we do that however, we would never know why the balance got to that number. If we were to store all the events we could calculate the balance. 
+Imagine you are a bank with customers that have accounts. All these accounts have a balance. When money gets added or subtracted we could modify the balance. If we do that however, we would never know why the balance got to that number. If we were to store all the events we could calculate the balance.
 
 ## Creating a model
 
@@ -50,14 +50,14 @@ class Account extends Model
     public function addMoney(int $amount)
     {
         event(new MoneyAdded($this->id, $amount));
-        
+
         return $this;
     }
 
     public function subtractMoney(int $amount)
     {
         event(new MoneySubtracted($this->id, $amount));
-        
+
         return $this;
     }
 
@@ -70,7 +70,7 @@ class Account extends Model
 
 ## Defining events
 
-Instead of calculating the balance we're simply firing off events. All these events should implement `\Spatie\EventProjector\ShouldBeStored`. This is an empty interface that signifies to our package that the event should be stored.
+Instead of calculating the balance, we're simply firing off events. All these events should implement `\Spatie\EventProjector\ShouldBeStored`. This is an empty interface that signifies to our package that the event should be stored.
 
 Let's take a look at all events used in the `Account` model.
 
@@ -171,7 +171,7 @@ use Spatie\EventProjector\Projectors\ProjectsEvents;
 class AccountBalanceProjector implements Projector
 {
     use ProjectsEvents;
-    
+
     /*
      * Here you can specify which event should trigger which method.
      */
@@ -248,13 +248,13 @@ $account->subtractMoney(50);
 ...
 ```
 
-If you take a look at the contents of the `accounts` table you should see some accounts together with their calculated balance. Sweet! In the `stored_events` you should see an entry per event that we fired. 
+If you take a look at the contents of the `accounts` table you should see some accounts together with their calculated balance. Sweet! In the `stored_events` table you should see an entry per event that we fired.
 
 ## Your second projector
 
-Imagine that after a while someone at the bank wants to know which accounts have processed the most transactions. Because we stored all changes to the accounts in the events table we can easily get that info by creating another projector. 
+Imagine that after a while someone at the bank wants to know which accounts have processed the most transactions. Because we stored all changes to the accounts in the events table we can easily get that info by creating another projector.
 
-We are going to create another projector that stores the transaction count per account in a model. Bare in mind that you can easily use any other storage mechanism instead of a model. The projector doesn't care what you use.
+We are going to create another projector that stores the transaction count per account in a model. Bear in mind that you can easily use any other storage mechanism instead of a model. The projector doesn't care what you use.
 
 Here's the migration and the model class that the projector is going to use:
 
@@ -288,7 +288,7 @@ class TransactionCount extends Model
 }
 ```
 
-And here's the projector that is going to listen to the `MoneyAdded` and `MoneySubtracted` events
+And here's the projector that is going to listen to the `MoneyAdded` and `MoneySubtracted` events:
 
 ```php
 namespace App\Projectors;
@@ -335,13 +335,13 @@ Let's not forget to register this projector:
 EventProjectionist::addProjector(TransactionCountProjector::class)
 ```
 
-If you've followed along you've already created some accounts and some events. To feed those past events to the projector we can simply perform this artisan command:
+If you've followed along, you've already created some accounts and some events. To feed those past events to the projector we can simply perform this artisan command:
 
 ```php
 php artisan event-projector:replay
 ```
 
-This command will take all events stored in the `stored_events` table and pass them to  `TransactionCountProjector`. After the command completes you should see the transaction counts in the `transaction_counts` table.
+This command will take all events stored in the `stored_events` table and pass them to `TransactionCountProjector`. After the command completes you should see the transaction counts in the `transaction_counts` table.
 
 ## Welcoming new events
 
@@ -364,7 +364,6 @@ You'll notice that both projectors are doing their jobs. The balance of the `Acc
 
 ## Benefits of projectors and projections
 
-The cool thing of projectors is that you can write them after events have happened. Imagine that someone at the bank wants to have a report of the average balance of each account. You would be able to write a new projector, replay all events and have that data.
+The cool thing about projectors is that you can write them after events have happened. Imagine that someone at the bank wants to have a report of the average balance of each account. You would be able to write a new projector, replay all events, and have that data.
 
 Projections are very fast to query. Image that our application has processed millions of events. If you want to create a screen where you display the accounts with the most transactions you can easily query the `transaction_counts` table. This way you don't need to fire off some expensive query. The projector will keep the projections (the `transaction_counts` table) up to date.
-

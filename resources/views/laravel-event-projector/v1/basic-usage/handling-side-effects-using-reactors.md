@@ -10,7 +10,7 @@ A reactor is a class, that much like a projector, listens for incoming events. U
 
 ## Creating your first reactor
 
-Let's create your first reactor. You can perform `php artisan make:reactor BigAmountAddedReactor` to create a projector in `app\Reactors`. We will make this reactor send a mail to the director of the bank whenever a a big amount of money is added to an account.
+Let's create your first reactor. You can perform `php artisan make:reactor BigAmountAddedReactor` to create a reactor in `app\Reactors`. We will make this reactor send a mail to the director of the bank whenever a big amount of money is added to an account.
 
 ```php
 namespace App\Reactors;

@@ -2,11 +2,11 @@
 title: Using reactors
 ---
 
-A reactor is a class, that much like a projector, listens for incoming events. Unlike projectors however, reactors will not get called when events are replayed. Reactors only will get called when the original event fires.
+A reactor is a class, that much like a projector, listens for incoming events. Unlike projectors however, reactors will not get called when events are replayed. Reactors will only get called when the original event fires.
 
-## Creating reactor
+## Creating reactors
 
-Let's create a reactor. You can perform this artisan command to create a projector in `app\Reactors`.
+Let's create a reactor. You can perform this artisan command to create a projector in `app\Reactors`:
 
 ```php
 php artisan make:reactor BigAmountAddedReactor
@@ -16,7 +16,7 @@ php artisan make:reactor BigAmountAddedReactor
 
 Reactors can be registered in the `reactors` key of the `event-projectors` config file.
 
-Alternatively they can be added to the `EventProjectionist`. This can be done anywhere, but typically you would do this in an ServiceProvider of your own.
+Alternatively, they can be added to the `EventProjectionist`. This can be done anywhere, but typically you would do this in a ServiceProvider of your own.
 
 ```php
 namespace App\Providers;
@@ -31,7 +31,7 @@ class EventProjectorServiceProvider extends ServiceProvider
     {
         // adding a single reactor
         EventProjectionist::addReactor(BigAmountAddedReactor::class);
-        
+
         // you can also add multiple reactors in one go
         EventProjectionist::addReactors([
             AnotherReactor::class,
@@ -43,7 +43,7 @@ class EventProjectorServiceProvider extends ServiceProvider
 
 ## Using reactors
 
-This is the contents of class created by the artisan command mentioned in the section above.
+This is the contents of a class created by the artisan command mentioned in the section above:
 
 ```php
 namespace App\Reactors;
@@ -68,7 +68,7 @@ class BigAmountAddedReactor
 
 The `$handlesEvents` property is an array which has event class names as keys and method names as values. Whenever an event is fired that matches one of the keys in `$handlesEvents` the corresponding method will be fired. You can name your methods however you like.
 
-Here's an example where we listen for a `MoneyAddedEvent`
+Here's an example where we listen for a `MoneyAdded` event:
 
 ```php
 namespace App\Reactors;
@@ -82,7 +82,7 @@ class BigAmountAddedReactor
      */
     protected $handlesEvents = [
         MoneyAdded::class => 'onMoneyAdded',
-      
+
     ];
 
     public function onAccountCreated(MoneyAdded $event)
@@ -92,4 +92,4 @@ class BigAmountAddedReactor
 }
 ```
 
-This reactor will be created using the container so you may inject any depedency you'd like. In fact all methods present in `$handlesEvent` can make use of method injection, so you can resolve any depencies you need in those methods as well. Any variable in the method signature with the name `$event` will receive the event you're listening for.
+This reactor will be created using the container so you may inject any dependency you'd like. In fact, all methods present in `$handlesEvent` can make use of method injection, so you can resolve any dependencies you need in those methods as well. Any variable in the method signature with the name `$event` will receive the event you're listening for.
