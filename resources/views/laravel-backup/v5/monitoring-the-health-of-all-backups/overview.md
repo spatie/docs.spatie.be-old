@@ -8,6 +8,8 @@ The package can check the health of backups for every application where it is in
 
 We recommend setting up a separate Laravel installation to do the monitoring, preferably on a separate server. This ensures you will be notified of unhealthy backups even if one of the applications you are monitoring is broken.
 
+We also recommend to use a central storage disk, like s3, for your backups when using the monitoring. You can still use monitoring for local disks but you'll have to add the monitoring to the app which runs the backups.
+
 To install the monitor follow the regular [installation instructions](/laravel-backup/v5/installation-and-setup).
 Instead of scheduling the `backup:run` and `backup:clean` commands, you should schedule the monitor command.
 
@@ -37,7 +39,7 @@ This is the part of the configuration where you can specify which applications s
     'monitorBackups' => [
         [
             'name' => env('APP_URL'),
-            'disks' => ['local'],
+            'disks' => ['s3'],
             'newestBackupsShouldNotBeOlderThanDays' => 1,
             'storageUsedMayNotBeHigherThanMegabytes' => 5000,
         ],
@@ -45,7 +47,7 @@ This is the part of the configuration where you can specify which applications s
         /*
         [
             'name' => 'name of the second app',
-            'disks' => ['local', 's3'],
+            'disks' => ['s3'],
             'newestBackupsShouldNotBeOlderThanDays' => 1,
             'storageUsedMayNotBeHigherThanMegabytes' => 5000,
         ],
