@@ -23,7 +23,7 @@ class MoneyAdded implements ShouldBeStored
 {
     use SerializesModels;
 
-    /** App\Models\Account */
+    /** @var App\Models\Account */
     public $account;
 
     /** @var int */
