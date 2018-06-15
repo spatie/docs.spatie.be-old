@@ -178,7 +178,7 @@ class AccountBalanceProjector implements Projector
     /*
      * Here you can specify which event should trigger which method.
      */
-    public $handlesEvents = [
+    protected $handlesEvents = [
         AccountCreated::class => 'onAccountCreated',
         MoneyAdded::class => 'onMoneyAdded',
         MoneySubtracted::class => 'onMoneySubtracted',
@@ -307,7 +307,7 @@ class TransactionCountProjector implements Projector
 {
     use ProjectsEvents;
 
-    public $handlesEvents = [
+    protected $handlesEvents = [
         MoneyAdded::class => 'onMoneyAdded',
         MoneySubtracted::class => 'onMoneySubtracted',
     ];
