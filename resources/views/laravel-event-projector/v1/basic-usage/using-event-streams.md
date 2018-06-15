@@ -2,13 +2,13 @@
 title: Using event streams
 ---
 
-A projector will by default only handle an event if that projector has received all previous events. If your application receives a lot of current requests that result in a lot of events being fired. In such a scenario there's a high chance that projectors will get events in the right order.
+A projector will by default only handle an event if that projector has received all previous events. If your application receives a lot of concurrent requests, it will result in a lot of events being fired. In such a scenario there's a high chance that projectors won't get events in the right order.
 
 Imagine that there are many requests coming in at the same time that each want to add money to 100 different accounts.
 
-In a first request an event `AmountAdded` for account 1 is stored. The stored event gets id 1. In that request the work now starts to update the amount of the account. But before that update completes, another has already stored it's own `AmountAdded` event for account 2. But because event 1 is not completed yet, the projector will not accept event 2. The projector is now out of sync and will not accept new events until you've [replayed](laravel-event-projector/v1/replaying-events/replaying-events) them all.
+In a first request an event `AmountAdded` for account 1 is stored. The stored event gets id 1. In that request the projector now starts to update the amount of the account. But before that update completes, another one has already stored its own `AmountAdded` event for account 2. But because event 1 is not completed yet, the projector will not accept event 2. The projector is now out of sync and will not accept new events until you've [replayed](laravel-event-projector/v1/replaying-events/replaying-events) all of them.
 
-If you think about it, the projector should perfectly be able to events related to account 2 even it has not handled all events regarding to account 1. 
+If you think about it, the projector should perfectly be able to handle events related to account 2 even if it has not handled all events regarding for account 1. 
 
 ## Preparing your event to use streams
 
@@ -23,7 +23,7 @@ class MoneyAdded implements ShouldBeStored
 {
     use SerializesModels;
 
-    /** @var App\Models\Account */
+    /** @var \App\Models\Account */
     public $account;
 
     /** @var int */
