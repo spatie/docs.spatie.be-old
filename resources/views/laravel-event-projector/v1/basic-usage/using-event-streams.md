@@ -53,10 +53,10 @@ class MoneyAdded implements ShouldBeStored
 Next you must let the projector know it should handle streamed events. This can be done by adding a `$streamBased` property and setting it to `true`. 
 
 ```php
-use Spatie\EventProjector\Projectors\Projector;
-use Spatie\EventProjector\Projectors\ProjectsEvents;
 use App\Models\Account;
 use App\Events\Streamable\MoneyAdded;
+use Spatie\EventProjector\Projectors\Projector;
+use Spatie\EventProjector\Projectors\ProjectsEvents;
 
 class StreambasedProjector implements SyncProjector
 {
