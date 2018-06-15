@@ -25,7 +25,7 @@ class BigAmountAddedReactor
     /*
      * Here you can specify which event should trigger which method.
      */
-    protected $handlesEvents = [
+    public $handlesEvents = [
         MoneyAdded::class => 'onMoneyAdded',
     ];
 
