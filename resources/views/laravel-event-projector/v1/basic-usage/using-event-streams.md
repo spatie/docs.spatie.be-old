@@ -48,7 +48,7 @@ class MoneyAdded implements ShouldBeStored
 }
 ```
 
-### Preparing your projector to use stream
+### Preparing your projector to use streams
 
 Next you must let the projector know it should handle streamed events. This can be done by adding a `$streamBased` property and setting it to `true`. 
 
