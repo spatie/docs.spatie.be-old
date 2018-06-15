@@ -2,13 +2,13 @@
 title: Writing your first projector
 ---
 
-In this section you'll learn how to write a projector. A projector is simply a class that does some work when it hears some events come in. Typically it writes data (to the database or to a file on disk). We call that written data a projection.
+A projector is a class that gets triggered when new events come in. It typically writes data (to the database or to a file on disk). We call that written data a projection.
 
-Imagine you are a bank with customers that have accounts. All these accounts have a balance. When money gets added or subtracted we could modify the balance. If we do that however, we would never know why the balance got to that number. If we were to store all the events we could calculate the balance.
+Imagine you are a bank with customers that have accounts. All these accounts have a balance. When money gets added or subtracted we could modify the balance. If we do that however, we would never know why the balance got to that number. If we were to store all the transactions as events we could calculate the balance.
 
 ## Creating a model
 
-Here's a small migration to create a table that holds accounts:
+Here's a small migration to create a table that stores accounts:
 
 ```php
 use Illuminate\Support\Facades\Schema;
@@ -184,7 +184,7 @@ class AccountBalanceProjector implements Projector
 
     public function onAccountCreated(AccountCreated $event)
     {
-        Account::create($event->accountAttributes);
+        return Account::create($event->accountAttributes);
     }
 
     public function onMoneyAdded(MoneyAdded $event)
@@ -214,15 +214,31 @@ class AccountBalanceProjector implements Projector
 
 ## Registering your projector
 
-The projector code up above will handle all the work that needs to be done for the given events. For the package to be able to locate this projector you should register it. The easiest way to register a projector is by calling `addProjector` on the `EventProjectionist` facade. Typically you would put this in a service provider of your own.
+The projector code up above will update the `accounts` table based on the fired events.
+
+Projectors need to be registered before they can be recognized by the event projector. The easiest way to register a projector is by calling `addProjector` on the `EventProjectionist` class. Typically you would put this in a service provider of your own.
 
 ```php
-use \Spatie\EventProjector\Facades\EventProjectionist;
-use \App\Projectors\AccountBalanceProjector;
+use Illuminate\Support\ServiceProvider;
+use App\Projectors\AccountBalanceProjector;
+use Spatie\EventProjector\EventProjectionist;
 
-...
+class AppServiceProvider extends ServiceProvider
+{
+    public function boot(EventProjectionist $eventProjectionist)
+    {
+        $eventProjectionist->addProjector(AccountBalanceProjector::class);
+    }
+}
+```
 
-EventProjectionist::addProjector(AccountBalanceProjector::class)
+You can also use the `EventProjectionist` facade.
+
+```php
+use App\Projectors\AccountBalanceProjector;
+use Spatie\EventProjector\Facades\EventProjectionist;
+
+EventProjectionist::addProjector(AccountBalanceProjector::class);
 ```
 
 ## Let's fire off some events
@@ -239,13 +255,9 @@ $anotherAccount = Account::createWithAttributes(['name' => 'Leia']);
 And let's make some transactions on that account:
 
 ```php
-// do stuff like this
-
 $account->addMoney(1000);
 $anotherAccount->addMoney(500);
 $account->subtractMoney(50);
-
-...
 ```
 
 If you take a look at the contents of the `accounts` table you should see some accounts together with their calculated balance. Sweet! In the `stored_events` table you should see an entry per event that we fired.
