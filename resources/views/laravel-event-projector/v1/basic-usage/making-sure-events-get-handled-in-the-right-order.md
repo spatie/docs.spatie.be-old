@@ -6,6 +6,8 @@ In a production environment multiple events will start to come in concurrently. 
 
 In a local environment, where events have a very low chance of getting fired concurrently, it's probably ok to just use the `sync` driver.
 
-## Handling events immediately
+## Handling events synchronously
 
-If you want a projector to handle an event immediately, in the same request as the event was fired, you must implement the `Spatie\EventProjector\Projectors\ShouldBeCalledImmediatly` interface. This is an empty interface that merely hints to the `EventProjectionist` the event handling should happen in a non-queued manner. 
+If you want a projector to handle an event immediately, in the same request as the event was fired, you should let your projector implement the `Spatie\EventProjector\Projectors\SyncProjector` interface instead of the the normal `Spatie\EventProjector\Projectors\SyncProjector`. This is interface that hints to the `EventProjectionist` the event handling should happen in a non-queued manner. 
+
+If you have a lot of concurrently requests that fire off events that should be handled synchronously theres a high chance that projectors will fall behind. For a more detailed look at the problem and the solution read the section [on using event streams](/laravel-event-projector/v1/basic-usage/using-event-streams)

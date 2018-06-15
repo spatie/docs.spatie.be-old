@@ -14,6 +14,7 @@ return [
         'Writing your first projector',
         'Handling side effects using reactors',
         'Making sure events get handled in the right order',
+        'Using event streams',
     ],
     'Handling events' => [
         'Preparing events',
