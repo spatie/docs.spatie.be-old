@@ -2,7 +2,7 @@
 title: Using event streams
 ---
 
-A projector will by default only handle an event if that projector has received all previous events. If your application receives a lot of concurrent requests, it will result in a lot of events being fired. In such a scenario there's a high chance that projectors won't get events in the right order.
+If your application receives a lot of concurrent requests, it will result in a lot of events being fired. In such a scenario there's a high chance that projectors won't get events in the right order.
 
 Imagine that there are many requests coming in at the same time that each want to add money to 100 different accounts.
 
@@ -48,36 +48,19 @@ class MoneyAdded implements ShouldBeStored
 }
 ```
 
-## Preparing your projector to use streams
+Projectors will by default track received events using the stream name and id on an event. So a projector will accept events for account 2 even if all events for account 1 are not handled yet.
 
-Next you must let the projector know it should handle streamed events. This can be done by adding a `$streamBased` property and setting it to `true`. 
+
+## Making a projector consider all events
+
+If it is important for your projector that it should receive all events in order, no matter of which account, you should add a property `$trackStream` with a value of `*`.
 
 ```php
-use App\Models\Account;
-use App\Events\Streamable\MoneyAdded;
-use Spatie\EventProjector\Projectors\Projector;
-use Spatie\EventProjector\Projectors\ProjectsEvents;
-
-class StreambasedProjector implements SyncProjector
+class MyProjector implements Projector
 {
     use ProjectsEvents;
 
-    protected $handlesEvents = [
-        MoneyAdded::class => 'onMoneyAdded',
-    ];
-
-    protected $streamBased = true;
-
-    public function onMoneyAdded(MoneyAdded $event)
-    {
-        $event->account->addMoney($event->amount);
-    }
+    protected $trackStream = '*';
+    
+    // ...
 }
-```
-
-This projector will now accept events for account 2 even if all events for account 1 are not handled yet.
-
-
-
-
-
