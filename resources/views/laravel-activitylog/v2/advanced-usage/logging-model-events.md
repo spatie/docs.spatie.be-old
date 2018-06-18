@@ -2,7 +2,7 @@
 title: Logging model events
 ---
 
-A neat feature of this package is that it can automatically log events such as when a model is created, updated and deleted.  To make this work all you need to do is let your model use the `Spatie\Activitylog\Traits\LogsActivity`-trait.
+The package can automatically log events such as when a model is created, updated and deleted.  To make this work all you need to do is let your model use the `Spatie\Activitylog\Traits\LogsActivity`-trait.
 
 As a bonus the package will also log the changed attributes for all these events when setting `$logAttributes` property on the model.
 
