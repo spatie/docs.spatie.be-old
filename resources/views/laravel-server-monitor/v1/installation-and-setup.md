@@ -84,6 +84,7 @@ return [
          */
         'throttle_failing_notifications_for_minutes' => 60,
 
+        // Separate the email by , to add many recipients
         'mail' => [
             'to' => 'your@email.com',
         ],
@@ -105,6 +106,13 @@ return [
     ],
 
     /*
+     * To add or modify behaviour to the `Host` model you can specify your
+     * own model here. The only requirement is that they should
+     * extend the `Host` model provided by this package.
+     */
+    'host_model' => Spatie\ServerMonitor\Models\Host::class,
+
+    /*
      * To add or modify behaviour to the `Check` model you can specify your
      * own model here. The only requirement is that they should
      * extend the `Check` model provided by this package.
@@ -119,6 +127,27 @@ return [
      * This class should implement Spatie\ServerMonitor\Manipulators\Manipulator
      */
     'process_manipulator' => Spatie\ServerMonitor\Manipulators\Passthrough::class,
+
+
+    /*
+     * When you connect to a ssh it should give you warning like a "POSSIBLE BREAK-IN ATTEMPT!"
+     * and it can fail your check so you can skip some errors with this. You need to just add
+     * unique part of error string and it will skip it.
+     */
+    'excluded_errors'=>[
+
+        "POSSIBLE BREAK-IN ATTEMPT!",
+
+    ],
+
+
+    /*
+     * Thresholds for disk space's alert.
+     */
+    'diskspace_percentage_threshold' => [
+        'warning' => 80,
+        'fail' => 90,
+    ],
 ];
 ```
 
