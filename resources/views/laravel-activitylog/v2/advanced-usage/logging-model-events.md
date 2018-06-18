@@ -2,7 +2,7 @@
 title: Logging model events
 ---
 
-A neat feature of this package is that it can automatically log events such as when a model is created, updated and deleted.  To make this work all you need to do is let your model use the `Spatie\Activitylog\Traits\LogsActivity`-trait.
+The package can automatically log events such as when a model is created, updated and deleted.  To make this work all you need to do is let your model use the `Spatie\Activitylog\Traits\LogsActivity`-trait.
 
 As a bonus the package will also log the changed attributes for all these events when setting `$logAttributes` property on the model.
 
@@ -195,6 +195,28 @@ class NewsItem extends Model
 ```
 
 Changing only `name` means only the `name` attribute will be logged in the activity, and `text` will be left out.
+
+## Ignoring attributes from logging
+
+If you use wildcard logging, but do not want to log certain attributes, you can specify those attributes in `$logAttributesToIgnore`.
+
+```php
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
+
+class NewsItem extends Model
+{
+    use LogsActivity;
+
+    protected static $logAttributes = ['*'];
+    
+    protected static $logAttributesToIgnore = [ 'text'];
+    
+    protected static $logOnlyDirty = true;
+}
+```
+
+Even if there are changes to `text` attribute, they will not be logged.
 
 ## Using the CausesActivity trait
 
