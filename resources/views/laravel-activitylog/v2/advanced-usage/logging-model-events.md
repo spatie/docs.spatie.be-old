@@ -196,9 +196,9 @@ class NewsItem extends Model
 
 Changing only `name` means only the `name` attribute will be logged in the activity, and `text` will be left out.
 
-## Ignoring attributes from logging.
+## Ignoring attributes from logging
 
-If you use wildcard logging, but do not want to log few attributes, you can use `$logAttributesToIgnore`.
+If you use wildcard logging, but do not want to log certain attributes, you can specify those attributes in `$logAttributesToIgnore`.
 
 ```php
 use Illuminate\Database\Eloquent\Model;
@@ -216,7 +216,7 @@ class NewsItem extends Model
 }
 ```
 
-Even if there are changes to `text` attribute, it will not be logged. But all other changes will be logged. 
+Even if there are changes to `text` attribute, they will not be logged.
 
 ## Using the CausesActivity trait
 
