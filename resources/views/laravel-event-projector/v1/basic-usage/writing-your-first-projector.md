@@ -77,6 +77,8 @@ Let's take a look at all events used in the `Account` model.
 ```php
 namespace App\Events;
 
+use Spatie\EventProjector\ShouldBeStored;
+
 class AccountCreated implements ShouldBeStored
 {
     /** @var array */
@@ -165,6 +167,7 @@ use App\Account;
 use App\Events\AccountCreated;
 use App\Events\AccountDeleted;
 use App\Events\MoneyAdded;
+use App\Events\MoneySubtracted;
 use Spatie\EventProjector\Projectors\Projector;
 use Spatie\EventProjector\Projectors\ProjectsEvents;
 
@@ -196,7 +199,7 @@ class AccountBalanceProjector implements Projector
         $account->save();
     }
 
-    public function onMoneySubtracted(MoneyAdded $event)
+    public function onMoneySubtracted(MoneySubtracted $event)
     {
         $account = Account::find($event->accountId);
 
@@ -248,13 +251,16 @@ With all this out of the way we can fire off some events.
 Let's try adding an account with:
 
 ```php
-$account = Account::createWithAttributes(['name' => 'Luke']);
-$anotherAccount = Account::createWithAttributes(['name' => 'Leia']);
+Account::createWithAttributes(['name' => 'Luke']);
+Account::createWithAttributes(['name' => 'Leia']);
 ```
 
 And let's make some transactions on that account:
 
 ```php
+$account = Account::where(['name' => 'Luke'])->first();
+$anotherAccount = Account::where(['name' => 'Leia'])->first();
+
 $account->addMoney(1000);
 $anotherAccount->addMoney(500);
 $account->subtractMoney(50);
@@ -340,11 +346,17 @@ class TransactionCountProjector implements Projector
 }
 ```
 
+As we created a new migration, keeping the database up-to-date is important, so:
+
+```php
+php artisan migrate
+```
+
 Let's not forget to register this projector:
 
 ```php
 // in a service provider of your own
-EventProjectionist::addProjector(TransactionCountProjector::class)
+EventProjectionist::addProjector(TransactionCountProjector::class);
 ```
 
 If you've followed along, you've already created some accounts and some events. To feed those past events to the projector we can simply perform this artisan command:
@@ -360,13 +372,13 @@ This command will take all events stored in the `stored_events` table and pass t
 Now that both of your projections have handled all events, try firing off some new events.
 
 ```
-$yetAnotherAccount = Account::createWithAttributes(['name' => 'Yoda']);
+Account::createWithAttributes(['name' => 'Yoda']);
 ```
 
 And let's add some transactions to that account:
 
 ```php
-// do stuff like this
+$yetAnotherAccount = Account::where(['name' => 'Yoda'])->first();
 
 $yetAnotherAccount->addMoney(1000);
 $yetAnotherAccount->subtractMoney(50);

@@ -76,7 +76,7 @@ namespace App\Reactors;
 use App\Events\MoneyAdded;
 
 class BigAmountAddedReactor
-{    
+{
     /*
      * Here you can specify which event should trigger which method.
      */
