@@ -1,7 +1,7 @@
 ---
 title: Requirements
 ---
-This backup package requires **PHP 7 or higher** with the [ZIP module](http://php.net/manual/en/book.zip.php) and **Laravel 5.5 or higher**. It's not compatible with Windows servers.
+This backup package requires **PHP 7**, since v5.6 it requires **PHP 7.1 or higher** with the [ZIP module](http://php.net/manual/en/book.zip.php) and **Laravel 5.5 or higher**. It's not compatible with Windows servers.
 
 If you are using an older version of Laravel, v3 and v4 of Laravel Backup support Laravel 5.1.20 up.
 
