@@ -176,13 +176,16 @@ class AccountBalanceProjector implements Projector
     use ProjectsEvents;
 
     /*
-     * Here you can specify which event should trigger which method.
+     * Here you can specify which event should trigger which method. Associative
+     * entries are explicit, but one can also use non-associative entries. If a
+     * non-associative entry is used, the method will be automagically
+     * determined by prepending the event class basename with `on`.
      */
     protected $handlesEvents = [
         AccountCreated::class => 'onAccountCreated',
         MoneyAdded::class => 'onMoneyAdded',
         MoneySubtracted::class => 'onMoneySubtracted',
-        AccountDeleted::class => 'onAccountDeleted',
+        AccountDeleted::class, // Non-associative means method called will be onAccountDeleted
     ];
 
     public function onAccountCreated(AccountCreated $event)
