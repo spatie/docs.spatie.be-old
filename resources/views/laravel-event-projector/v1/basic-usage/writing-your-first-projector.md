@@ -8,7 +8,7 @@ Imagine you are a bank with customers that have accounts. All these accounts hav
 
 ## Creating a model
 
-Here's a small migration to create a table that stores accounts:
+Here's a small migration to create a table that stores accounts. Using a `uuid` is not strictly required, but it will make your life much easier when using this package. In the all examples we'll assume that you'll use them.
 
 ```php
 use Illuminate\Support\Facades\Schema;
@@ -21,6 +21,7 @@ class CreateAccountsTable extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('uuid');
             $table->string('name');
             $table->integer('balance')->default(0);
             $table->timestamps();
@@ -32,45 +33,71 @@ class CreateAccountsTable extends Migration
 The `Account` model itself could look like this:
 
 ```php
+namespace App;
+
 use App\Events\AccountCreated;
 use App\Events\AccountDeleted;
 use App\Events\MoneyAdded;
 use App\Events\MoneySubtracted;
 use Illuminate\Database\Eloquent\Model;
+use Ramsey\Uuid\Uuid;
 
 class Account extends Model
 {
     protected $guarded = [];
 
-    public static function createWithAttributes(array $attributes)
+    protected $casts = [
+        'broke_mail_send' => 'bool',
+    ];
+
+    public static function createWithAttributes(array $attributes): Account
     {
+        /*
+         * Let's generate a uuid. 
+         */
+        $attributes['uuid'] = (string) Uuid::uuid4();
+
+        /*
+         * The account will be created inside this event using the generated uuid.
+         */
         event(new AccountCreated($attributes));
+
+        /*
+         * The uuid will be used the retrieve the created account.
+         */
+        return static::uuid($attributes['uuid']);
     }
 
     public function addMoney(int $amount)
     {
-        event(new MoneyAdded($this->id, $amount));
-
-        return $this;
+        event(new MoneyAdded($this->uuid, $amount));
     }
 
     public function subtractMoney(int $amount)
     {
-        event(new MoneySubtracted($this->id, $amount));
-
-        return $this;
+        event(new MoneySubtracted($this->uuid, $amount));
     }
 
     public function close()
     {
-        event(new AccountDeleted($this->id));
+        event(new AccountDeleted($this->uuid));
+    }
+
+    /*
+     * A helper method to quickly retrieve an account by uuid.
+     */
+    public static function uuid(string $uuid): ?Account
+    {
+        return static::where('uuid', $uuid)->first();
     }
 }
 ```
 
+
+
 ## Defining events
 
-Instead of calculating the balance, we're simply firing off events. All these events should implement `\Spatie\EventProjector\ShouldBeStored`. This is an empty interface that signifies to our package that the event should be stored.
+Instead of creating, updating and deleting accounts, we're simply firing off events. All these events should implement `\Spatie\EventProjector\ShouldBeStored`. This is an empty interface that signifies to our package that the event should be stored.
 
 Let's take a look at all events used in the `Account` model.
 
@@ -168,6 +195,7 @@ use App\Events\AccountCreated;
 use App\Events\AccountDeleted;
 use App\Events\MoneyAdded;
 use App\Events\MoneySubtracted;
+use Spatie\EventProjector\Models\StoredEvent;
 use Spatie\EventProjector\Projectors\Projector;
 use Spatie\EventProjector\Projectors\ProjectsEvents;
 
@@ -176,26 +204,23 @@ class AccountBalanceProjector implements Projector
     use ProjectsEvents;
 
     /*
-     * Here you can specify which event should trigger which method. Associative
-     * entries are explicit, but one can also use non-associative entries. If a
-     * non-associative entry is used, the method will be automagically
-     * determined by prepending the event class basename with `on`.
+     * Here you can specify which event should trigger which method.
      */
-    protected $handlesEvents = [
+    public $handlesEvents = [
         AccountCreated::class => 'onAccountCreated',
         MoneyAdded::class => 'onMoneyAdded',
         MoneySubtracted::class => 'onMoneySubtracted',
-        AccountDeleted::class, // Non-associative means method called will be onAccountDeleted
+        AccountDeleted::class => 'onAccountDeleted',
     ];
 
     public function onAccountCreated(AccountCreated $event)
     {
-        return Account::create($event->accountAttributes);
+        Account::create($event->accountAttributes);
     }
 
     public function onMoneyAdded(MoneyAdded $event)
     {
-        $account = Account::find($event->accountId);
+        $account = Account::uuid($event->accountUuid);
 
         $account->balance += $event->amount;
 
@@ -204,16 +229,20 @@ class AccountBalanceProjector implements Projector
 
     public function onMoneySubtracted(MoneySubtracted $event)
     {
-        $account = Account::find($event->accountId);
+        $account = Account::uuid($event->accountUuid);
 
         $account->balance -= $event->amount;
 
         $account->save();
+
+        if ($account->balance >= 0) {
+            $this->broke_mail_sent = false;
+        }
     }
 
     public function onAccountDeleted(AccountDeleted $event)
     {
-        Account::find($event->accountId)->delete();
+        Account::uuid($event->accountUuid)->delete();
     }
 }
 ```
@@ -222,7 +251,7 @@ class AccountBalanceProjector implements Projector
 
 The projector code up above will update the `accounts` table based on the fired events.
 
-Projectors need to be registered before they can be recognized by the event projector. The easiest way to register a projector is by calling `addProjector` on the `EventProjectionist` class. Typically you would put this in a service provider of your own.
+Projectors need to be registered. The easiest way to register a projector is by calling `addProjector` on the `EventProjectionist` class. Typically you would put this in a service provider of your own.
 
 ```php
 use Illuminate\Support\ServiceProvider;
@@ -273,7 +302,7 @@ If you take a look at the contents of the `accounts` table you should see some a
 
 ## Your second projector
 
-Imagine that after a while someone at the bank wants to know which accounts have processed the most transactions. Because we stored all changes to the accounts in the events table we can easily get that info by creating another projector.
+Imagine that, after a while, someone at the bank wants to know which accounts have processed the most transactions. Because we stored all changes to the accounts in the events table we can easily get that info by creating another projector.
 
 We are going to create another projector that stores the transaction count per account in a model. Bear in mind that you can easily use any other storage mechanism instead of a model. The projector doesn't care what you use.
 
@@ -290,12 +319,18 @@ class CreateTransactionCountsTable extends Migration
     {
         Schema::create('transaction_counts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('account_id');
+            $table->string('account_uuid');
             $table->integer('count')->default(0);
             $table->timestamps();
         });
     }
 }
+```
+
+If you're following along don't forget to run this new migration.
+
+```php
+php artisan migrate
 ```
 
 ```php
@@ -309,7 +344,7 @@ class TransactionCount extends Model
 }
 ```
 
-And here's the projector that is going to listen to the `MoneyAdded` and `MoneySubtracted` events:
+Here's the projector that is going to listen to the `MoneyAdded` and `MoneySubtracted` events:
 
 ```php
 namespace App\Projectors;
@@ -317,42 +352,37 @@ namespace App\Projectors;
 use App\Events\MoneyAdded;
 use App\Events\MoneySubtracted;
 use App\TransactionCount;
+use Spatie\EventProjector\Models\StoredEvent;
 use Spatie\EventProjector\Projectors\Projector;
 use Spatie\EventProjector\Projectors\ProjectsEvents;
 
-class TransactionCountProjector implements Projector
+class TransactionCountProjector implements Projector, Snapshottable
 {
-    use ProjectsEvents;
+    use ProjectsEvents, CanTakeSnapshot;
 
-    protected $handlesEvents = [
+    public $handlesEvents = [
         MoneyAdded::class => 'onMoneyAdded',
         MoneySubtracted::class => 'onMoneySubtracted',
     ];
 
     public function onMoneyAdded(MoneyAdded $event)
     {
-        $transactionCounter = TransactionCount::firstOrCreate(['account_id' => $event->accountId]);
+        $transactionCounter = TransactionCount::firstOrCreate(['account_uuid' => $event->accountUuid]);
 
-        $transactionCounter->count +=1;
+        $transactionCounter->count += 1;
 
         $transactionCounter->save();
     }
 
     public function onMoneySubtracted(MoneySubtracted $event)
     {
-        $transactionCounter = TransactionCount::firstOrCreate(['account_id' => $event->accountId]);
+        $transactionCounter = TransactionCount::firstOrCreate(['account_uuid' => $event->accountUuid]);
 
-        $transactionCounter->count +=1;
+        $transactionCounter->count += 1;
 
         $transactionCounter->save();
     }
 }
-```
-
-As we created a new migration, keeping the database up-to-date is important, so:
-
-```php
-php artisan migrate
 ```
 
 Let's not forget to register this projector:
@@ -387,7 +417,7 @@ $yetAnotherAccount->addMoney(1000);
 $yetAnotherAccount->subtractMoney(50);
 ```
 
-You'll notice that both projectors are doing their jobs. The balance of the `Account` model is up to date and the data in the `transaction_counts` table gets updated.
+You'll notice that both projectors are immediately handling these new events. The balance of the `Account` model is up to date and the data in the `transaction_counts` table gets updated.
 
 ## Benefits of projectors and projections
 
