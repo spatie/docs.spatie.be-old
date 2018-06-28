@@ -125,15 +125,15 @@ use Spatie\EventProjector\ShouldBeStored;
 
 class MoneyAdded implements ShouldBeStored
 {
-    /** @var int */
-    public $accountId;
+    /** @var string */
+    public $accountUuid;
 
     /** @var int */
     public $amount;
 
-    public function __construct(int $accountId, int $amount)
+    public function __construct(string $accountUuid, int $amount)
     {
-        $this->accountId = $accountId;
+        $this->accountUuid = $accountUuid;
 
         $this->amount = $amount;
     }
@@ -147,15 +147,15 @@ use Spatie\EventProjector\ShouldBeStored;
 
 class MoneySubtracted implements ShouldBeStored
 {
-    /** @var int */
-    public $accountId;
+    /** @var string */
+    public $accountUuid;
 
     /** @var int */
     public $amount;
 
-    public function __construct(int $accountId, int $amount)
+    public function __construct(string $accountUuid, int $amount)
     {
-        $this->accountId = $accountId;
+        $this->accountUuid = $accountUuid;
 
         $this->amount = $amount;
     }
@@ -169,12 +169,12 @@ use Spatie\EventProjector\ShouldBeStored;
 
 class AccountDeleted implements ShouldBeStored
 {
-    /** @var int */
-    public $accountId;
+    /** @var string */
+    public $accountUuid;
 
-    public function __construct(int $accountId)
+    public function __construct(string $accountUuid)
     {
-        $this->accountId = $accountId;
+        $this->accountUuid = $accountUuid;
     }
 }
 ```
