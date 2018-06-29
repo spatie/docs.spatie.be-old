@@ -4,7 +4,7 @@ title: Thinking in events
 
 Let's build upon the examples shown in the [writing your first projector](/laravel-event-projector/v1/basic-usage/writing-your-first-projector) and [handling side effects with reactors](https://docs.spatie.be/laravel-event-projector/v1/basic-usage/handling-side-effects-using-reactors)' sections. 
 
-Image you are now tasked with sending a mail to an account holder when he or she is broke. You might think, that's easy, let's just check in a new reactor if the account balance is less than zero.
+Image you are  tasked with sending a mail to an account holder whenever he or she is broke. You might think, that's easy, let's just check in a new reactor if the account balance is less than zero.
 
 Let's first add a little helper method to the `Account` model to check if an account is broke.
 
@@ -22,7 +22,7 @@ class Account extends Model
 }
 ```
 
-Now let's create a new reactor called `BrokeReactor`.
+Now create a new reactor called `BrokeReactor`:
 
 ```php
 namespace App\Reactors;
@@ -50,13 +50,13 @@ class BrokeReactor implements EventHandler
 }
 ```
 
-Now a mail gets sent when an account is broken. The problem with this approach is that mails will also get sent for accounts that were already broke before. If you want to only sent mail when an account went from a positive balance to a negative balance we need to do some more work.
+A mail will get sent when an account is broken. The problem with this approach is that mails will also get sent for accounts that were already broke before. If you want to only sent mail when an account went from a positive balance to a negative balance we need to do some more work.
 
 You might be tempted to add some kind of flag here that determines if the mail was already sent.
 
-But you should never let reactors   write to models (or whatever storage mechanism you use) you've built up using projectors. If you were to do that, all changes would be lost when replaying events because replay events won't get passed to reactors. Reactors are meant for side effects, not for building up state.
+But you should never let reactors write to models (or whatever storage mechanism you use) you've built up using projectors. If you were to do that, all changes would get lost when replaying events: events won't get passed to reactors when replaying them. Keep in mind that reactors are meant for side effects, not for building up state.
 
-If you are tempted to modified state in a reactor, just fire off a new event and let a projector modified the state. Let's modify the `BrokeReactor` to do just that. If you're following along don't forget to create migration that adds the `broke_mail_sent` field to the `accounts` table.
+If you are tempted to modify state in a reactor, just fire off a new event and let a projector modify the state. Let's modify the `BrokeReactor` to do just that. If you're following along don't forget to create migration that adds the `broke_mail_sent` field to the `accounts` table.
 
 ```php
 // ...
@@ -75,7 +75,7 @@ class BrokeReactor implements EventHandler
         $account = Account::uuid($event->accountUuid);
 
         /*
-         * Don't send a mail if an account isnt' broken
+         * Don't send a mail if an account isn't broken
          */
         if (! $account->isBroke()) {
             return;
@@ -102,7 +102,7 @@ Let's leverage that new event in the `AccountBalanceProjector`.
 
 ```php
 // ...
-<?php
+
 class AccountBalanceProjector implements Projector
 {
     // ..
@@ -136,4 +136,4 @@ class AccountBalanceProjector implements Projector
 }
 ```
 
-With this in place only a projector will save state. The `BrokeReactor` will send out a mail when an account goes broke (but not if the account was already broke). When the account goes above zero and goes broke again a new mail will be sent.  When replaying all events, no mail will get sent, but all account state will be correct.
+With this in place only a projector will save state. The `BrokeReactor` will only send out a mail when an account goes broke. No mails will be sent if the account was already broke. When the account goes above zero and goes broke again a new mail will be sent.  When replaying all events, no mail will get sent, but all account state will be correct.
