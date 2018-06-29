@@ -20,7 +20,7 @@ class ResettableProjector implements Projector
 
     public function resetState()
     {
-        // do the work...
+        // do the work to clean up the state of this projector...
     }
 }
 ```

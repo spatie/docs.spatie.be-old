@@ -20,12 +20,12 @@ class MetaDataProjector implements Projector
      * Here you can specify which event should trigger which method.
      */
     public $handlesEvents = [
-        '*' => 'onAnyEvent',
+        MoneyAdded::class => 'onMoneyAdded',
     ];
 
-    public function onAnyEvent(StoredEvent $storedEvent)
+    public function onMoneyAdded(StoredEvent $storedEvent)
     {
-        $storedEvent->meta_data->user_id = auth()->user()->id;
+        $storedEvent->meta_data->put('user_id', auth()->user()->id);
 
         $storedEvent->save();
     }
