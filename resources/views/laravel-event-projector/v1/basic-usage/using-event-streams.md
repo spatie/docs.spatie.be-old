@@ -6,61 +6,51 @@ If your application receives a lot of concurrent requests, it will result in a l
 
 Imagine that there are many requests coming in at the same time that each want to add money to 100 different accounts.
 
-In a first request an event `AmountAdded` for account 1 is stored. The stored event gets id 1. In that request the projector now starts to update the amount of the account. But before that update completes, another one has already stored its own `AmountAdded` event for account 2. But because event 1 is not completed yet, the projector will not accept event 2. The projector is now out of sync and will not accept new events until you've [replayed](laravel-event-projector/v1/replaying-events/replaying-events) all of them.
+In a first request an event `AmountAdded` for the first account is stored. The stored event gets id 1. In that request the projector now starts to update the amount of that account. But before that update completes, another request has already stored its own `AmountAdded` event for a second account. But because event 1 is not completed yet, the projector will not accept event 2. The projector is now out of sync and will not accept new events until you've [replayed](laravel-event-projector/v1/replaying-events/replaying-events) all of them.
 
-If you think about it, the projector should perfectly be able to handle events related to account 2 even if it has not handled all events regarding for account 1. 
+If you think about it, the projector should perfectly be able to handle events related to the second account even if the projector hasn't handled the events that apply to the first account.
 
-## Preparing your event to use streams
+## Preparing your projector
 
-You can make a projector understand the situation above by implementing two methods on your event: `getStreamName()` and `getStreamId()`. Here's an example for the `AmountAdded` event.
+You can make a projector understand the situation above by implementing the `streamEventsBy` methods on your projector. This function should return the name of the property to uniquely identifies the subject of your projector. The package will [track events](/laravel-event-projector/v1/replaying-events/tracking-handled-events) using that property.
+
+Let's implement the `streamEventsBy` method on the `AccountBalanceProjector` we created in [the writing your first projector](/laravel-event-projector/v1/basic-usage/writing-your-first-projector) section. The property that unique identifies our account is `accountUuid`.
 
 ```php
-use Illuminate\Queue\SerializesModels;
-use Spatie\EventProjector\ShouldBeStored;
-use App\Models\Account;
-
-class MoneyAdded implements ShouldBeStored
+class AccountBalanceProjector implements Projector
 {
-    use SerializesModels;
+    use ProjectsEvents;
 
-    /** @var \App\Models\Account */
-    public $account;
+    // ...
 
-    /** @var int */
-    public $amount;
-
-    public function __construct(Account $account, int $amount)
+    public function streamEventsBy()
     {
-        $this->account = $account;
-
-        $this->amount = $amount;
-    }
-
-    public function getStreamName(): string
-    {
-        return 'accounts';
-    }
-
-    public function getStreamId()
-    {
-        return $this->account->id;
+       return 'accountUuid';
     }
 }
 ```
 
-Projectors will by default track received events using the stream name and id on an event. So a projector will accept events for account 2 even if all events for account 1 are not handled yet.
+With this method implement the projector will still accept events for a given account even if it did not receive all events yet from other accounts.
 
+It's important that you make sure all events that are passed to this projector have that `accountUuid` property.
 
-## Making a projector consider all events
+## Using dot notation
 
-If it is important for your projector that it should receive all events in order, no matter of which account, you should add a property `$trackStream` with a value of `*`.
+If your events have their identifying property in an array or object you can use dot notation in the return value `streamEventsBy`. Image all your events have a `$account` property that contains an `Account` model. 
 
 ```php
-class MyProjector implements Projector
+class AccountBalanceProjector implements Projector
 {
     use ProjectsEvents;
 
-    protected $trackStream = '*';
-    
     // ...
+
+    public function streamEventsBy()
+    {
+       /*
+        * Let's use the id property of the account
+        */
+       return 'account.id';
+    }
 }
+```
