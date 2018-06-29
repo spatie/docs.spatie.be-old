@@ -7,6 +7,7 @@ The package keeps track of which events were already passed to which projectors.
 The `projector_statuses` table contains info on each projector's status. It contains these fields:
 
 - `name`: The fully qualified class name of your projector.
+- `stream`: When the projector uses event streams, the `projector_statuses` will contain multiple rows for a projector. `stream` contains the name of the stream this row applies to.
 - `last_processed_event_id`: The id of the last event that was handled by this projector.
 
 ## Naming projectors
