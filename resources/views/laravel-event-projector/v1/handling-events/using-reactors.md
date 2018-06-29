@@ -93,3 +93,32 @@ class BigAmountAddedReactor
 ```
 
 This reactor will be created using the container so you may inject any dependency you'd like. In fact, all methods present in `$handlesEvent` can make use of method injection, so you can resolve any dependencies you need in those methods as well. Any variable in the method signature with the name `$event` will receive the event you're listening for.
+
+## Using default event handling method names
+
+In the example above the events are mapped to methods on the projector using the `$handlesEvents` property.
+
+```php
+// in a projector
+
+// ...
+
+protected $handlesEvents = [
+    MoneyAdded::class => 'onMoneyAdded',
+];
+```
+
+You can write this a little shorter. If just put the class name of an event in that array the package will infer the method name to be called. It will assume that there is a method called `on` followed by the name of the event. Here's an example:
+
+```php
+// in a projector
+
+// ...
+
+protected $handlesEvents = [
+    /*
+     * If this event is passed to the projector, the `onMoneyAdded` method will be called.
+     */ 
+    MoneyAdded::class,
+];
+```

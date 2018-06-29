@@ -109,9 +109,9 @@ class AccountBalanceProjector implements Projector
 
 When the package needs to call the projector, it will use the container to create that proejctor so you may inject any dependencies in the constructor. In fact, all methods specified in `$handlesEvent` can make use of method injection, so you can resolve any dependencies you need in those methods as well. Any variable in the method signature with the name `$event` will receive the event you're listening for.
 
-## 
+## Using default event handling method names
 
-In the example above the events are make to methods on the projector using the `$handlesEvents` property.
+In the example above the events are mapped to methods on the projector using the `$handlesEvents` property.
 
 ```php
 // in a projector
@@ -188,3 +188,7 @@ class AccountBalanceProjector implements Projector
     // ...
 }
 ```
+
+## Using streams
+
+Projectors can handle multiple streams on events. Read the using event streams section to learn why you'll need stream and how to use them.
