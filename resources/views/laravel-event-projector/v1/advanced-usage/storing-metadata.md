@@ -25,9 +25,33 @@ class MetaDataProjector implements Projector
 
     public function onMoneyAdded(StoredEvent $storedEvent)
     {
-        $storedEvent->meta_data->put('user_id', auth()->user()->id);
+        $storedEvent->meta_data['user_id'] = auth()->user()->id;
 
         $storedEvent->save();
+    }
+}
+```
+
+## Storing metadata on all events
+
+If you need to store metadata on all events you can leverage Laravel's native models events.
+
+You must configure the package [use your own event storage model](/laravel-event-projector/v1/advanced-usage/using-your-own-event-storage-model). On that model you can hook into the model lifecycle hooks.
+
+```php
+use Spatie\EventProjector\Models\StoredEvent;
+
+class CustomStoredEvent extends StoredEvent
+{
+    public static function boot()
+    {
+        parent::boot();
+        
+         static::creating(function(CustomStoredEvent $storedEvent) {
+             $storedEvent->meta_data('user_id', auth()->user()->id);
+     
+             $storedEvent->save();
+         });
     }
 }
 ```
