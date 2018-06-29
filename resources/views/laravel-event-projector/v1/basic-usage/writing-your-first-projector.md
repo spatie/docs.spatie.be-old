@@ -2,7 +2,7 @@
 title: Writing your first projector
 ---
 
-In this section is a perfect entry point to get yourself aquinted with the package. Most examples in these docs are also avaible in the Laravel app you'll find in this [this repo on GitHub](https://github.com/spatie/laravel-event-projector-demo-app). Clone that repo to toy around with the package.
+In this section is a perfect entry point to get yourself aquinted with the package. Most examples in these docs are also available in the Laravel app you'll find in this [this repo on GitHub](https://github.com/spatie/laravel-event-projector-demo-app). Clone that repo to toy around with the package.
 
 A projector is a class that gets triggered when new events come in. It typically writes data (to the database or to a file on disk). We call that written data a projection.
 
