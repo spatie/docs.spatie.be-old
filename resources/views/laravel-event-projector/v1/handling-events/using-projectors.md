@@ -123,7 +123,7 @@ protected $handlesEvents = [
 ];
 ```
 
-You can write this a little shorter. If just put the class name of an event in that array the package will infer the method name to be called. It will assume that there is a method called `on` followed by the name of the event. Here's an example:
+You can write this a little shorter. Just put the class name of an event in that array. The package will infer the method name to be called. It will assume that there is a method called `on` followed by the name of the event. Here's an example:
 
 ```php
 // in a projector

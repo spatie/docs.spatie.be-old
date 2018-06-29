@@ -13,6 +13,7 @@ return [
     'Basic usage' => [
         'Writing your first projector',
         'Handling side effects using reactors',
+        'Thinking in events',
         'Making sure events get handled in the right order',
         'Using event streams',
     ],

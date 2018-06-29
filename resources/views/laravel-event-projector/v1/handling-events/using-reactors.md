@@ -96,10 +96,10 @@ This reactor will be created using the container so you may inject any dependenc
 
 ## Using default event handling method names
 
-In the example above the events are mapped to methods on the projector using the `$handlesEvents` property.
+In the example above the events are mapped to methods on the reactor using the `$handlesEvents` property.
 
 ```php
-// in a projector
+// in a reactor
 
 // ...
 
@@ -108,16 +108,16 @@ protected $handlesEvents = [
 ];
 ```
 
-You can write this a little shorter. If just put the class name of an event in that array the package will infer the method name to be called. It will assume that there is a method called `on` followed by the name of the event. Here's an example:
+You can write this a little shorter. Just put the class name of an event in that array. The package will infer the method name to be called. It will assume that there is a method called `on` followed by the name of the event. Here's an example:
 
 ```php
-// in a projector
+// in a reactor
 
 // ...
 
 protected $handlesEvents = [
     /*
-     * If this event is passed to the projector, the `onMoneyAdded` method will be called.
+     * If this event is passed to the reactor, the `onMoneyAdded` method will be called.
      */ 
     MoneyAdded::class,
 ];
