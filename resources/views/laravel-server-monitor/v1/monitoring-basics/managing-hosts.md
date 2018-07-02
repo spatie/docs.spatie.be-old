@@ -20,7 +20,9 @@ On most systems the authenticity of the host will be verified when connecting to
 
 <img src="/images/server-monitor/authenticity.jpg" class="screenshot -cli">
 
-Although we don't recommend this, you could opt to [disable the host authenticity check](http://linuxcommando.blogspot.be/2008/10/how-to-disable-ssh-host-key-checking.html) altogether. Be aware that this will leave yourself open to man in the middle attacks. If you want to go ahead with this option add `-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -q` to the `ssh_command_suffix` key in the `server-monitor` config file. In addition to adding a SSH command suffix, you can also add prefix to the SSH command. To use this option, add your desired prefix to the `ssh_command_prefix` key in the config file.
+Although we don't recommend this, you could opt to [disable the host authenticity check](http://linuxcommando.blogspot.be/2008/10/how-to-disable-ssh-host-key-checking.html) altogether. Be aware that this will leave yourself open to man in the middle attacks. If you want to go ahead with this option add `-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -q` to the `ssh_command_suffix` key in the `server-monitor` config file.
+
+You can also prefix the SSH command. Just add your desired prefix to the `ssh_command_prefix` key in the config file.
 
 ## Deleting hosts
 
