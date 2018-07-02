@@ -85,7 +85,7 @@ class BigAmountAddedReactor
 
     ];
 
-    public function onAccountCreated(MoneyAdded $event)
+    public function onMoneyAdded(MoneyAdded $event)
     {
         // do some work
     }
