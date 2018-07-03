@@ -35,7 +35,7 @@ $activity = Activity::all()->last();
 
 $activity->description; //returns 'created'
 $activity->subject; //returns the instance of NewsItem that was created
-$activity->changes; //returns ['attributes' => ['name' => 'original name', 'text' => 'Lorum']];
+$activity->changes(); //returns ['attributes' => ['name' => 'original name', 'text' => 'Lorum']];
 ```
 
 Now let's update some that `$newsItem`.
@@ -62,6 +62,7 @@ Calling `$activity->changes` will return this array:
         'name' => 'original name',
         'text' => 'Lorum',
     ],
+    
 ];
 ```
 
@@ -76,7 +77,7 @@ $newsItem->delete();
 $activity = Activity::all()->last();
 
 $activity->description; //returns 'deleted'
-$activity->changes; //returns ['attributes' => ['name' => 'updated name', 'text' => 'Lorum']];
+$activity->changes(); //returns ['attributes' => ['name' => 'updated name', 'text' => 'Lorum']];
 ```
 
 ## Customizing the events being logged
