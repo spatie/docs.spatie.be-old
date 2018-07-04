@@ -10,7 +10,7 @@ Imagine you are a bank with customers that have accounts. All these accounts hav
 
 ## Creating a model
 
-Here's a small migration to create a table that stores accounts. Using a `uuid` is not strictly required, but it will make your life much easier when using this package. In the all examples we'll assume that you'll use them.
+Here's a small migration to create a table that stores accounts. Using a `uuid` is not strictly required, but it will make your life much easier when using this package. In all examples we'll assume that you'll use them.
 
 ```php
 use Illuminate\Support\Facades\Schema;
