@@ -22,24 +22,24 @@ php artisan make:projector AccountBalanceProjector --sync
 
 Projectors can be registered in the `projectors` key of the `event-projectors` config file.
 
-Alternatively, you can add them to the `EventProjectionist`. This can be done anywhere, but typically you would do this in a ServiceProvider of your own.
+Alternatively, you can add them to the `Projectionist`. This can be done anywhere, but typically you would do this in a ServiceProvider of your own.
 
 ```php
 namespace App\Providers;
 
 use App\Projectors\AccountBalanceProjector;
 use Illuminate\Support\ServiceProvider;
-use Spatie\EventProjector\Facades\EventProjectionist;
+use Spatie\EventProjector\Facades\Projectionist;
 
 class EventProjectorServiceProvider extends ServiceProvider
 {
     public function register()
     {
         // adding a single projector
-        EventProjectionist::addProjector(AccountBalanceProjector::class);
+        Projectionist::addProjector(AccountBalanceProjector::class);
 
         // you can also add multiple projectors in one go
-        EventProjectionist::addProjectors([
+        Projectionist::addProjectors([
             AnotherProjector::class,
             YetAnotherProjector::class,
         ]);

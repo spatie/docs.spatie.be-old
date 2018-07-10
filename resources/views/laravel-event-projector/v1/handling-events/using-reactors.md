@@ -16,24 +16,24 @@ php artisan make:reactor BigAmountAddedReactor
 
 Reactors can be registered in the `reactors` key of the `event-projectors` config file.
 
-Alternatively, they can be added to the `EventProjectionist`. This can be done anywhere, but typically you would do this in a ServiceProvider of your own.
+Alternatively, they can be added to the `Projectionist`. This can be done anywhere, but typically you would do this in a ServiceProvider of your own.
 
 ```php
 namespace App\Providers;
 
 use App\Projectors\AccountBalanceProjector;
 use Illuminate\Support\ServiceProvider;
-use Spatie\EventProjector\Facades\EventProjectionist;
+use Spatie\EventProjector\Facades\Projectionist;
 
 class EventProjectorServiceProvider extends ServiceProvider
 {
     public function register()
     {
         // adding a single reactor
-        EventProjectionist::addReactor(BigAmountAddedReactor::class);
+        Projectionist::addReactor(BigAmountAddedReactor::class);
 
         // you can also add multiple reactors in one go
-        EventProjectionist::addReactors([
+        Projectionist::addReactors([
             AnotherReactor::class,
             YetAnotherReactor::class,
         ]);

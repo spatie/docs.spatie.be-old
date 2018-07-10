@@ -8,7 +8,7 @@ If you have a lot of concurrently requests that fire off events there's a chance
 
 ## Handling events in a queue
 
-A queue can be used to guarantee that all events get passed to projectors in the right order. If you want a projector to handle events in a queue, you should let your projector implement the `Spatie\EventProjector\Projectors\QueuedProjector` interface instead of the the normal `Spatie\EventProjector\Projectors\Projector`. This interface merely hints to the `EventProjectionist` the event handling should happen in a queued manner.
+A queue can be used to guarantee that all events get passed to projectors in the right order. If you want a projector to handle events in a queue, you should let your projector implement the `Spatie\EventProjector\Projectors\QueuedProjector` interface instead of the the normal `Spatie\EventProjector\Projectors\Projector`. This interface merely hints to the `Projectionist` the event handling should happen in a queued manner.
 
 A useful rule of thumb is that if your projectors aren't producing data that is consumed in the same request as the event are fire, you should let your projector implement `QueuedProjector`.
 

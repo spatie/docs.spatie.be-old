@@ -253,29 +253,29 @@ class AccountBalanceProjector implements Projector
 
 The projector code up above will update the `accounts` table based on the fired events.
 
-Projectors need to be registered. The easiest way to register a projector is by calling `addProjector` on the `EventProjectionist` class. Typically you would put this in a service provider of your own.
+Projectors need to be registered. The easiest way to register a projector is by calling `addProjector` on the `Projectionist` class. Typically you would put this in a service provider of your own.
 
 ```php
 use Illuminate\Support\ServiceProvider;
 use App\Projectors\AccountBalanceProjector;
-use Spatie\EventProjector\EventProjectionist;
+use Spatie\EventProjector\Projectionist;
 
 class AppServiceProvider extends ServiceProvider
 {
-    public function boot(EventProjectionist $eventProjectionist)
+    public function boot(Projectionist $projectionist)
     {
-        $eventProjectionist->addProjector(AccountBalanceProjector::class);
+        $projectionist->addProjector(AccountBalanceProjector::class);
     }
 }
 ```
 
-You can also use the `EventProjectionist` facade.
+You can also use the `Projectionist` facade.
 
 ```php
 use App\Projectors\AccountBalanceProjector;
-use Spatie\EventProjector\Facades\EventProjectionist;
+use Spatie\EventProjector\Facades\Projectionist;
 
-EventProjectionist::addProjector(AccountBalanceProjector::class);
+Projectionist::addProjector(AccountBalanceProjector::class);
 ```
 
 ## Let's fire off some events
@@ -391,7 +391,7 @@ Let's not forget to register this projector:
 
 ```php
 // in a service provider of your own
-EventProjectionist::addProjector(TransactionCountProjector::class);
+Projectionist::addProjector(TransactionCountProjector::class);
 ```
 
 If you've followed along, you've already created some accounts and some events. To feed those past events to the projector we can simply perform this artisan command:

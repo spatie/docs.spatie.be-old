@@ -68,11 +68,11 @@ php artisan event-projector:reset App\\Projectors\\AccountBalanceProjector App\P
 You can also reset a projector with code:
 
 ```php
-use Spatie\EventProjector\Facades\EventProjectionist;
+use Spatie\EventProjector\Facades\Projectionist;
 
 //...
 
-$projector = EventProjectionist::getProjector($projectorClassOrName);
+$projector = Projectionist::getProjector($projectorClassOrName);
 
 $projector->reset();
 ```
