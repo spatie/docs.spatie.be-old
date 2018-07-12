@@ -122,3 +122,33 @@ protected $handlesEvents = [
     MoneyAdded::class,
 ];
 ```
+
+## Using a class as an event handler
+
+Instead of letting a method on a reactor handle an event you can use a dedicated class.
+
+```php
+// in a projector
+
+// ...
+
+protected $handlesEvents = [
+    /*
+     * If this event is passed to the projector, the `AddMoneyToAccount` class will be called.
+     */ 
+    MoneyAdded::class => SendMoneyAddedMail::class,
+];
+```
+
+Here's an example implementation of `SendMoneyAddedMail`:
+
+```php
+use App\Events\MoneyAdded;
+
+class SendMoneyAddedMail
+{
+    public function __invoke(MoneyAdded $event)
+    {
+        // do work to send a mail here
+    }
+}

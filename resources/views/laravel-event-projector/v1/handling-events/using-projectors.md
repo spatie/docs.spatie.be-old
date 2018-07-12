@@ -138,6 +138,37 @@ protected $handlesEvents = [
 ];
 ```
 
+## Using a class as an event handler
+
+Instead of letting a method on a projector handle an event you can use a dedicated class.
+
+```php
+// in a projector
+
+// ...
+
+protected $handlesEvents = [
+    /*
+     * If this event is passed to the projector, the `AddMoneyToAccount` class will be called.
+     */ 
+    MoneyAdded::class => AddMoneyToAccount::class,
+];
+```
+
+Here's an example implementation of `AddMoneyToAccount`:
+
+```php
+use App\Events\MoneyAdded;
+
+class AddMoneyToAccount
+{
+    public function __invoke(MoneyAdded $event)
+    {
+        $event->account->addMoney($event->amount);
+    }
+}
+```
+
 ## Performing some work before and after replaying events
 
 When [replaying events](/laravel-event-projector/v1/replaying-events/replaying-events) projectors will get called, too.
