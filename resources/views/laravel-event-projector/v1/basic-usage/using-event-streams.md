@@ -6,7 +6,7 @@ If your application receives a lot of concurrent requests, it will result in a l
 
 Imagine that there are many requests coming in at the same time that each want to add money to 100 different accounts.
 
-In a first request an event `AmountAdded` for the first account is fired and stored. The stored event gets id 1. In that request the projector now starts to update the amount of that account. But before that update completes, another request has already stored its own `AmountAdded` event for a second account. But because event 1 is not completed yet, the projector will not accept event 2. The projector is now out of sync: it will not accept new events until you've [replayed](laravel-event-projector/v1/replaying-events/replaying-events) all of them.
+In a first request an event `AmountAdded` for the first account is fired and stored. The stored event gets id 1. In that request the projector now starts to update the amount of that account. But before that update completes, another request has already stored its own `AmountAdded` event for a second account. But because event 1 is not completed yet, the projector will not accept event 2. The projector is now out of sync: it will not accept new events until you've [replayed](/laravel-event-projector/v1/replaying-events/replaying-events) all of them.
 
 If you think about it, the projector should perfectly be able to handle events related to the second account even if the projector hasn't handled the events that apply to the first account.
 
