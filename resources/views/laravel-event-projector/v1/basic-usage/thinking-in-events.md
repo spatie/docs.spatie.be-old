@@ -50,7 +50,7 @@ class BrokeReactor implements EventHandler
 }
 ```
 
-A mail will get sent when an account is broken. The problem with this approach is that mails will also get sent for accounts that were already broke before. If you want to only sent mail when an account went from a positive balance to a negative balance we need to do some more work.
+A mail will get sent when an account is broke. The problem with this approach is that mails will also get sent for accounts that were already broke before. If you want to only sent mail when an account went from a positive balance to a negative balance we need to do some more work.
 
 You might be tempted to add some kind of flag here that determines if the mail was already sent.
 
@@ -75,7 +75,7 @@ class BrokeReactor implements EventHandler
         $account = Account::uuid($event->accountUuid);
 
         /*
-         * Don't send a mail if an account isn't broken
+         * Don't send a mail if an account isn't broke
          */
         if (! $account->isBroke()) {
             return;
@@ -124,11 +124,11 @@ class AccountBalanceProjector implements Projector
 
         /*
          * If the balance is above zero again, set the broke_mail_sent
-         * flag tofalse again, so we can send another mail
+         * flag to false again, so we can send another mail
          * when the balance goes below zero again.
          */
         if ($account->balance >= 0) {
-            $this->broke_mail_sent = false;
+            $account->broke_mail_sent = false;
         }
 
         $account->save();
