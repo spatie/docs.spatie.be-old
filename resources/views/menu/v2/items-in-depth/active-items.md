@@ -52,7 +52,7 @@ Menu::new()
     ->link('/', 'Home')
     ->link('/about', 'About')
     ->link('/contact', 'Contact')
-    ->setActive('https://example.com/about');
+    ->setActive($_SERVER['REQUEST_URI']);
 ```
 
 ```html
