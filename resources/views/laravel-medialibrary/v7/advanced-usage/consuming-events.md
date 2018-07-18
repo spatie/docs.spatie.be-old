@@ -47,7 +47,7 @@ class MediaLogger
 {
     public function handle(MediaHasBeenAdded $event)
     {
-        $media = $event->getMedia();
+        $media = $event->media;
         $path = $media->getPath();
         Log::info("file {$path} has been saved for media {$media->id}");
     }
