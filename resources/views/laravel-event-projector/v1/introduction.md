@@ -10,6 +10,8 @@ Here's a traditional example to make it more clear. Imagine you're a bank. Your 
 
 This package aims to be the simple and very pragmatic way to get started with event sourcing in Laravel.
 
+Why not take a moment to watch our [introduction to Laravel Event Projector video](https://www.youtube.com/watch?v=28jmTeN3VYc).
+
 ## We have badges!
 
 <section class="article_badges">
