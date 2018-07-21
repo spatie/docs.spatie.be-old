@@ -80,4 +80,3 @@ activity()->disableLogging();
 ```
 
 Use the `enableLogging()` method to re-enable logging.
-   
