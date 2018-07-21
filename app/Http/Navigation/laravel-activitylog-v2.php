@@ -18,5 +18,6 @@ return [
         'Logging model events',
         'Using placeholders',
         'Using multiple logs',
+        'Disabling logging',
     ],
 ];
