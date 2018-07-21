@@ -70,3 +70,13 @@ $lastActivity->getExtraProperty('key') //returns 'value';
 
 $lastActivity->where('properties->key', 'value')->get(); // get all activity where the `key` custom property is 'value'
 ```
+
+## Disabling logging at runtime
+
+You can disable logging at runtime. To do so, you can use the disableLogging() method:
+
+```php
+activity()->disableLogging();
+```
+
+Use the `enableLogging()` method to re-enable logging.
