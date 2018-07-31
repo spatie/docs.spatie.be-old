@@ -80,7 +80,7 @@ class Account extends Model
         event(new MoneySubtracted($this->uuid, $amount));
     }
 
-    public function delete()
+    public function remove()
     {
         event(new AccountDeleted($this->uuid));
     }
