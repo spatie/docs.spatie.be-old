@@ -19,5 +19,7 @@ return [
         'Using placeholders',
         'Using multiple logs',
         'Disabling logging',
+        'Extend Activity model',
+        'Logging activities on MongoDB',
     ],
 ];
