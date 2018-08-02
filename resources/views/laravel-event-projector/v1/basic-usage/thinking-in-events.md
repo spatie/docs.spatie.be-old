@@ -4,7 +4,7 @@ title: Thinking in events
 
 Let's build upon the examples shown in the [writing your first projector](/laravel-event-projector/v1/basic-usage/writing-your-first-projector) and [handling side effects with reactors](https://docs.spatie.be/laravel-event-projector/v1/basic-usage/handling-side-effects-using-reactors)' sections. 
 
-Image you are tasked with sending a mail to an account holder whenever he or she is broke. You might think, that's easy, let's just check in a new reactor if the account balance is less than zero.
+Imagine you are tasked with sending a mail to an account holder whenever he or she is broke. You might think, that's easy, let's just check in a new reactor if the account balance is less than zero.
 
 Let's first add a little helper method to the `Account` model to check if an account is broke.
 
