@@ -36,7 +36,7 @@ It's important that you make sure all events that are passed to this projector h
 
 ## Using dot notation
 
-If your events have their identifying property in an array or object you can use dot notation in the return value `streamEventsBy`. Image all your events have a `$account` property that contains an `Account` model. 
+If your events have their identifying property in an array or object you can use dot notation in the return value `streamEventsBy`. Imagine all your events have a `$account` property that contains an `Account` model. 
 
 ```php
 class AccountBalanceProjector implements Projector
