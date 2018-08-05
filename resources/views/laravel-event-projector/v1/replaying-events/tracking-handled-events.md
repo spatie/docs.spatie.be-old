@@ -29,7 +29,7 @@ Here's some example output:
 
 *It pains us, too, that the right side of the table isn't placed correctly. This is probably caused by the usage of an emoji character in the table. We hope that this little bug will get solved soon in Symfony*
 
-The `Up to date` column will contain a green checkmark if the last processed id of that projector is equal the latest (and greatest) id in the `stored_events` table.
+The `Up to date` column will contain a green checkmark if the last processed id of that projector is equal to the latest (and greatest) id in the `stored_events` table.
 
 ## When to replay events
 
