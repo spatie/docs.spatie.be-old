@@ -2,7 +2,35 @@
 title: Storing metadata
 ---
 
-You can add metadata, such as the id of the logged in user, to a stored event. The `StoredEvent` instance will be passed on to any projector method that has a variable named `$storedEvent`. On that `StoredEvent` instance there is a property, `meta_data`, that returns an instance of `Spatie\SchemalessAttributes\SchemalessAttributes`.
+You can add metadata, such as the id of the logged in user, to a stored event. 
+
+## Storing metadata on all events
+
+If you need to store metadata on all events you can leverage Laravel's native models events.
+
+You must configure the package [use your own event storage model](/laravel-event-projector/v1/advanced-usage/using-your-own-event-storage-model). On that model you can hook into the model lifecycle hooks.
+
+```php
+use Spatie\EventProjector\Models\StoredEvent;
+
+class CustomStoredEvent extends StoredEvent
+{
+    public static function boot()
+    {
+        parent::boot();
+        
+         static::creating(function(CustomStoredEvent $storedEvent) {
+             $storedEvent->meta_data('user_id', auth()->user()->id);
+     
+             $storedEvent->save();
+         });
+    }
+}
+```
+
+## Storing metadata via a projector
+
+The `StoredEvent` instance will be passed on to any projector method that has a variable named `$storedEvent`. On that `StoredEvent` instance there is a property, `meta_data`, that returns an instance of `Spatie\SchemalessAttributes\SchemalessAttributes`.
 
 Here's an example:
 
@@ -27,33 +55,14 @@ class MetaDataProjector implements Projector
 
     public function onMoneyAdded(StoredEvent $storedEvent)
     {
-        $storedEvent->meta_data['user_id'] = auth()->user()->id;
+    
+        if (Projectionist::isReplaying()) {
+           $storedEvent->meta_data['user_id'] = auth()->user()->id;
 
-        $storedEvent->save();
-    }
-}
-```
-
-## Storing metadata on all events
-
-If you need to store metadata on all events you can leverage Laravel's native models events.
-
-You must configure the package [use your own event storage model](/laravel-event-projector/v1/advanced-usage/using-your-own-event-storage-model). On that model you can hook into the model lifecycle hooks.
-
-```php
-use Spatie\EventProjector\Models\StoredEvent;
-
-class CustomStoredEvent extends StoredEvent
-{
-    public static function boot()
-    {
-        parent::boot();
+           $storedEvent->save();
+        }
         
-         static::creating(function(CustomStoredEvent $storedEvent) {
-             $storedEvent->meta_data('user_id', auth()->user()->id);
-     
-             $storedEvent->save();
-         });
+        // ...
     }
 }
 ```
