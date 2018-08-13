@@ -40,6 +40,7 @@ namespace App\Projectors;
 use Spatie\EventProjector\Projectors\Projector;
 use Spatie\EventProjector\Projectors\ProjectsEvents;
 use Spatie\EventProjector\Models\StoredEvent;
+use Spatie\EventProjector\Facades\Projectionist;
 use App\Events\MoneyAdded;
 
 class MetaDataProjector implements Projector
