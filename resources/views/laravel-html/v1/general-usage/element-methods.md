@@ -2,7 +2,7 @@
 title: Element methods
 ---
 
-All `Spatie\Html\Elements` have some a couple of methods that make working with elements easy. All these methods can be chained together fluently and every method will return a new `Element` instance. This way you can preserve the original `Element` if necessary.
+All `Spatie\Html\Elements` have some methods that make working with elements easy. All these methods can be chained together fluently and every method will return a new `Element` instance. This way you can preserve the original `Element` if necessary.
 
 ## Available methods
 
