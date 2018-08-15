@@ -13,7 +13,7 @@ $newsItem
    ->addMedia($pathToFile)
    ->withManipulations([
       'thumb' => ['orientation' => '90'],
-   );
+   ]);
 ```
 
 The package will regenerate all files (conversions) using the saved manipulation as the first manipulation when creating each derived image.
@@ -40,7 +40,7 @@ $newsItem
    ->withManipulations([
       'thumb' => ['orientation' => '90'],
       'otherConversion' => ['orientation' => '90'],
-   );
+   ]);
 ```
 
 Lets take the example again of this one image `$mediaItem` that needs to be rotated and was linked to `$newsItem`. Imagine we have a lot of conversions for all the media: `thumb`, `small` for web, `cmyk` for print in full resolution.
@@ -55,7 +55,7 @@ $newsItem
    ->addMedia($pathToFile)
    ->withManipulations([
       '*' => ['orientation' => '90'],
-   );
+   ]);
 ```
 
 You can also combine wildcard manipulations with one for a specific collection. The wildcard manipulations will always be performed before the collection specific ones.
@@ -66,5 +66,5 @@ $newsItem
    ->withManipulations([
       '*' => ['orientation' => '90'],
       'thumb' => ['filter' => 'greyscale'],
-   );
+   ]);
 ```
