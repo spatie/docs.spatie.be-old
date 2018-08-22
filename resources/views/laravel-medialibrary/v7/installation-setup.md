@@ -142,7 +142,7 @@ return [
 ];
 ```
 
-By default medialibrary will store it's files on Laravel's `public` disk. If you want a dedicated disk you should add a disk to `config/filesystems.php`. This would be a typical configuration:
+By default medialibrary will store its files on Laravel's `public` disk. If you want a dedicated disk you should add a disk to `config/filesystems.php`. This would be a typical configuration:
 
 ```php
     ...
