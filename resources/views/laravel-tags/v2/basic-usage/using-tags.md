@@ -87,5 +87,3 @@ Tag::create('two');
 
 Tag::containing('on')->get(); // will return all tags except `two`
 ```
-
-
