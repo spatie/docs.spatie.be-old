@@ -13,7 +13,7 @@ class YourModel extends \Illuminate\Database\Eloquent\Model
 }
 ```
 
-#### Attaching tags
+## Attaching tags
 
 Here's how you can add some tags:
 
@@ -30,7 +30,7 @@ $yourModel->attach(\Spatie\Tags\Tag::findOrCreate('tag4'));
 
 The tags will be stored in the `tags`-table. When using these functions we'll make sure that tags are unique and a model will have a tag attached only once.
 
-#### Detaching tags
+## Detaching tags
 
 Here's how tags can be detached:
 
@@ -45,7 +45,7 @@ $yourModel->detachTags(['tag 2', 'tag 3']);
 $yourModel->detach(\Spatie\Tags\Tag::Find('tag4'));
 ```
 
-#### Syncing tags
+## Syncing tags
 
 By syncing tags the package will make sure only the tags given will be attached to the models. All other tags that were on the model will be detached.
 
@@ -53,7 +53,7 @@ By syncing tags the package will make sure only the tags given will be attached 
 $yourModel->syncTags(['tag 2', 'tag 3']);
 ```
 
-#### Managing tags
+## Managing tags
 
 Tags are stored in the `tags` table and can be managed with the included `Spatie\Tags\Tag`-model.
 
@@ -74,3 +74,18 @@ $tag = Tag::findOrCreateFromString('yet another tag');
 //delete a tag
 $tag->delete();
 ```
+
+## Finding tags
+
+You can find all tags containing a specific value with the `containing` scope.
+
+```php
+Tag::create('one');
+Tag::create('another-one');
+Tag::create('another-ONE-with-different-casing');
+Tag::create('two');
+
+Tag::containing('on')->get(); // will return all tags except `two`
+```
+
+

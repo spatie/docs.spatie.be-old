@@ -9,43 +9,43 @@ But we didn't stop with the regular tagging capabilities you find in every packa
 Here are some code examples:
 
 ```php
-//create a model with some tags
+// create a model with some tags
 $newsItem = NewsItem::create([
    'name' => 'testModel',
    'tags' => ['tag', 'tag2'], //tags will be created if they don't exist
 ]);
 
-//attaching tags
+// attaching tags
 $newsItem->attachTag('tag3');
 $newsItem->attachTags(['tag4', 'tag5']);
 
-//detaching tags
+// detaching tags
 $newsItem->detachTag('tag3');
 $newsItem->detachTags(['tag4', 'tag5']);
 
-//syncing tags
+// syncing tags
 $newsItem->syncTags(['tag1', 'tag2']); // all other tags on this model will be detached
 
-//retrieving models that have any of the given tags
+// retrieving models that have any of the given tags
 NewsItem::withAnyTags(['tag1', 'tag2']);
 
-//retrieve models that have all of the given tags
+// retrieve models that have all of the given tags
 NewsItem::withAllTags(['tag1', 'tag2']);
 
-//translating a tag
+// translating a tag
 $tag = Tag::findOrCreate('my tag');
 $tag->setTranslation('fr', 'mon tag');
 $tag->setTranslation('nl', 'mijn tag');
 $tag->save();
 
-//using tag types
+// using tag types
 $tag = Tag::findOrCreate('tag 1', 'my type');
 
-//tags have slugs
+// tags have slugs
 $tag = Tag::findOrCreate('yet another tag');
 $tag->slug; //returns "yet-another-tag"
 
-//tags are sortable
+// tags are sortable
 $tag = Tag::findOrCreate('my tag');
 $tag->order_column; //returns 1
 $tag2 = Tag::findOrCreate('another tag');
@@ -53,6 +53,9 @@ $tag2->order_column; //returns 2
 
 //manipulating the order of tags
 $tag->swapOrder($anotherTag);
+
+// get all tags containing a given value
+Tag::containing('test'); // returns all tags that contain 'test'
 ```
 
 ## We have badges!
