@@ -9,10 +9,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class YourModel extends Model
 {
-   public static function getTagClassName(): string
-   {
-       return YourTagModel::class;
-   }
+    public static function getTagClassName(): string
+    {
+        return YourTagModel::class;
+    }
 }
 ```
 
@@ -21,8 +21,8 @@ Then you need to override the `tags()` method from the same trait to tell Larave
 ```
 public function tags(): MorphToMany
 {
-        return $this
-            ->morphToMany(self::getTagClassName(), 'taggable', 'taggables', null, 'tag_id')
-            ->orderBy('order_column');
+    return $this
+        ->morphToMany(self::getTagClassName(), 'taggable', 'taggables', null, 'tag_id')
+        ->orderBy('order_column');
 }
 ```
