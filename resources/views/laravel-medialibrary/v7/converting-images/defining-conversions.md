@@ -2,7 +2,7 @@
 title: Defining conversions
 ---
 
-When adding files to the medialibrary it can automatically create derived versions such a thumbnails and banners.
+When adding files to the medialibrary it can automatically create derived versions such as thumbnails and banners.
 
 Media conversions will be executed whenever  a `jpg`, `png`, `svg`, `pdf`, `mp4 `, `mov` or `webm` file is added to the medialibrary. By default, the conversions will be saved as a `jpg` files. This can be overwritten using the `format()` or `keepOriginalImageFormat()` methods.
 
