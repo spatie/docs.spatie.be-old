@@ -2,7 +2,7 @@
 title: Sorting tags
 ---
 
-Whenever a tag is created it's `order_column` will be set the highest value in that column + 1
+Whenever a tag is created its `order_column` will be set the highest value in that column + 1
 
 Under the hood [spatie/eloquent-sortable](https://github.com/spatie/eloquent-sortable) is used, so you can use any model provided by that package. Here are some examples:
 
