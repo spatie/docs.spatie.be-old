@@ -12,12 +12,6 @@ Let's create a projector. You can perform this artisan command to create a proje
 php artisan make:projector AccountBalanceProjector
 ```
 
-Use the `--sync` option to create a projector that handles all events in the same request as the event it handles is fired.
-
-```php
-php artisan make:projector AccountBalanceProjector --sync
-```
-
 ## Registering projectors
 
 Projectors can be registered in the `projectors` key of the `event-projectors` config file.
