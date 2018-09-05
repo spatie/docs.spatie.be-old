@@ -41,7 +41,7 @@
                 <h1>Docs not found</h1>
 
                 <div class="alert -info">
-                <p>We know nothing about <strong>{{ ltrim(urldecode($_SERVER['REQUEST_URI']), '/') }}</strong> — or it has yet to be written.<br>
+                <p>We know nothing about <strong></strong> — or it has yet to be written.<br>
                     Help us out on <a href="https://github.com/spatie/docs.spatie.be" target="_external">Github</a> if you know more.
                 </p>
                 </div>
@@ -59,7 +59,7 @@
 <footer class="footer">
     <div class="grid">
         <div class="footer_content">
-            © {{ date('Y') }} • <a href="https://spatie.be/">Spatie</a>
+            ©  • <a href="https://spatie.be/">Spatie</a>
             • <a href="https://github.com/spatie">Github</a>
         </div>
     </div>
