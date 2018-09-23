@@ -117,6 +117,8 @@ It's recommended that your first read the section on [converting images](/larave
 Normally image conversions are registered inside the `registerMediaConversions` function on your model. However, images conversions can also be registered inside media collections.
 
 ```php
+use Spatie\MediaLibrary\Models\Media;
+
 public function registerMediaCollections()
 {
     $this
