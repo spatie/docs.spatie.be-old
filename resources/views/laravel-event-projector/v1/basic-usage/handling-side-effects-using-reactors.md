@@ -69,7 +69,7 @@ A mail will be sent to the director.
 If you truncate the `accounts` table and rebuild the contents with
 
 ```php
-php artisan event-projector:replay
+php artisan event-projector:rebuild
 ```
 
 no mail will be sent.
