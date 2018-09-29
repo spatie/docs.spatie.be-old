@@ -22,6 +22,23 @@ class NewsItem extends Model
 }
 ```
 
+We can also use the `$logAttributes = '*'` property on the model to log all the attribute.
+
+
+```php
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
+
+class NewsItem extends Model
+{
+    use LogsActivity;
+    
+    protected static $logAttributes = '*';
+    
+    protected static $logOnlyDirty = true;
+}
+```
+
 Let's see what gets logged when creating an instance of that model.
 
 ```php
