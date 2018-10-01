@@ -67,6 +67,8 @@ echo Element::withTag('p')->text('This is the content!');
 - `function options(iterable $options)`
 - `function value(?string $value)`
 - `function applyValueToOptions()`
+- `function placeholder(?string $text)`
+  - prepends options with null value option 
 
 ## `Span`
 
