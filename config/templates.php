@@ -87,7 +87,7 @@ return [
 
     'laravel-blade-x' => [
         'githubUrl' => 'https://github.com/spatie/laravel-blade-x',
-        'siteSlogan' => 'Supercharging Blade Components',
+        'siteSlogan' => 'Supercharged Blade Components',
         'siteTitle' => 'Laravel BladeX',
         'versions' => ['v2'],
     ],
