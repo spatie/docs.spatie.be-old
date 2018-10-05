@@ -1654,10 +1654,11 @@ sup {
   background-color: #1b3747; }
 
 .header_background {
-  background: url("/images/event-projector/header.jpg") center no-repeat;
+  background: #1b3747 url("/images/laravel-blade-x/header.jpg") center no-repeat;
   background-size: cover;
-  opacity: .8; }
+  opacity: .65; }
 
 .header_caption_title,
 .header_caption_slogan {
-  background: rgba(27, 55, 71, 0.35); }
+  background: rgba(255, 255, 255, 0.85);
+  color: #1b3747; }

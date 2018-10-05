@@ -1664,12 +1664,10 @@ sup {
 
 .header_caption_title {
   border-radius: 3px;
-  -webkit-transform: rotate(2deg);
   transform: rotate(2deg);
   background: #323520; }
 
 .header_caption_slogan {
   border-radius: 3px;
-  -webkit-transform: rotate(-3deg);
   transform: rotate(-3deg);
   background: rgba(50, 53, 32, 0.85); }

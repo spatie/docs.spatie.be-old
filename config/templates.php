@@ -84,4 +84,11 @@ return [
         'siteTitle' => 'Laravel Event Projector',
         'versions' => ['v1'],
     ],
+
+    'laravel-blade-x' => [
+        'githubUrl' => 'https://github.com/spatie/laravel-blade-x',
+        'siteSlogan' => 'Supercharging Blade Components',
+        'siteTitle' => 'Laravel BladeX',
+        'versions' => ['v2'],
+    ],
 ];
