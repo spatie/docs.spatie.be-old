@@ -4,7 +4,7 @@ title: Writing your first component
 
 The contents of a component can be stored in a simple Blade view.
 
-```blade
+```html
 {{-- resources/views/components/myAlert.blade.php --}}
 
 <div :class="$type">
@@ -47,7 +47,7 @@ BladeX::component([
 
 In your Blade view you can now use the component using the kebab-cased name:
 
-```blade
+```html
 <h1>My view</h1>
 
 <my-alert type="error" :message="$message" />

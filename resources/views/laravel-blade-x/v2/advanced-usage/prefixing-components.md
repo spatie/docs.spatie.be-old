@@ -14,6 +14,6 @@ BladeX::prefix('x');
 
 All your registered components can now be used like this:
 
-```blade
+```html
 <x-my-alert message="Notice the prefix!" />
 ```

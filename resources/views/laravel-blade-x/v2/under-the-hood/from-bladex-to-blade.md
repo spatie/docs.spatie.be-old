@@ -9,7 +9,7 @@ BladeX::component('components.myAlert')
 ```
 with this html
 
-```blade
+```html
 {{-- resources/views/components/myAlert.blade.php --}}
 <div class="{{ $type }}">
    {{ $message }}
@@ -18,13 +18,13 @@ with this html
 
 and use it in your Blade view like this,
 
-```blade
+```html
 <my-alert type="error" :message="$message" />
 ```
 
 our package will replace that html in your view with this:
 
-```blade
+```html
 @component('components/myAlert', ['type' => 'error','message' => $message,])@endcomponent
 ```
 

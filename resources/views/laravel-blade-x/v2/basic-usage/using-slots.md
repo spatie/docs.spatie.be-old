@@ -5,7 +5,7 @@ title: Using slots
 
 BladeX support slots too. This layout component
 
-```blade
+```html
 {{-- resources/views/components/layout.blade.php --}}
 
 <div>
