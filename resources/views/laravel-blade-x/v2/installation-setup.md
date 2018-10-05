@@ -2,7 +2,7 @@
 title: Installation & setup
 ---
 
-laravel-blade-x can be installed via composer:
+`laravel-blade-x` can be installed via composer:
 
 ```bash
 composer require spatie/laravel-blade-x:^2.0.0
