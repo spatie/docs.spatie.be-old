@@ -166,5 +166,13 @@ Route::prefix('laravel-event-projector')->group(function () {
     });
 });
 
+Route::prefix('laravel-blade-x')->group(function () {
+    Route::redirect('/', '/laravel-blade-x/v2');
+
+    Route::get('/v2', function () {
+        return redirect('laravel-blade-x/v2/introduction');
+    });
+});
+
 Route::get('{slug}/edit', 'PageController@edit')->where('slug', '(.*)');
 Route::get('{slug}', 'PageController@page')->where('slug', '(.*)');
