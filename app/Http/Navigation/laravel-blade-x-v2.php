@@ -16,7 +16,7 @@ return [
         'Using slots',
     ],
     'Advanced usage' => [
-        'Transforming data with viewmodels',
+        'Transforming data with view models',
         'Sharing data with context',
         'Prefixing components',
     ],
