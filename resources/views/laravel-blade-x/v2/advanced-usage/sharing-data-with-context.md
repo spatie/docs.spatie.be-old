@@ -1,7 +1,6 @@
 ---
-title: Using context
+title: Sharing data with context
 ---
-
 
 By default BladeX components only have access to variables that are passed to them via attributes or via the view model. In some cases you might find yourself passing the same variables to multiple components. Take a look at this example where we are building a form using some BladeX components.
 

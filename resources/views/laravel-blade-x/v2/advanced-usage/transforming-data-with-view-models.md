@@ -1,7 +1,6 @@
 ---
-title: Transforming-data-with-view-models
+title: Transforming data with view models
 ---
-
 
 Before rendering a BladeX component you might want to transform the passed data, or add inject view data. You can do this using a view model. Let's take a look at an example where we render a `select` element with a list countries.
 
