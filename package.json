@@ -20,7 +20,7 @@
   },
   "scripts": {
     "cs": "npm run cs:sass;npm run cs:js",
-    "cs:sass": "csscomb resources/assets/sass/",
-    "cs:js": "eslint resources/assets/js/** --fix"
+    "cs:sass": "csscomb resources/sass/",
+    "cs:js": "eslint resources/js/** --fix"
   }
 }
