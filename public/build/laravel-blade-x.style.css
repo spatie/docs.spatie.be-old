@@ -1654,7 +1654,7 @@ sup {
   background-color: #1b3747; }
 
 .header_background {
-  background: #1b3747 url("/images/blade-x/header.jpg") center no-repeat;
+  background: #1b3747 url("/images/laravel-blade-x/header.jpg") center no-repeat;
   background-size: cover;
   opacity: .65; }
 

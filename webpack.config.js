@@ -28,8 +28,8 @@ module.exports = {
         'laravel-server-monitor.style': './resources/sass/laravel-server-monitor/laravel-server-monitor.scss',
         'laravel-html': './resources/js/laravel-html.js',
         'laravel-html.style': './resources/sass/laravel-html/laravel-html.scss',
-        'blade-x': './resources/js/blade-x.js',
-        'blade-x.style': './resources/sass/blade-x/blade-x.scss',
+        'laravel-blade-x': './resources/js/laravel-blade-x.js',
+        'laravel-blade-x.style': './resources/sass/laravel-blade-x/laravel-blade-x.scss',
     },
     output: {
         path: 'public/build',
