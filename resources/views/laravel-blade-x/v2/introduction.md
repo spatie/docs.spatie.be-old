@@ -4,7 +4,7 @@ title: Introduction
 
 This package provides an easy way to render custom html components in your Blade views.
 
-Here's an example. Instead of this:
+Instead of this:
 
 ```html
 <h1>My view</h1>
@@ -20,7 +20,7 @@ you can write this
 <my-alert type="error" :message="$message" />
 ```
 
-You can place the content of that alert in a simple blade view that needs to be [registered](https://github.com/spatie/laravel-blade-x#usage) before using the `my-alert` component.
+You can place the content of that alert in a simple blade view that needs to be [registered](https://docs.spatie.be.test/laravel-blade-x/v2/basic-usage/writing-your-first-component) before using the `my-alert` component.
 
 ```html
 {{-- resources/views/components/myAlert.blade.php --}}
