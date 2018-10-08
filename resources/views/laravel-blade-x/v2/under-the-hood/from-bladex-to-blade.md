@@ -7,7 +7,7 @@ When you register a component
 ```php
 BladeX::component('components.myAlert')
 ```
-with this html
+with this HTML
 
 ```html
 {{-- resources/views/components/myAlert.blade.php --}}
@@ -22,7 +22,7 @@ and use it in your Blade view like this,
 <my-alert type="error" :message="$message" />
 ```
 
-our package will replace that html in your view with this:
+our package will replace that HTML in your view with this:
 
 ```html
 @component('components/myAlert', ['type' => 'error','message' => $message,])@endcomponent
@@ -30,4 +30,4 @@ our package will replace that html in your view with this:
 
 After that conversion Blade will compile (and possibly cache) that view.
 
-Because all this happens before any html is sent to the browser, client side frameworks like Vue.js will never see the original html you wrote (with the custom tags).
+Because all this happens before any HTML is sent to the browser, client side frameworks like Vue.js will never see the original html you wrote (with the custom tags).
