@@ -980,8 +980,8 @@ html {
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", -apple-system, "Segoe UI", sans-serif;
-  font-weight: 300;
+  font-family: -apple-system, "Segoe UI", sans-serif;
+  font-weight: 400;
   color: #1a1e25;
   line-height: 1.5;
   display: flex;
@@ -999,25 +999,25 @@ h3 {
   text-rendering: optimizeLegibility; }
 
 h1 {
-  font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", -apple-system, "Segoe UI", sans-serif;
+  font-family: -apple-system, "Segoe UI", sans-serif;
   font-weight: 600;
   font-size: 2.8em; }
 
 h2 {
-  font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", -apple-system, "Segoe UI", sans-serif;
+  font-family: -apple-system, "Segoe UI", sans-serif;
   font-weight: 600;
   font-size: 1.75em; }
 
 h3 {
-  font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", -apple-system, "Segoe UI", sans-serif;
+  font-family: -apple-system, "Segoe UI", sans-serif;
   font-weight: 600;
   margin-bottom: .5rem; }
   h3 + p {
     margin-top: 0; }
 
 h4 {
-  font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", -apple-system, "Segoe UI", sans-serif;
-  font-weight: 300;
+  font-family: -apple-system, "Segoe UI", sans-serif;
+  font-weight: 400;
   margin: 0; }
 
 a {
@@ -1104,7 +1104,7 @@ kbd,
 samp,
 var {
   font-family: Menlo, "courier new", courier, monospace;
-  font-weight: 300;
+  font-weight: 400;
   background: #f2f2fa;
   border-radius: 3px;
   box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.05);
@@ -1269,7 +1269,7 @@ sup {
   color: #f5f2ea; }
 
 .nav_button {
-  font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", -apple-system, "Segoe UI", sans-serif;
+  font-family: -apple-system, "Segoe UI", sans-serif;
   font-weight: 600;
   box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
   cursor: pointer;
@@ -1664,10 +1664,12 @@ sup {
 
 .header_caption_title {
   border-radius: 3px;
+  -webkit-transform: rotate(2deg);
   transform: rotate(2deg);
   background: #323520; }
 
 .header_caption_slogan {
   border-radius: 3px;
+  -webkit-transform: rotate(-3deg);
   transform: rotate(-3deg);
   background: rgba(50, 53, 32, 0.85); }

@@ -1,12 +1,12 @@
 // Font-families
 $font-families: (
-    sans: '"Gotham Narrow SSm A", "Gotham Narrow SSm B", -apple-system, "Segoe UI", sans-serif',
+    sans: '-apple-system, "Segoe UI", sans-serif',
     fixed: 'Menlo, "courier new", courier, monospace'
 );
 
 // Font-weights
 $font-weights: (
-    normal: 300,
+    normal: 400,
     bold: 600,
     extrabold: 900,
 );
