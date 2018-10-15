@@ -8,6 +8,7 @@ return [
         'Installation and setup',
         'Questions and issues',
         'Changelog',
+        'Upgrading',
         'About us',
     ],
     'Basic usage' => [
