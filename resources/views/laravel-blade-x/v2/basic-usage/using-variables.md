@@ -11,7 +11,7 @@ When using a BladeX component all attributes will be passed as variables to the 
 <my-alert type="error">
 ```
 
-If you want to pass on a php variable or something that needs to be evaluated you must prefix the attribute name with `:`.
+If you want to pass on a PHP variable or something that needs to be evaluated you must prefix the attribute name with `:`.
 
 ```html
 {{-- the `myAlert` view will receive the contents of `$message` --}}

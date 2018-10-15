@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, shrink-to-fit=no">
     <meta name="description" content="@yield('pageDescription')">
     <title>@yield('title') | {{ $siteTitle }} Docs</title>
-    <link rel="stylesheet" href="https://cloud.typography.com/6194432/608542/css/fonts.css"/>
     <link rel="stylesheet" href="/build/{{ $package }}.style.css">
     <script src="/build/{{ $package }}.js" defer></script>
 </head>

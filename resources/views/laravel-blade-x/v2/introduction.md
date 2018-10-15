@@ -2,11 +2,11 @@
 title: Introduction
 ---
 
-This package provides an easy way to render custom html components in your Blade views.
+This package provides an easy way to render custom HTML components in your Blade views.
 
 Instead of this:
 
-```html
+```blade
 <h1>My view</h1>
 
 @include('myAlert', ['type' => 'error', 'message' => $message])
@@ -14,15 +14,15 @@ Instead of this:
 
 you can write this
 
-```html
+```blade
 <h1>My view</h1>
 
 <my-alert type="error" :message="$message" />
 ```
 
-You can place the content of that alert in a simple blade view that needs to be [registered](https://docs.spatie.be.test/laravel-blade-x/v2/basic-usage/writing-your-first-component) before using the `my-alert` component.
+You can place the content of that alert in a simple blade view that needs to be [registered](https://docs.spatie.be/laravel-blade-x/v2/basic-usage/writing-your-first-component) before using the `my-alert` component.
 
-```html
+```blade
 {{-- resources/views/components/myAlert.blade.php --}}
 
 <div class="{{ $type }}">
