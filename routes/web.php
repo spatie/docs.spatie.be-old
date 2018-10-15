@@ -78,6 +78,10 @@ Route::prefix('laravel-activitylog')->group(function () {
     Route::get('v2', function () {
         return redirect('laravel-activitylog/v2/introduction');
     });
+
+    Route::get('v3', function () {
+        return redirect('laravel-activitylog/v3/introduction');
+    });
 });
 
 Route::prefix('laravel-slack-slash-command')->group(function () {
