@@ -68,7 +68,7 @@ Route::prefix('menu')->group(function () {
 
 Route::prefix('laravel-activitylog')->group(function () {
     Route::get('/', function () {
-        return redirect('laravel-activitylog/v2/introduction');
+        return redirect('laravel-activitylog/v3/introduction');
     });
 
     Route::get('v1', function () {
