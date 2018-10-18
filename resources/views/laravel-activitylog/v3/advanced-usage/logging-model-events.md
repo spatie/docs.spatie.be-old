@@ -24,7 +24,9 @@ class NewsItem extends Model
 }
 ```
 
-If you want to log changes to all the `$fillable` attributes of the model, you can specify `protected static $logFillable = true;` on the model. Let's see what gets logged when creating an instance of that model.
+If you want to log changes to all the `$fillable` attributes of the model, you can specify `protected static $logFillable = true;` on the model. If you have a lot of attributes and use `$guarded` instead of `$fillable` you can also set `protected static $logUnguarded = true;` to add all attributes that are not listed in `$guarded`. For both boolean flags it will respect the possible wildcard and add all (`$logFillable`) or no (`$logUnguarded`) attributes.
+
+Let's see what gets logged when creating an instance of that model.
 
 ```php
 $newsItem = NewsItem::create([
@@ -229,12 +231,6 @@ If you include it in the `User` model you can simply retrieve all the current us
 \Auth::user()->actions;
 
 ```
-
-## Using LogsActivity and CausesActivity on the same model
-
-To log activity for a model that can also cause activity, use the `HasActivity` trait.  It provides an `activity` relationship which is identical to `LogsActivity` and an `actions` relationship for any activity caused by the model.
-
-For example, if you include it in the `User` model you can see all the activity on that model performed by any user by using `activity` but also all changes caused by the user on any models using `actions`.
 
 ## Disabling logging on demand
 

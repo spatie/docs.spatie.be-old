@@ -112,7 +112,7 @@ Menu::new()
         ->link('/introduction', 'Introduction')
         ->link('/requirements', 'Requirements')
         ->link('/installation-setup', 'Installation and Setup')
-    })
+    )
     // String header, `callable`
     ->submenu('<h2>Basic Usage</h2>', function (Menu $menu) {
         $menu
