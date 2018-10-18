@@ -278,6 +278,13 @@ use Spatie\EventProjector\Facades\Projectionist;
 Projectionist::addProjector(AccountBalanceProjector::class);
 ```
 
+Additionally, your projectors can be registered in `config/event-projector.php`
+```php
+'projectors' => [
+        \App\Projectors\AccountBalanceProjector::class,
+    ],
+```
+
 ## Let's fire off some events
 
 With all this out of the way we can fire off some events.
@@ -342,7 +349,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class TransactionCount extends Model
 {
-    public $guarded = [];
+    protected $table = 'transactions_count';
+    protected $guarded = [];
 }
 ```
 
@@ -358,9 +366,9 @@ use Spatie\EventProjector\Models\StoredEvent;
 use Spatie\EventProjector\Projectors\Projector;
 use Spatie\EventProjector\Projectors\ProjectsEvents;
 
-class TransactionCountProjector implements Projector, Snapshottable
+class TransactionCountProjector implements Projector
 {
-    use ProjectsEvents, CanTakeSnapshot;
+    use ProjectsEvents;
 
     public $handlesEvents = [
         MoneyAdded::class => 'onMoneyAdded',
