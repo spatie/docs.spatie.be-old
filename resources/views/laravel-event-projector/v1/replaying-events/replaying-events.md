@@ -26,14 +26,6 @@ The package [keeps track of which events were already passed to a projector](htt
    php artisan event-projector:replay --projector=App\\Projectors\\AccountBalanceProjector --projector=App\\Projectors\\AnotherProjector
   ```
 
-When using models with timestamps, it is important to keep in mind that the projector will create or update these models when replaying and the timestamps will not correspond to the event's original timestamps. This will probably not be behavior you intended. To work around this you can use the stored event's timestamps:
-
-```php
-public function onAccountCreated(StoredEvent $storedEvent, AccountCreated $event) {
-	Account::create(array_merge($event->accountAttributes, ['created_at' => $storedEvent->created_at, 'updated_at' => $storeEvent->created_at]));
-}
-```
-
 ## Detecting event replays
 
 If your projector contains an `onStartingEventReplay` method, we'll call it right before the first event is replayed.
@@ -46,6 +38,16 @@ Though, under normal circumstances, you don't need to know this, you can detect 
 
 ```php
 Spatie\EventProjector\Facades\Projectionist::isReplayingEvents(); // returns a boolean
+```
+
+## Models with timestamps
+
+When using models with timestamps, it is important to keep in mind that the projector will create or update these models when replaying and the timestamps will not correspond to the event's original timestamps. This will probably not be behavior you intended. To work around this you can use the stored event's timestamps:
+
+```php
+public function onAccountCreated(StoredEvent $storedEvent, AccountCreated $event) {
+        Account::create(array_merge($event->accountAttributes, ['created_at' => $storedEvent->created_at, 'updated_at' => $storeEvent->created_at]));
+}
 ```
 
 ## What about reactors?
