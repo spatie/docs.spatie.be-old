@@ -40,6 +40,16 @@ Though, under normal circumstances, you don't need to know this, you can detect 
 Spatie\EventProjector\Facades\Projectionist::isReplayingEvents(); // returns a boolean
 ```
 
+## Models with timestamps
+
+When using models with timestamps, it is important to keep in mind that the projector will create or update these models when replaying and the timestamps will not correspond to the event's original timestamps. This will probably not be behavior you intended. To work around this you can use the stored event's timestamps:
+
+```php
+public function onAccountCreated(StoredEvent $storedEvent, AccountCreated $event) {
+        Account::create(array_merge($event->accountAttributes, ['created_at' => $storedEvent->created_at, 'updated_at' => $storeEvent->created_at]));
+}
+```
+
 ## What about reactors?
 
 Reactors are used to handle side effects, like sending mails and such. You'll only want reactors to do their work when an event is originally fired. You don't want to send out mails when replaying events. That's why reactors will never get called when replaying events.  
