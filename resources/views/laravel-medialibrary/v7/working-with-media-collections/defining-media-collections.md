@@ -11,12 +11,12 @@ To get started with media collections add a function called `registerMediaCollec
 
 public function registerMediaCollections()
 {
-    $this->addMediaCollection('my-collection')
+    $this->addMediaCollection('my-collection');
         //add options
         ...
 
     // you can define as much collections as needed
-    $this->addMediaCollection('my-other-collection')
+    $this->addMediaCollection('my-other-collection');
         //add options
         ...
 }
