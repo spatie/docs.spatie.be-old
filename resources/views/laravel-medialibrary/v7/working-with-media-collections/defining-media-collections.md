@@ -15,7 +15,7 @@ public function registerMediaCollections()
         //add options
         ...
 
-    // you can define as much collections as needed
+    // you can define as many collections as needed
     $this->addMediaCollection('my-other-collection');
         //add options
         ...
