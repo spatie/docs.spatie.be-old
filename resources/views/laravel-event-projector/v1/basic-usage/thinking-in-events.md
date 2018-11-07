@@ -67,7 +67,6 @@ class BrokeReactor implements EventHandler
 
     public $handlesEvents = [
         MoneySubtracted::class => 'onMoneySubtracted',
-        BrokeMailSent::class => 'onBrokeMailSent',
     ];
 
     public function onMoneySubtracted(MoneySubtracted $event)
@@ -105,6 +104,12 @@ Let's leverage that new event in the `AccountBalanceProjector`.
 
 class AccountBalanceProjector implements Projector
 {
+    
+    protected $handlesEvents = [
+        // ..
+        BrokeMailSent::class => 'onBrokeMailSent',
+    ];
+    
     // ..
 
     public function onBrokeMailSent(BrokeMailSent $event)
