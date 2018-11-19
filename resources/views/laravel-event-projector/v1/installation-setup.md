@@ -53,25 +53,32 @@ return [
     'queue' => env('EVENT_PROJECTOR_QUEUE_NAME', null),
 
     /*
-     * When a projector or reactor throws an exception the event projectionist can catch
-     * it so all projectors and reactors can still do their work. The exception will
+     * When a projector or reactor throws an exception the event projectionist can catch it
+     * so all other projectors and reactors can still do their work. The exception will
      * be passed to the `handleException` method on that projector or reactor.
      */
     'catch_exceptions' => env('EVENT_PROJECTOR_CATCH_EXCEPTIONS', false),
 
     /*
-     * This class is responsible for storing events. To add extra behavour you
+     * This class is responsible for storing events. To add extra behaviour you
      * can change this to a class of your own. The only restriction is that
      * it should extend \Spatie\EventProjector\Models\StoredEvent.
      */
     'stored_event_model' => \Spatie\EventProjector\Models\StoredEvent::class,
 
     /*
-     * This class is responsible for projector statuses. To add extra behavour you
+     * This class is responsible for projector statuses. To add extra behaviour you
      * can change this to a class of your own. The only restriction is that
      * it should extend \Spatie\EventProjector\Models\ProjectorStatus.
      */
     'projector_status_model' => \Spatie\EventProjector\Models\ProjectorStatus::class,
+
+    /*
+     * This class is responsible for handle stored events. To add extra behaviour you
+     * can change this to a class of your own. The only restriction is that
+     * it should extend \Spatie\EventProjector\HandleStoredEventJob.
+     */
+    'stored_event_job' => \Spatie\EventProjector\HandleStoredEventJob::class,
 
     /*
      * This class is responsible for serializing events. By default an event will be serialized
@@ -86,14 +93,7 @@ return [
      * a chuncked way. You can specify the chunk size here.
      */
     'replay_chunk_size' => 1000,
-
-    /*
-     * The diskname where the snapshots are stored. You can create a disk in the
-     * default Laravel filesystems.php config file.
-     */
-    'snapshots_disk' => 'local',
 ];
-
 ```
 
 Finally, you should set up a queue. Specify the connection name in the `queue` key of the `event-projector` config file. This queue will be used to guarantee that the events will be processed by all projectors in the right order. You should make sure that the queue will process only one job at a time. In a local environment, where events have a very low chance of getting fired concurrently, it's probably ok to just use the `sync` driver.
