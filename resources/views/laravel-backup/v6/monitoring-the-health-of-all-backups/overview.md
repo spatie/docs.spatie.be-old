@@ -66,10 +66,6 @@ The `MaximumStorageInMegabytes` check will fail if the total size of your backup
 The `name` of a monitor should match the value you have specified in the `backup.name`-key of the config file in
 the application that is being backed up.
 
-Setting `storageUsedMayNotBeHigherThanMegabytes` to `0` means the monitor will consider that the backup can use unlimited storage.
-
-
-
 ## Get notifications of (un)healthy backups
 
 You can receive notifications when the monitor finds an (un)healthy backup. 
