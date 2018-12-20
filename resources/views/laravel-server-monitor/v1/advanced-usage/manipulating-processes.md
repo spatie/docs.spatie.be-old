@@ -4,7 +4,7 @@ title: Manipulating processes
 
 Under the hood `Symfony\Component\Process` is used to connect to your server and performing the command from your check.  You can manipulate this `Process` right before it is executed.
 
-To do this you must create that implements `Spatie\ServerMonitor\Manipulators\Manipulator`. That interface has only a singe method to implement:
+To do this you must create a class that implements `Spatie\ServerMonitor\Manipulators\Manipulator`. That interface has only a single method to implement:
 
 ```php
 public function manipulateProcess(Process $process, Check $check): Process;
