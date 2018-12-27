@@ -64,7 +64,7 @@
                 <h3>What happens?</h3>
                 <ul>
                     <li>
-                        We start with an image that has <code>scrset</code> values, rendered by the <a href="https://docs.spatie.be/laravel-medialibrary/v7">Laravel Medialibrary</a>
+                        We start with an image that has <code>srcset</code> values, rendered by the <a href="https://docs.spatie.be/laravel-medialibrary/v7">Laravel Medialibrary</a>
                     </li>
                     <li>    
                         An initial <code>sizes="1px"</code> atribute is used to render an inline base64-encoded SVG placeholder first
