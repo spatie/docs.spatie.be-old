@@ -117,6 +117,27 @@ The default value of `config('backup.destination.disks')` is an array with only 
 
 We highly recommend that you configure some extra disks in `app/config/filesystems.php` and add them as destination filesystems for the backup. Those disks should use external servers or services (such as S3 or Dropbox).
 
+If you need to pass extra options to the underlying Flysystem driver of the disk, you can do so by adding a `backup_options` array to the configuration of that disk. In most cases this is not needed.
+
+```php
+// in config filesystems.php
+
+return [
+
+    // ..
+    
+    'disks' => [
+        's3' => [
+            'driver' => 's3',
+            // ...
+            'backup_options => [
+               // add extra options here
+            ],
+        ],
+    ],
+];
+```
+
 If something goes wrong copying the zip file to one filesystem, the package will still try to copy zipped backup to all other configured filesystems.
 
 ## Get notifications when a backup goes wrong
