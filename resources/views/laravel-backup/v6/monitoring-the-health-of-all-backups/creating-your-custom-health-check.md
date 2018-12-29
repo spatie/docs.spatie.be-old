@@ -2,7 +2,7 @@
 title: Creating your custom health check
 ---
 
- You can create your own custom health check by letting a class extend `Spatie\Backup\Tasks\Monitor\HealthCheck` interface. 
+ You can create your own custom health check by letting a class extend `Spatie\Backup\Tasks\Monitor\HealthCheck`. 
  
 That base class contains one abstract method that you should implement.
 
@@ -10,7 +10,7 @@ That base class contains one abstract method that you should implement.
 public function checkHealth(BackupDestination $backupDestination);
 ```
  
-If your check determines that the back is not health it should thrown a `Spatie\Backup\Exceptions\InvalidHealthCheck` exceptions. The `HealthCheck` base class contains three helpful methods that helps you do this.
+If your check determines that the backup is not healthy it should throw a `Spatie\Backup\Exceptions\InvalidHealthCheck` exception. The `HealthCheck` base class contains three helpful methods that helps you do this.
 
 - `fail($message)`: will throw the right exception under the hood.
 - `failIf(bool $condition, string $message)`: will throw the right exception if `$condition` is `true`
