@@ -4,7 +4,7 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::prefix('laravel-backup')->group(function () {
     Route::get('/', function () {
-        return redirect('laravel-backup/v5/introduction');
+        return redirect('laravel-backup/v6/introduction');
     });
 
     Route::get('v3', function () {
@@ -17,6 +17,10 @@ Route::prefix('laravel-backup')->group(function () {
 
     Route::get('v5', function () {
         return redirect('laravel-backup/v5/introduction');
+    });
+
+    Route::get('v6', function () {
+        return redirect('laravel-backup/v6/introduction');
     });
 });
 
