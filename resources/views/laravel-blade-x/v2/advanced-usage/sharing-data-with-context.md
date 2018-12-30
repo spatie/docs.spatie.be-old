@@ -26,6 +26,8 @@ You can rewrite the above as
 </context>
 ```
 
+**Note**: If you are using a custom component prefix (e.g. `BladeX::prefix('x')`, for more details see the following chapter), you will have to use the prefix for this special component as well: `<x-context :model="$user"></x-context>`
+
 The only restriction of `context` is that you shouldn't use it around a slot.
 
 ```html
