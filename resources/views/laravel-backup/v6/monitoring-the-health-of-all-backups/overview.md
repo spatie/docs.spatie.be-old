@@ -38,7 +38,7 @@ This is the part of the configuration where you can specify which applications s
      */
     'monitor_backups' => [
         [
-            'name' => env('APP_URL'),
+            'name' => env('APP_NAME'),
             'disks' => ['s3'],
             'health_checks' => [
                 \Spatie\Backup\Tasks\Monitor\HealthChecks\MaximumAgeInDays::class => 1,
