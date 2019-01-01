@@ -36,9 +36,9 @@ This is the part of the configuration where you can specify which applications s
      *  If a backup does not meet the specified requirements the
      *  UnHealthyBackupWasFound-event will be fired.
      */
-    'monitorBackups' => [
+    'monitor_backups' => [
         [
-            'name' => env('APP_URL'),
+            'name' => env('APP_NAME'),
             'disks' => ['s3'],
             'health_checks' => [
                 \Spatie\Backup\Tasks\Monitor\HealthChecks\MaximumAgeInDays::class => 1,
@@ -69,7 +69,7 @@ the application that is being backed up.
 ## Get notifications of (un)healthy backups
 
 You can receive notifications when the monitor finds an (un)healthy backup. 
-Read the section on [notifications](/laravel-backup/v5/sending-notifications/overview) to learn more.
+Read the section on [notifications](/laravel-backup/v6/sending-notifications/overview) to learn more.
 
 ## Checking all backups
 

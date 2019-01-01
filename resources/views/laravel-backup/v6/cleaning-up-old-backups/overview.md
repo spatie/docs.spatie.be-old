@@ -31,38 +31,38 @@ This portion of the configuration determines which backups should be deleted.
          */
         'strategy' => \Spatie\Backup\Tasks\Cleanup\Strategies\DefaultStrategy::class,
 
-        'defaultStrategy' => [
+        'default_strategy' => [
 
             /*
              * The number of days that all backups must be kept.
              */
-            'keepAllBackupsForDays' => 7,
+            'keep_all_backups_for_days' => 7,
 
             /*
              * The number of days that all daily backups must be kept.
              */
-            'keepDailyBackupsForDays' => 16,
+            'keep_daily_backups_for_days' => 16,
 
             /*
              * The number of weeks of which one weekly backup must be kept.
              */
-            'keepWeeklyBackupsForWeeks' => 8,
+            'keep_weekly_backups_for_weeks' => 8,
 
             /*
              * The number of months of which one monthly backup must be kept.
              */
-            'keepMonthlyBackupsForMonths' => 4,
+            'keep_monthly_backups_for_months' => 4,
 
             /*
              * The number of years of which one yearly backup must be kept.
              */
-            'keepYearlyBackupsForYears' => 2,
+            'keep_yearly_backups_for_years' => 2,
 
             /*
              * After cleaning up the backups remove the oldest backup until
              * this amount of megabytes has been reached.
              */
-            'deleteOldestBackupsWhenUsingMoreMegabytesThan' => 5000,
+            'delete_oldest_backups_when_using_more_megabytes_than' => 5000,
         ],
     ],
 ```
