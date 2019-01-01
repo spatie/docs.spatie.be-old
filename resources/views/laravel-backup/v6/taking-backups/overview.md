@@ -69,7 +69,7 @@ This section of the configuration determines which files and databases will be b
              /*
               * Determines if symlinks should be followed.
               */
-             'followLinks' => false,
+             'follow_links' => false,
          ],
 
          /*
