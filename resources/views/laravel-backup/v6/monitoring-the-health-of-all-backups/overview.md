@@ -69,7 +69,7 @@ the application that is being backed up.
 ## Get notifications of (un)healthy backups
 
 You can receive notifications when the monitor finds an (un)healthy backup. 
-Read the section on [notifications](/laravel-backup/v5/sending-notifications/overview) to learn more.
+Read the section on [notifications](/laravel-backup/v6/sending-notifications/overview) to learn more.
 
 ## Checking all backups
 
