@@ -36,7 +36,7 @@ This is the part of the configuration where you can specify which applications s
      *  If a backup does not meet the specified requirements the
      *  UnHealthyBackupWasFound-event will be fired.
      */
-    'monitorBackups' => [
+    'monitor_backups' => [
         [
             'name' => env('APP_URL'),
             'disks' => ['s3'],
