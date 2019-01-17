@@ -137,8 +137,8 @@ return [
      * thumbnails and have installed the php-ffmpeg/php-ffmpeg composer
      * dependency.
      */
-    'ffmpeg_binaries' => '/usr/bin/ffmpeg',
-    'ffprobe_binaries' => '/usr/bin/ffprobe',
+    'ffmpeg_path' => '/usr/bin/ffmpeg',
+    'ffprobe_path' => '/usr/bin/ffprobe',
 ];
 ```
 
