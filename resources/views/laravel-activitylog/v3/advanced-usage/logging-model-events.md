@@ -271,3 +271,22 @@ $newsItem->enableLogging();
 $newsItem->update(['name' => 'The new name is logged']);
 ```
 
+## Tap Activity before logged from event
+
+In addition to the `tap()` method on `ActivityLogger` you can utilise the `tapActivity()` method in your observed model class. This method will allow you to fill properties and add custom fields before the activity is saved.
+
+```php
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\Contracts\Activity;
+
+class NewsItem extends Model
+{
+    use LogsActivity;
+
+    public function tapActivity(Activity $activity, string $eventName)
+    {
+        $activity->comment_count = $this->comments()->count();
+    }
+}
+```
