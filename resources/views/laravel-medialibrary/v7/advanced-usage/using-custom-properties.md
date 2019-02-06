@@ -24,6 +24,17 @@ $mediaItem->setCustomProperty('name', 'value'); // adds a new custom propery
 $mediaItem->forgetCustomProperty('name'); // removes a custom propery
 ```
 
+If you are setting or removing custom properties outside the process of adding media then you will need to persist/save these changes:
+
+```php
+$mediaItem = Media::find($id);
+
+$mediaItem->setCustomProperty('name', 'value'); // adds a new custom propery or updates an existing one
+$mediaItem->forgetCustomProperty('name'); // removes a custom propery
+
+$mediaItem->save();
+```
+
 You can also specify a default value when retrieving a custom property.
 
 ```php
