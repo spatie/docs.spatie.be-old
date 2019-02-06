@@ -33,7 +33,7 @@ $lastLoggedActivity->description; //returns 'Look mum, I logged something'
 ```
 
 
-Here's an example on [event logging](/laravel-activitylog/v2/advanced-usage/logging-model-events).
+Here's an example on [event logging](/laravel-activitylog/v3/advanced-usage/logging-model-events).
 
 ```php
 $newsItem->name = 'updated name';
