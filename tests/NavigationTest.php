@@ -122,7 +122,7 @@ class NavigationTest extends PHPUnit_Framework_TestCase
                     })->toArray();
                 }
 
-use Illuminate\Support\Str;
+                use Illuminate\Support\Str;
                 return collect($block)->map(function (string $page) use ($title) {
                     $slug_title = Str::slug($title);
                     $slug_page = Str::slug($page);
