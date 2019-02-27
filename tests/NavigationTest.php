@@ -75,7 +75,7 @@ class NavigationTest extends PHPUnit_Framework_TestCase
         $flattenArray = $this->getFlattenArray();
 //        dd($flattenArray);
 
-        $slug = str_slug($url);
+        $slug = Str::slug($url);
 
         $index = $flattenArray->search($slug);
 
@@ -91,7 +91,7 @@ class NavigationTest extends PHPUnit_Framework_TestCase
 
         $flattenArray = $this->getFlattenArray();
 
-        $slug = str_slug($url);
+        $slug = Str::slug($url);
 
         $index = $flattenArray->search($slug);
 
@@ -118,13 +118,14 @@ class NavigationTest extends PHPUnit_Framework_TestCase
             ->flatMap(function (array $block, string $title) : array {
                 if (empty($title)) {
                     return collect($block)->map(function (string $page) {
-                        return str_slug($page);
+                        return Str::slug($page);
                     })->toArray();
                 }
 
+use Illuminate\Support\Str;
                 return collect($block)->map(function (string $page) use ($title) {
-                    $slug_title = str_slug($title);
-                    $slug_page = str_slug($page);
+                    $slug_title = Str::slug($title);
+                    $slug_page = Str::slug($page);
                     return "{$slug_title}/{$slug_page}";
                 })->toArray();
             });

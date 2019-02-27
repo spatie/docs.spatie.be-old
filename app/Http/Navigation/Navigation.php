@@ -2,6 +2,7 @@
 
 namespace App\Http\Navigation;
 
+use Illuminate\Support\Str;
 use Spatie\Menu\Laravel\Link;
 use Spatie\Menu\Laravel\Menu;
 use Illuminate\Support\Collection;
@@ -33,13 +34,13 @@ class Navigation
             ->flatMap(function (array $block, string $title): array {
                 if (empty($title)) {
                     return collect($block)->map(function (string $page) {
-                        return str_slug($page);
+                        return Str::slug($page);
                     })->toArray();
                 }
 
                 return collect($block)->map(function (string $page) use ($title) {
-                    $slug_title = str_slug($title);
-                    $slug_page = str_slug($page);
+                    $slug_title = Str::slug($title);
+                    $slug_page = Str::slug($page);
                     return "{$slug_title}/{$slug_page}";
                 })->toArray();
             });
@@ -76,10 +77,10 @@ class Navigation
             $title = is_int($title) ? null : $title;
 
             $subMenuContents = collect($items)->map(function (string $item) use ($prefix, $title) : Link {
-                $url = str_slug($item);
+                $url = Str::slug($item);
 
                 if (! is_null($title)) {
-                    $url = str_slug($title).'/'.$url;
+                    $url = Str::slug($title).'/'.$url;
                 }
 
                 return Link::toUrl("{$prefix}/{$url}", $item);
