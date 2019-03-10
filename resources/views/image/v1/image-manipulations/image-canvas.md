@@ -60,7 +60,7 @@ The accepted values are available as the following constants on the `Manipulatio
 Flip/mirror an image 'horizontally', 'vertically' or 'both'.
 
 ```php
-$image->orientation(Manipulations::FLIP_HORIZONTALLY);
+$image->flip(Manipulations::FLIP_HORIZONTALLY);
 ```
 
 ![Border](https://docs.spatie.be/images/image/example-flip-horizontally.jpg)
