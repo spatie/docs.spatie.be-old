@@ -18,6 +18,21 @@ $lastActivity = Activity::all()->last(); //returns the last logged activity
 $lastActivity->description; //returns 'Look mum, I logged something';
 ```
 
+## Setting a log name
+
+You can specify a log name by passing it through as a parameter on the activity helper
+
+```php
+activity('custom_log_name')
+   ->log('edited');
+
+$lastActivity = Activity::all()->last(); //returns the last logged activity
+
+$lastActivity->log_name; //returns 'custom_log_name';
+```
+
+The default log `default` will be used if no custom log name is specified.
+
 ## Setting a subject
 
 You can specify on which object the activity is performed by using `performedOn`:
