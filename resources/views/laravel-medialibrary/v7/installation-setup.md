@@ -5,7 +5,7 @@ title: Installation & setup
 Medialibrary can be installed via composer:
 
 ```bash
-composer require spatie/laravel-medialibrary:^7.0.0
+composer require "spatie/laravel-medialibrary:^7.0.0"
 ```
 
 The package will automatically register a service provider.
