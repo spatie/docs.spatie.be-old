@@ -21,7 +21,7 @@ If you're not on PHP 7 or Laravel 5.5 just use version 3 of this package.
 Just issue this command:
 
 ```php
-composer require "spatie/laravel-backup:^3.0.0"
+composer require "spatie/laravel-backup:^5.0.0"
 ```
 
 Read the extensive [documentation on version 3](https://docs.spatie.be/laravel-backup/v3) to learn how to set up and use the package.
