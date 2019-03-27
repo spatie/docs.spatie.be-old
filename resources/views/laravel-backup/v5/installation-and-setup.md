@@ -286,14 +286,17 @@ Mongodb often requires authentication on production servers and the standard use
 
 An Example of such a config in part is this for MongoDB: 
 ```php
-mongodb' => [
-            'driver'   => 'mongodb',
-            ...,
-            'options'  => [
-                'database' => 'admin' // sets the authentication database required by mongo 3
-            ],
-            'dump' => [
-                'mongodb_user_auth' => 'admin' // your mongodb --authenticationDatabase option
-             ]  
-        ],
+//config/database.php
+'connections' => [
+	'mongodb' => [
+		    'driver'   => 'mongodb',
+		    ...,
+		    'options'  => [
+			'database' => 'admin' // sets the authentication database required by mongo 3
+		    ],
+		    'dump' => [
+			'mongodb_user_auth' => 'admin' // your mongodb --authenticationDatabase option
+		     ]  
+		],
+	],
 ```
