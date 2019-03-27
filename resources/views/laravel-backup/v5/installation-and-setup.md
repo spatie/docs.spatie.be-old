@@ -281,3 +281,21 @@ Here's an example for MySQL:
 		]  
 	],
 ```
+
+Mongodb often requires authentication on production servers. By defeault it uses an authentication database. You can add the name of the admin database as an option to the `dump` config key in the connection definition. 
+
+```php
+//config/database.php
+'connections' => [
+	'mongodb' => [
+		    'driver'   => 'mongodb',
+		    ...,
+		    'options'  => [
+			'database' => 'admin' // sets the authentication database required by mongo 3
+		    ],
+		    'dump' => [
+			'mongodb_user_auth' => 'admin' // your mongodb --authenticationDatabase option
+		     ]  
+		],
+	],
+```
