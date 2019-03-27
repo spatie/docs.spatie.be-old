@@ -281,3 +281,19 @@ Here's an example for MySQL:
 		]  
 	],
 ```
+
+Mongodb often requires authentication on production servers and the standard uses an Authentication Database, normally `admin`, this is often set in the options of the mongodb connection in the `database.php` file in Laravel. **You Need to add an option to the `dump` config key to let db-dumper know the database**. 
+
+An Example of such a config in part is this for MongoDB: 
+```php
+mongodb' => [
+            'driver'   => 'mongodb',
+            ...,
+            'options'  => [
+                'database' => 'admin' // sets the authentication database required by mongo 3
+            ],
+            'dump' => [
+                'mongodb_user_auth' => 'admin' // your mongodb --authenticationDatabase option
+             ]  
+        ],
+```
