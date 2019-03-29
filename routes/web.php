@@ -182,5 +182,17 @@ Route::prefix('laravel-blade-x')->group(function () {
     });
 });
 
+Route::prefix('enum')->group(function () {
+    Route::redirect('/', '/enum/v2');
+
+    Route::get('/v1', function () {
+        return redirect('enum/v1/introduction');
+    });
+
+    Route::get('/v2', function () {
+        return redirect('enum/v2/introduction');
+    });
+});
+
 Route::get('{slug}/edit', 'PageController@edit')->where('slug', '(.*)');
 Route::get('{slug}', 'PageController@page')->where('slug', '(.*)');

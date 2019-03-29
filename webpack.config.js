@@ -30,6 +30,8 @@ module.exports = {
         'laravel-html.style': './resources/sass/laravel-html/laravel-html.scss',
         'laravel-blade-x': './resources/js/laravel-blade-x.js',
         'laravel-blade-x.style': './resources/sass/laravel-blade-x/laravel-blade-x.scss',
+        'enum.style': './resources/sass/enum/enum.scss',
+        'enum': './resources/js/enum.js',
     },
     output: {
         path: 'public/build',
