@@ -236,10 +236,6 @@ class AccountBalanceProjector implements Projector
         $account->balance -= $event->amount;
 
         $account->save();
-
-        if ($account->balance >= 0) {
-            $this->broke_mail_sent = false;
-        }
     }
 
     public function onAccountDeleted(AccountDeleted $event)
