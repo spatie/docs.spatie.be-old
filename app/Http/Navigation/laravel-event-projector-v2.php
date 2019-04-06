@@ -22,12 +22,8 @@ return [
         'Using reactors',
         'Handling exceptions',
     ],
-    'Replaying events' => [
-        'Replaying events',
-        'Tracking handled events',
-    ],
     'Advanced usage' => [
-        'Rebuilding a projector',
+        'Replaying events',
         'Storing metadata',
         'Using your own event storage model',
         'Using your own event serializer',

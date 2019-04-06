@@ -2,7 +2,7 @@
 title: Storing metadata
 ---
 
-You can add metadata, such as the id of the logged in user, to a stored event. 
+You can add metadata, such as the `id` of the logged in user, to a stored event. 
 
 ## Storing metadata on all events
 
