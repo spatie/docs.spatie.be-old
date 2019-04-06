@@ -18,7 +18,7 @@ return [
     ],
     'Using aggregates' => [
         'What are aggregates',
-        'How to use aggrages',
+        'How to use aggregates',
     ],
     'Handling events' => [
         'Preparing events',
