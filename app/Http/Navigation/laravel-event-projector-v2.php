@@ -10,11 +10,15 @@ return [
         'Changelog',
         'Resources and alternatives'
     ],
-    'Basic usage' => [
+    'Using projectors' => [
         'Writing your first projector',
         'Handling side effects using reactors',
         'Thinking in events',
         'Making sure events get handled in the right order',
+    ],
+    'Using aggregates' => [
+        'What are aggregates',
+        'How to use aggrages',
     ],
     'Handling events' => [
         'Preparing events',
