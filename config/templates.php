@@ -82,7 +82,7 @@ return [
         'githubUrl' => 'https://github.com/spatie/laravel-event-projector',
         'siteSlogan' => 'Event Sourcing for Artisans',
         'siteTitle' => 'Laravel Event Projector',
-        'versions' => ['v1'],
+        'versions' => ['v1', 'v2'],
     ],
 
     'laravel-blade-x' => [

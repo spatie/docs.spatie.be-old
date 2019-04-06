@@ -172,6 +172,10 @@ Route::prefix('laravel-event-projector')->group(function () {
     Route::get('v1', function () {
         return redirect('laravel-event-projector/v1/introduction');
     });
+
+    Route::get('v2', function () {
+        return redirect('laravel-event-projector/v2/introduction');
+    });
 });
 
 Route::prefix('laravel-blade-x')->group(function () {
