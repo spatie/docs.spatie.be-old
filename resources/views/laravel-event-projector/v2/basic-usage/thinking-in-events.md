@@ -141,4 +141,4 @@ class AccountBalanceProjector implements Projector
 }
 ```
 
-With this in place only a projector will save state. The `BrokeReactor` will only send out a mail when an account goes broke. No mails will be sent if the account was already broke. When the account goes above zero and goes broke again a new mail will be sent.  When replaying all events, no mail will get sent, but all account state will be correct.
+The `BrokeReactor` will only send out a mail when an account goes broke. No mails will be sent if the account was already broke. When the account goes above zero and goes broke again a new mail will be sent.  When replaying all events, no mail will get sent, but all account state will be correct.
