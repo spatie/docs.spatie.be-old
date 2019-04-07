@@ -28,8 +28,8 @@ return [
         'Creating and configuring reactors',
     ],
     'Using aggregates' => [
-        'What are aggregates',
-        'How to use aggregates',
+        'Writing your first aggregate',
+        'Creating and configuring aggregates',
     ],
     'Advanced usage' => [
         'Preparing events',
