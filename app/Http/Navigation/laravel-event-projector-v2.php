@@ -8,7 +8,8 @@ return [
         'Installation & setup',
         'Questions & issues',
         'Changelog',
-        'Resources and alternatives'
+        'Upgrading',
+        'Resources and alternatives',
     ],
     'Getting familiar with event sourcing' => [
         'Introduction',
