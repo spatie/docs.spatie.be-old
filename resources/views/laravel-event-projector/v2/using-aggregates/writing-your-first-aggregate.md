@@ -157,7 +157,6 @@ public function applyAccountLimitHit()
     $this->accountLimitHitCount++;
 }
 
-```php
 public function subtractAmount(int $amount)
 {
     if (! $this->hasSufficientFundsToSubtractAmount($amount) {
