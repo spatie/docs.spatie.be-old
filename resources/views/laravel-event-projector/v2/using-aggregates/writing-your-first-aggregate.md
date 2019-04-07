@@ -144,6 +144,7 @@ public function subtractAmount(int $amount)
 
     $this->recordThat(new MoneySubtracted($amount));
 }
+```
 
 Let's now add a new business rule. Whenever somebody hits the limit three times a loan proposal should be sent. We can implement that as such.
 
