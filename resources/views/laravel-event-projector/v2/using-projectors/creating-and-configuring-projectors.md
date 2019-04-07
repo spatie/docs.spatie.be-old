@@ -1,5 +1,5 @@
 ---
-title: Using projectors
+title: Creating and registering projectors
 ---
 
 A projector is a class that listens for events that were stored. When it hears an event that it is interested in, it can perform some work.
@@ -163,57 +163,4 @@ class AddMoneyToAccount
 }
 ```
 
-## Performing some work before and after replaying events
 
-When [replaying events](/laravel-event-projector/v2/replaying-events/replaying-events) projectors will get called, too.
-
-If your projector has a `onStartingEventReplay` method, it will get called right before the first event will be replayed. This can be handy to clean up any data your projector writes to. Here's an example where we truncate the `accounts` table before replaying events:
-
-```php
-namespace App\Projectors;
-
-use App\Account;
-
-// ...
-
-class AccountBalanceProjector implements Projector
-{
-    use ProjectsEvents;
-
-    // ...
-
-    public function onStartingEventReplay()
-    {
-        Account::truncate();
-    }
-}
-```
-
-After all events are replayed, the `onFinishedEventReplay` method will be called, should your projector have one.
-
-## Naming projectors
-
-When tracking [the handled events of a projector](/laravel-event-projector/v2/replaying-events/tracking-handled-events) the package will by default use the fully qualified name of your projector. You can customize that name by putting a `$name` property on your projector.
-
-Here's an example:
-
-```php
-namespace App\Projectors;
-
-use App\Account;
-
-// ...
-
-class AccountBalanceProjector implements Projector
-{
-    use ProjectsEvents;
-
-    public $name = 'accountBalanceProjector';
-
-    // ...
-}
-```
-
-## Using streams
-
-Projectors can handle multiple streams on events. Read the using event streams section to learn why you'll need stream and how to use them.

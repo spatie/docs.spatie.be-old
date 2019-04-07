@@ -1,5 +1,5 @@
 ---
-title: Handling side effects with reactors
+title: Writing your first reactor
 ---
 
 ## What is a reactor
