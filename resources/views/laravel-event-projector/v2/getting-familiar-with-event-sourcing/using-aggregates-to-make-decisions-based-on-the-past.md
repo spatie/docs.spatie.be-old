@@ -34,6 +34,6 @@ When ever we retrieve an aggregate, all of the previous stored events will be fe
 
 In summary aggregates are used to make decisions based on past events.
 
-If you want to know to create and use aggregates, head over to [the `using-aggregates` section](https://docs.spatie.be/laravel-event-projector/v2/using-projectors/writing-your-first-projector).
+If you want to know to create and use aggregates, head over to [the `using-aggregates` section](https://docs.spatie.be/laravel-event-projector/v2/using-aggregates/writing-your-first-aggregate).
 
 
