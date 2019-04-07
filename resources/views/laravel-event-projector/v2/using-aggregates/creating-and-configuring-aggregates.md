@@ -94,11 +94,11 @@ use Spatie\EventProjector\AggregateRoot;
 
 final class MyAggregate extends AggregateRoot
 {
-    $projectors = [
+    protected $projectors = [
         MyProjector::class,
     ];
     
-    $reactors = [
+    protected $reactors = [
         MyReactor::class,
     ];
 }
