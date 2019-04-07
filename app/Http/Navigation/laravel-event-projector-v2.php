@@ -11,7 +11,7 @@ return [
         'Resources and alternatives'
     ],
     'Getting familiar with event sourcing' => [
-        'Intro',
+        'Introduction',
         'The traditional application',
         'Using projectors to transform events',
         'Using aggregates to make decisions based on the past',

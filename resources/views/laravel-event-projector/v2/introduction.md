@@ -2,13 +2,9 @@
 title: Introduction
 ---
 
-Event sourcing is to data what Git is to code. Most applications only have their current state stored in a database. A lot of useful information gets lost: you don't know _how_ the application got to this state.
+This package aims to be the entry point to get started with event sourcing in Laravel. It can help you setting up aggregates, projectors and reactors. 
 
-Event sourcing tries to solve this problem by storing all events that happen in your app. The state of your application is built by listening to those events.
-
-Here's a traditional example to make it more clear. Imagine you're a bank. Your clients have accounts. Storing the balance of the accounts wouldn't be enough, all the transactions should be remembered too. With event sourcing, the balance isn't a standalone database field, but a value calculated from the stored transactions. This is only one of the many benefits event sourcing brings to the table.
-
-This package aims to be the simple and very pragmatic way to get started with event sourcing in Laravel.
+If you've never worked with event sourcing, or are uncertain about what aggregates, projectors and reactors are, head over to [the getting familiar with event sourcing section](https://docs.spatie.be/laravel-event-projector/v2/getting-familiar-with-event-sourcing/introduction).
 
 ## We have badges!
 
