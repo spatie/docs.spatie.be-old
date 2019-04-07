@@ -128,6 +128,8 @@ private function hasSufficientFundsToSubtractAmount(int $amount): bool
 }
 ```
 
+## Implementing another business
+
 We can take this one step further. You could also record the event that the account limit was hit.
 
 ```php
