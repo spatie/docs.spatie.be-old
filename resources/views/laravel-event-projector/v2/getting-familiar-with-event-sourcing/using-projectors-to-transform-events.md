@@ -13,10 +13,12 @@ When new events come in we'll just write them to the events table as well
 **TODO: add image of event app wrting event 1,2,3**
 
 All events get passed to a class we call a projector. The projector transforms the events to a format that is handy to use in our app. In our Larabank example the events table hold the info of the individual transactions like `MoneyAdded` and `MoneySubtracted`. A projector could build an `Accounts` table based on those transaction.
-**TOD: add image of event app with one projector (CONSUMER should be renamed PROJECTOR, change table names)**
+
+**TOD0: add image of event app with one projector (CONSUMER should be renamed PROJECTOR, change table names)**
 
 Imagine that you've already stored some events, and your first projector is doing it's job creating that `Accounts` table. The bank directory now wants to know on which accounts the most transactions were performed. No problem, we could just create another projector that reads all previous events, and acts the `MoneyAdded` and `MoneySubtracted` to make a projections.
-**TOD: add image of event app with two projectors (CONSUMER should be renamed PROJECTOR, change table names)**
+
+**TODO: add image of event app with two projectors (CONSUMER should be renamed PROJECTOR, change table names)**
 
 This package can help you store native Laravel events in a `stored_events` table and create projectors that transform those events. 
 

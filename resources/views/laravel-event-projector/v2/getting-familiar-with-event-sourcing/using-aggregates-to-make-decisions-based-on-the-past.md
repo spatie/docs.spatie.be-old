@@ -22,7 +22,7 @@ Step 4: The aggregate gets persisted and the account limit hit event gets writte
 
 So now we've protected our account from going below -$5000. Let's take it one step further and send our customer a loan proposal mail when he or she hits the account limit three times in a row. Using an aggregate this is easy!
 
-/**TODO: add image**
+**TODO: add image**
 Step 5: Let's again try to subtract a lot of money to hit that account limit of $5000. We hit our account limit the second time.
 
 /**TODO: add image**
