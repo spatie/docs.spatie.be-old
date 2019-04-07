@@ -20,8 +20,8 @@ return [
         'Writing your first projector',
         'Creating and configuring projectors',
         'Replaying events',
-        'Thinking in events',
         'Making sure events get handled in the right order',
+        'Thinking in events',
     ],
     'Using reactors' => [
         'Writing your first reactor',
