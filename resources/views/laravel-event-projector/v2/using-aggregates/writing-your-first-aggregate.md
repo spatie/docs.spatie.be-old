@@ -166,7 +166,7 @@ public function subtractAmount(int $amount)
             $this->recordThat(new LoanProposed());
         }
         
-        // persist this so the record event gets persisted
+        // persist this so the record events gets persisted
         $this->persist();
     
         throw CouldNotSubtractMoney::notEnoughFunds($amount);
