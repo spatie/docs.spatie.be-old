@@ -6,6 +6,12 @@ This package aims to be the entry point to get started with event sourcing in La
 
 If you've never worked with event sourcing, or are uncertain about what aggregates, projectors and reactors are, head over to [the getting familiar with event sourcing section](https://docs.spatie.be/laravel-event-projector/v2/getting-familiar-with-event-sourcing/introduction).
 
+Event sourcing might be a good choice for your project if:
+
+- your app needs to make decisions based on the past
+- your app has auditing requirments: the reason why your app is in a certain state is equally as important as the state itself
+- you foresee that there will be a reporting need in the future, but you don't know yet which data you need to collect for those reports
+
 ## We have badges!
 
 <section class="article_badges">
