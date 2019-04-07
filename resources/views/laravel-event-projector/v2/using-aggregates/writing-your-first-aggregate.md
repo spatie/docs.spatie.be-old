@@ -1,5 +1,5 @@
 ---
-title: What are aggregates
+title: Writing your first aggregate
 ---
 
 Coming soon
