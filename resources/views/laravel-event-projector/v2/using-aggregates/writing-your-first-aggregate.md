@@ -2,7 +2,7 @@
 title: Writing your first aggregate
 ---
 
-An aggregate is a class that decide to record events based on past events. To know more about their general purpose and the idea behind them, read this section on [using aggregates to make decisions-based-on-the-past](https://docs.spatie.be/laravel-event-projector/v2/getting-familiar-with-event-sourcing/using-aggregates-to-make-decisions-based-on-the-past).
+An aggregate is a class that decides to record events based on past events. To know more about their general purpose and the idea behind them, read this section on [using aggregates to make decisions-based-on-the-past](https://docs.spatie.be/laravel-event-projector/v2/getting-familiar-with-event-sourcing/using-aggregates-to-make-decisions-based-on-the-past).
  
 ## Creating an aggregate 
  
@@ -27,9 +27,9 @@ final class AccountAggregate extends AggregateRoot
 
 ## Recording events
 
-You can add any methods or variables you need on the aggregate. To get you familiar with event modelling using aggregates let's implement a small piece of [the Larabank example app](https://github.com/spatie/larabank-event-projector-aggregates). We are going to add methods to record the [`AccountCreated`](https://github.com/spatie/larabank-event-projector-aggregates/blob/c9f2ff240f4634ee2e241e3087ff60587a176ae0/app/Domain/Account/DomainEvents/AccountCreated.php), [`MoneyAdded`](https://github.com/spatie/larabank-event-projector-aggregates/blob/c9f2ff240f4634ee2e241e3087ff60587a176ae0/app/Domain/Account/DomainEvents/MoneyAdded.php) and the [`MoneySubtracted`](https://github.com/spatie/larabank-event-projector-aggregates/blob/c9f2ff240f4634ee2e241e3087ff60587a176ae0/app/Domain/Account/DomainEvents/MoneySubtracted.php) events.
+You can add any methods or variables you need on the aggregate. To get you familiar with event modeling using aggregates let's implement a small piece of [the Larabank example app](https://github.com/spatie/larabank-event-projector-aggregates). We are going to add methods to record the [`AccountCreated`](https://github.com/spatie/larabank-event-projector-aggregates/blob/c9f2ff240f4634ee2e241e3087ff60587a176ae0/app/Domain/Account/DomainEvents/AccountCreated.php), [`MoneyAdded`](https://github.com/spatie/larabank-event-projector-aggregates/blob/c9f2ff240f4634ee2e241e3087ff60587a176ae0/app/Domain/Account/DomainEvents/MoneyAdded.php) and the [`MoneySubtracted`](https://github.com/spatie/larabank-event-projector-aggregates/blob/c9f2ff240f4634ee2e241e3087ff60587a176ae0/app/Domain/Account/DomainEvents/MoneySubtracted.php) events.
 
-First let's add a `createAccount` methods to our aggregate that will record the `AccountCreated` event.
+First, let's add a `createAccount` methods to our aggregate that will record the `AccountCreated` event.
 
 ```php
 namespace App\Aggregates;
@@ -58,7 +58,7 @@ final class AccountAggregate extends AggregateRoot
 
 The `recordThat` function will not persist the events to the database. It will simply hold them in memory. The events will get written to the database when the aggregate itself is persisted.
 
-There are two things to notice. First, the method name is writting in the present tense, not the past tense. We're trying to do something, and for the rest of our application is hasn't happend yet until the actual `AccountCreated` is saved. This will only happen when the `AccountAggregate` gets persisted.
+There are two things to notice. First, the method name is written in the present tense, not the past tense. We're trying to do something, and for the rest of our application is hasn't happened yet until the actual `AccountCreated` is saved. This will only happen when the `AccountAggregate` gets persisted.
 
 The second thing to note is that nor the method and the event contain an uuid. The aggregate itself is aware of the uuid to use because it is passed to the retrieve method (`AccountAggregate::retrieve($uuid)`, we'll get to this in a bit). When persisting the aggregateroot, it will save the record events along with the uuid.
 
@@ -88,7 +88,7 @@ In our demo app we retrieve and persist the aggregate [in the `AccountsControlle
 
 ## Implementing our first business rule
 
-Let's now implement the rule that an account cannot go below -$5000. Here's the thing to keep in mind: when retrieving an aggregate all events for the given uuid will be retrieve and will be passed to methods named `apply<className>` on the aggregate.
+Let's now implement the rule that an account cannot go below -$5000. Here's the thing to keep in mind: when retrieving an aggregate all events for the given uuid will be retrieved and will be passed to methods named `apply<className>` on the aggregate.
 
 So for our aggregate to receive all past `MoneyAdded` and `MoneySubtracted` events we need to add `applyMoneySubtracted` and`applyMoneySubtracted` methods to our aggregate. Because those events are all fed to the same instance of the aggregate, we can simply add an instance variable to hold the calculated balance. 
 
