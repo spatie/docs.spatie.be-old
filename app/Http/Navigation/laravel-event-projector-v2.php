@@ -10,6 +10,12 @@ return [
         'Changelog',
         'Resources and alternatives'
     ],
+    'Getting familiar with event sourcing' => [
+        'Intro',
+        'The traditional application',
+        'Using projectors to transform events',
+        'Using aggregates to make decisions based on the past',
+    ],
     'Using projectors' => [
         'Writing your first projector',
         'Handling side effects using reactors',
