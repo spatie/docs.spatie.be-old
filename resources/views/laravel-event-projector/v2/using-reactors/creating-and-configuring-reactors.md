@@ -94,6 +94,23 @@ class BigAmountAddedReactor
 
 This reactor will be created using the container so you may inject any dependency you'd like. In fact, all methods present in `$handlesEvent` can make use of method injection, so you can resolve any dependencies you need in those methods as well. Any variable in the method signature with the name `$event` will receive the event you're listening for.
 
+## Getting to uuid of an event
+
+In most cases you want to have access to the event that was fired. When [using aggregates]() your events probably won't contain the uuid associated with that event. To get to the uuid of an event simply add a parameter called `$uuid` that typehinted as a string. 
+
+```php
+// ...
+
+public function onMoneyAdded(MoneyAdded $event, string $uuid)
+{
+    $account = Account::findByUuid($uuid);
+    
+    Mail::to($account->user)->send(new MoreMoneyAddedMailable());
+}
+```
+
+The order of the parameters giving to an event handling method like `onMoneyAdded`. We'll simply pass the uuid to any arguments named `$uuid`.
+
 ## Using default event handling method names
 
 In the example above the events are mapped to methods on the reactor using the `$handlesEvents` property.
