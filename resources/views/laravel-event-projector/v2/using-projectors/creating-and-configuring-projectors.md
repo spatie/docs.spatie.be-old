@@ -103,7 +103,7 @@ class AccountBalanceProjector implements Projector
 
 When the package needs to call the projector, it will use the container to create that projector so you may inject any dependencies in the constructor. In fact, all methods specified in `$handlesEvent` can make use of method injection, so you can resolve any dependencies you need in those methods as well. Any variable in the method signature with the name `$event` will receive the event you're listening for.
 
-## Getting to uuid of an event
+## Getting the uuid of an event
 
 In most cases you want to have access to the event that was fired. When [using aggregates]() your events probably won't contain the uuid associated with that event. To get to the uuid of an event simply add a parameter called `$uuid` that typehinted as a string. 
 

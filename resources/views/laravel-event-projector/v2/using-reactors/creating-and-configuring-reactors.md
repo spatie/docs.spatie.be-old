@@ -94,7 +94,7 @@ class BigAmountAddedReactor
 
 This reactor will be created using the container so you may inject any dependency you'd like. In fact, all methods present in `$handlesEvent` can make use of method injection, so you can resolve any dependencies you need in those methods as well. Any variable in the method signature with the name `$event` will receive the event you're listening for.
 
-## Getting to uuid of an event
+## Getting the uuid of an event
 
 In most cases you want to have access to the event that was fired. When [using aggregates]() your events probably won't contain the uuid associated with that event. To get to the uuid of an event simply add a parameter called `$uuid` that typehinted as a string. 
 
