@@ -123,6 +123,22 @@ protected $handlesEvents = [
 ];
 ```
 
+## Handling a single event
+
+You can `$handleEvent` to the class name of an event. When such an event comes in we'll call the `__invoke` method. 
+
+```php
+// in a reactor
+
+// ...
+
+protected $handleEvent =  MoneyAdded::class,
+
+public function __invoke(MoneyAdded $event)
+{
+}
+```
+
 ## Using a class as an event handler
 
 Instead of letting a method on a reactor handle an event you can use a dedicated class.
