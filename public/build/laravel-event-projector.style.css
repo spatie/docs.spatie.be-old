@@ -1656,8 +1656,21 @@ sup {
 .header_background {
   background: url("/images/event-projector/header.jpg") center no-repeat;
   background-size: cover;
-  opacity: .8; }
+  opacity: 0.8; }
 
 .header_caption_title,
 .header_caption_slogan {
   background: rgba(27, 55, 71, 0.35); }
+
+.scheme {
+  margin: 4rem 0; }
+
+.scheme_figure {
+  max-width: 600px;
+  display: block;
+  margin: 0 auto; }
+
+.scheme_caption {
+  margin-top: 0.5rem;
+  text-align: center;
+  color: #8d7e5f; }
