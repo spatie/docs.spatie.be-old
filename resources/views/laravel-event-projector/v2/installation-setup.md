@@ -65,13 +65,6 @@ return [
     'stored_event_model' => \Spatie\EventProjector\Models\StoredEvent::class,
 
     /*
-     * This class is responsible for projector statuses. To add extra behaviour you
-     * can change this to a class of your own. The only restriction is that
-     * it should extend \Spatie\EventProjector\Models\ProjectorStatus.
-     */
-    'projector_status_model' => \Spatie\EventProjector\Models\ProjectorStatus::class,
-
-    /*
      * This class is responsible for handle stored events. To add extra behaviour you
      * can change this to a class of your own. The only restriction is that
      * it should extend \Spatie\EventProjector\HandleStoredEventJob.
