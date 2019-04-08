@@ -9,7 +9,7 @@ An aggregate is a class that decides to record events based on past events. To k
 The easiest way to create an aggregate root would be to use the `make:aggregate` command:
 
 ```php
-php artisan make:projector AccountAggregate
+php artisan make:aggregate AccountAggregate
 ```
 
 This will create a class like this:
