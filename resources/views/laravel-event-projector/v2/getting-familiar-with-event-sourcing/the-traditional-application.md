@@ -8,14 +8,14 @@ You might think that you still have the old state inside your backups. But they 
 
 <figure class="scheme">
     <figcaption class="scheme_caption">
-    First, we write value X
+        First, we write value X
     </figcaption>
     <img class="scheme_figure" src="/images/event-projector/db-01.svg">
 </figure>
 
 <figure class="scheme">
     <figcaption class="scheme_caption">
-    Next, we overwrite X by Y. X cannot be accessed anymore.
+        Next, we overwrite X by Y. X cannot be accessed anymore.
     </figcaption>
     <img class="scheme_figure" src="/images/event-projector/db-02.svg">
 </figure>
