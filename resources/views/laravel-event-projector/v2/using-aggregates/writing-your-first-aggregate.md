@@ -178,6 +178,6 @@ public function subtractAmount(int $amount)
 }
 ```
 
-When the limit is hit times, we record another event `LoanProposed`. We could set up a reactor that listens for that event and sends the actual mail.
+When the limit is hit three times, we record another event `LoanProposed`. We could set up a reactor that listens for that event and sends the actual mail.
 
 If you want to toy around with this example, clone the [Larabank with aggregates](https://github.com/spatie/larabank-event-projector-aggregates) example.
