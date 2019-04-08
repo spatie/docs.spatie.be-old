@@ -1,5 +1,5 @@
 ---
-title: Using aggregates to make decisions based on history
+title: Using aggregates to make decisions based on the past
 ---
 
 Now that you know what projections are, let's take it one step further with aggregates. In the previous examples whenever we wanted to fire off an event, we simply did so. When using aggregates, our main code is not going to fire events anymore. Instead, an aggregate will do that.  An aggregate is a class that helps you to make decisions based on events that happened in the past.
