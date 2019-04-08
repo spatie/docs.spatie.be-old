@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, shrink-to-fit=no">
     <meta name="description" content="@yield('pageDescription')">
     <title>@yield('title') | {{ $siteTitle }} Docs</title>
-    <link rel="stylesheet" href="/build/{{ $package }}.style.css">
+    <link rel="stylesheet" href="/build/{{ $package }}.style.css?v=20190408">
     <script src="/build/{{ $package }}.js" defer></script>
 </head>
 <body>
