@@ -25,7 +25,7 @@ class DownloadMediaController
 {
    public function show(Media $mediaItem)
    {
-       return response()->download($mediaItem->getPath(), $mediaItem->name);
+       return response()->download($mediaItem->getPath(), $mediaItem->file_name);
    }
 }
 ```
