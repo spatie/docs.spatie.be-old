@@ -166,7 +166,7 @@ Route::prefix('laravel-html')->group(function () {
 
 Route::prefix('laravel-event-projector')->group(function () {
     Route::get('/', function () {
-        return redirect('laravel-event-projector/v1/introduction');
+        return redirect('laravel-event-projector/v2/introduction');
     });
 
     Route::get('v1', function () {
