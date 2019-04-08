@@ -60,7 +60,7 @@ The `recordThat` function will not persist the events to the database. It will s
 
 There are two things to notice. First, the method name is written in the present tense, not the past tense. We're trying to do something, and for the rest of our application is hasn't happened yet until the actual `AccountCreated` is saved. This will only happen when the `AccountAggregate` gets persisted.
 
-The second thing to note is that nor the method and the event contain an uuid. The aggregate itself is aware of the uuid to use because it is passed to the retrieve method (`AccountAggregate::retrieve($uuid)`, we'll get to this in a bit). When persisting the aggregateroot, it will save the record events along with the uuid.
+The second thing to note is that nor the method and the event contain an uuid. The aggregate itself is aware of the uuid to use because it is passed to the retrieve method (`AccountAggregate::retrieve($uuid)`, we'll get to this in a bit). When persisting the aggregateroot, it will save the recorded events along with the uuid.
 
 With this in place you can use the aggregate like this:
 
@@ -138,7 +138,7 @@ public function subtractAmount(int $amount)
     if (! $this->hasSufficientFundsToSubtractAmount($amount) {
         $this->recordThat(new AccountLimitHit($amount));
         
-        // persist this so the record event gets persisted
+        // persist the aggregate so the record event gets persisted
         $this->persist();
     
         throw CouldNotSubtractMoney::notEnoughFunds($amount);
@@ -168,7 +168,7 @@ public function subtractAmount(int $amount)
             $this->recordThat(new LoanProposed());
         }
         
-        // persist this so the record events gets persisted
+        // persist the aggregate so the record events gets persisted
         $this->persist();
     
         throw CouldNotSubtractMoney::notEnoughFunds($amount);
