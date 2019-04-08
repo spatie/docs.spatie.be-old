@@ -97,16 +97,16 @@ class Account extends Model
 
 ## Defining events
 
-Instead of creating, updating and deleting accounts, we're simply firing off events. All these events should implement `\Spatie\EventProjector\DomainEvent`. This is an empty interface that signifies to our package that the event should be stored.
+Instead of creating, updating and deleting accounts, we're simply firing off events. All these events should implement `\Spatie\EventProjector\ShouldBeStored`. This is an empty interface that signifies to our package that the event should be stored.
 
 Let's take a look at all events used in the `Account` model.
 
 ```php
 namespace App\Events;
 
-use Spatie\EventProjector\DomainEvent;
+use Spatie\EventProjector\ShouldBeStored;
 
-class AccountCreated implements DomainEvent
+class AccountCreated implements ShouldBeStored
 {
     /** @var array */
     public $accountAttributes;
@@ -121,9 +121,9 @@ class AccountCreated implements DomainEvent
 ```php
 namespace App\Events;
 
-use Spatie\EventProjector\DomainEvent;
+use Spatie\EventProjector\ShouldBeStored;
 
-class MoneyAdded implements DomainEvent
+class MoneyAdded implements ShouldBeStored
 {
     /** @var string */
     public $accountUuid;
@@ -143,9 +143,9 @@ class MoneyAdded implements DomainEvent
 ```php
 namespace App\Events;
 
-use Spatie\EventProjector\DomainEvent;
+use Spatie\EventProjector\ShouldBeStored;
 
-class MoneySubtracted implements DomainEvent
+class MoneySubtracted implements ShouldBeStored
 {
     /** @var string */
     public $accountUuid;
@@ -165,9 +165,9 @@ class MoneySubtracted implements DomainEvent
 ```php
 namespace App\Events;
 
-use Spatie\EventProjector\DomainEvent;
+use Spatie\EventProjector\ShouldBeStored;
 
-class AccountDeleted implements DomainEvent
+class AccountDeleted implements ShouldBeStored
 {
     /** @var string */
     public $accountUuid;

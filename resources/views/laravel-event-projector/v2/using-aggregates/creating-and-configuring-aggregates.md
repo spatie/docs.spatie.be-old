@@ -37,14 +37,14 @@ This will cause all events with the given `uuid` to be retrieved and fed to the 
 
 ## Recording events
 
-Inside an aggregate you can record new events using the `recordEvent` function. All events being passed to that function should implement `Spatie\EventProjector\DomainEvent`.
+Inside an aggregate you can record new events using the `recordEvent` function. All events being passed to that function should implement `Spatie\EventProjector\ShouldBeStored`.
 
 Here's an example event
 
 ```php
-use Spatie\EventProjector\DomainEvent;
+use Spatie\EventProjector\ShouldBeStored;
 
-class MoneyAdded extends DomainEvent
+class MoneyAdded extends ShouldBeStored
 {
     /** @var int */
     private $amount
@@ -81,25 +81,3 @@ MyAggregate::retrieve($uuid) // will cause all events for this uuid to be fed to
 ```
 
 Persisting an aggregate root will write all newly recorded events to the database. The newly persisted events will get passed to all projectors and reactors.
-
-## Registering projectors and reactors
-
-In addition to registering projectors and reactors [in the config file or service provider](https://docs.spatie.be/laravel-event-projector/v2/using-projectors/creating-and-configuring-projectors#registering-projectors) you can also register them right in the aggregate. Simply add an instance variable called `$projectors` and/or `$reactors` and set it to an array of class names projector/reactors.
-
-```php
-namespace App\Aggregates;
-
-use Spatie\EventProjector\AggregateRoot;
-
-
-final class MyAggregate extends AggregateRoot
-{
-    protected $projectors = [
-        MyProjector::class,
-    ];
-    
-    protected $reactors = [
-        MyReactor::class,
-    ];
-}
-```
