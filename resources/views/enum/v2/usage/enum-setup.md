@@ -33,6 +33,8 @@ final class WeekDayEnum extends Enum
 
 ## Custom value/index Enum
 
+> This enum will be used in following chapters.
+
 ```php
 use Spatie\Enum\Enum;
 
