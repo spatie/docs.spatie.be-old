@@ -7,7 +7,7 @@ title: Enum Methods
 will return the enum value.
 
 ```php
-echo BoolEnum::make(1); // 'true'
+echo WeekDayEnum::make(1); // 'Montag'
 ```
 
 ## getIndex()
@@ -15,7 +15,7 @@ echo BoolEnum::make(1); // 'true'
 will return the enum index and could be overridden to customize the index.
 
 ```php
-BoolEnum::true()->getIndex(); // 1
+WeekDayEnum::monday()->getIndex(); // 1
 ```
 
 ## getIndices()
@@ -23,7 +23,7 @@ BoolEnum::true()->getIndex(); // 1
 will return all indices available on the enum.
 
 ```php
-BoolEnum::getIndices(); // [0, 1]
+WeekDayEnum::getIndices(); // [1, 2, 3, 4, 5, 6, 7]
 ```
 
 ## getValue()
@@ -31,7 +31,7 @@ BoolEnum::getIndices(); // [0, 1]
 will return the enum value and could be overridden to customize the value.
 
 ```php
-BoolEnum::true()->getValue(); // 'true'
+WeekDayEnum::monday()->getValue(); // 'Montag'
 ```
 
 ## getValues()
@@ -39,7 +39,7 @@ BoolEnum::true()->getValue(); // 'true'
 will return all values available on the enum.
 
 ```php
-BoolEnum::getValues(); // ['false', 'true']
+WeekDayEnum::getValues(); // ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag']
 ```
 
 ## isAny()
@@ -47,7 +47,7 @@ BoolEnum::getValues(); // ['false', 'true']
 will return `true` if the enum is equal with any of the given - otherwise `false`.
 
 ```php
-BoolEnum::true()->isAny(['true', 0]); // true
+WeekDayEnum::monday()->isAny(['monday', 0]); // true
 ```
 
 ## isEqual()
@@ -55,7 +55,7 @@ BoolEnum::true()->isAny(['true', 0]); // true
 will return `true` if the enum is equal with the given - otherwise `false`.
 
 ```php
-BoolEnum::true()->isEqual([0]); // false
+WeekDayEnum::monday()->isEqual('tuesday'); // false
 ```
 
 ## make()
@@ -67,5 +67,5 @@ will return an instance of the enum - further details [make enum](/enum/v2/usage
 will return an associative array with the value as key and the index as value.
 
 ```php
-BoolEnum::toArray(); // ['false' => 0, 'true' => 1]
+WeekDayEnum::toArray(); // ['Montag' => 1, 'Dienstag' => 2, 'Mittwoch' => 3, 'Donnerstag' => 4, 'Freitag' => 5, 'Samstag' => 6, 'Sonntag' => 7]
 ```

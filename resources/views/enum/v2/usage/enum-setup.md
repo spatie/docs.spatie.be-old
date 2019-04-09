@@ -10,13 +10,23 @@ The most basic setup to define an enum by using php-doc annotations.
 use Spatie\Enum\Enum;
 
 /**
- * @method static self false()
- * @method static self true()
+ * @method static bool monday()
+ * @method static bool tuesday()
+ * @method static bool wednesday()
+ * @method static bool thursday()
+ * @method static bool friday()
+ * @method static bool saturday()
+ * @method static bool sunday()
  *
- * @method static bool isFalse(int|string $value = null)
- * @method static bool isTrue(int|string $value = null)
+ * @method static bool isMonday(int|string $value = null)
+ * @method static bool isTuesday(int|string $value = null)
+ * @method static bool isWednesday(int|string $value = null)
+ * @method static bool isThursday(int|string $value = null)
+ * @method static bool isFriday(int|string $value = null)
+ * @method static bool isSaturday(int|string $value = null)
+ * @method static bool isSunday(int|string $value = null)
  */
-final class BoolEnum extends Enum
+final class WeekDayEnum extends Enum
 {
 }
 ```
