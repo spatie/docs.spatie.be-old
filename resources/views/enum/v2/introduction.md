@@ -6,7 +6,7 @@ This package offers strongly typed enums in PHP. We don't use a simple "value" r
 
 ## Word definition
 
-* **Name** is the method name - it is only used to make an enum.
+* **Name** is the uppercased method name - it is only used to make an enum.
 * **Value** is the string returned by `getValue()` - by default it's the name but you can customize it.
 * **Index** is the integer returned by `getIndex()` - by default it's the array key of the enum value it get's during resolve but you can customize it.
 
