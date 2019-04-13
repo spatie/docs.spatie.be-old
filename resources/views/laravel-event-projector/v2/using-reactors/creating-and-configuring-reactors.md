@@ -48,23 +48,33 @@ This is the contents of a class created by the artisan command mentioned in the 
 ```php
 namespace App\Reactors;
 
-class BigAmountAddedReactor
+class MyReactor
 {
-    /*
-     * Here you can specify which event should trigger which method.
-     */
-    protected $handlesEvents = [
-        // EventHappened::class => 'onEventHappened',
-    ];
-
-    /*
     public function onEventHappened(EventHappended $event)
     {
 
     }
-    */
 }
 ```
+
+## Getting the uuid of an event
+
+In most cases you want to have access to the event that was fired. When [using aggregates]() your events probably won't contain the uuid associated with that event. To get to the uuid of an event simply add a parameter called `$uuid` that typehinted as a string. 
+
+```php
+// ...
+
+public function onMoneyAdded(MoneyAdded $event, string $uuid)
+{
+    $account = Account::findByUuid($uuid);
+    
+    Mail::to($account->user)->send(new MoreMoneyAddedMailable());
+}
+```
+
+The order of the parameters giving to an event handling method like `onMoneyAdded`. We'll simply pass the uuid to any arguments named `$uuid`.
+
+## Manually register event handling methods
 
 The `$handlesEvents` property is an array which has event class names as keys and method names as values. Whenever an event is fired that matches one of the keys in `$handlesEvents` the corresponding method will be fired. You can name your methods however you like.
 
@@ -93,23 +103,6 @@ class BigAmountAddedReactor
 ```
 
 This reactor will be created using the container so you may inject any dependency you'd like. In fact, all methods present in `$handlesEvent` can make use of method injection, so you can resolve any dependencies you need in those methods as well. Any variable in the method signature with the name `$event` will receive the event you're listening for.
-
-## Getting the uuid of an event
-
-In most cases you want to have access to the event that was fired. When [using aggregates]() your events probably won't contain the uuid associated with that event. To get to the uuid of an event simply add a parameter called `$uuid` that typehinted as a string. 
-
-```php
-// ...
-
-public function onMoneyAdded(MoneyAdded $event, string $uuid)
-{
-    $account = Account::findByUuid($uuid);
-    
-    Mail::to($account->user)->send(new MoreMoneyAddedMailable());
-}
-```
-
-The order of the parameters giving to an event handling method like `onMoneyAdded`. We'll simply pass the uuid to any arguments named `$uuid`.
 
 ## Using default event handling method names
 

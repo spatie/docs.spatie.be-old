@@ -51,25 +51,39 @@ namespace App\Projectors;
 use Spatie\EventProjector\Projectors\Projector;
 use Spatie\EventProjector\Projectors\ProjectsEvents;
 
-class AccountBalanceProjector implements Projector
+class MyProjector implements Projector
 {
     use ProjectsEvents;
 
-    /*
-     * Here you can specify which event should trigger which method.
-     */
-    protected $handlesEvents = [
-        // EventHappened::class => 'onEventHappened',
-    ];
-
-    /*
     public function onEventHappened(EventHappended $event)
     {
-
+        // do some work
     }
-    */
 }
 ```
+
+Just by adding a typehint of the event you want to handle makes our package called it when that event occurs. All methods specified in your project can aslo make use of method injection, so you can resolve any dependencies you need in those methods as well.
+
+## Getting the uuid of an event
+
+In most cases you want to have access to the event that was fired. When [using aggregates](/laravel-event-projector/v2/using-aggregates/writing-your-first-aggregate) your events probably won't contain the uuid associated with that event. To get to the uuid of an event simply add a parameter called `$aggregateUuid` that typehinted as a string. 
+
+```php
+// ...
+
+public function onMoneyAdded(MoneyAdded $event, string $aggregateUuid)
+{
+    $account = Account::findByUuid($aggregateUuid);
+    
+    $account->balance += $event->amount;
+    
+    $account->save();
+}
+```
+
+The order of the parameters giving to an event handling method like `onMoneyAdded`. We'll simply pass the uuid to any arguments named `$aggregateUuid`.
+
+## Manually registering event handling methods
 
 The `$handlesEvents` property is an array which has event class names as keys and method names as values. Whenever an event is fired that matches one of the keys in `$handlesEvents` the corresponding method will be fired. You can name your methods however you like.
 
@@ -103,25 +117,36 @@ class AccountBalanceProjector implements Projector
 
 When the package needs to call the projector, it will use the container to create that projector so you may inject any dependencies in the constructor. In fact, all methods specified in `$handlesEvent` can make use of method injection, so you can resolve any dependencies you need in those methods as well. Any variable in the method signature with the name `$event` will receive the event you're listening for.
 
-## Getting the uuid of an event
+## Using a class as an event handler
 
-In most cases you want to have access to the event that was fired. When [using aggregates](/laravel-event-projector/v2/using-aggregates/writing-your-first-aggregate) your events probably won't contain the uuid associated with that event. To get to the uuid of an event simply add a parameter called `$aggregateUuid` that typehinted as a string. 
+Instead of letting a method on a projector handle an event you can use a dedicated class.
 
 ```php
+// in a projector
+
 // ...
 
-public function onMoneyAdded(MoneyAdded $event, string $aggregateUuid)
-{
-    $account = Account::findByUuid($aggregateUuid);
-    
-    $account->balance += $event->amount;
-    
-    $account->save();
-}
+protected $handlesEvents = [
+    /*
+     * If this event is passed to the projector, the `AddMoneyToAccount` class will be called.
+     */ 
+    MoneyAdded::class => AddMoneyToAccount::class,
+];
 ```
 
-The order of the parameters giving to an event handling method like `onMoneyAdded`. We'll simply pass the uuid to any arguments named `$aggregateUuid`.
+Here's an example implementation of `AddMoneyToAccount`:
 
+```php
+use App\Events\MoneyAdded;
+
+class AddMoneyToAccount
+{
+    public function __invoke(MoneyAdded $event)
+    {
+        $event->account->addMoney($event->amount);
+    }
+}
+```
 
 ## Using default event handling method names
 
@@ -154,7 +179,7 @@ protected $handlesEvents = [
 
 ## Handling a single event
 
-You can `$handleEvent` to the class name of an event. When such an event comes in we'll call the `__invoke` method. 
+You can `$handleEvent` to the class name of an event. When such an event comes in we'll call the `__invoke` method.
 
 ```php
 // in a projector
@@ -167,36 +192,4 @@ public function __invoke(MoneyAdded $event)
 {
 }
 ```
-
-## Using a class as an event handler
-
-Instead of letting a method on a projector handle an event you can use a dedicated class.
-
-```php
-// in a projector
-
-// ...
-
-protected $handlesEvents = [
-    /*
-     * If this event is passed to the projector, the `AddMoneyToAccount` class will be called.
-     */ 
-    MoneyAdded::class => AddMoneyToAccount::class,
-];
-```
-
-Here's an example implementation of `AddMoneyToAccount`:
-
-```php
-use App\Events\MoneyAdded;
-
-class AddMoneyToAccount
-{
-    public function __invoke(MoneyAdded $event)
-    {
-        $event->account->addMoney($event->amount);
-    }
-}
-```
-
 
