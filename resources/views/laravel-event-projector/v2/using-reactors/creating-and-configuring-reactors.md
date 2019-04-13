@@ -57,6 +57,8 @@ class MyReactor
 }
 ```
 
+Just by adding a typehint of the event you want to handle makes our package call that method when the typehinted event occurs. All methods specified in your project can also make use of method injection, so you can resolve any dependencies you need in those methods as well.
+
 ## Getting the uuid of an event
 
 In most cases you want to have access to the event that was fired. When [using aggregates]() your events probably won't contain the uuid associated with that event. To get to the uuid of an event simply add a parameter called `$uuid` that typehinted as a string. 
