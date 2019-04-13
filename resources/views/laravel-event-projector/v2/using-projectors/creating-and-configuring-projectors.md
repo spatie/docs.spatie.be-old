@@ -62,7 +62,7 @@ class MyProjector implements Projector
 }
 ```
 
-Just by adding a typehint of the event you want to handle makes our package call that method when the typehinted event occurs. All methods specified in your project can also make use of method injection, so you can resolve any dependencies you need in those methods as well.
+Just by adding a typehint of the event you want to handle makes our package call that method when the typehinted event occurs. All methods specified in your projector can also make use of method injection, so you can resolve any dependencies you need in those methods as well.
 
 ## Getting the uuid of an event
 
