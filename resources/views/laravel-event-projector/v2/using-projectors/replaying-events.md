@@ -12,7 +12,7 @@ All [events](/laravel-event-projector/v2/handling-events/preparing-events) that 
  php artisan event-projector:replay
  ```
 
- You can also projectors by using the `--projector` option. All stored events will be passed only to that projector.
+ You can also specify projectors by using the `--projector` option. All stored events will be passed only to that projector.
 
  ```bash
   php artisan event-projector:replay --projector=App\\Projectors\\AccountBalanceProjector
