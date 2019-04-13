@@ -35,10 +35,6 @@ class BrokeReactor implements EventHandler
 {
     use HandlesEvents;
 
-    public $handlesEvents = [
-        MoneySubtracted::class => 'onMoneySubtracted',
-    ];
-
     public function onMoneySubtracted(MoneySubtracted $event)
     {
         $account = Account::uuid($event->accountUuid);
@@ -66,10 +62,6 @@ If you are tempted to modify state in a reactor, just fire off a new event and l
 class BrokeReactor implements EventHandler
 {
     use HandlesEvents;
-
-    public $handlesEvents = [
-        MoneySubtracted::class => 'onMoneySubtracted',
-    ];
 
     public function onMoneySubtracted(MoneySubtracted $event)
     {
@@ -106,14 +98,6 @@ Let's leverage that new event in the `AccountBalanceProjector`.
 
 class AccountBalanceProjector implements Projector
 {
-    
-    protected $handlesEvents = [
-        // ..
-        BrokeMailSent::class => 'onBrokeMailSent',
-    ];
-    
-    // ..
-
     public function onBrokeMailSent(BrokeMailSent $event)
     {
         $account = Account::uuid($event->accountUuid);

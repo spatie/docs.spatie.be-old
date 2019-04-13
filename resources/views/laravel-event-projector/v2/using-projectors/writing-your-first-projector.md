@@ -348,7 +348,8 @@ class TransactionCount extends Model
 }
 ```
 
-Here's the projector that is going to listen to the `MoneyAdded` and `MoneySubtracted` events:
+Here's the projector that is going to listen to the `MoneyAdded` and `MoneySubtracted` events. Typehinting `MoneyAdded` and `MoneySubtracted`  will make our package call `onMoneyAdded` and ``MoneySubtracted`` when these events occur.
+
 
 ```php
 namespace App\Projectors;
@@ -363,11 +364,6 @@ use Spatie\EventProjector\Projectors\ProjectsEvents;
 class TransactionCountProjector implements Projector
 {
     use ProjectsEvents;
-
-    public $handlesEvents = [
-        MoneyAdded::class => 'onMoneyAdded',
-        MoneySubtracted::class => 'onMoneySubtracted',
-    ];
 
     public function onMoneyAdded(MoneyAdded $event)
     {

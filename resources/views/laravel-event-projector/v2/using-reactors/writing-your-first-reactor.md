@@ -10,7 +10,7 @@ A reactor is a class, that much like a projector, listens for incoming events. U
 
 ## Creating your first reactor
 
-Let's create your first reactor. You can perform `php artisan make:reactor BigAmountAddedReactor` to create a reactor in `app\Reactors`. We will make this reactor send a mail to the director of the bank whenever a big amount of money is added to an account.
+Let's create your first reactor. You can perform `php artisan make:reactor BigAmountAddedReactor` to create a reactor in `app\Reactors`. We will make this reactor send a mail to the director of the bank whenever a big amount of money is added to an account. Typehinting `MoneyAdded` will make our package call `onMoneyAdded` when the event occurs.
 
 ```php
 namespace App\Reactors;
@@ -22,13 +22,6 @@ use Illuminate\Support\Facades\Mail;
 
 class BigAmountAddedReactor
 {
-    /*
-     * Here you can specify which event should trigger which method.
-     */
-    protected $handlesEvents = [
-        MoneyAdded::class => 'onMoneyAdded',
-    ];
-
     public function onMoneyAdded(MoneyAdded $event)
     {
         if ($event->amount < 900) {
