@@ -233,7 +233,7 @@ class AccountBalanceProjector implements Projector
 }
 ```
 
-Just by typehinting and event in a method will make the package call that method when the event occurs. By default the package will automatically discover and registering projectors.
+Just by typehinting an event in a method will make the package call that method when the event occurs. By default the package will automatically discover and registering projectors.
 
 ## Let's fire off some events
 
