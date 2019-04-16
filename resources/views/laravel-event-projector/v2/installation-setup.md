@@ -27,21 +27,29 @@ This is the default content of the config file that will be published at `config
 return [
 
     /*
-     * Projectors are classes that build up projections. You can create them by
-     * performing `php artisan event-projector:create-projector`. Projectors
-     * can be registered in this array or a service provider.
+     * These directories will be scanned for projectors and reactors. They
+     *  will be automatically registered to projectionist automatically.
+     */
+    'auto_discover_projectors_and_reactors' => [
+        app_path(),
+    ],
+
+    /*
+     * Projectors are classes that build up projections. You can create them by performing
+     * `php artisan event-projector:create-projector`.  When not using autodiscovery
+     * Projectors can be registered in this array or a service provider.
      */
     'projectors' => [
         // App\Projectors\YourProjector::class
     ],
 
     /*
-     * Reactors are classes that handle side effects. You can create them by
-     * performing `php artisan event-projector:create-reactor`. Reactors
-     * can be registered in this array or a service provider.
+     * Reactors are classes that handle side effects. You can create them by performing
+     * `php artisan event-projector:create-reactor`. When not using autodiscovery
+     * Reactors can be registered in this array or a service provider.
      */
     'reactors' => [
-        // App\Reactors\YourReactors::class
+        // App\Reactors\YourReactor::class
     ],
 
     /*
@@ -67,7 +75,7 @@ return [
     /*
      * This class is responsible for handle stored events. To add extra behaviour you
      * can change this to a class of your own. The only restriction is that
-     * it should extend \Spatie\EventProjector\HandleStoredEventJob.
+     * it should extend \Spatie\EventProjector\HandleDomainEventJob.
      */
     'stored_event_job' => \Spatie\EventProjector\HandleStoredEventJob::class,
 
@@ -81,10 +89,21 @@ return [
     /*
      * When replaying events potentially a lot of events will have to be retrieved.
      * In order to avoid memory problems events will be retrieved in
-     * a chuncked way. You can specify the chunk size here.
+     * a chunked way. You can specify the chunk size here.
      */
     'replay_chunk_size' => 1000,
+
+    /*
+     * In production, you likely do not want the package to scan all the event handlers
+     * on every request. The package can cache all registered event handlers.
+     * More info: XXX
+     *
+     * Here you can specify where the cache should be stored.
+     */
+    'cache_path' => storage_path('app/event-projector/event-handlers.php'),
 ];
 ```
 
-Finally, you should set up a queue. Specify the connection name in the `queue` key of the `event-projector` config file. This queue will be used to guarantee that the events will be processed by all projectors in the right order. You should make sure that the queue will process only one job at a time. In a local environment, where events have a very low chance of getting fired concurrently, it's probably ok to just use the `sync` driver.
+The package will scan all classes of your project to [automatically discover projectors and reactors](#TODO:add link). In a production production environment you problably should [cache auto discovered projectors and reactors](TODO: add link).
+
+It's recommended that should set up a queue. Specify the connection name in the `queue` key of the `event-projector` config file. This queue will be used to guarantee that the events will be processed by all projectors in the right order. You should make sure that the queue will process only one job at a time. In a local environment, where events have a very low chance of getting fired concurrently, it's probably ok to just use the `sync` driver.
