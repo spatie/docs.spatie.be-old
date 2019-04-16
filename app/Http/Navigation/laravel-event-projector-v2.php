@@ -36,6 +36,7 @@ return [
         'Preparing events',
         'Storing metadata',
         'Handling exceptions',
+        'Discovering projectors and reactors',
         'Using your own event storage model',
         'Using your own event serializer',
     ],

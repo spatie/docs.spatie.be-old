@@ -35,18 +35,7 @@ class BigAmountAddedReactor
 }
 ```
 
-## Registering your reactor
-
- For the package to be able to locate the reactor you should register it. The easiest way to register a reactor is by calling `addReactor` on the `Projectionist` facade. Typically you would put this in a service provider of your own.
-
-```php
-use \Spatie\EventProjector\Facades\Projectionist;
-use \App\Reactor\BigAmountAddedReactor;
-
-...
-
-Projectionist::addReactor(BigAmountAddedReactor::class)
-```
+By default the package will automatically find and use your reactor.
 
 ## Using the reactor
 

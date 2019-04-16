@@ -243,41 +243,7 @@ class AccountBalanceProjector implements Projector
 }
 ```
 
-## Registering your projector
-
-The projector code up above will update the `accounts` table based on the fired events.
-
-Projectors need to be registered. The easiest way to register a projector is by calling `addProjector` on the `Projectionist` class. Typically you would put this in a service provider of your own.
-
-```php
-use Illuminate\Support\ServiceProvider;
-use App\Projectors\AccountBalanceProjector;
-use Spatie\EventProjector\Projectionist;
-
-class AppServiceProvider extends ServiceProvider
-{
-    public function boot(Projectionist $projectionist)
-    {
-        $projectionist->addProjector(AccountBalanceProjector::class);
-    }
-}
-```
-
-You can also use the `Projectionist` facade.
-
-```php
-use App\Projectors\AccountBalanceProjector;
-use Spatie\EventProjector\Facades\Projectionist;
-
-Projectionist::addProjector(AccountBalanceProjector::class);
-```
-
-Additionally, your projectors can be registered in `config/event-projector.php`
-```php
-'projectors' => [
-        \App\Projectors\AccountBalanceProjector::class,
-    ],
-```
+By default the package will automatically find and use your projector
 
 ## Let's fire off some events
 
