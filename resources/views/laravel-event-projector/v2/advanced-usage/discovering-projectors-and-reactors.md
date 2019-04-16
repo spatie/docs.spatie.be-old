@@ -2,7 +2,11 @@
 title: Discovering projectors and reactors
 ---
 
-By default the package will automatically discover all projectors and reactors and will register them at the projectionist.
+By default the package will automatically discover all projectors and reactors and will register them at the projectionist. 
+
+If you want to see a list of the discovered projectors and reactors perform the `event-projector:list` Artisan command. Here's how the output could look like:
+
+<img src="/images/event-projector/list.png" />
 
 ## Caching discovered projectors and reactors
 
