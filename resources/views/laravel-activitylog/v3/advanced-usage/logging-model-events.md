@@ -199,9 +199,9 @@ class NewsItem extends Model
 Changing only `name` means only the `name` attribute will be logged in the activity, and `text` will be left out.
 
 
-## Don't submit logs that have no changed attribute
+## Prevent submitting logs that have no changed attribute
 
-If we don't want to log changes of **name** property when we update the model and the only property that has been changed is **name**, we have a log with no property, we could add ``protected static $submitEmptyLogs = false`` to prevent submitting this empty log: 
+If you don't want to log changes of **name** property for example, when updating the model and the only property that has been changed is **name**, you have a log with no property, you could add ``protected static $submitEmptyLogs = false`` to prevent submitting this empty log: 
 
 ```php
 use Illuminate\Database\Eloquent\Model;
