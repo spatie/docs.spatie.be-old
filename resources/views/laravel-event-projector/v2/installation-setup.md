@@ -104,4 +104,6 @@ return [
 ];
 ```
 
-Finally, you should set up a queue. Specify the connection name in the `queue` key of the `event-projector` config file. This queue will be used to guarantee that the events will be processed by all projectors in the right order. You should make sure that the queue will process only one job at a time. In a local environment, where events have a very low chance of getting fired concurrently, it's probably ok to just use the `sync` driver.
+The package will scan all classes of your project to [automatically discover projectors and reactors](#TODO:add link). In a production production environment you problably should [cache auto discovered projectors and reactors](TODO: add link).
+
+It's recommended that should set up a queue. Specify the connection name in the `queue` key of the `event-projector` config file. This queue will be used to guarantee that the events will be processed by all projectors in the right order. You should make sure that the queue will process only one job at a time. In a local environment, where events have a very low chance of getting fired concurrently, it's probably ok to just use the `sync` driver.
