@@ -203,16 +203,6 @@ class AccountBalanceProjector implements Projector
 {
     use ProjectsEvents;
 
-    /*
-     * Here you can specify which event should trigger which method.
-     */
-    public $handlesEvents = [
-        AccountCreated::class => 'onAccountCreated',
-        MoneyAdded::class => 'onMoneyAdded',
-        MoneySubtracted::class => 'onMoneySubtracted',
-        AccountDeleted::class => 'onAccountDeleted',
-    ];
-
     public function onAccountCreated(AccountCreated $event)
     {
         Account::create($event->accountAttributes);
@@ -243,7 +233,7 @@ class AccountBalanceProjector implements Projector
 }
 ```
 
-By default the package will automatically find and use your projector
+Just by typehinting and event in a method will make the package call that method when the event occors. By default the package will automatically discover and registering projectors.
 
 ## Let's fire off some events
 
