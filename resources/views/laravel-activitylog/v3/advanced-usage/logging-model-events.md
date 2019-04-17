@@ -198,6 +198,31 @@ class NewsItem extends Model
 
 Changing only `name` means only the `name` attribute will be logged in the activity, and `text` will be left out.
 
+
+## Prevent submitting logs that have no changed attribute
+
+If you don't want to log changes of **name** property for example, when updating the model and the only property that has been changed is **name**, you have a log with no property, you could add ``protected static $submitEmptyLogs = false`` to prevent submitting this empty log: 
+
+```php
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
+
+class NewsItem extends Model
+{
+    use LogsActivity;
+
+    protected $fillable = ['name', 'text'];
+    
+    protected static $logAttributes = ['text'];
+    
+    protected static $logOnlyDirty = true;
+    
+    // protected static $submitEmptyLogs = false;
+}
+```
+
+See [this test](https://github.com/spatie/laravel-activitylog/blob/3bee85adf8e19e3bc0cafab56599a442014a9169/tests/LogsActivityTest.php#L334).
+
 ## Ignoring attributes from logging
 
 If you use wildcard logging, but do not want to log certain attributes, you can specify those attributes in `$logAttributesToIgnore`.
