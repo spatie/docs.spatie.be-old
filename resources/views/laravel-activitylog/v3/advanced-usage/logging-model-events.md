@@ -199,9 +199,9 @@ class NewsItem extends Model
 Changing only `name` means only the `name` attribute will be logged in the activity, and `text` will be left out.
 
 
-## Prevent submitting logs that have no changed attribute
+## Prevent save logs items that have no changed attribute
 
-If you don't want to log changes of **name** property for example, when updating the model and the only property that has been changed is **name**, you have a log with no property, you could add ``protected static $submitEmptyLogs = false`` to prevent submitting this empty log: 
+Setting `$submitEmptyLogs` to `false` prevents the package from storing empty logs. Storing empty logs can happen when you only want to log a certain attribute but only another changes.
 
 ```php
 use Illuminate\Database\Eloquent\Model;
@@ -217,11 +217,9 @@ class NewsItem extends Model
     
     protected static $logOnlyDirty = true;
     
-    // protected static $submitEmptyLogs = false;
+    protected static $submitEmptyLogs = false;
 }
 ```
-
-See [this test](https://github.com/spatie/laravel-activitylog/blob/3bee85adf8e19e3bc0cafab56599a442014a9169/tests/LogsActivityTest.php#L334).
 
 ## Ignoring attributes from logging
 
