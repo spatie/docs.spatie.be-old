@@ -22,7 +22,7 @@ class NewsItem extends Model
 }
 ```
 
-With a `$logAttributes = ['*']` property on the model you can log all attributes.
+With a `$logAttributes = ['*']` property on the model you can log all visible attributes.
 
 
 ```php
