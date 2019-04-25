@@ -297,7 +297,7 @@ DbDumperFactory::extend('mysql', function() {
 ```php
 use Spatie\DbDumper\DbDumper;
 
-class YourCustomMysqlDumper implements DbDumper
+class YourCustomMysqlDumper extends DbDumper
 {
 
 }
