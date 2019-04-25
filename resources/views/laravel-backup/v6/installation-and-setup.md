@@ -288,13 +288,13 @@ Here's an example for MySQL:
 
 If you need to have a custom database dumper for a driver, you can use `DbDumpFactory::extend()`. It expects the first argument to be the driver name and the second to be a callback that returns an instance of `Spatie\DbDumper\DbDumper`.
 
-```
+```php
 DbDumperFactory::extend('mysql', function() {
     return new YourCustomMysqlDumper();
 });
 ```
 
-```
+```php
 use Spatie\DbDumper\DbDumper;
 
 class YourCustomMysqlDumper implements DbDumper
