@@ -63,7 +63,7 @@ All public properties and methods on the view model will be passed to the Blade 
 ```blade
 <select name="{{ $name }}">
     @foreach($options as $value => $label)
-        <option {!! $isSelected($value) ? 'selected="selected"' : '' !!} name="{{ $value }}">{{ $label }}</option>
+        <option {!! $isSelected($value) ? 'selected="selected"' : '' !!} value="{{ $value }}">{{ $label }}</option>
     @endforeach
 </select>
 ```
