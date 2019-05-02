@@ -19,7 +19,7 @@ collect($images)->each(function(Image $image) use ($manipulations) {
 	$image
 	   ->manipulate($manipulations)
 	   ->save();
-}
+});
 ```
 
 The `manipulate` function can also accept a closure.
