@@ -9,7 +9,7 @@ If you've never worked with event sourcing, or are uncertain about what aggregat
 Event sourcing might be a good choice for your project if:
 
 - your app needs to make decisions based on the past
-- your app has auditing requirments: the reason why your app is in a certain state is equally as important as the state itself
+- your app has auditing requirements: the reason why your app is in a certain state is equally as important as the state itself
 - you foresee that there will be a reporting need in the future, but you don't know yet which data you need to collect for those reports
 
 ## We have badges!
