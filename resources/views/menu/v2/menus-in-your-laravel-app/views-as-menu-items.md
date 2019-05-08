@@ -2,7 +2,7 @@
 title: Views as Menu Items
 ---
 
-`laravel-menu` ships with a `View` item type, which you can use to render views as menu items. Views are creating by specifying the view's name, and optionally passing data.
+`laravel-menu` ships with a `View` item type, which you can use to render views as menu items. Views are created by specifying the view's name, and optionally passing data.
 
 ```php
 Menu::new()
