@@ -91,4 +91,11 @@ return [
         'siteTitle' => 'Laravel Blade X',
         'versions' => ['v2'],
     ],
+
+    'enum' => [
+        'githubUrl' => 'https://github.com/spatie/enum',
+        'siteSlogan' => 'Strongly typed enums',
+        'siteTitle' => 'Enum',
+        'versions' => ['v1', 'v2'],
+    ],
 ];

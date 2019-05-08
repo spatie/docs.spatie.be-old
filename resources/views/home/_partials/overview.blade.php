@@ -37,3 +37,6 @@
 
 <h3><a href="/image">Image</a></h3>
 <p>Manipulate images with an expressive API.</p>
+
+<h3><a href="/enum">Enum</a></h3>
+<p>Strongly typed enums in PHP supporting autocompletion and refactoring.</p>
