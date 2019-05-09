@@ -1,10 +1,16 @@
-@import '../_base/base';
+@import "../_base/base";
+
+.header {
+  background-color: color($gold, light);
+}
 
 .header_background {
-  background-color: color($gold, light);
+  background: url("/images/enum/header.jpg") center no-repeat;
+  background-size: cover;
+  opacity: 0.5;
 }
 
 .header_caption_title,
 .header_caption_slogan {
-  background: color($gold, darker, .2);
+  background: color($gold, darker, 0.2);
 }

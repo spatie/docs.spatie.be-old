@@ -1650,8 +1650,13 @@ sup {
   text-decoration: none;
   text-transform: none; }
 
-.header_background {
+.header {
   background-color: #d4cab4; }
+
+.header_background {
+  background: url("/images/enum/header.jpg") center no-repeat;
+  background-size: cover;
+  opacity: 0.5; }
 
 .header_caption_title,
 .header_caption_slogan {
