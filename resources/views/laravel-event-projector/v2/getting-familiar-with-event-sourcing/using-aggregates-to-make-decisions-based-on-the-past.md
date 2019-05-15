@@ -8,19 +8,19 @@ Before firing off an event, an aggregate will first check if it is allowed to fi
 
 Let's go through this step by step.
 
-Step 1: our app wants to subtract $1000. We create a new aggregate root instance and will feed it all events. There are no events yet to retrieve yet in this pass. The aggregate will conclude that it's allowed to subtract $1000 and will record that `Subtract` event. This recording is just in memory, and nothing will be written to the DB yet.
+Step 1: our app wants to subtract $1000. We create a new aggregate root instance and will feed it all events. There are no events yet to retrieve in this pass. The aggregate will conclude that it's allowed to subtract $1000 and will record that `Subtract` event. This recording is just in memory, and nothing will be written to the DB yet.
 
 <figure class="scheme">
     <img class="scheme_figure" src="/images/event-projector/aggregate-01.svg">
 </figure>
 
-Step 2: We are going to persist the aggregate. When persisting an aggregate, all of the newly recorded events that aggregate has will be written in the database. Also, if you have projectors set up, they will receive the newly persisted events as well.
+Step 2: We are going to persist the aggregate. When persisting an aggregate, all of the newly recorded events that aggregate will be written in the database. Also, if you have projectors set up, they will receive the newly persisted events as well.
 
 <figure class="scheme">
     <img class="scheme_figure" src="/images/event-projector/aggregate-02.svg">
 </figure>
 
-Step 3: Let's hit that account limit and try to subtract $4800 now. First, the aggregate will be reconstituted from all previous events. Because it gets the earlier events in can calculate the current balance in memory (which is of course -$1000). The aggregate root can conclude that if we were to subtract $4800 we would cross our limit of -$5000. So it is not going to record that event. Instead, we could record that fact the account limit was hit.
+Step 3: Let's hit that account limit and try to subtract $4800 now. First, the aggregate will be reconstituted from all previous events. Because it gets the earlier events it can calculate the current balance in memory (which is of course -$1000). The aggregate root can conclude that if we were to subtract $4800 we would cross our limit of -$5000. So it is not going to record that event. Instead, we could record that fact the account limit was hit.
 
 <figure class="scheme">
     <img class="scheme_figure" src="/images/event-projector/aggregate-03.svg">
@@ -52,4 +52,4 @@ Whenever we retrieve an aggregate, all of the previously stored events will be f
 
 In summary, aggregates are used to make decisions based on past events.
 
-If you want to know to create and use aggregates, head over to [the `using-aggregates` section](https://docs.spatie.be/laravel-event-projector/v2/using-aggregates/writing-your-first-aggregate).
+If you want to know how to create and use aggregates, head over to [the `using-aggregates` section](https://docs.spatie.be/laravel-event-projector/v2/using-aggregates/writing-your-first-aggregate).

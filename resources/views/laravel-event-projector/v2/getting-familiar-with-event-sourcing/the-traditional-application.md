@@ -2,7 +2,7 @@
 title: The traditional application
 ---
 
-In a traditional application, you're probably going to use a database to hold the state of your application. Whenever you want to update a bit a state, you're simply going to overwrite the old value. That old value isn't accessible anymore. Your application only holds the current state.
+In a traditional application, you're probably going to use a database to hold the state of your application. Whenever you want to update a state, you're simply going to overwrite the old value. That old value isn't accessible anymore. Your application only holds the current state.
 
 You might think that you still have the old state inside your backups. But they don't count. Your app probably can't, nor should it, make decisions on data inside those backups.
 
