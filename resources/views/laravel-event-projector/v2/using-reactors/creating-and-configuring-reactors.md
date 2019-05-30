@@ -63,14 +63,14 @@ Just by adding a typehint of the event you want to handle makes our package call
 
 ## Getting the uuid of an event
 
-In most cases you want to have access to the event that was fired. When [using aggregates]() your events probably won't contain the uuid associated with that event. To get to the uuid of an event simply add a parameter called `$uuid` that typehinted as a string. 
+In most cases you want to have access to the event that was fired. When [using aggregates]() your events probably won't contain the uuid associated with that event. To get to the uuid of an event simply add a parameter called `$aggregateUuid` that typehinted as a string. 
 
 ```php
 // ...
 
-public function onMoneyAdded(MoneyAdded $event, string $uuid)
+public function onMoneyAdded(MoneyAdded $event, string $aggregateUuid)
 {
-    $account = Account::findByUuid($uuid);
+    $account = Account::findByUuid($aggregateUuid);
     
     Mail::to($account->user)->send(new MoreMoneyAddedMailable());
 }
