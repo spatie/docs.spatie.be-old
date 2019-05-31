@@ -5,7 +5,7 @@ title: Installation & setup
 laravel-event-projector can be installed via composer:
 
 ```bash
-composer require spatie/laravel-event-projector:^2.0.0
+composer require spatie/laravel-event-projector
 ```
 
 You need to publish and run the migrations to create the `stored_events` table:
