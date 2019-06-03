@@ -37,7 +37,7 @@ This will cause all events with the given `uuid` to be retrieved and fed to the 
 
 ## Recording events
 
-Inside an aggregate you can record new events using the `recordEvent` function. All events being passed to that function should implement `Spatie\EventProjector\ShouldBeStored`.
+Inside an aggregate you can record new events using the `recordThat` function. All events being passed to that function should implement `Spatie\EventProjector\ShouldBeStored`.
 
 Here's an example event
 
@@ -56,17 +56,17 @@ class MoneyAdded extends ShouldBeStored
 }
 ```
 
-Inside an aggregate root you can pass the event to `recordEvent`:
+Inside an aggregate root you can pass the event to `recordThat`:
 
 ```php
 // somehwere inside your aggregate
 public function addMoney(int $amount)
 {
-    $this->recordEvent(new MoneyAdded($amount));
+    $this->recordThat(new MoneyAdded($amount));
 }
 ```
 
-Calling `recordEvent` will persist the event to the DB, that will happen when the aggregate itself gets persisted. However, recording an event will cause it getting applied to the aggregate immediately. For example, when you record the event `MoneyAdded`, we'll immediately call `applyMoneyAdded` on the aggregate.
+Calling `recordThat` will persist the event to the DB, that will happen when the aggregate itself gets persisted. However, recording an event will cause it getting applied to the aggregate immediately. For example, when you record the event `MoneyAdded`, we'll immediately call `applyMoneyAdded` on the aggregate.
 
 Notice that your event isn't required to contain the `$uuid`. Your aggregate is built up for a specific `$uuid` and under the hood, the package will save that `$uuid` along with the event when the aggregate gets persisted.
 
