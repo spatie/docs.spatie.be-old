@@ -12,7 +12,7 @@ If a request succeeds the `Spatie\UptimeMonitor\Events\UptimeCheckSucceeded`-eve
 
 When an uptime check fails the uptime check for that monitor will be performed any time `monitor:check-uptime` runs regardless of the value configured in `uptime_check_interval_in_minutes`.
 
-If an uptime check fails consecutively more times than the value you set in `fire_down_event_after_consecutive_failures` the `Spatie\UptimeMonitor\Events\UptimeCheckFailed` event will fire. 
+If an uptime check fails consecutively more times than the value you set in `fire_monitor_failed_event_after_consecutive_failures` the `Spatie\UptimeMonitor\Events\UptimeCheckFailed` event will fire. 
 
 If an uptime check is successful after failing, the `Spatie\UptimeMonitor\Events\UptimeCheckRecovered` will be fired.
 
